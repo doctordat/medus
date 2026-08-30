@@ -1,6 +1,6 @@
--- MEDUS Supabase Schema v1
+-- MEDUS Supabase Schema v1.1
 -- Core tables for Learn, QBank, Cases, Attempts and Mastery.
--- Run in Supabase SQL Editor once on a fresh project.
+-- Safe to re-run: policies are dropped before recreation.
 
 create extension if not exists pgcrypto;
 
@@ -135,8 +135,7 @@ end;
 $$;
 
 drop trigger if exists on_auth_user_created on auth.users;
-create trigger on_auth_user_created
-after insert on auth.users
+create trigger on_auth_user_created after insert on auth.users
 for each row execute procedure public.handle_new_user();
 
 alter table public.profiles enable row level security;
@@ -149,23 +148,33 @@ alter table public.question_attempts enable row level security;
 alter table public.case_attempts enable row level security;
 alter table public.mastery enable row level security;
 
+-- Drop/recreate policies so this migration can safely be run again.
+drop policy if exists "profiles_select_own" on public.profiles;
+drop policy if exists "profiles_update_own" on public.profiles;
+drop policy if exists "published_clinical_problems_read" on public.clinical_problems;
+drop policy if exists "published_content_read" on public.content_sections;
+drop policy if exists "published_questions_read" on public.questions;
+drop policy if exists "published_cases_read" on public.cases;
+drop policy if exists "published_case_steps_read" on public.case_steps;
+drop policy if exists "question_attempts_select_own" on public.question_attempts;
+drop policy if exists "question_attempts_insert_own" on public.question_attempts;
+drop policy if exists "case_attempts_select_own" on public.case_attempts;
+drop policy if exists "case_attempts_insert_own" on public.case_attempts;
+drop policy if exists "mastery_select_own" on public.mastery;
+drop policy if exists "mastery_insert_own" on public.mastery;
+drop policy if exists "mastery_update_own" on public.mastery;
+
 create policy "profiles_select_own" on public.profiles for select using (auth.uid() = id);
 create policy "profiles_update_own" on public.profiles for update using (auth.uid() = id) with check (auth.uid() = id);
-
 create policy "published_clinical_problems_read" on public.clinical_problems for select using (status = 'published');
 create policy "published_content_read" on public.content_sections for select using (medical_review_status = 'published');
 create policy "published_questions_read" on public.questions for select using (status = 'published');
 create policy "published_cases_read" on public.cases for select using (status = 'published');
-create policy "published_case_steps_read" on public.case_steps for select using (
-  exists (select 1 from public.cases c where c.id = case_id and c.status = 'published')
-);
-
+create policy "published_case_steps_read" on public.case_steps for select using (exists (select 1 from public.cases c where c.id = case_id and c.status = 'published'));
 create policy "question_attempts_select_own" on public.question_attempts for select using (auth.uid() = user_id);
 create policy "question_attempts_insert_own" on public.question_attempts for insert with check (auth.uid() = user_id);
-
 create policy "case_attempts_select_own" on public.case_attempts for select using (auth.uid() = user_id);
 create policy "case_attempts_insert_own" on public.case_attempts for insert with check (auth.uid() = user_id);
-
 create policy "mastery_select_own" on public.mastery for select using (auth.uid() = user_id);
 create policy "mastery_insert_own" on public.mastery for insert with check (auth.uid() = user_id);
 create policy "mastery_update_own" on public.mastery for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
