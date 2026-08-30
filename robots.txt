@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://doctordat.github.io/medus/sitemap.xml
