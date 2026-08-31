@@ -10,7 +10,6 @@ window.MEDUS_SUPABASE_PUBLISHABLE_KEY='sb_publishable_GVszrRWXpoM_NzXUFDcP1w_kgF
   function canonicalAdminGuard(){
     if(!isAdminHome)return;
 
-    // Kill the legacy keyword-snippet normalizer. Every source must pass Normalize v3.
     window.normalizeDraft=id=>{
       location.href='./normalize/?source='+encodeURIComponent(id||'');
     };
@@ -48,8 +47,6 @@ window.MEDUS_SUPABASE_PUBLISHABLE_KEY='sb_publishable_GVszrRWXpoM_NzXUFDcP1w_kgF
       }
     };
 
-    // Functions in admin/index.html are declared after this shared config file.
-    // Patch them after parsing is complete and whenever source cards rerender.
     document.addEventListener('DOMContentLoaded',()=>{
       const oldSave=window.saveSection;
       if(typeof oldSave==='function'){
@@ -68,20 +65,90 @@ window.MEDUS_SUPABASE_PUBLISHABLE_KEY='sb_publishable_GVszrRWXpoM_NzXUFDcP1w_kgF
     });
   }
 
-  function normalizeDeepLink(){
+  function normalizeDeepLinkAndFlatParser(){
     if(!isNormalize)return;
+
+    const titles=[
+      ['overview','Overview'],
+      ['learning_objectives','Learning objectives'],
+      ['safety_gate','Safety Gate / Red flags'],
+      ['mechanism','Mechanism / Pathophysiology'],
+      ['history','Targeted history'],
+      ['physical_exam','Physical exam'],
+      ['differential','Differential diagnosis'],
+      ['investigations','Investigations'],
+      ['management','Initial management'],
+      ['decision_points','Decision points'],
+      ['pitfalls','Pitfalls'],
+      ['clinical_pearls','Clinical pearls'],
+      ['checklist','Checklist']
+    ];
+
+    const escapeRe=s=>String(s).replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/\s+/g,'\\s+');
+    const stripEditorial=s=>String(s||'')
+      .replace(/--- PAGE \d+ ---/gi,' ')
+      .replace(/MEDUS\s*[·•]\s*Draft first\s*[·•]\s*Medical Review before publish\.?/gi,'')
+      .replace(/\s+/g,' ')
+      .trim();
+
+    function pageAt(raw,index){
+      let page=1,m,re=/--- PAGE (\d+) ---/gi;
+      while((m=re.exec(raw))&&m.index<index)page=+m[1];
+      return page;
+    }
+
+    function parseFlat(raw){
+      const hits=[];
+      for(let i=0;i<titles.length;i++){
+        const num=i+1,title=titles[i][1];
+        const re=new RegExp('(?:^|\\s)'+num+'\\s*[.)]\\s*'+escapeRe(title)+'(?=\\s|$)','i');
+        const m=re.exec(raw);
+        hits.push(m?{start:m.index+(m[0].match(/^\s/)?.[0]?.length||0),end:m.index+m[0].length,page:pageAt(raw,m.index)}:null);
+      }
+
+      let ordered=true,last=-1;
+      for(const h of hits){
+        if(!h||h.start<=last){ordered=false;break}
+        last=h.start;
+      }
+
+      return titles.map((d,i)=>{
+        const h=hits[i];
+        if(!h)return{key:d[0],title:d[1],text:'',page:null,words:0,pass:false,reason:'MISSING HEADING'};
+        const end=(i<titles.length-1&&hits[i+1])?hits[i+1].start:raw.length;
+        let body=stripEditorial(raw.slice(h.end,end));
+        const words=body.split(/\s+/).filter(Boolean).length;
+        const pass=ordered&&words>=8;
+        return{key:d[0],title:d[1],text:body,page:h.page,words,pass,reason:!ordered?'WRONG ORDER':words<8?'TOO SHORT':'PASS'};
+      });
+    }
+
     document.addEventListener('DOMContentLoaded',()=>{
       const wanted=new URLSearchParams(location.search).get('source');
-      if(!wanted)return;
-      let tries=0;
-      const timer=setInterval(()=>{
+      if(wanted){
+        let tries=0;
+        const timer=setInterval(()=>{
+          const sel=document.getElementById('source');
+          if(sel&&[...sel.options].some(o=>o.value===wanted)){
+            sel.value=wanted;
+            clearInterval(timer);
+            document.querySelector('button[onclick="analyze()"]')?.focus();
+          }else if(++tries>40)clearInterval(timer);
+        },150);
+      }
+
+      // The legacy PDF extractor flattens each page to one text line. Override v3 analysis
+      // so canonical numbered headings are detected in the full raw stream, not only at line starts.
+      window.analyze=function(){
         const sel=document.getElementById('source');
-        if(sel&&[...sel.options].some(o=>o.value===wanted)){
-          sel.value=wanted;
-          clearInterval(timer);
-          document.querySelector('button[onclick="analyze()"]')?.focus();
-        }else if(++tries>40)clearInterval(timer);
-      },150);
+        const x=(typeof sources!=='undefined'?sources:[]).find(s=>s.id===sel?.value);
+        if(!x)return;
+        analysis=parseFlat(x.extracted_text||'');
+        const pass=analysis.filter(a=>a.pass).length,all=pass===13;
+        const summaryEl=document.getElementById('summary'),resultsEl=document.getElementById('results');
+        if(summaryEl)summaryEl.innerHTML='<div class="'+(all?'good':'warn')+'"><span class="score">'+pass+'/13</span><br>'+(all?'Canonical format PASS.':'Chưa đạt canonical format. Không tạo Draft cho tới khi đủ 13/13.')+'</div><button class="btn" '+(!all?'disabled':'')+' onclick="createDrafts()">Tạo 13 Draft canonical</button>';
+        if(resultsEl)resultsEl.innerHTML=analysis.map((a,i)=>'<div class="row '+(a.pass?'':'bad')+'"><div><b>'+(i+1)+'. '+a.title+'</b> <span class="badge">'+a.reason+'</span></div><div class="small">'+a.words+' từ · '+(a.page?'page '+a.page:'no locator')+'</div>'+(a.text?'<details><summary>Xem nội dung</summary><div class="preview">'+String(a.text).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))+'</div></details>':'')+'</div>').join('');
+      };
     });
   }
 
@@ -124,6 +191,6 @@ window.MEDUS_SUPABASE_PUBLISHABLE_KEY='sb_publishable_GVszrRWXpoM_NzXUFDcP1w_kgF
   }
 
   canonicalAdminGuard();
-  normalizeDeepLink();
+  normalizeDeepLinkAndFlatParser();
   reviewMediaHelpers();
 })();
