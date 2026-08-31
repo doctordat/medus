@@ -1,0 +1,46 @@
+clinical_problem:
+  slug: "[slug]"
+  title: "[title]"
+  status: draft
+  medical_review_status: draft
+  disclaimer: "Educational study aid; not a substitute for local protocol or clinician judgment."
+  image_required: true
+
+resources:
+  - resource_type: image
+    title: "[illustration title]"
+    url: "https://..."
+    alt: "[accessible alt text]"
+    caption: "[caption]"
+    section_key: null
+    access_level: public
+    status: draft
+    source_locator: "[URL/license/source]"
+  # Optional: youtube | pdf | external_link | internal_article | clinical_tool | qbank | case | download
+
+case:
+  title: "[progressive case title]"
+  status: draft
+  medical_review_status: draft
+  steps:
+    - step_order: 1
+      prompt: "[clinical decision prompt]"
+      options: ["[option A]", "[option B]", "[option C]"]
+      correct_option: "[option]"
+      explanation: "[review-required explanation]"
+      section_key: "[canonical key]"
+      competency: "[competency]"
+      source_locator: "[page/section/URL]"
+
+quiz:
+  - stem: "[question stem]"
+    options: ["[A]", "[B]", "[C]", "[D]"]
+    correct_option: "[A-D]"
+    explanation: "[review-required explanation]"
+    section_key: "[canonical key]"
+    competency: "[competency]"
+    bloom: apply
+    difficulty: medium
+    source_locator: "[page/section/URL]"
+    status: draft
+    medical_review_status: draft
