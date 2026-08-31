@@ -137,9 +137,11 @@ window.MEDUS_SUPABASE_PUBLISHABLE_KEY='sb_publishable_GVszrRWXpoM_NzXUFDcP1w_kgF
         },150);
       }
 
-      // The legacy PDF extractor flattens each page to one text line. Override v3 analysis
-      // so canonical numbered headings are detected in the full raw stream, not only at line starts.
-      window.analyze=function(){
+      // Legacy flattened-text parser retained only as isolated reference code.
+      // It must never replace the strict canonical parser in admin/normalize/index.html.
+      // The Normalize page owns the strict parseCanonical()/analyze() engine.
+      // Keep this helper isolated so legacy flat parsing cannot shadow the canonical gate.
+      function legacyFlatAnalyze(){
         const sel=document.getElementById('source');
         const x=(typeof sources!=='undefined'?sources:[]).find(s=>s.id===sel?.value);
         if(!x)return;
