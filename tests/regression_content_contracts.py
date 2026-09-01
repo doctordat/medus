@@ -46,8 +46,14 @@ def canonical_headings(text):
 def test_extraction_and_invariants():
     names=['Overview','Learning objectives','Safety Gate / Red flags','Mechanism / Pathophysiology','Targeted history','Physical exam','Differential diagnosis','Investigations','Initial management','Decision points','Pitfalls','Clinical pearls','Checklist']
     assert group_pdf_items([('1. Overview', 0, 100), ('Body', 80, 100), ('2. Learning objectives', 0, 90)]) == ['1. Overview Body', '2. Learning objectives']
-    lines,_=canonical_headings('\n'.join(f'{i}. {name}' for i,name in enumerate(names,1)))
+    canonical='\n'.join(f'{i}. {name}' for i,name in enumerate(names,1))
+    lines,_=canonical_headings(canonical)
     assert len(lines)==13 and [re.sub(r'^\d+[.)]\s+','',x) for x in lines]==names
+    assert len(canonical_headings(canonical.replace('13. Checklist','12. Checklist'))[0])==13
+    assert len(canonical_headings(canonical.replace('7. Differential diagnosis','8. Differential diagnosis'))[0])==13
+    assert len(canonical_headings(canonical.replace('1. Overview','Overview'))[0])==12
+    grouped=group_pdf_items([('2. Learning objectives',0,100),('Overview',0,100),('1. ',0,100),('Body',40,100),('Next',0,98)])
+    assert len(grouped)==1 and all(x in grouped[0] for x in ['Overview','Body','Next'])
     before={'status':'published','stem':'x','option_a':'a','source_id':None,'source_locator':None}
     after={**before,'source_id':'source','source_locator':'page 3','reviewed_by':'reviewer'}
     assert before['status']==after['status'] and before['stem']==after['stem'] and after['source_locator']
@@ -80,7 +86,7 @@ def main():
     assert 'case_attempts' in CASE
     assert 'Approve → Review' in REVIEW and 'Publish' in REVIEW
     assert 'NEEDS PROVENANCE' in REVIEW
-    print('Content regression suite passed: URL safety, resource provenance, 3-step case contract, published-only Learn and review gates.')
+    print('Content regression suite passed: URL safety, resource provenance, PDF line grouping, canonical heading edge cases, 3-step case contract, published-only Learn and review gates. Note: browser JS runtime and production before/after hashes require separate E2E verification.')
 
 
 if __name__ == '__main__':
