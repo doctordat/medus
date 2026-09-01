@@ -48,6 +48,10 @@ def main():
     assert "medical_review_status','published" in LEARN
     assert "eq('access_level','public')" in LEARN
     assert 'clinical_problem_resources' in LEARN
+    extractor = (ROOT / 'admin/index.html').read_text()
+    assert 'Math.abs(l.y-it.y)<=2' in extractor
+    assert "join('\\n')" in extractor
+    assert 'getTextContent' in extractor
     assert 'medical_review_status' in RES and "status:'draft'" in RES
     assert ".eq('status','published')" in CASE
     assert 'case_attempts' in CASE
