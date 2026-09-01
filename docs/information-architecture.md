@@ -87,6 +87,38 @@ Draft/review/rejected content is never learner-visible. Medical review status is
 ## State conventions
 Every route needs loading, empty, error, incomplete-content and access-denied states. Never show a fake 13/13 or fake mastery percentage. Admin errors must not leak into learner UI.
 
+## Canonical routes and legacy redirects
+- Learner entry point: `/home/` (GitHub Pages root may redirect to `/home/` during migration).
+- Learn library: `/hoc/`; Clinical Problem canonical URL: `/hoc/?slug=<clinical-problem-slug>`.
+- Legacy `/hoc/<slug>/` pages redirect or link to the canonical query URL; no new feature should depend on duplicate article paths.
+- Admin remains under `/admin/` and is never a learner nav destination.
+
+## Route-state matrix
+
+| Route | Data source | Access | Loading/empty/error/locked | Current status |
+|---|---|---|---|---|
+| `/home/` | local + future profile/mastery | public/auth | graceful demo/empty; never fake mastery | partial/provisional |
+| `/hoc/` | published CP/sections/resources | public + entitlement | loading, no published content, query error, premium gate | live MVP |
+| `/qbank/` | published questions + own attempts | public/auth for attempts | no questions, sync failure, focus/resume state | live MVP |
+| `/cases/` | published cases/steps + own attempts | public/auth for attempts | no cases, draft hidden, sync failure | fallback + dynamic prototype |
+| `/mastery/` | own mastery/attempts | authenticated | unauthenticated CTA, empty mastery, query error | partial |
+| `/tools/`, `/store/` | future resource/entitlement model | public/auth/premium | locked metadata/upgrade state | target/placeholder |
+
+## Remediation contract
+`question_id → clinical_problem_id → section_key → Learn URL anchor`; optional related resource/case is selected only when it is `published` and permitted by access level. If the section is missing/archived, fall back to the Clinical Problem hub; if premium, show an entitlement gate rather than leaking content. Wrong-answer CTA must preserve the question result until the learner leaves or resumes.
+
+## Mobile collapse rules
+Clinical Problem Hub order on mobile: header/status → compact TOC selector → article section → section resources → related QBank/Case CTA. The left TOC becomes a disclosure/select; the right rail becomes inline cards/accordion after the relevant section. Keep the active section and scroll position on close/open where possible.
+
+## Focus-mode rules
+QBank/Mock focus mode has a visible exit-to-previous-route action, browser Back returns to the prior route, refresh resumes only from persisted state, and unsaved answer state must be visibly indicated. No silent loss of a selected answer.
+
+## Accessibility rules
+Use skip-to-content, semantic landmarks, `aria-current` for active nav, logical keyboard order, focus restoration after mobile menu/TOC close, visible focus rings, safe-area padding for mobile bottom nav, and minimum 44px touch targets. These are acceptance requirements, not optional polish.
+
+## Implementation status
+The route/state/remediation rules above are target contracts. Existing static pages implement only part of them; wireframes and implementation must mark unsupported states rather than implying they already work.
+
 ## Migration notes
 - Current Home/Learn/QBank/Cases/Mastery routes are static HTML; implement shell incrementally.
 - `/tools/` and `/store/` can begin as placeholders with correct nav ownership.
