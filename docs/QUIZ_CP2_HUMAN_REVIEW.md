@@ -1,6 +1,6 @@
 # Human Medical Review — 5 Quiz CP2
 
-**Status:** Published, provenance backfilled; content still requires human verification.  
+**Status:** Published, provenance backfilled; content still requires human verification.
 **Rule:** Checklist này không tự đổi status và không thay thế reviewer chuyên môn.
 
 ## Global gate
@@ -59,6 +59,6 @@
 - [ ] Các câu cần sửa đã được đưa về revision workflow.
 - [ ] Reviewer ký tên và thời điểm.
 
-**Reviewer:** ____________________  
-**Date:** ____________________  
+**Reviewer:** ____________________
+**Date:** ____________________
 **Final decision:** `KEEP PUBLISHED / RETURN FOR REVISION`

@@ -1,8 +1,8 @@
 # Human Medical Review — Case CP2
 ## Sốt kèm giảm tưới máu: quyết định trong 5 phút
 
-**Case ID:** `783683d9-f757-465a-b473-2642e8123e93`  
-**Status hiện tại:** `review`  
+**Case ID:** `783683d9-f757-465a-b473-2642e8123e93`
+**Status hiện tại:** `review`
 **Publish:** Chưa được phép cho tới khi reviewer hoàn tất checklist này.
 
 > Đây là checklist hỗ trợ reviewer chuyên môn, không phải chứng nhận tự động. Reviewer phải đối chiếu nguồn gốc và protocol hiện hành của cơ sở.
@@ -47,6 +47,6 @@
 - [ ] Provenance Case + 3 steps đạt.
 - [ ] Chỉ khi tất cả mục trên đạt mới cân nhắc chuyển sang Publish gate.
 
-**Reviewer:** ____________________  
-**Ngày:** ____________________  
+**Reviewer:** ____________________
+**Ngày:** ____________________
 **Kết luận:** `APPROVE FOR PUBLISH` / `RETURN FOR REVISION`

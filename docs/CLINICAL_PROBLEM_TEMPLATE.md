@@ -45,7 +45,7 @@
 - [ ] [Bedside/learning check]
 
 ## Resource manifest (bên ngoài 13 section)
-- **Required image URL:** `https://...`  
+- **Required image URL:** `https://...`
   **Alt:** [accessible description] · **Caption:** [caption] · **Source/license:** [locator]
 - **Optional links:** YouTube / PDF / external / internal / clinical tool / QBank / case
 - **Access:** `public|free|premium` · **Status:** `draft`

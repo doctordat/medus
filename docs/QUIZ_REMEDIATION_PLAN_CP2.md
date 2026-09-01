@@ -1,7 +1,7 @@
 # Quiz provenance remediation plan — CP2 Sốt
 
-**Scope:** 5 existing `published` questions identified in read-only audit.  
-**Current risk:** all have `source_id = null` and `source_locator = null`.  
+**Scope:** 5 existing `published` questions identified in read-only audit.
+**Current risk:** all have `source_id = null` and `source_locator = null`.
 **Rule:** Candidate locators were hypotheses for reviewer navigation. Owner approved applying them; they were backfilled in one narrow transaction on 2026-09-01. They still require subsequent human medical verification.
 
 ## Candidate mapping for human verification

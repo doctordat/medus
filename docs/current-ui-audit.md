@@ -1,6 +1,6 @@
 # MEDUS Current UI Audit — Task 1
 
-Date: 2026-09-02  
+Date: 2026-09-02
 Scope: current repository branch `audit/p0-handover`; read-only audit, no production mutation.
 
 ## Route map
