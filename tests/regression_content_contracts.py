@@ -78,8 +78,10 @@ def main():
     test_extraction_and_invariants()
     assert 'clinical_problem_resources' in LEARN
     extractor = (ROOT / 'admin/index.html').read_text()
-    assert 'Math.abs(l.y-it.y)<=2' in extractor
-    assert "join('\\n')" in extractor
+    grouping = (ROOT / 'admin/pdf-line-grouping.js').read_text()
+    assert 'pdf-line-grouping.js' in extractor
+    assert 'medusGroupPdfLines(tc.items)' in extractor
+    assert 'groupTextItemsIntoLines' in grouping
     assert 'getTextContent' in extractor
     assert 'medical_review_status' in RES and "status:'draft'" in RES
     assert ".eq('status','published')" in CASE
