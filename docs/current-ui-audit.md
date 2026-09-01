@@ -66,5 +66,18 @@ Scope: current repository branch `audit/p0-handover`; read-only audit, no produc
 6. Demo fallbacks can be mistaken for production content; labels must remain explicit.
 7. Medical claims, media attribution and guideline currency require human review.
 
+## Baseline matrix: deployed vs branch vs runtime
+
+| Surface | `origin/main` deployed baseline | `audit/p0-handover` branch | Production/runtime evidence |
+|---|---|---|---|
+| Learner Home/Learn/QBank/Cases/Mastery | Existing static MVP | Includes provisional UX/token/dynamic-renderer changes | Route load and selected Supabase reads observed; branch not deployed |
+| Admin pipeline | Existing Admin/Normalize/Review | Adds authoring, resource, assessment-review and extractor changes | Authenticated admin reads observed intermittently; E2E session unstable |
+| Resource table/RLS | Not in original deployed baseline | Migration/proposals and resource UI present | Resource table/RLS applied in Supabase; one image published, YouTube seed not confirmed applied |
+| Case provenance/review | Legacy fields/partial review | Provenance migration + partial Review Queue | CP2 exists in `review`, not published; human medical review pending |
+| Quiz provenance | Published rows lacked provenance | Five CP2 rows backfilled with candidate locators | Read-back showed 5/5 fields present; human content verification pending |
+| UI redesign | Existing production styling | Provisional branch-only polish/tokens/spec | No GitHub Pages deploy of branch; live production remains `origin/main` |
+
+**Evidence rule:** claims above distinguish source files, branch-only code, and observed production data. Unknowns remain marked unverified when browser/session instability prevented direct confirmation.
+
 ## Design direction
 Use MEDUS clinical/professional visual language: off-white/light blue-gray background, teal/navy, white surfaces, restrained borders/shadows, dense but readable information, no purple AI SaaS/neon/cartoon gamification. Benchmark patterns are used for information architecture only, not visual cloning.
