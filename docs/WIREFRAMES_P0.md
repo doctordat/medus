@@ -80,6 +80,54 @@ Mobile: priority card first → progress strip → weak-area accordion → one p
 
 States: unauthenticated CTA; empty mastery → start QBank; loading; sync error with local snapshot; premium locked. Never present a score without numerator/denominator/context.
 
+## Traceability and implementation status
+
+| Handoff requirement | Wireframe section | Route/data dependency | Status |
+|---|---|---|---|
+| Dashboard next action | Home | `/home/`, local/profile/mastery | Provisional target; some metrics static/demo |
+| Search/filter Clinical Problems | Learn Library | `/hoc/`, published CP/sections | Partially implemented |
+| Clinical Problem as hub | Clinical Problem Hub | `/hoc/?slug=`, sections/resources/qbank/cases | Partially implemented; right rail target |
+| QBank focus/explanation/remediation | QBank screens | `/qbank/`, questions/attempts/mastery | QBank live; focus/remediation partial |
+| Mastery next action | Mastery | `/mastery/`, own mastery/attempts | Partial; recommendation target |
+| Cases in learning loop | Hub/CTA dependency | `/cases/`, published cases/steps | Separate route; dynamic prototype/fallback |
+| Resource/access layer | Hub/action rail | resources + entitlement | Resource table/live cards partial |
+
+## Screen acceptance checklist
+
+### Home
+- [ ] Desktop sidebar + topbar + one primary Continue CTA.
+- [ ] Mobile bottom nav and one-column priority card.
+- [ ] Metrics labeled runtime/derived/static; no fake mastery.
+
+### Learn Library
+- [ ] Search/filter keyboard order and empty/error states.
+- [ ] Card shows published `N/13`, domain and next action.
+- [ ] Incomplete content remains visibly incomplete on mobile.
+
+### Clinical Problem Hub
+- [ ] Desktop left TOC/center article/right rail.
+- [ ] Mobile TOC becomes disclosure/select; right rail becomes inline cards.
+- [ ] Scroll position restored after TOC/resource interaction.
+- [ ] Resource/case/quiz CTA hides archived/unpublished/unauthorized targets.
+
+### QBank Question + Explanation
+- [ ] Focus mode hides sidebar; Back/refresh behavior is defined.
+- [ ] Unsaved answer state is visible; persisted attempt is not lost silently.
+- [ ] Explanation links to exact `/hoc/?slug=<slug>#<section_key>` or hub fallback.
+- [ ] Premium/archived resource fallback is an access gate, not a broken link.
+
+### Mastery
+- [ ] Empty/no-attempt state points to a first QBank action.
+- [ ] Recommendation requires enough data or clearly says insufficient data.
+- [ ] Every score has numerator/denominator/context.
+
+## Data-state labels
+
+- **Runtime:** Supabase published rows or authenticated own attempts/mastery.
+- **Derived:** counts, weak section and recommendation computed from runtime rows.
+- **Static/demo:** current Home copy and fallback Case/QBank seed.
+- **Target-only:** future Tools/Store/Premium, full right rail, complete remediation.
+
 ## Cross-screen CTA contract
 - Every primary screen has one dominant CTA.
 - Wrong quiz answer links to `/hoc/?slug=<slug>#<section_key>` and preserves result.
