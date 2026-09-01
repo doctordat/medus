@@ -2,7 +2,8 @@
 
 ## Phase 0 — Contracts (current checkpoint)
 - Approve `information-architecture.md`, `WIREFRAMES_P0.md`, `design-tokens.md`, `component-inventory.md`.
-- Acceptance: owner direction approved; no route/code migration yet.
+- Acceptance: **one explicit owner approval of the combined contract set**; no route/code migration yet.
+- Implementation must start on a narrowly scoped Phase 1 branch/PR, not directly on the mixed audit branch.
 
 ## Phase 1 — Shared shell + tokens
 - Extract pure HTML/JS shell helpers and migrate Home/Learn first.
@@ -40,6 +41,27 @@
 ## Phase 7 — Tools/Store/Premium/Mock
 - Add placeholders and entitlement abstraction without payment scope creep.
 - Mock uses focus shell; Tools/Store use shared access gate.
+
+## Requirement traceability
+
+| Requirement | Phase | Routes/components | Data contract | Test/evidence | Rollback | Approval owner |
+|---|---|---|---|---|---|---|
+| Unified shell/nav | 1 | Home/Learn/QBank/Cases/Mastery AppShell | route + auth + entitlement | link/keyboard/mobile smoke | revert UI commit | Product owner |
+| Clinical Problem Hub | 3 | `/hoc/?slug=` + TOC/rail | published sections/resources | 13-count/access/resource tests | route-level fallback | Product + medical |
+| QBank remediation | 4 | `/qbank/`, Explanation/WeakAreaCTA | question → CP → section → target | wrong-answer fixture/E2E | disable CTA fallback | Product + medical |
+| Case loop | 5 | `/cases/`, CaseTimeline/DecisionCard | cases/case_steps/attempts | published-only + step tests | hide feature/fallback | Medical reviewer |
+| Mastery next action | 6 | `/mastery/`, RecommendationCard | attempts → derived weak area | no-attempt/insufficient-data tests | static-safe empty state | Product owner |
+| Resource/access | 3/7 | ResourceCard/AccessGate | resources + entitlement | URL/RLS/access tests | hide resource | Product + security |
+| Mobile/a11y | every phase | shell + interactive components | none | 390px, keyboard, focus, 44px | revert route commit | Product + QA |
+| Medical gate | every phase | Admin/learner visibility | status/RLS/reviewer | published-only + review checklist | block publish | Medical reviewer |
+
+## Dependency and unknowns
+
+- No shared component runtime exists yet; Phase 1 must choose pure HTML/JS helpers without forcing a framework migration.
+- Remediation target URL and mastery recommendation view model need exact field/query ownership before Phase 4/6.
+- Entitlement enforcement beyond `access_level` is not fully modeled; Phase 3/7 must not expose premium body content.
+- Production vs branch deployment is separate; no phase is considered live until its branch/PR and Pages deployment are verified.
+- Any source/content mutation requires snapshot + narrow allowlist + read-back; UI phases must not mutate production.
 
 ## Release gates per phase
 1. Local static tests pass.
