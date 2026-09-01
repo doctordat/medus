@@ -16,9 +16,9 @@ Professional medical education: off-white/light blue-gray background, MEDUS teal
 | `--medus-surface` | `#ffffff` | cards/article surfaces |
 | `--medus-line` | `#d8e9eb` | borders/dividers |
 | `--medus-soft` | `#eaf8f8` | selected/info state |
-| `--medus-success` | `#277a58` | correct/passed |
-| `--medus-warning` | `#fff7e7` | incomplete/review attention |
-| `--medus-danger` | `#fff0ee` | error/safety warning |
+| `--medus-success-bg/text/border` | `#eef9f4/#277a58/#cbe8d6` | correct/passed |
+| `--medus-warning-bg/text/border` | `#fff7e7/#8a651d/#eadcae` | incomplete/review attention |
+| `--medus-danger-bg/text/border` | `#fff0ee/#8e433b/#efcbc5` | error/safety warning |
 
 ## Typography
 - UI font: `Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif`.
@@ -69,4 +69,4 @@ Use 4px base: `--space-1:4px`, `--space-2:8px`, `--space-3:12px`, `--space-4:16p
 - Resource: image/PDF/video/link cards use same surface/border/radius/status tokens.
 
 ## Rules
-Tokens are the source of visual truth for new components. Existing page-specific variables may be migrated gradually; do not big-bang rewrite. Medical review/status semantics are data rules, not merely colors.
+Tokens are the source of visual truth for new components. Existing page-specific variables may be migrated gradually; do not big-bang rewrite. `assets/learner-tokens.css` is a provisional compatibility layer until components are migrated and visual/accessibility regression is complete. Medical review/status semantics are data rules, not merely colors.
