@@ -30,6 +30,28 @@ def valid_case(steps):
     return 3 <= len(steps) <= 5 and orders == list(range(1, len(steps) + 1)) and all(x.get('section_key') and x.get('competency') for x in steps)
 
 
+
+def group_pdf_items(items, tolerance=2):
+    lines=[]
+    for text,x,y in sorted(items, key=lambda z: (-z[2], z[1])):
+        line=next((line for line in lines if abs(line[0]-y)<=tolerance), None)
+        if line is None: lines.append([y, [(x,text)]])
+        else: line[1].append((x,text))
+    return [' '.join(t for _,t in sorted(parts)) for _,parts in sorted(lines, reverse=True)]
+
+def canonical_headings(text):
+    names=['Overview','Learning objectives','Safety Gate / Red flags','Mechanism / Pathophysiology','Targeted history','Physical exam','Differential diagnosis','Investigations','Initial management','Decision points','Pitfalls','Clinical pearls','Checklist']
+    return [line.strip() for line in text.splitlines() if re.match(r'^\d+[.)]\s+', line.strip())], names
+
+def test_extraction_and_invariants():
+    names=['Overview','Learning objectives','Safety Gate / Red flags','Mechanism / Pathophysiology','Targeted history','Physical exam','Differential diagnosis','Investigations','Initial management','Decision points','Pitfalls','Clinical pearls','Checklist']
+    assert group_pdf_items([('1. Overview', 0, 100), ('Body', 80, 100), ('2. Learning objectives', 0, 90)]) == ['1. Overview Body', '2. Learning objectives']
+    lines,_=canonical_headings('\n'.join(f'{i}. {name}' for i,name in enumerate(names,1)))
+    assert len(lines)==13 and [re.sub(r'^\d+[.)]\s+','',x) for x in lines]==names
+    before={'status':'published','stem':'x','option_a':'a','source_id':None,'source_locator':None}
+    after={**before,'source_id':'source','source_locator':'page 3','reviewed_by':'reviewer'}
+    assert before['status']==after['status'] and before['stem']==after['stem'] and after['source_locator']
+
 def main():
     assert safe_resource_url('https://cdn.example/image.png', 'image')
     assert safe_resource_url('https://youtu.be/EfpEu86BqRI', 'youtube')
@@ -47,6 +69,7 @@ def main():
     assert not valid_case(steps[:2])
     assert "medical_review_status','published" in LEARN
     assert "eq('access_level','public')" in LEARN
+    test_extraction_and_invariants()
     assert 'clinical_problem_resources' in LEARN
     extractor = (ROOT / 'admin/index.html').read_text()
     assert 'Math.abs(l.y-it.y)<=2' in extractor
