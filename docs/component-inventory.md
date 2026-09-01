@@ -105,6 +105,44 @@ Every state needs accessible text, not color alone. Draft/review/rejected are ed
 | Cases | focus/normal | case | — | ✓ | related | ✓ | result CTA |
 | Mastery | ✓ | action | — | ✓ | remediation | remediation | ✓ |
 
+## Implementation boundary
+
+MEDUS remains static HTML/JS for this phase. The shared-component mechanism is **pure render/helper modules + shared CSS tokens**, not a framework migration. New reusable units should be implemented as small ES modules or pure functions returning DOM/HTML, with `assets/learner-tokens.css` as the visual contract. Web Components are optional only when a unit needs isolated lifecycle; React is out of scope for the current static routes.
+
+## Requirement traceability
+
+| Component family | Wireframe screens | Canonical route | Runtime data | Mechanism | Status |
+|---|---|---|---|---|---|
+| Shell/nav | All | `/home/`, `/hoc/`, `/qbank/`, `/cases/`, `/mastery/` | auth/profile/route | shared CSS + HTML helper module | target/provisional |
+| CP cards/progress | Home, Library | `/home/`, `/hoc/` | clinical_problems/content_sections | pure render + shared CSS | partial |
+| Article/TOC/safety | Hub | `/hoc/?slug=` | content_sections/resources | existing renderer + helper refactor | partial |
+| Resource/access | Hub, Home, Explanation | `/hoc/`, `/admin/resources/` | clinical_problem_resources/entitlement | safe render helpers | partial |
+| QBank/explanation | Question, Explanation | `/qbank/` | questions/attempts/mastery | existing JS + shared helpers | partial |
+| Case/feedback | Cases, Hub CTA | `/cases/` | cases/case_steps/case_attempts | existing JS + shared helpers | partial |
+| Mastery/remediation | Mastery, Explanation | `/mastery/` | mastery/attempts | derived pure view model | target |
+
+## Interactive contract
+
+Interactive components expose explicit actions: `onNavigate(target)`, `onSelect(value)`, `onSubmit()`, `onFlag()`, `onRetry()`, `onResume()`. Every action has loading/disabled/error behavior and must preserve focus. Auth-required actions show login CTA; premium actions show entitlement gate; published-only queries remain enforced by RLS/query filters.
+
+## Shared state ownership
+
+- Active CP/section: URL query/hash is source of truth; TOC restores focus after navigation.
+- QBank answer/attempt: page session owns unsaved answer; persistence owns completed attempt; refresh warns or resumes only when persisted.
+- Remediation destination: derived from `clinical_problem_id + section_key`, with hub fallback.
+- Mastery/progress: derived from runtime attempts/sections; no client-authored fake scores.
+- Resume state: URL + safe local session state; Back returns to prior route without silently dropping submitted results.
+
+## Component acceptance tests
+
+- Every interactive control is keyboard reachable, has visible focus, and supports a 44px touch target.
+- `ResourceCard` rejects unsafe URLs, escapes metadata and hides non-published/non-entitled content.
+- `ProgressBar` renders numerator/denominator and incomplete state.
+- `QuestionOption` exposes selected/correct/incorrect/disabled states without color-only meaning.
+- `ClinicalProblemCard` never claims 13/13 unless all canonical published keys exist.
+- `RecommendationCard` has a real target or an explicit insufficient-data state.
+- `EmptyState` and `ErrorState` include a recovery action where possible.
+
 ## Implementation status
 - Existing static HTML pages: many provisional implementations with duplicated markup.
 - Shared token CSS: compatibility layer, not full component migration.
