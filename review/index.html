@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="MEDUS Smart Review — Ôn luyện điểm yếu lâm sàng và ghi nhớ ngắt quãng (Spaced Repetition).">
+  <title>MEDUS Smart Review — Ôn Luyện Điểm Yếu & Spaced Repetition</title>
+  <style>
+    :root {
+      --navy: #092c35;
+      --navy-light: #104350;
+      --teal: #008d98;
+      --teal-light: #00b4c2;
+      --teal-soft: #eaf8f9;
+      --teal-border: #c8ebee;
+      --ink: #163238;
+      --ink-secondary: #4a686f;
+      --muted: #6b868e;
+      --line: #dbe8ea;
+      --line-light: #edf4f5;
+      --bg: #f5fafb;
+      --card-bg: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(9,44,53,.04);
+      --shadow-md: 0 10px 30px rgba(9,44,53,.06);
+      --shadow-lg: 0 20px 50px rgba(9,44,53,.1);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .wrap {
+      max-width: 1160px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    /* NAV */
+    nav {
+      height: 72px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 950;
+      color: var(--navy);
+      letter-spacing: -.03em;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--teal), #006870);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      font-weight: 900;
+      box-shadow: 0 4px 12px rgba(0,141,152,.25);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-item {
+      font-size: 13.5px;
+      font-weight: 750;
+      color: var(--ink-secondary);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: .15s ease;
+    }
+    .nav-item:hover, .nav-item.active {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    /* HEADER DASHBOARD */
+    .review-header {
+      padding: 38px 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 32px;
+    }
+    .review-title h1 {
+      font-size: 32px;
+      font-weight: 950;
+      letter-spacing: -.035em;
+      color: var(--navy);
+      margin: 6px 0 8px;
+    }
+    .review-title p {
+      margin: 0;
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+    }
+    .stats-row {
+      display: flex;
+      gap: 14px;
+    }
+    .stat-pill {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 18px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-pill b {
+      display: block;
+      font-size: 20px;
+      color: var(--navy);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-pill span {
+      font-size: 10px;
+      font-weight: 850;
+      color: var(--muted);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* MODE SELECTOR TABS */
+    .mode-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .mode-tab {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: .2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mode-tab:hover {
+      border-color: #a2d6dc;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .mode-tab.active {
+      border-color: var(--teal);
+      background: #fdfefe;
+      box-shadow: 0 0 0 2px var(--teal-soft), var(--shadow-md);
+    }
+    .tab-badge {
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--teal);
+      background: var(--teal-soft);
+      padding: 3px 8px;
+      border-radius: 6px;
+      width: fit-content;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .mode-tab h3 {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--navy);
+      margin: 0;
+      letter-spacing: -.02em;
+    }
+    .mode-tab p {
+      font-size: 12.5px;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* FLASHCARD / REVIEW ARENA */
+    .arena-container {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .arena-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .card-category {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-pill {
+      font-size: 11px;
+      font-weight: 850;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fee2e2;
+    }
+    .progress-tag {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+
+    /* FLASHCARD BODY */
+    .flashcard-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .card-prompt-label {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .card-question {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.35;
+      letter-spacing: -.025em;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+    .card-hint {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* HIDDEN ANSWER DRAWER */
+    .card-answer-box {
+      display: none;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: left;
+      margin: 20px auto 0;
+      max-width: 820px;
+      animation: fadeIn .2s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .ans-header {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .ans-core {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .ans-details {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #475569;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 10px;
+    }
+
+    /* ACTION BUTTONS */
+    .arena-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-light);
+    }
+    .btn-reveal {
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 850;
+      padding: 13px 28px;
+      border-radius: 12px;
+      border: 0;
+      cursor: pointer;
+      transition: .15s;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-reveal:hover {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+    }
+
+    /* SELF-RATING BUTTONS (Anki Scale) */
+    .rating-buttons {
+      display: none;
+      gap: 12px;
+      width: 100%;
+      max-width: 640px;
+      margin: auto;
+    }
+    .rate-btn {
+      flex: 1;
+      padding: 12px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      font-size: 12.5px;
+      font-weight: 850;
+      cursor: pointer;
+      transition: .15s;
+      text-align: center;
+    }
+    .rate-btn small {
+      display: block;
+      font-size: 9.5px;
+      font-weight: 600;
+      opacity: .85;
+      margin-top: 2px;
+    }
+    .rate-again { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
+    .rate-hard { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+    .rate-good { background: #e0f2fe; color: #075985; border-color: #bae6fd; }
+    .rate-easy { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+    .rate-btn:hover { transform: translateY(-2px); filter: brightness(0.96); }
+
+    /* SUMMARY COMPLETE VIEW */
+    .complete-view {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .complete-view h2 { font-size: 28px; color: var(--navy); margin-bottom: 8px; }
+    .complete-view p { color: var(--ink-secondary); font-size: 15px; margin-bottom: 24px; }
+    .btn-restart {
+      background: var(--teal);
+      color: #fff;
+      font-weight: 900;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 64px;
+      border-top: 1px solid var(--line);
+      background: #fff;
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: 12.5px;
+      text-align: center;
+    }
+
+    @media(max-width: 800px) {
+      .review-header { flex-direction: column; align-items: flex-start; }
+      .mode-tabs { grid-template-columns: 1fr; }
+      .arena-container { padding: 24px 18px; }
+      .card-question { font-size: 20px; }
+      .rating-buttons { flex-wrap: wrap; }
+      .rate-btn { min-width: 45%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="../">
+      <div class="brand-mark">✚</div>
+      <span>MEDUS</span>
+    </a>
+
+    <div class="nav-links">
+      <a class="nav-item" href="../hoc/">Thư Viện Bài Học</a>
+      <a class="nav-item active" href="./">Smart Review</a>
+      <a class="nav-item" href="../qbank/">QBank</a>
+      <a class="nav-item" href="../cases/">Clinical Cases</a>
+      <a class="nav-item" href="../mastery/">Năng Lực Mastery</a>
+    </div>
+
+    <div>
+      <a class="btn-study-now" href="../hoc/">Vào Bài Học →</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- REVIEW DASHBOARD HEADER -->
+  <header class="review-header">
+    <div class="review-title">
+      <div style="font-size: 11px; font-weight: 900; color: var(--teal); letter-spacing: .1em; text-transform: uppercase;">ADAPTIVE LEARNING ENGINE</div>
+      <h1>Smart Review &amp; Spaced Repetition</h1>
+      <p>Ôn luyện phản xạ ra quyết định lâm sàng và khắc phục các bẫy chẩn đoán nguy hiểm.</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-pill">
+        <b id="dueCount">5</b>
+        <span>CẦN ÔN HÔM NAY</span>
+      </div>
+      <div class="stat-pill">
+        <b id="streakCount">🔥 3</b>
+        <span>CHUỖI NGÀY ÔN</span>
+      </div>
+      <div class="stat-pill">
+        <b id="retentionRate">92%</b>
+        <span>ĐỘ GHI NHỚ</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3 MODES -->
+  <div class="mode-tabs">
+    <div class="mode-tab active" onclick="switchMode(0)">
+      <span class="tab-badge">ƯU TIÊN CẤP CỨU</span>
+      <h3>1. Red Flags &amp; Bẫy Nguy Hiểm</h3>
+      <p>Tập trung vào các dấu hiệu báo động và bẫy lâm sàng không được phép bỏ sót.</p>
+    </div>
+
+    <div class="mode-tab" onclick="switchMode(1)">
+      <span class="tab-badge">CHUỖI QUYẾT ĐỊNH</span>
+      <h3>2. Phân Nhánh IF-THEN</h3>
+      <p>Luyện phản xạ chọn can thiệp và cận lâm sàng phù hợp theo từng tình huống.</p>
+    </div>
+
+    <div class="mode-tab" onclick="switchMode(2)">
+      <span class="tab-badge">TINH HOA LÂM SÀNG</span>
+      <h3>3. Clinical Pearls &amp; Rx</h3>
+      <p>Thẻ ghi nhớ ngắt quãng các nguyên lý vàng và lưu ý dùng thuốc cấp cứu.</p>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE FLASHCARD ARENA -->
+  <div class="arena-container" id="arenaBox">
+    <div class="arena-top">
+      <div class="card-category">
+        <span class="cat-pill" id="cardTopic">🚨 CP 03 · ĐAU NGỰC</span>
+        <span style="font-size: 12px; color: var(--muted); font-weight: 700;" id="cardSection">Red Flags Gate</span>
+      </div>
+      <div class="progress-tag" id="cardProgress">Thẻ 1 / 5</div>
+    </div>
+
+    <div class="flashcard-main" id="cardMain">
+      <div class="card-prompt-label">TÌNH HUỐNG / CÂU HỎI LÂM SÀNG</div>
+      <div class="card-question" id="cardQuestion">
+        Bệnh nhân nam 62 tuổi vào viện vì đau ngực dữ dội đột ngột lan sau lưng, HA tay phải 170/95, tay trái 130/80. Dấu hiệu nghi ngờ hàng đầu là gì và xử trí chống chỉ định tuyệt đối?
+      </div>
+      <div class="card-hint" id="cardHint">💡 Gợi ý: Hãy nghĩ đến 'Big 5' và lưu ý các thuốc ảnh hưởng đến đông máu.</div>
+
+      <!-- ANSWER BOX (Hidden initially) -->
+      <div class="card-answer-box" id="cardAnswerBox">
+        <div class="ans-header">ĐÁP ÁN &amp; PHẢN XẠ LÂM SÀNG</div>
+        <div class="ans-core" id="ansCore">
+          Nghi ngờ Bóc tách Động mạch chủ ngực cấp (Aortic Dissection).
+        </div>
+        <div class="ans-details" id="ansDetails">
+          • <strong>Lý do:</strong> Đau xé rách đột ngột tối đa ngay từ đầu + chênh lệch HA 2 tay &gt; 20 mmHg.<br>
+          • <strong>Chống chỉ định tuyệt đối:</strong> KHÔNG dùng thuốc tiêu sợi huyết (thrombolysis) hoặc kháng đông liều cao trước khi chụp CT mạch máu loại trừ bóc tách.
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETE VIEW -->
+    <div class="complete-view" id="completeView">
+      <div style="font-size: 48px; margin-bottom: 12px;">🎉</div>
+      <h2>Hoàn Thành Lượt Ôn Tập Hôm Nay!</h2>
+      <p>Bạn đã hoàn tất 5 thẻ quyết định lâm sàng. Thuật toán Spaced Repetition sẽ lên lịch nhắc lại các thẻ khó vào ngày mai.</p>
+      <button class="btn-restart" onclick="restartReview()">Ôn Lại Bộ Này ↺</button>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="arena-actions" id="arenaActions">
+      <button class="btn-reveal" id="btnReveal" onclick="revealAnswer()">Xem Đáp Án &amp; Lời Giải →</button>
+
+      <div class="rating-buttons" id="ratingButtons">
+        <button class="rate-btn rate-again" onclick="rateCard(1)">
+          Quên / Sai
+          <small>&lt; 10 phút</small>
+        </button>
+        <button class="rate-btn rate-hard" onclick="rateCard(2)">
+          Khó nhớ
+          <small>1 ngày</small>
+        </button>
+        <button class="rate-btn rate-good" onclick="rateCard(3)">
+          Nhớ tốt
+          <small>3 ngày</small>
+        </button>
+        <button class="rate-btn rate-easy" onclick="rateCard(4)">
+          Rất dễ
+          <small>7 ngày</small>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>MEDUS Smart Review</b> · Spaced Repetition &amp; Weak-Area Training Engine<br>
+    © 2026 MEDUS · Learn Deep. Think Clinically.
+  </div>
+</footer>
+
+<script>
+  const deckData = [
+    // MODE 0: RED FLAGS & BẪY NGUY HIỂM
+    [
+      {
+        topic: '🚨 CP 03 · ĐAU NGỰC',
+        section: 'Safety Gate & Red Flags',
+        question: 'Bệnh nhân nam 62 tuổi đau ngực dữ dội đột ngột lan sau lưng, HA tay phải 170/95, tay trái 130/80. Dấu hiệu nghi ngờ hàng đầu là gì và xử trí chống chỉ định tuyệt đối?',
+        hint: '💡 Gợi ý: Nghĩ đến nhóm Big 5 và thận trọng với thuốc ảnh hưởng đông máu.',
+        ansCore: 'Nghi ngờ Bóc tách Động mạch chủ ngực cấp (Aortic Dissection).',
+        ansDetails: '• <strong>Lý do:</strong> Đau xé rách khởi phát đột ngột + chênh lệch HA 2 tay &gt; 20 mmHg.<br>• <strong>Chống chỉ định:</strong> Tuyệt đối không dùng tiêu sợi huyết hoặc kháng đông khi chưa chụp CT mạch máu loại trừ.'
+      },
+      {
+        topic: '🚨 CP 03 · ĐAU NGỰC',
+        section: 'Pitfalls & Bẫy Chẩn Đoán',
+        question: 'Bệnh nhân 55 tuổi đau ngực đè nặng, khám thấy đau tăng khi ấn vào thành ngực. Dấu hiệu ấn đau thành ngực có giúp loại trừ Hội chứng vành cấp (ACS) không?',
+        hint: '💡 Gợi ý: Dấu thành ngực gợi ý nhưng có đủ tin cậy ở người có yếu tố nguy cơ tim mạch?',
+        ansCore: 'KHÔNG được dùng để loại trừ ACS ở bệnh nhân có yếu tố nguy cơ tim mạch.',
+        ansDetails: '• <strong>Bẫy lâm sàng:</strong> Khoảng 5-7% bệnh nhân ACS vẫn có dấu đau tái hiện khi ấn thành ngực. Luôn cần làm ECG sớm và xét nghiệm Troponin serial.'
+      },
+      {
+        topic: '🚨 CP 02 · SỐT',
+        section: 'Safety Gate & Red Flags',
+        question: 'Bệnh nhân sốt cao 39.5°C kèm ban xuất huyết hoại tử dạng bản đồ và huyết áp 85/50 mmHg. Cần xử trí khẩn cấp gì trong 1 giờ đầu (Golden Hour)?',
+        hint: '💡 Gợi ý: Nghĩ đến Nhiễm khuẩn huyết tối cấp / Viêm màng não do Não mô cầu.',
+        ansCore: 'Kích hoạt ngay luồng hồi sức Sốc nhiễm khuẩn + Kháng sinh tĩnh mạch phổ rộng sớm.',
+        ansDetails: '• <strong>Hành động:</strong> Lập đường truyền, truyền dịch tinh thể 30ml/kg, cấy máu khẩn trước khi dùng liều kháng sinh đầu tiên (nhưng không trì hoãn kháng sinh &gt; 1h).'
+      },
+      {
+        topic: '🚨 CP 03 · ĐAU NGỰC',
+        section: 'Investigations & D-Dimer',
+        question: 'Bệnh nhân nữ 30 tuổi đau ngực kiểu màng phổi, SpO2 91%, nhịp tim 120 l/p, vừa phẫu thuật khớp gối 1 tuần trước. Có nên làm D-dimer để loại trừ Thuyên tắc phổi (PE) không?',
+        hint: '💡 Gợi ý: Xác suất lâm sàng (Wells Score) cao hay thấp?',
+        ansCore: 'KHÔNG làm D-dimer để loại trừ khi xác suất lâm sàng PE ở mức cao.',
+        ansDetails: '• <strong>Nguyên tắc:</strong> D-dimer chỉ có giá trị loại trừ ở nhóm nguy cơ thấp hoặc trung bình. Khi xác suất cao hoặc có suy hô hấp, chỉ định thẳng CTPA (chụp cắt lớp mạch máu phổi).'
+      },
+      {
+        topic: '🚨 CP 03 · ĐAU NGỰC',
+        section: 'Thuốc & Chống Chỉ Định',
+        question: 'Bệnh nhân đau ngực nghi ACS, trước khi cho ngậm hoặc truyền Nitroglycerin, câu hỏi tiền sử dùng thuốc nào bắt buộc phải hỏi?',
+        hint: '💡 Gợi ý: Thuốc điều trị rối loạn cương dương hoặc tăng áp động mạch phổi.',
+        ansCore: 'Bắt buộc hỏi tiền sử dùng thuốc ức chế PDE-5 (Sildenafil, Tadalafil) trong vòng 24-48 giờ.',
+        ansDetails: '• <strong>Nguy cơ:</strong> Phối hợp Nitrat với PDE-5i có thể gây tụt huyết áp nghiêm trọng, khó hồi phục và đe dọa tính mạng.'
+      }
+    ],
+
+    // MODE 1: CHUỖI QUYẾT ĐỊNH IF-THEN
+    [
+      {
+        topic: '🔀 DECISION FLOW · ACS',
+        section: 'ECG vs Troponin',
+        question: 'IF bệnh nhân đau ngực cấp có ECG 12 chuyển đạo xuất hiện ST chênh lên rõ ràng (STEMI) THEN bước xử trí tiếp theo là gì? Có chờ kết quả Troponin không?',
+        hint: '💡 Gợi ý: Thời gian là cơ tim (Time is Muscle).',
+        ansCore: 'THEN kích hoạt ngay luồng tái tưới máu mạch vành (PCI can thiệp hoặc tiêu sợi huyết). KHÔNG chờ Troponin.',
+        ansDetails: '• <strong>Nguyên tắc:</strong> STEMI là chẩn đoán điện tâm đồ và lâm sàng, việc chờ đợi kết quả men tim sẽ làm mất thời gian vàng cứu sống cơ tim.'
+      },
+      {
+        topic: '🔀 DECISION FLOW · SHOCK',
+        section: 'ABCDE First',
+        question: 'IF bệnh nhân đau ngực hoặc sốt kèm tụt huyết áp (HA tâm thu &lt; 90), rối loạn tri giác hoặc SpO2 &lt; 90% THEN thứ tự ưu tiên khám bệnh là gì?',
+        hint: '💡 Gợi ý: Xử trí cấp cứu hay hỏi bệnh sử chi tiết trước?',
+        ansCore: 'THEN cấp cứu theo ABCDE, đặt monitor, đường truyền dịch và gọi hỗ trợ trước khi hỏi bệnh sử chi tiết.',
+        ansDetails: '• <strong>Lâm sàng:</strong> Bệnh nhân không ổn định cần hồi sức sống còn song song với chẩn đoán, không lãng phí thời gian vào việc hỏi bệnh sử dài dòng.'
+      }
+    ],
+
+    // MODE 2: CLINICAL PEARLS
+    [
+      {
+        topic: '💎 CLINICAL PEARL',
+        section: 'Tư duy Lâm Sàng',
+        question: 'Tại sao trong tiếp cận Đau ngực cấp, câu hỏi đầu tiên của người thầy thuốc không phải là "Đau kiểu gì?" mà là "Bệnh nhân có ổn định không?"',
+        hint: '💡 Gợi ý: Ưu tiên an toàn sinh mạng trước khi phân loại nguyên nhân.',
+        ansCore: 'Vì bệnh nhân không ổn định (sốc, suy hô hấp) sẽ tử vong trước khi tìm ra nguyên nhân nếu không được hồi sức kịp thời.',
+        ansDetails: '• <strong>Quy tắc vàng:</strong> Luôn đánh giá sinh hiệu và tưới máu mô (CRT, tri giác, SpO2, HA) ngay giây đầu tiên tiếp xúc bệnh nhân.'
+      }
+    ]
+  ];
+
+  let currentMode = 0;
+  let currentIndex = 0;
+  let currentDeck = deckData[0];
+
+  function updateCard() {
+    const card = currentDeck[currentIndex];
+    document.getElementById('cardTopic').textContent = card.topic;
+    document.getElementById('cardSection').textContent = card.section;
+    document.getElementById('cardProgress').textContent = `Thẻ ${currentIndex + 1} / ${currentDeck.length}`;
+    document.getElementById('cardQuestion').textContent = card.question;
+    document.getElementById('cardHint').textContent = card.hint;
+    document.getElementById('ansCore').innerHTML = card.ansCore;
+    document.getElementById('ansDetails').innerHTML = card.ansDetails;
+
+    // Reset UI
+    document.getElementById('cardAnswerBox').style.display = 'none';
+    document.getElementById('btnReveal').style.display = 'inline-block';
+    document.getElementById('ratingButtons').style.display = 'none';
+    document.getElementById('cardMain').style.display = 'flex';
+    document.getElementById('completeView').style.display = 'none';
+    document.getElementById('arenaActions').style.display = 'flex';
+  }
+
+  function revealAnswer() {
+    document.getElementById('cardAnswerBox').style.display = 'block';
+    document.getElementById('btnReveal').style.display = 'none';
+    document.getElementById('ratingButtons').style.display = 'flex';
+  }
+
+  function rateCard(rating) {
+    currentIndex++;
+    if (currentIndex < currentDeck.length) {
+      updateCard();
+    } else {
+      // Show Complete view
+      document.getElementById('cardMain').style.display = 'none';
+      document.getElementById('arenaActions').style.display = 'none';
+      document.getElementById('completeView').style.display = 'block';
+    }
+  }
+
+  function restartReview() {
+    currentIndex = 0;
+    updateCard();
+  }
+
+  function switchMode(modeIdx) {
+    currentMode = modeIdx;
+    currentDeck = deckData[modeIdx] || deckData[0];
+    currentIndex = 0;
+    document.querySelectorAll('.mode-tab').forEach((el, idx) => {
+      el.classList.toggle('active', idx === modeIdx);
+    });
+    document.getElementById('dueCount').textContent = currentDeck.length;
+    updateCard();
+  }
+
+  // Initialize
+  updateCard();
+</script>
+</body>
+</html>
