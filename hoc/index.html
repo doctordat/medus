@@ -1,29 +1,281 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MEDUS Learn — thư viện vấn đề lâm sàng"><title>MEDUS Learn</title><style>:root{--navy:#0b3440;--teal:#008d98;--ink:#193940;--muted:#657b80;--line:#dce9eb;--bg:#f5fafb;--soft:#eaf8f9;--white:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}a{text-decoration:none;color:inherit}nav{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:20}.brand{font-weight:950;color:var(--teal);font-size:22px}.navlinks{display:flex;gap:18px;align-items:center;font-size:12px;font-weight:800;color:#557177}.navlinks a:hover{color:var(--teal)}.badge{font-size:9px;font-weight:900;padding:6px 9px;border-radius:999px;background:var(--soft);color:var(--teal)}.wrap{max-width:1180px;margin:auto;padding:0 24px}.ey{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}.catalogHero{padding:54px 0 26px;display:flex;justify-content:space-between;align-items:end;gap:30px}.catalogHero h1{font-size:clamp(40px,6vw,64px);line-height:1;letter-spacing:-.045em;color:var(--navy);margin:10px 0}.catalogHero p{margin:0;color:var(--muted);font-size:16px;line-height:1.65;max-width:700px}.stat{min-width:180px;background:var(--navy);color:white;border-radius:20px;padding:22px}.stat strong{display:block;font-size:34px;margin:6px 0}.stat span{font-size:11px;color:#c5dde1}.toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:18px 0 22px}.search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 14px;box-shadow:0 8px 24px rgba(17,65,72,.04)}.search input{border:0;outline:0;background:transparent;width:100%;font-size:15px;padding:15px 0;color:var(--navy)}.filters{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:#fff;padding:10px 12px;border-radius:999px;font-size:11px;font-weight:800;color:#5f777c;cursor:pointer}.chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}.resultLine{font-size:12px;color:var(--muted);margin-bottom:12px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding-bottom:64px}.cpCard{display:flex;flex-direction:column;min-height:205px;padding:20px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px rgba(17,65,72,.035);transition:.18s ease}.cpCard:hover{transform:translateY(-3px);border-color:#b8dce0;box-shadow:0 14px 34px rgba(17,65,72,.08)}.cpTop{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:10px;color:var(--muted)}.count{padding:5px 8px;border-radius:999px;background:var(--soft);color:var(--teal);font-weight:900}.cpCard h3{font-size:21px;line-height:1.23;color:var(--navy);margin:18px 0 8px}.domain{font-size:12px;color:var(--muted)}.open{margin-top:auto;padding-top:22px;font-size:12px;font-weight:900;color:var(--teal)}.empty{grid-column:1/-1;padding:36px;background:#fff;border:1px solid var(--line);border-radius:16px;color:var(--muted)}#articleMode{display:none}.articleHero{padding:44px 0 24px;display:grid;grid-template-columns:1.2fr .8fr;gap:26px}.articleHero h1{font-size:clamp(36px,5vw,56px);line-height:1.02;letter-spacing:-.04em;color:var(--navy);margin:10px 0 12px}.lead{font-size:16px;line-height:1.65;color:var(--muted)}.heroCard{background:linear-gradient(145deg,#0b3440,#0b4b58);color:white;border-radius:20px;padding:22px}.heroCard strong{display:block;font-size:31px;margin:8px 0}.heroCard p{font-size:12px;line-height:1.6;color:#c7dfe3}.articleShell{display:grid;grid-template-columns:230px 1fr;gap:24px;padding-bottom:70px}.toc{position:sticky;top:86px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px}.toc a{display:block;padding:9px 8px;border-radius:8px;color:#61787d;font-size:12px}.toc a:hover{background:var(--soft);color:var(--teal)}.article{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px}.cloud{display:flex;align-items:center;gap:8px;padding:11px 13px;border-radius:11px;background:var(--soft);border:1px solid #cfe8ea;color:#496a70;font-size:12px;margin-bottom:18px}.dot{width:8px;height:8px;border-radius:50%;background:#32a36d}.section{padding:28px 0;border-bottom:1px solid #edf2f3}.section:last-child{border-bottom:0}.section h2{font-size:27px;color:var(--navy);margin:7px 0 14px}.section h3{font-size:17px;color:var(--navy);margin:20px 0 8px}.section p,.section li{font-size:15px;line-height:1.78;color:#496166}.section ul,.section ol{padding-left:22px}.section blockquote{margin:16px 0;padding:14px 16px;background:#f1f9f9;border-left:4px solid var(--teal);border-radius:10px;color:#355c61}.meta{margin-top:18px;font-size:10px;color:#819398}.sectionKey{font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}.medus-checklist{list-style:none;padding-left:0!important}.medus-checklist li{padding:8px 10px;margin:6px 0;border-radius:9px;background:#f7fbfc;border:1px solid #e4eff0}.medus-image{margin:18px 0}.medus-image img{display:block;width:100%;max-height:560px;object-fit:contain;border-radius:14px;border:1px solid var(--line);background:#f7fbfc}.medus-image figcaption{font-size:11px;color:var(--muted);margin-top:7px}.youtube-card{display:flex;align-items:center;gap:12px;margin:14px 0;padding:14px 16px;border:1px solid #d9e8ea;border-radius:13px;background:#f8fcfd;color:var(--navy);transition:.15s}.youtube-card:hover{border-color:#9ed0d5;transform:translateY(-1px)}.youtube-card .yt-icon{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;flex:0 0 auto}.youtube-card span:last-child{display:flex;flex-direction:column;gap:3px}.youtube-card small{color:var(--teal);font-weight:800}.resource-card{display:flex;align-items:center;gap:12px;margin:12px 0;padding:13px 15px;border:1px solid var(--line);border-radius:13px;background:#f8fcfd;color:var(--navy)}.resource-card img{width:92px;height:62px;object-fit:cover;border-radius:8px}.resource-card span{display:flex;flex-direction:column;gap:3px}.resource-card small{color:var(--teal);font-weight:700}.ext-link{color:var(--teal);font-weight:800;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}.section code{padding:2px 5px;border-radius:5px;background:#f1f5f6;font-size:.92em}@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.catalogHero,.articleHero{grid-template-columns:1fr;display:grid}.stat{min-width:0}.articleShell{grid-template-columns:1fr}.toc{position:static}.toolbar{grid-template-columns:1fr}.navlinks a:not(:first-child){display:none}}@media(max-width:620px){.cards{grid-template-columns:1fr}.wrap{padding:0 16px}.catalogHero{padding-top:36px}.article{padding:20px 16px}}
-/* Learner UX v1: calm exam-prep dashboard language, mobile-first */
-:root{--navy:#092f3b;--teal:#008b95;--mint:#e9f8f7;--paper:#fff;--ink:#193c44;--muted:#678087;--line:#d9e9eb;--shadow:0 14px 40px rgba(9,47,59,.08)}
-body{background:linear-gradient(180deg,#f3fbfb 0%,#f8fbfc 36%,#fff 100%);color:var(--ink)}
-nav{height:72px;box-shadow:0 1px 0 var(--line);padding:0 5%;background:rgba(255,255,255,.92);backdrop-filter:blur(16px)}
-.brand{letter-spacing:-.04em}.navlinks a{padding:9px 11px;border-radius:10px}.navlinks a:hover{background:var(--mint)}
-.catalogHero,.articleHero{padding-top:64px}.catalogHero h1,.articleHero h1{font-weight:950;letter-spacing:-.06em}.catalogHero p,.lead{max-width:640px}
-.stat,.heroCard{box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.12)}
-.cards{gap:20px}.cpCard{min-height:228px;border-radius:22px;box-shadow:var(--shadow);transition:transform .2s ease,box-shadow .2s ease}.cpCard:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(9,47,59,.13)}
-.cpTop{font-weight:750}.cpCard h3{font-size:23px;letter-spacing:-.03em}.open{font-size:13px}
-.article{border-radius:24px;box-shadow:var(--shadow);padding:34px}.toc{box-shadow:0 8px 24px rgba(9,47,59,.05)}
-.section{padding:34px 0}.section h2{font-size:30px;letter-spacing:-.035em}.section p,.section li{font-size:16px;line-height:1.85}.cloud{box-shadow:0 6px 18px rgba(9,47,59,.04)}
-.resource-card{box-shadow:0 8px 20px rgba(9,47,59,.05);transition:.2s}.resource-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(9,47,59,.1)}
-/* Learner UX v2: Medical-grade calm UI, card metadata, progress bar & quick filters */
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MEDUS Learn — thư viện vấn đề lâm sàng y khoa chuẩn hóa"><title>MEDUS Learn</title><style>
+:root{
+  --navy:#0b3440;
+  --navy-dark:#06232b;
+  --teal:#008d98;
+  --teal-light:#00b8c6;
+  --teal-soft:#e6f7f8;
+  --ink:#17343b;
+  --ink-secondary:#47656c;
+  --muted:#688289;
+  --line:#dbe7ea;
+  --line-light:#eef4f5;
+  --bg:#f4f9fa;
+  --card-bg:#ffffff;
+  --shadow-sm:0 2px 8px rgba(11,52,64,.04);
+  --shadow-md:0 10px 30px rgba(11,52,64,.07);
+  --shadow-lg:0 18px 48px rgba(11,52,64,.11);
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* TOP NAVIGATION */
+nav{height:68px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:100}
+.brand{font-weight:950;color:var(--teal);font-size:22px;letter-spacing:-.04em}
+.navlinks{display:flex;gap:14px;align-items:center;font-size:12px;font-weight:800;color:var(--muted)}
+.navlinks a{padding:8px 14px;border-radius:999px;transition:.15s}
+.navlinks a:hover{background:var(--teal-soft);color:var(--teal)}
+.navlinks a.active{background:var(--navy);color:#fff}
+.badge{font-size:9px;font-weight:900;padding:5px 9px;border-radius:999px;background:var(--teal-soft);color:var(--teal);letter-spacing:.05em}
+
+.wrap{max-width:1220px;margin:auto;padding:0 24px}
+.ey{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+
+/* CATALOG VIEW */
+.catalogHero{padding:54px 0 26px;display:flex;justify-content:space-between;align-items:end;gap:30px}
+.catalogHero h1{font-size:clamp(38px,5.5vw,58px);line-height:1.05;letter-spacing:-.045em;color:var(--navy);margin:10px 0}
+.catalogHero p{margin:0;color:var(--ink-secondary);font-size:16px;line-height:1.65;max-width:700px}
+.stat{min-width:180px;background:var(--navy);color:white;border-radius:var(--radius-md);padding:22px;box-shadow:var(--shadow-md)}
+.stat strong{display:block;font-size:32px;margin:6px 0;letter-spacing:-.03em}
+.stat span{font-size:11px;color:#c5dde1}
+.toolbar{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin:18px 0 22px}
+.search{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 16px;box-shadow:var(--shadow-sm)}
+.search input{border:0;outline:0;background:transparent;width:100%;font-size:15px;padding:15px 0;color:var(--navy)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:999px;font-size:11px;font-weight:800;color:var(--muted);cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--teal);color:var(--teal)}
+.chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.resultLine{font-size:12px;color:var(--muted);margin-bottom:12px;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding-bottom:64px}
+.cpCard{display:flex;flex-direction:column;min-height:220px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.cpCard:hover{transform:translateY(-4px);border-color:#a2d6dc;box-shadow:var(--shadow-md)}
+.cpTop{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .badge-tag{font-size:10px;font-weight:900;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
 .p0-badge{font-size:10px;font-weight:900;padding:4px 9px;border-radius:999px;background:#fef2f2;color:#dc2626;border:1px solid #fee2e2}
-.meta-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:12px;color:var(--muted)}
-.domain-pill{background:#edf6f7;color:var(--teal);padding:3px 8px;border-radius:6px;font-weight:700}
-.time-est{font-size:11px;color:var(--muted)}
-.progress-bar-bg{width:100%;height:4px;background:#edf2f4;border-radius:2px;overflow:hidden;margin-top:auto;margin-bottom:12px}
-.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),#22d3ee);border-radius:2px}
-.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:4px;border-top:1px solid #f1f5f7}
-.status-lbl{font-size:11px;color:var(--muted);font-weight:600}
-.cta-box{margin-top:36px;padding:24px;border-radius:18px;background:linear-gradient(135deg,#0b3440,#0e4c5b);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 14px 30px rgba(11,52,64,.12)}
-.cta-box h3{margin:0 0 6px;font-size:18px;color:#fff}
-.cta-box p{margin:0;font-size:13px;color:#cbe7eb}
-.cta-btn{padding:12px 20px;border-radius:10px;background:#00c4cc;color:#0b3440;font-weight:900;font-size:13px;white-space:nowrap;border:none;cursor:pointer;transition:.15s}
-.cta-btn:hover{background:#38e1e8;transform:translateY(-1px)}
-</style><link rel="stylesheet" href="../assets/learner-tokens.css"></head><body><nav><a class="brand" href="../">MEDUS</a><div class="navlinks"><a href="./">Learn</a><a href="../qbank/">QBank</a><a href="../cases/">Cases</a><span class="badge">BETA</span></div></nav><main class="wrap"><section id="catalogMode"><div class="catalogHero"><div><div class="ey">MEDUS Learn</div><h1>Thư viện bài học</h1><p>Học theo vấn đề lâm sàng. Tìm nhanh chủ đề cần ôn, mở bài và đi thẳng vào chuỗi quyết định.</p></div><aside class="stat"><div class="ey" style="color:#91d6dc">PUBLISHED</div><strong id="catalogCount">—</strong><span>bài đang có nội dung learner</span></aside></div><div class="toolbar"><label class="search"><span>⌕</span><input id="learnSearch" placeholder="Tìm bài học: đau ngực, sốt, khó thở, sốc..."></label><div class="filters" id="domainFilters"></div></div><div class="resultLine" id="resultCount">Đang tải thư viện…</div><div class="cards" id="learnCards"></div></section><section id="articleMode"><div class="articleHero"><div><div class="ey" id="articleEy">MEDUS Learn</div><h1 id="articleTitle">Đang tải…</h1><p class="lead" id="articleSubtitle">Đang kết nối MEDUS Cloud.</p></div><aside class="heroCard"><div class="ey" style="color:#91d6dc">CONTENT STATUS</div><strong id="heroCount">—</strong><p>Nội dung chỉ hiển thị sau Medical Review và Publish.</p></aside></div><div class="articleShell"><aside class="toc"><div class="ey">Nội dung</div><div id="toc"></div></aside><article class="article"><div class="cloud"><span class="dot"></span><span id="cloudText">Đang kiểm tra nội dung đã publish…</span></div><div id="content"></div></article></div></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../assets/supabase-config.js"></script><script src="../assets/learn-public.js?v=20260831-1718"></script></body></html>
+.count{padding:5px 9px;border-radius:999px;background:var(--teal-soft);color:var(--teal);font-weight:900;font-size:11px}
+.cpCard h3{font-size:21px;line-height:1.25;letter-spacing:-.02em;color:var(--navy);margin:16px 0 10px}
+.meta-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:12px}
+.domain-pill{background:var(--teal-soft);color:var(--teal);padding:4px 9px;border-radius:6px;font-weight:800;font-size:11px}
+.time-est{font-size:11px;color:var(--muted);font-weight:600}
+.progress-bar-bg{width:100%;height:5px;background:#edf2f4;border-radius:3px;overflow:hidden;margin-top:auto;margin-bottom:14px}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),#22d3ee);border-radius:3px}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--line-light)}
+.status-lbl{font-size:11px;color:var(--muted);font-weight:700}
+.open{font-size:12px;font-weight:900;color:var(--teal)}
+.empty{grid-column:1/-1;padding:40px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);color:var(--muted);text-align:center}
+
+/* ARTICLE / DETAIL VIEW */
+#articleMode{display:none}
+.articleHero{padding:40px 0 24px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+.articleHero h1{font-size:clamp(34px,4.5vw,52px);line-height:1.08;letter-spacing:-.04em;color:var(--navy);margin:10px 0 12px}
+.lead{font-size:15px;line-height:1.65;color:var(--ink-secondary);margin:0}
+.heroCard{background:linear-gradient(145deg,#0b3440,#0e4c5b);color:white;border-radius:var(--radius-md);padding:24px;box-shadow:var(--shadow-md)}
+.heroCard strong{display:block;font-size:32px;margin:6px 0;letter-spacing:-.02em}
+.heroCard p{font-size:12px;line-height:1.6;color:#c7dfe3;margin:0}
+
+.articleShell{display:grid;grid-template-columns:260px 1fr;gap:28px;padding-bottom:80px;align-items:start}
+
+/* TOC (Table of Contents - Left Panel) */
+.toc{position:sticky;top:86px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:14px;box-shadow:var(--shadow-sm);max-height:calc(100vh - 110px);overflow-y:auto}
+.toc-back-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:900;color:var(--teal);background:var(--teal-soft);margin-bottom:14px;width:100%;transition:.15s}
+.toc-back-btn:hover{background:#d5f1f3}
+.toc-group-title{font-size:9px;font-weight:900;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;padding:0 8px 8px;border-bottom:1px solid var(--line-light);margin-bottom:6px}
+.toc-link{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;color:var(--ink-secondary);font-size:12px;font-weight:700;transition:.15s;line-height:1.35;margin-bottom:2px}
+.toc-link:hover{background:var(--teal-soft);color:var(--teal)}
+.toc-link.active{background:var(--navy);color:#fff}
+.toc-link.active .toc-num{color:#98d6dd}
+.toc-num{font-size:10px;font-weight:900;color:var(--muted);width:16px}
+.toc-icon{font-size:13px}
+.toc-text{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* MAIN ARTICLE BODY */
+.article{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:36px;box-shadow:var(--shadow-sm)}
+.cloud{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:var(--teal-soft);border:1px solid #ccebee;color:var(--ink);font-size:13px;margin-bottom:28px}
+.dot{width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.2)}
+
+/* MEDICAL SECTION CARDS */
+.section{padding:32px 0;border-bottom:1px solid var(--line-light)}
+.section:last-child{border-bottom:0}
+.section-badge-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.step-pill{font-size:9px;font-weight:900;letter-spacing:.08em;padding:4px 8px;border-radius:6px;background:var(--navy);color:#fff;text-transform:uppercase}
+.key-pill{font-size:10px;font-weight:800;color:var(--teal);background:var(--teal-soft);padding:4px 9px;border-radius:6px}
+.section-title{font-size:26px;letter-spacing:-.03em;color:var(--navy);margin:4px 0 18px;line-height:1.25}
+.source-footnote{margin-top:20px;padding:10px 14px;border-radius:8px;background:#f9fbfb;border:1px solid var(--line-light);font-size:11px;color:var(--muted)}
+.source-footnote strong{color:var(--ink-secondary)}
+
+/* SECTION 1: RED FLAGS ALERT BOX */
+.med-alert-box{border-radius:var(--radius-md);padding:22px;margin:16px 0}
+.red-flag-box{background:#fff5f5;border:1.5px solid #fca5a5}
+.med-alert-header{margin-bottom:16px}
+.alert-badge{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.08em;color:#b91c1c;background:#fee2e2;padding:6px 12px;border-radius:999px}
+.red-flag-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.red-flag-item{display:flex;gap:12px;align-items:flex-start;background:#fff;padding:12px 16px;border-radius:10px;border:1px solid #fecaca;box-shadow:0 2px 6px rgba(239,68,68,.04)}
+.rf-icon{font-size:16px;flex:0 0 auto;margin-top:2px}
+.rf-text{font-size:14px;line-height:1.6;color:#7f1d1d;font-weight:600}
+
+/* SECTION 2: DECISION FLOW STEPS (IF-THEN) */
+.decision-flow-container{background:#f8fafc;border:1px solid #e2e8f0;border-radius:var(--radius-md);padding:22px;margin:16px 0}
+.flow-lead{font-size:12px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.decision-steps{display:flex;flex-direction:column;gap:14px}
+.decision-step-card{display:flex;gap:16px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px;box-shadow:var(--shadow-sm);transition:.15s}
+.decision-step-card:hover{border-color:#cbd5e1;box-shadow:var(--shadow-md)}
+.step-num{font-size:10px;font-weight:900;letter-spacing:.08em;color:#fff;background:#0284c7;padding:4px 8px;border-radius:6px;height:fit-content;white-space:nowrap;margin-top:3px}
+.step-body{flex:1;display:flex;flex-direction:column;gap:8px}
+.if-tag{font-size:14px;line-height:1.6;color:#1e293b;font-weight:700}
+.if-tag span{background:#e0f2fe;color:#0369a1;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:900;margin-right:6px}
+.then-tag{font-size:14px;line-height:1.6;color:#0f172a}
+.then-tag span{background:#f0fdf4;color:#15803d;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:900;margin-right:6px}
+.step-details{font-size:13px;line-height:1.6;color:var(--muted);margin-top:4px;border-top:1px dashed #e2e8f0;padding-top:6px}
+
+/* SECTION 3: PITFALLS (BẪY LÂM SÀNG) */
+.pitfalls-container{margin:16px 0}
+.pitfalls-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pitfall-card{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px;box-shadow:var(--shadow-sm)}
+.pitfall-header{font-size:12px;color:#92400e;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.pf-content{font-size:13.5px;line-height:1.65;color:#78350f;font-weight:600}
+
+/* SECTION 4: CLINICAL PEARLS */
+.pearls-container{margin:16px 0}
+.pearls-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pearl-card{background:#f0fdfa;border:1px solid #99f6e4;border-radius:12px;padding:16px;display:flex;gap:12px;align-items:flex-start;box-shadow:var(--shadow-sm)}
+.pearl-icon{font-size:20px;flex:0 0 auto}
+.pearl-text{font-size:13.5px;line-height:1.65;color:#115e59;font-weight:600}
+
+/* SECTION 5: INTERACTIVE CHECKLIST */
+.interactive-checklist-box{background:#f8fafc;border:1px solid var(--line);border-radius:var(--radius-md);padding:24px;margin:16px 0}
+.cl-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px;border-bottom:1px solid #e2e8f0;padding-bottom:14px}
+.cl-header h3{margin:0 0 4px;font-size:18px;color:var(--navy);letter-spacing:-.02em}
+.cl-header p{margin:0;font-size:12px;color:var(--muted)}
+.cl-counter{font-size:11px;font-weight:900;padding:6px 12px;border-radius:999px;background:#e2e8f0;color:#475569;white-space:nowrap;transition:.2s}
+.cl-counter.all-done{background:#dcfce7;color:#15803d}
+.cl-items{display:flex;flex-direction:column;gap:8px}
+.cl-item{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;background:#fff;border:1px solid #e2e8f0;cursor:pointer;transition:.15s}
+.cl-item:hover{border-color:#cbd5e1;background:#fcfdfd}
+.med-checkbox{display:none}
+.cl-custom-check{width:18px;height:18px;border-radius:5px;border:2px solid #94a3b8;display:grid;place-items:center;margin-top:2px;flex:0 0 auto;transition:.15s}
+.cl-custom-check::after{content:'✓';font-size:12px;color:#fff;display:none;font-weight:900}
+.med-checkbox:checked + .cl-custom-check{background:#008d98;border-color:#008d98}
+.med-checkbox:checked + .cl-custom-check::after{display:block}
+.med-checkbox:checked ~ .cl-text{color:#64748b;text-decoration:line-through}
+.cl-text{font-size:13.5px;line-height:1.6;color:var(--ink);font-weight:600}
+
+/* SECTION 6: OBJECTIVES */
+.objectives-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-md);padding:20px;margin:16px 0}
+.obj-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.obj-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.6;color:#166534;font-weight:600}
+.obj-dot{color:#15803d;font-weight:900;flex:0 0 auto}
+
+/* STANDARD TEXT ELEMENTS */
+.med-para{font-size:15px;line-height:1.8;color:var(--ink-secondary);margin:12px 0}
+.med-subheading{font-size:18px;color:var(--navy);margin:24px 0 10px;letter-spacing:-.02em}
+.med-bullet-list,.med-num-list{padding-left:22px;margin:12px 0}
+.med-bullet-list li,.med-num-list li{font-size:14.5px;line-height:1.75;color:var(--ink-secondary);margin-bottom:6px}
+.med-callout{margin:16px 0;padding:14px 18px;background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:0 var(--radius-sm) var(--radius-sm) 0;color:var(--ink);font-size:14px;line-height:1.7}
+
+/* QUIZ & CASE GRIDS */
+.quiz-grid,.cases-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0}
+.quiz-card,.case-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow-sm);transition:.15s}
+.quiz-card:hover,.case-card:hover{transform:translateY(-2px);border-color:#9fd3d8;box-shadow:var(--shadow-md)}
+.q-num{font-size:10px;font-weight:900;color:var(--teal);margin-bottom:6px}
+.q-stem{font-size:13.5px;line-height:1.55;font-weight:700;color:var(--navy);margin-bottom:10px}
+.q-meta{font-size:11px;color:var(--muted)}
+.case-card h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.case-card p{margin:0 0 10px;font-size:12px;color:var(--muted);line-height:1.5}
+.case-badge{font-size:10px;font-weight:900;padding:3px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal)}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .articleShell{grid-template-columns:1fr}
+  .toc{position:static;max-height:none}
+  .cards,.pitfalls-grid,.pearls-grid,.quiz-grid,.cases-grid{grid-template-columns:1fr}
+  .articleHero{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  .article{padding:22px 16px;border-radius:var(--radius-md)}
+  .section-title{font-size:22px}
+  .catalogHero h1,.articleHero h1{font-size:32px}
+}
+</style>
+<link rel="stylesheet" href="../assets/learner-tokens.css">
+</head>
+<body>
+<nav>
+  <a class="brand" href="../">MEDUS</a>
+  <div class="navlinks">
+    <a href="./" class="active">Learn</a>
+    <a href="../qbank/">QBank</a>
+    <a href="../cases/">Cases</a>
+    <span class="badge">CLINICAL HUB</span>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- CATALOG MODE -->
+  <section id="catalogMode">
+    <div class="catalogHero">
+      <div>
+        <div class="ey">MEDUS Learn</div>
+        <h1>Thư viện bài học</h1>
+        <p>Học theo vấn đề lâm sàng. Tìm nhanh chủ đề cần ôn, mở bài và đi thẳng vào chuỗi quyết định y khoa chuẩn hóa 13 bước.</p>
+      </div>
+      <aside class="stat">
+        <div class="ey" style="color:#91d6dc">PUBLISHED</div>
+        <strong id="catalogCount">—</strong>
+        <span>bài đang có nội dung learner</span>
+      </aside>
+    </div>
+
+    <div class="toolbar">
+      <label class="search">
+        <span>⌕</span>
+        <input id="learnSearch" placeholder="Tìm bài học: đau ngực, sốt, khó thở, sốc...">
+      </label>
+      <div class="filters" id="domainFilters"></div>
+    </div>
+
+    <div class="resultLine" id="resultCount">Đang tải thư viện…</div>
+    <div class="cards" id="learnCards"></div>
+  </section>
+
+  <!-- ARTICLE DETAIL MODE -->
+  <section id="articleMode">
+    <div class="articleHero">
+      <div>
+        <div class="ey" id="articleEy">MEDUS Learn</div>
+        <h1 id="articleTitle">Đang tải…</h1>
+        <p class="lead" id="articleSubtitle">Đang kết nối MEDUS Cloud.</p>
+      </div>
+      <aside class="heroCard">
+        <div class="ey" style="color:#91d6dc">CONTENT STATUS</div>
+        <strong id="heroCount">—</strong>
+        <p>Nội dung chỉ hiển thị sau Medical Review và Publish chuẩn hóa.</p>
+      </aside>
+    </div>
+
+    <div class="articleShell">
+      <aside class="toc">
+        <div id="toc"></div>
+      </aside>
+
+      <article class="article">
+        <div class="cloud">
+          <span class="dot"></span>
+          <span id="cloudText">Đang kiểm tra nội dung đã publish…</span>
+        </div>
+        <div id="content"></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/learn-public.js?v=20260903-v2"></script>
+</body>
+</html>
