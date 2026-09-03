@@ -1,5 +1,12 @@
 (()=>{
-  const BASE = '/medus/';
+  function getBasePath() {
+    return location.pathname.startsWith('/medus/') ? '/medus/' : '/';
+  }
+
+  function getLearnUrl(slug) {
+    const base = getBasePath();
+    return slug ? `${base}hoc/?slug=${encodeURIComponent(slug)}` : `${base}hoc/`;
+  }
   const cfg = {
     order: [
       'overview',
@@ -363,7 +370,7 @@
         const pct = Math.round((c / 13) * 100);
         const isPriority = (x.priority && x.priority >= 8) || x.id === 3 || x.id === 2;
         return `
-          <a class="cpCard" href="${BASE}hoc/?slug=${encodeURIComponent(x.slug)}">
+          <a class="cpCard" href="${getLearnUrl(x.slug)}">
             <div class="cpTop">
               <span class="badge-tag">Clinical Problem #${String(x.id).padStart(2, '0')}</span>
               ${isPriority ? '<span class="p0-badge">⚡ Khẩn/Ưu tiên</span>' : '<span class="count">' + c + '/13 mục</span>'}
@@ -426,7 +433,7 @@
 
     // Table of Contents
     $('#toc').innerHTML = `
-      <a class="toc-back-btn" href="${BASE}hoc/">← Danh sách bài học</a>
+      <a class="toc-back-btn" href="${getLearnUrl()}">← Danh sách bài học</a>
       <div class="toc-group-title">CÁC MỤC LÂM SÀNG</div>
       ${ordered.map((x, idx) => `
         <a class="toc-link" href="#${esc(x.section_key)}" data-section="${esc(x.section_key)}">
@@ -544,7 +551,7 @@
     $('#articleTitle').textContent = 'Không tìm thấy bài Learn';
     $('#articleSubtitle').textContent = msg || 'Bài chưa sẵn sàng.';
     $('#heroCount').textContent = '0/13 mục';
-    $('#toc').innerHTML = '<a href="' + BASE + 'hoc/">← Tất cả bài học</a>';
+    $('#toc').innerHTML = '<a href="' + getLearnUrl() + '">← Tất cả bài học</a>';
     $('#content').innerHTML = '<div class="empty"><b>Chưa có nội dung public.</b></div>';
   }
 

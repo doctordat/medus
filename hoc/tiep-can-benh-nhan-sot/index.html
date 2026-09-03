@@ -1,1 +1,5 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0; url=../"><title>MEDUS Learn</title></head><body><script>location.replace('../');</script><p>Đang mở MEDUS Learn… <a href="../">Tiếp tục</a></p></body></html>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Đang chuyển hướng MEDUS Learn…</title><script>
+  const isSubdir = location.pathname.startsWith('/medus/');
+  const target = (isSubdir ? '/medus/hoc/' : '/hoc/') + '?slug=tiep-can-benh-nhan-sot';
+  location.replace(target);
+</script></head><body>Đang mở bài học…</body></html>
