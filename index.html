@@ -1,1 +1,739 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MEDUS — nền tảng học lâm sàng, QBank, clinical cases và mastery cho bác sĩ y khoa."><title>MEDUS — Learn Deep. Think Clinically.</title><style>:root{--n:#062f3d;--n2:#0a4655;--t:#008b96;--t2:#22b7bd;--i:#173940;--m:#6b7e83;--l:#dce9eb;--s:#edf9fa;--white:#fff;--shadow:0 18px 45px rgba(17,55,64,.09);--shadow2:0 10px 26px rgba(17,55,64,.07)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:linear-gradient(180deg,#f7fbfc 0,#f3f8f9 100%);color:var(--i)}a{text-decoration:none;color:inherit}.shell{display:grid;grid-template-columns:244px 1fr;min-height:100vh}.side{background:linear-gradient(180deg,#042b39 0%,#073946 68%,#0a4350 100%);color:#eefafa;padding:24px 18px;position:sticky;top:0;height:100vh;box-shadow:14px 0 40px rgba(8,48,58,.08);z-index:4}.brand{font-size:27px;font-weight:950;letter-spacing:.01em;display:flex;align-items:center;gap:10px}.mark{width:31px;height:31px;border-radius:10px;background:linear-gradient(145deg,#23c3c6,#08727f);display:grid;place-items:center;box-shadow:inset 0 0 0 1px #ffffff24,0 8px 20px #001e2666}.brand small{display:block;font-size:9px;color:#9fc8cd;font-weight:650;margin-top:2px}.lab{font-size:9px;font-weight:900;letter-spacing:.14em;color:#82afb5;margin:23px 9px 7px}.nav{display:flex;gap:9px;align-items:center;padding:10px 10px;border-radius:10px;font-size:12px;transition:.18s}.nav:hover,.nav.on{background:#0c5968;transform:translateX(2px)}.navIcon{width:19px;opacity:.9}.pill{margin-left:auto;font-size:8px;font-weight:950;padding:4px 6px;border-radius:6px}.demo{background:#287fe7;color:#fff}.soon{background:#f7bd58;color:#5a3b00}.quote{position:absolute;bottom:18px;left:17px;right:17px;background:linear-gradient(145deg,#0d4b59,#0a3d49);border:1px solid #2d6673;border-radius:16px;padding:15px;font-size:10px;line-height:1.55;color:#c2dde0;box-shadow:0 16px 30px #00182044}.top{height:70px;background:#ffffffee;border-bottom:1px solid var(--l);display:flex;align-items:center;padding:0 27px;gap:15px;position:sticky;top:0;z-index:3;backdrop-filter:blur(16px)}.search{flex:1;max-width:700px;border:1px solid var(--l);background:#f7fafb;border-radius:12px;padding:12px 15px;color:#84969a;font-size:12px;box-shadow:inset 0 1px 0 #fff}.user{margin-left:auto;font-size:11px;font-weight:850;color:#32545b}.content{max-width:1340px;margin:auto;padding:22px 28px 48px}.hero{position:relative;border:1px solid #cde2e6;border-radius:24px;min-height:300px;display:grid;grid-template-columns:1.12fr .88fr;overflow:hidden;background:#dceff3;box-shadow:var(--shadow)}.heroCopy{padding:34px 34px 31px;position:relative;z-index:2;background:linear-gradient(90deg,rgba(242,250,252,.98) 0%,rgba(235,247,249,.95) 72%,rgba(235,247,249,.35) 100%)}.heroVisual{position:relative;min-height:300px;background-image:linear-gradient(90deg,rgba(6,47,61,.03),rgba(6,47,61,.22)),url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1200&q=88');background-size:cover;background-position:center 25%}.heroVisual:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(3,38,48,.48))}.heroBadge{position:absolute;right:22px;bottom:20px;z-index:2;background:#ffffffef;border:1px solid #ffffffaa;border-radius:14px;padding:12px 14px;box-shadow:0 16px 35px #001c2444;backdrop-filter:blur(9px);min-width:180px}.heroBadge b{font-size:12px;color:var(--n)}.heroBadge span{display:block;font-size:9px;color:var(--m);margin-top:3px}.ey{font-size:9px;font-weight:950;letter-spacing:.14em;color:var(--t)}h1{font-size:38px;line-height:1.04;margin:8px 0 9px;color:var(--n);letter-spacing:-.035em}.heroSub{font-size:13px;color:#547079;line-height:1.6;max-width:660px}.count{display:flex;gap:8px;margin:18px 0 10px;flex-wrap:wrap}.time{background:#ffffffeb;border:1px solid #d5e5e8;border-radius:13px;min-width:83px;padding:12px;text-align:center;box-shadow:0 8px 18px #315a6212}.time b{display:block;font-size:27px;color:var(--n);line-height:1}.time span{font-size:8px;font-weight:900;color:var(--m)}.small{font-size:10px;line-height:1.55;color:var(--m)}.sec{margin-top:18px}.head{display:flex;justify-content:space-between;align-items:end;margin:0 3px 10px}.head h2{font-size:15px;margin:0;color:var(--n);letter-spacing:-.01em}.grid{display:grid;grid-template-columns:1.27fr .73fr;gap:14px}.card{background:#fff;border:1px solid var(--l);border-radius:18px;padding:16px;box-shadow:var(--shadow2)}.feat{display:grid;grid-template-columns:230px 1fr;padding:0;overflow:hidden;min-height:226px}.med{min-height:226px;background-image:linear-gradient(180deg,rgba(2,34,43,.04),rgba(2,34,43,.42)),url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=88');background-size:cover;background-position:center;position:relative}.med:before{content:'39.1°C';position:absolute;top:14px;left:14px;background:#fff;color:#c84d42;border-radius:10px;padding:7px 9px;font-size:12px;font-weight:950;box-shadow:0 8px 20px #142f3544}.med:after{content:'SỐT CAO · CLINICAL PROBLEM 02';position:absolute;left:14px;right:14px;bottom:13px;color:#fff;font-size:8px;font-weight:900;letter-spacing:.08em}.fb{padding:21px 22px}.tag{display:inline-block;font-size:8px;font-weight:950;padding:5px 7px;border-radius:6px}.live{background:#dff5f5;color:#087883}.fb h3{font-size:24px;color:var(--n);margin:9px 0 6px}.btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--n),var(--n2));color:#fff;padding:10px 13px;border-radius:10px;font-size:10px;font-weight:900;margin-top:11px;box-shadow:0 10px 22px #093b4724}.metric{display:flex;gap:16px;align-items:center;min-height:226px}.ring{width:104px;height:104px;border-radius:50%;background:conic-gradient(var(--t) 0 18%,#e8f0f1 18%);display:grid;place-items:center;box-shadow:inset 0 0 0 1px #e2eeee}.ring:after{content:'18%';width:76px;height:76px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:950;color:var(--n);font-size:21px}.rows{flex:1}.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #edf2f3;font-size:10px}.mods{display:grid;grid-template-columns:repeat(6,1fr);gap:11px}.mod{background:#fff;border:1px solid var(--l);border-radius:17px;overflow:hidden;box-shadow:var(--shadow2);transition:.2s}.mod:hover{transform:translateY(-3px);box-shadow:0 20px 34px rgba(17,55,64,.12)}.ma{height:92px;position:relative;background-size:cover;background-position:center;overflow:hidden}.ma:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,37,46,.02),rgba(3,37,46,.42))}.ma.learn{background-image:url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=700&q=85')}.ma.qbank{background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=85')}.ma.cases{background-image:url('https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&w=700&q=85')}.ma.mastery{background-image:url('https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=700&q=85')}.ma.smart{background-image:url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=700&q=85')}.ma.mock{background-image:url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=700&q=85')}.mb{padding:11px}.mt{display:flex;align-items:start;justify-content:space-between;gap:5px}.mod h3{font-size:11px;color:var(--n);margin:0}.mod p{font-size:9px;line-height:1.4;color:var(--m);margin:5px 0}.spotlight{display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;padding:0}.doctorImg{min-height:190px;background-image:linear-gradient(90deg,rgba(5,45,56,.06),rgba(5,45,56,.25)),url('https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1100&q=88');background-size:cover;background-position:center}.spotCopy{padding:22px}.spotCopy h3{font-size:20px;color:var(--n);margin:7px 0}.vals{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--l);border-radius:16px;overflow:hidden;box-shadow:var(--shadow2)}.val{background:#fff;padding:14px;text-align:center;border-right:1px solid var(--l);font-size:9px;color:var(--m)}.val:last-child{border-right:0}.val b{display:block;color:var(--n);font-size:10px;margin-bottom:4px}.launch{background:linear-gradient(135deg,#082f3b,#0d5662);color:#fff;border:1px solid #0f6572;box-shadow:0 20px 42px #092f3a24}.launch h3{margin:0;color:#fff}.launch .small{color:#bfdbde}.launchGrid{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}@media(max-width:1060px){.shell{grid-template-columns:1fr}.side{display:none}.mods{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.content{padding:14px}.hero,.grid,.spotlight{grid-template-columns:1fr}.heroVisual{min-height:230px}.heroCopy{background:#edf8fa}.feat{grid-template-columns:1fr}.med{min-height:200px}.mods{grid-template-columns:1fr 1fr}.vals{grid-template-columns:1fr 1fr}.launchGrid{grid-template-columns:1fr}.top{padding:0 14px}.user{display:none}}@media(max-width:460px){.mods,.vals{grid-template-columns:1fr}.time{min-width:70px}h1{font-size:31px}}</style></head><body><div class="shell"><aside class="side"><div class="brand"><span class="mark">✚</span><span>MEDUS<small>Learn Deep. Think Clinically.</small></span></div><div class="lab">HỌC TẬP</div><a class="nav on" href="./"><span class="navIcon">⌂</span>Trang chủ</a><a class="nav" href="hoc/tiep-can-benh-nhan-sot/"><span class="navIcon">▤</span>MEDUS Learn <span class="pill demo">DEMO</span></a><a class="nav" href="qbank/"><span class="navIcon">◉</span>QBank <span class="pill demo">DEMO</span></a><a class="nav" href="cases/"><span class="navIcon">▣</span>Clinical Cases <span class="pill demo">DEMO</span></a><div class="nav"><span class="navIcon">✦</span>Smart Review <span class="pill soon">SOON</span></div><a class="nav" href="mock/"><span class="navIcon">◫</span>Mock Exam <span class="pill demo">DEMO</span></a><div class="lab">TIẾN TRÌNH</div><a class="nav" href="mastery/"><span class="navIcon">◇</span>Mastery <span class="pill demo">DEMO</span></a><div class="nav"><span class="navIcon">▥</span>Analytics <span class="pill soon">SOON</span></div><div class="nav"><span class="navIcon">□</span>Kế hoạch cá nhân <span class="pill soon">SOON</span></div><div class="lab">CÔNG CỤ</div><div class="nav"><span class="navIcon">⚕</span>Clinical Tools <span class="pill soon">SOON</span></div><div class="nav"><span class="navIcon">Rx</span>Thuốc & Liều dùng <span class="pill soon">SOON</span></div><a class="nav" href="tai-lieu/"><span class="navIcon">▤</span>Resource Library <span class="pill demo">DEMO</span></a><div class="quote"><b>Học sâu · Hiểu bản chất</b><br>Ứng dụng lâm sàng<br>Ra quyết định chính xác<br><br>MEDUS · Pre-launch</div></aside><div><header class="top"><div class="search">⌕ &nbsp; Tìm kiếm vấn đề lâm sàng, triệu chứng, thuốc… <span class="pill soon" style="float:right">SOON</span></div><div class="user">MEDUS Beta · Learner</div></header><main class="content"><section class="hero"><div class="heroCopy"><div class="ey">ĐẾM NGÀY MỤC TIÊU</div><h1>KỲ ĐÁNH GIÁ NĂNG LỰC Y KHOA 2027</h1><p class="heroSub">Một không gian học lâm sàng dành cho bác sĩ: học theo vấn đề, luyện quyết định, làm case và theo dõi mastery trong cùng một hệ thống.</p><div class="count"><div class="time"><b id="d">—</b><span>NGÀY</span></div><div class="time"><b id="h">—</b><span>GIỜ</span></div><div class="time"><b id="m">—</b><span>PHÚT</span></div><div class="time"><b id="s">—</b><span>GIÂY</span></div></div><div class="small">▣ Mốc mục tiêu: <b>01/12/2027</b> · dùng để lập kế hoạch học, không phải thông báo ngày thi chính thức.</div></div><div class="heroVisual"><div class="heroBadge"><b>MEDUS PRE-LAUNCH</b><span>Medical education · Clinical reasoning · Assessment</span></div></div></section><section class="sec grid"><div><div class="head"><h2>VẤN ĐỀ LÂM SÀNG NỔI BẬT</h2><a class="small" href="hoc/tiep-can-benh-nhan-sot/">Xem bài →</a></div><article class="card feat"><div class="med"></div><div class="fb"><span class="tag live">CP 02 · DEMO</span><h3>Tiếp cận bệnh nhân sốt</h3><p class="small">Safety Gate → bệnh sử có mục tiêu → khám → differential → investigations → management → decision points.</p><a class="btn" href="hoc/tiep-can-benh-nhan-sot/">Tiếp tục học →</a></div></article></div><div><div class="head"><h2>TIẾN TRÌNH HỌC TẬP</h2><a class="small" href="mastery/">Chi tiết →</a></div><div class="card metric"><div class="ring"></div><div class="rows"><div class="row"><span>Learn</span><b>1 / 128</b></div><div class="row"><span>QBank</span><b>5 · DEMO</b></div><div class="row"><span>Cases</span><b>1 · DEMO</b></div><div class="row"><span>Smart Review</span><span class="tag soon">SOON</span></div><div class="row"><span>Full Mock</span><span class="tag soon">SOON</span></div></div></div></div></section><section class="sec"><div class="head"><h2>TÍNH NĂNG MEDUS</h2><span class="small">Các module hiện tại vẫn gắn DEMO cho tới launch chính thức.</span></div><div class="mods"><a class="mod" href="hoc/tiep-can-benh-nhan-sot/"><div class="ma learn"></div><div class="mb"><div class="mt"><h3>MEDUS Learn</h3><span class="tag demo">DEMO</span></div><p>Clinical problems + decision points.</p></div></a><a class="mod" href="qbank/"><div class="ma qbank"></div><div class="mb"><div class="mt"><h3>QBank</h3><span class="tag demo">DEMO</span></div><p>Apply+ questions và explanations.</p></div></a><a class="mod" href="cases/"><div class="ma cases"></div><div class="mb"><div class="mt"><h3>Clinical Cases</h3><span class="tag demo">DEMO</span></div><p>Progressive clinical reasoning.</p></div></a><a class="mod" href="mastery/"><div class="ma mastery"></div><div class="mb"><div class="mt"><h3>Mastery</h3><span class="tag demo">DEMO</span></div><p>Weak section + competency.</p></div></a><div class="mod"><div class="ma smart"></div><div class="mb"><div class="mt"><h3>Smart Review</h3><span class="tag soon">SOON</span></div><p>Ôn tập cá nhân hóa theo điểm yếu.</p></div></div><div class="mod"><div class="ma mock"></div><div class="mb"><div class="mt"><h3>Full Mock</h3><span class="tag soon">SOON</span></div><p>Thi thử toàn diện theo blueprint.</p></div></div></div></section><section class="sec card spotlight"><div class="doctorImg"></div><div class="spotCopy"><div class="ey">MEDUS CLINICAL MINDSET</div><h3>Không chỉ nhớ đáp án — phải biết vì sao quyết định đó đúng.</h3><p class="small">Bài học, QBank và Clinical Case được thiết kế để nối cùng một clinical problem. Khi làm sai, mục tiêu là quay lại đúng section cần ôn thay vì học lại từ đầu.</p><a class="btn" href="cases/">Thử Clinical Case →</a></div></section><section class="sec"><div class="vals"><div class="val"><b>⚕ Evidence-based</b>Nguồn + medical review</div><div class="val"><b>🧠 Clinical Reasoning</b>Học để ra quyết định</div><div class="val"><b>◎ Deep Learning</b>Hiểu bản chất</div><div class="val"><b>✓ Exam Ready</b>Apply+ và blueprint</div></div></section><section class="sec card launch"><div class="launchGrid"><div><div class="ey" style="color:#77d7dc">PRE-LAUNCH CHECK</div><h3>Duyệt vòng cuối trước khi mở thử MEDUS.</h3><p class="small">Learn · QBank · Cases · Mock · Mastery đang ở chế độ DEMO. Smart Review, Analytics và Clinical Tools vẫn để SOON.</p></div><a class="btn" style="background:#fff;color:#073946;box-shadow:none" href="auth/">Đăng nhập thử →</a></div></section></main></div></div><script>const T=new Date('2027-12-01T08:00:00+07:00').getTime();function tick(){let x=Math.max(0,T-Date.now());d.textContent=Math.floor(x/86400000);x%=86400000;h.textContent=String(Math.floor(x/3600000)).padStart(2,'0');x%=3600000;m.textContent=String(Math.floor(x/60000)).padStart(2,'0');s.textContent=String(Math.floor(x%60000/1000)).padStart(2,'0')}tick();setInterval(tick,1000)</script></body></html>
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="MEDUS — Nền tảng học lâm sàng, QBank, Clinical Cases và Mastery cho Bác sĩ Y khoa.">
+  <title>MEDUS — Command Center · Learn Deep. Think Clinically.</title>
+  <style>
+    :root {
+      --navy: #0b3440;
+      --navy-dark: #05232b;
+      --navy-light: #114c5c;
+      --teal: #008d98;
+      --teal-light: #00b4c2;
+      --teal-soft: #e6f7f8;
+      --ink: #17343b;
+      --ink-secondary: #47656c;
+      --muted: #688289;
+      --line: #dbe7ea;
+      --line-light: #eef4f5;
+      --bg: #f4f9fa;
+      --card-bg: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(11,52,64,.04);
+      --shadow-md: 0 10px 28px rgba(11,52,64,.07);
+      --shadow-lg: 0 20px 48px rgba(11,52,64,.12);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* LAYOUT SHELL */
+    .shell {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .side {
+      background: linear-gradient(180deg, #05242d 0%, #083440 60%, #0b3e4c 100%);
+      color: #eefafa;
+      padding: 24px 18px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      box-shadow: 10px 0 35px rgba(5,36,45,.12);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+    }
+    .brand {
+      font-size: 24px;
+      font-weight: 950;
+      letter-spacing: -.03em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+    }
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--teal-light), #007782);
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(0,141,152,.35);
+    }
+    .brand small {
+      display: block;
+      font-size: 10px;
+      color: #92cbd2;
+      font-weight: 600;
+      letter-spacing: .02em;
+      margin-top: 2px;
+    }
+    .lab {
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      color: #79a7af;
+      margin: 22px 10px 8px;
+      text-transform: uppercase;
+    }
+    .nav {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #cce4e7;
+      transition: .15s ease;
+      margin-bottom: 2px;
+    }
+    .nav:hover {
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      transform: translateX(3px);
+    }
+    .nav.on {
+      background: var(--teal);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0,141,152,.35);
+    }
+    .navIcon {
+      font-size: 15px;
+      width: 20px;
+      text-align: center;
+    }
+    .pill {
+      margin-left: auto;
+      font-size: 8.5px;
+      font-weight: 900;
+      padding: 3px 7px;
+      border-radius: 6px;
+      letter-spacing: .04em;
+    }
+    .pill.live { background: #10b981; color: #fff; }
+    .pill.demo { background: rgba(255,255,255,.16); color: #eefafa; }
+    .pill.soon { background: rgba(255,255,255,.07); color: #8ba9b0; }
+
+    .side-footer {
+      margin-top: auto;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 11px;
+      line-height: 1.5;
+      color: #b5d5d9;
+    }
+    .side-footer b { color: #fff; display: block; margin-bottom: 4px; }
+
+    /* TOP BAR */
+    .top {
+      height: 68px;
+      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      gap: 18px;
+      position: sticky;
+      top: 0;
+      z-index: 9;
+      backdrop-filter: blur(12px);
+    }
+    .search-box {
+      flex: 1;
+      max-width: 680px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: .15s;
+    }
+    .search-box:hover { border-color: #a2d6dc; background: #fff; }
+    .user-tag {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16,185,129,.2);
+    }
+
+    /* MAIN CONTENT */
+    .content {
+      max-width: 1280px;
+      margin: auto;
+      padding: 28px 32px 64px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b3440 0%, #0e4c5b 70%, #10596b 100%);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 28px;
+    }
+    .heroCopy {
+      padding: 40px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .ey {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      color: #4ee0e8;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: clamp(30px, 3.6vw, 44px);
+      line-height: 1.1;
+      margin: 0 0 12px;
+      color: #fff;
+      letter-spacing: -.035em;
+    }
+    .heroSub {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #c9e6eb;
+      margin: 0 0 20px;
+      max-width: 580px;
+    }
+    .count-grid {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .time-box {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-align: center;
+      min-width: 72px;
+    }
+    .time-box b {
+      display: block;
+      font-size: 24px;
+      color: #fff;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .time-box span {
+      font-size: 8.5px;
+      font-weight: 800;
+      color: #92d4dc;
+      letter-spacing: .08em;
+    }
+    .hero-note {
+      font-size: 11px;
+      color: #a3d2d9;
+    }
+
+    .heroRight {
+      background: rgba(0,0,0,.15);
+      border-left: 1px solid rgba(255,255,255,.1);
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .hero-stat-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .hero-stat-card b {
+      display: block;
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .hero-stat-card p {
+      margin: 0;
+      font-size: 12px;
+      color: #b9e0e5;
+      line-height: 1.5;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #00c4cc;
+      color: #083440;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 13px 20px;
+      border-radius: 11px;
+      transition: .15s;
+    }
+    .hero-cta:hover { background: #33e1e8; transform: translateY(-2px); }
+
+    /* SECTION HEADERS */
+    .sec-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 32px 0 16px;
+    }
+    .sec-head h2 {
+      font-size: 20px;
+      color: var(--navy);
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+    .sec-link {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--teal);
+    }
+
+    /* CLINICAL PROBLEMS CAROUSEL / GRID */
+    .cp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .cp-card-featured {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .cp-card-featured:hover {
+      transform: translateY(-4px);
+      border-color: #9cd4db;
+      box-shadow: var(--shadow-md);
+    }
+    .cp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .cp-tag {
+      font-size: 10px;
+      font-weight: 900;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .p0-badge {
+      font-size: 10px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fee2e2;
+    }
+    .cp-card-featured h3 {
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--navy);
+      margin: 0 0 10px;
+      letter-spacing: -.02em;
+    }
+    .cp-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-secondary);
+      margin: 0 0 16px;
+    }
+    .cp-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .domain-pill {
+      background: var(--teal-soft);
+      color: var(--teal);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 11px;
+    }
+    .cp-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-light);
+    }
+    .status-txt { font-size: 12px; font-weight: 700; color: var(--muted); }
+    .start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--teal);
+    }
+
+    /* MODULES GRID */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .mod-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: .2s;
+    }
+    .mod-box:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: #a0d4db;
+    }
+    .mod-icon {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+    .mod-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .mod-box h3 {
+      font-size: 16px;
+      color: var(--navy);
+      margin: 0;
+      letter-spacing: -.02em;
+    }
+    .mod-box p {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* VALUE BANNER */
+    .values-banner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      margin-top: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .val-item {
+      padding: 20px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+    .val-item:last-child { border-right: none; }
+    .val-item b {
+      display: block;
+      font-size: 13px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .val-item span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 1040px) {
+      .shell { grid-template-columns: 1fr; }
+      .side { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .heroRight { border-left: none; border-top: 1px solid rgba(255,255,255,.1); }
+      .module-grid { grid-template-columns: repeat(2, 1fr); }
+      .values-banner { grid-template-columns: repeat(2, 1fr); }
+      .val-item:nth-child(2) { border-right: none; }
+      .val-item:nth-child(1), .val-item:nth-child(2) { border-bottom: 1px solid var(--line); }
+    }
+    @media(max-width: 640px) {
+      .content { padding: 18px 16px 48px; }
+      .top { padding: 0 16px; }
+      .cp-grid, .module-grid, .values-banner { grid-template-columns: 1fr; }
+      .val-item { border-right: none; border-bottom: 1px solid var(--line); }
+      .val-item:last-child { border-bottom: none; }
+      .heroCopy { padding: 26px 20px; }
+      .heroRight { padding: 24px 20px; }
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- SIDEBAR NAVIGATION -->
+  <aside class="side">
+    <div class="brand">
+      <span class="mark">✚</span>
+      <div>
+        MEDUS
+        <small>Learn Deep. Think Clinically.</small>
+      </div>
+    </div>
+
+    <div class="lab">HỌC TẬP LÂM SÀNG</div>
+    <a class="nav on" href="./">
+      <span class="navIcon">⌂</span> Trang chủ
+    </a>
+    <a class="nav" href="hoc/">
+      <span class="navIcon">📖</span> MEDUS Learn <span class="pill live">LIVE</span>
+    </a>
+    <a class="nav" href="qbank/">
+      <span class="navIcon">📝</span> QBank <span class="pill demo">DEMO</span>
+    </a>
+    <a class="nav" href="cases/">
+      <span class="navIcon">👥</span> Clinical Cases <span class="pill demo">DEMO</span>
+    </a>
+    <a class="nav" href="mock/">
+      <span class="navIcon">⏱️</span> Mock Exam <span class="pill demo">DEMO</span>
+    </a>
+
+    <div class="lab">TIẾN TRÌNH & NĂNG LỰC</div>
+    <a class="nav" href="mastery/">
+      <span class="navIcon">📊</span> Mastery Tracking <span class="pill demo">DEMO</span>
+    </a>
+    <div class="nav" style="opacity: .6;">
+      <span class="navIcon">✦</span> Smart Review <span class="pill soon">SOON</span>
+    </div>
+
+    <div class="side-footer">
+      <b>Học sâu · Hiểu bản chất</b>
+      Mỗi quyết định đều dựa trên bằng chứng &amp; chuỗi lập luận lâm sàng.
+    </div>
+  </aside>
+
+  <!-- MAIN VIEWPORT -->
+  <div style="min-width: 0;">
+    <header class="top">
+      <a class="search-box" href="hoc/">
+        <span>⌕</span>
+        <span>Tra cứu vấn đề lâm sàng, triệu chứng, bệnh sử, xử trí…</span>
+      </a>
+      <div class="user-tag">
+        <span class="status-dot"></span>
+        <span>MEDUS Clinical Learner</span>
+      </div>
+    </header>
+
+    <main class="content">
+      <!-- HERO TARGET COUNTDOWN -->
+      <section class="hero">
+        <div class="heroCopy">
+          <div class="ey">MỤC TIÊU HUẤN LUYỆN LÂM SÀNG</div>
+          <h1>KỲ ĐÁNH GIÁ NĂNG LỰC Y KHOA 2027</h1>
+          <p class="heroSub">Hệ thống học tập lâm sàng chuẩn hóa 13 bước: chuyển hóa từ lý thuyết ghi nhớ sang phản xạ ra quyết định điều trị chính xác.</p>
+          <div class="count-grid">
+            <div class="time-box"><b id="d">—</b><span>NGÀY</span></div>
+            <div class="time-box"><b id="h">—</b><span>GIỜ</span></div>
+            <div class="time-box"><b id="m">—</b><span>PHÚT</span></div>
+            <div class="time-box"><b id="s">—</b><span>GIÂY</span></div>
+          </div>
+          <div class="hero-note">Mốc mục tiêu: <b>01/12/2027</b> · Dành cho lộ trình chuẩn bị và tự luyện năng lực y khoa.</div>
+        </div>
+
+        <div class="heroRight">
+          <div class="hero-stat-card">
+            <b>13 Bước Tiếp Cận Chuẩn Hóa</b>
+            <p>Safety Gate, Red Flags, Sinh lý bệnh, Khám, CLS, Chuỗi quyết định IF-THEN và Bảng kiểm thực hành.</p>
+          </div>
+          <a class="hero-cta" href="hoc/">Vào Thư Viện Bài Học →</a>
+        </div>
+      </section>
+
+      <!-- FEATURED CLINICAL PROBLEMS -->
+      <div class="sec-head">
+        <h2>VẤN ĐỀ LÂM SÀNG ƯU TIÊN (CLINICAL PROBLEMS)</h2>
+        <a class="sec-link" href="hoc/">Xem toàn bộ bài học →</a>
+      </div>
+
+      <div class="cp-grid">
+        <!-- CP 03: Đau ngực -->
+        <article class="cp-card-featured">
+          <div>
+            <div class="cp-header">
+              <span class="cp-tag">Clinical Problem #03</span>
+              <span class="p0-badge">⚡ Khẩn / Cấp cứu</span>
+            </div>
+            <h3>Tiếp cận bệnh nhân đau ngực</h3>
+            <p class="cp-desc">Loại trừ khẩn cấp Big 5 đe dọa tính mạng (ACS, Bóc tách ĐMC, PE, Tràn khí áp lực, Vỡ thực quản), phân nhánh quyết định ECG &amp; Troponin serial.</p>
+            <div class="cp-meta-row">
+              <span class="domain-pill">🏥 Tim mạch &amp; Cấp cứu</span>
+              <span style="font-size: 11px; color: var(--muted); font-weight: 600;">⏱ ~20 phút</span>
+            </div>
+          </div>
+          <div class="cp-footer">
+            <span class="status-txt">11/13 mục đã duyệt</span>
+            <a class="start-btn" href="hoc/?slug=tiep-can-benh-nhan-dau-nguc">Học bài này →</a>
+          </div>
+        </article>
+
+        <!-- CP 02: Sốt -->
+        <article class="cp-card-featured">
+          <div>
+            <div class="cp-header">
+              <span class="cp-tag">Clinical Problem #02</span>
+              <span class="p0-badge">⚡ Khẩn / Cấp cứu</span>
+            </div>
+            <h3>Tiếp cận bệnh nhân sốt</h3>
+            <p class="cp-desc">Nhận diện sớm nhiễm trùng huyết, shock nhiễm khuẩn, dấu hiệu cứng cổ/viêm màng não và phân tầng xử trí kháng sinh theo bối cảnh.</p>
+            <div class="cp-meta-row">
+              <span class="domain-pill">🏥 Truyền nhiễm &amp; Miễn dịch</span>
+              <span style="font-size: 11px; color: var(--muted); font-weight: 600;">⏱ ~15 phút</span>
+            </div>
+          </div>
+          <div class="cp-footer">
+            <span class="status-txt">8/13 mục đã duyệt</span>
+            <a class="start-btn" href="hoc/?slug=tiep-can-benh-nhan-sot">Học bài này →</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- CORE MODULES -->
+      <div class="sec-head">
+        <h2>HỆ SINH THÁI MEDUS</h2>
+      </div>
+
+      <div class="module-grid">
+        <a class="mod-box" href="hoc/">
+          <div class="mod-icon">📖</div>
+          <div class="mod-title-row">
+            <h3>MEDUS Learn</h3>
+            <span class="pill live">LIVE</span>
+          </div>
+          <p>Chuỗi bài học 13 bước, thẻ Red flags cảnh báo và chuỗi quyết định lâm sàng.</p>
+        </a>
+
+        <a class="mod-box" href="qbank/">
+          <div class="mod-icon">📝</div>
+          <div class="mod-title-row">
+            <h3>QBank</h3>
+            <span class="pill demo">DEMO</span>
+          </div>
+          <p>Hệ thống câu hỏi trắc nghiệm Apply+ giải thích chuyên sâu từng phương án.</p>
+        </a>
+
+        <a class="mod-box" href="cases/">
+          <div class="mod-icon">👥</div>
+          <div class="mod-title-row">
+            <h3>Clinical Cases</h3>
+            <span class="pill demo">DEMO</span>
+          </div>
+          <p>Mô phỏng ca bệnh theo diễn tiến thời gian thực và phân nhánh quyết định.</p>
+        </a>
+
+        <a class="mod-box" href="mastery/">
+          <div class="mod-icon">📊</div>
+          <div class="mod-title-row">
+            <h3>Mastery</h3>
+            <span class="pill demo">DEMO</span>
+          </div>
+          <p>Theo dõi năng lực theo chuẩn Blueprint và phát hiện lỗ hổng kiến thức.</p>
+        </a>
+      </div>
+
+      <!-- VALUES -->
+      <div class="values-banner">
+        <div class="val-item">
+          <b>⚕ Evidence-Based</b>
+          <span>Nguồn y văn chuẩn mực &amp; Duyệt y khoa</span>
+        </div>
+        <div class="val-item">
+          <b>🧠 Clinical Reasoning</b>
+          <span>Tập trung vào logic ra quyết định</span>
+        </div>
+        <div class="val-item">
+          <b>🚨 Safety Gate</b>
+          <span>Ưu tiên hàng đầu cho an toàn bệnh nhân</span>
+        </div>
+        <div class="val-item">
+          <b>✓ Exam &amp; Practice Ready</b>
+          <span>Sẵn sàng cho cả kỳ thi và thực hành</span>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+  const T = new Date('2027-12-01T08:00:00+07:00').getTime();
+  function tick() {
+    const now = Date.now();
+    let x = Math.max(0, T - now);
+    const d = Math.floor(x / 86400000);
+    x %= 86400000;
+    const h = Math.floor(x / 3600000);
+    x %= 3600000;
+    const m = Math.floor(x / 60000);
+    const s = Math.floor((x % 60000) / 1000);
+
+    const dEl = document.getElementById('d');
+    const hEl = document.getElementById('h');
+    const mEl = document.getElementById('m');
+    const sEl = document.getElementById('s');
+
+    if (dEl) dEl.textContent = d;
+    if (hEl) hEl.textContent = String(h).padStart(2, '0');
+    if (mEl) mEl.textContent = String(m).padStart(2, '0');
+    if (sEl) sEl.textContent = String(s).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
