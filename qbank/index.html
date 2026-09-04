@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="MEDUS QBank — Ngân hàng câu hỏi trắc nghiệm lâm sàng Apply+ và giải thích chuyên sâu từng phương án.">
-  <title>MEDUS QBank — Ngân Hàng Câu Hỏi Lâm Sàng Apply+</title>
+  <meta name="description" content="MEDUS QBank — Ngân hàng câu hỏi trắc nghiệm lâm sàng Apply+ chuẩn Test Blueprint QĐ 22/QĐ-HĐYKQG 2026.">
+  <title>MEDUS QBank — Chuẩn Test Blueprint QĐ 22/QĐ-HĐYKQG 2026</title>
   <style>
     :root {
       --navy: #092c35;
@@ -37,7 +37,7 @@
     a { text-decoration: none; color: inherit; }
 
     .wrap {
-      max-width: 1080px;
+      max-width: 1180px;
       margin: auto;
       padding: 0 24px;
     }
@@ -97,64 +97,82 @@
       color: var(--teal);
     }
 
-    /* EXAM CONTROL BAR */
-    .exam-control-bar {
+    /* BLUEPRINT HEADER */
+    .blueprint-header {
       margin: 28px 0 20px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 14px 20px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      box-shadow: var(--shadow-sm);
+      align-items: flex-end;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
     }
-    .topic-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .blueprint-title h1 {
+      font-size: 26px;
+      font-weight: 950;
+      color: var(--navy);
+      letter-spacing: -.03em;
+      margin: 4px 0 6px;
     }
-    .topic-badge {
+    .blueprint-title p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--ink-secondary);
+    }
+    .legal-badge {
       font-size: 10px;
       font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: var(--navy);
-      color: #fff;
-      padding: 4px 8px;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 4px 9px;
       border-radius: 6px;
-    }
-    .topic-title {
-      font-size: 14.5px;
-      font-weight: 850;
-      color: var(--navy);
-    }
-    .exam-meta-controls {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .timer-display {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13.5px;
-      font-weight: 900;
-      color: var(--navy);
-      background: var(--teal-soft);
-      padding: 6px 12px;
-      border-radius: 8px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 4px;
     }
 
-    /* MAIN QUESTION CARD (UWORLD STYLE) */
+    /* TOPIC FILTERS TABS */
+    .topic-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .filter-btn {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+      cursor: pointer;
+      transition: .15s ease;
+    }
+    .filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .filter-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    /* MAIN EXAM LAYOUT (GRID: NAV PALETTE + QUESTION ARENA) */
+    .exam-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+
+    /* QUESTION ARENA */
     .question-arena {
       background: #fff;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       padding: 36px;
       box-shadow: var(--shadow-md);
-      margin-bottom: 40px;
     }
     .q-header {
       display: flex;
@@ -179,8 +197,8 @@
       border: 1px solid var(--line);
     }
     .q-stem {
-      font-size: 17.5px;
-      line-height: 1.68;
+      font-size: 17px;
+      line-height: 1.7;
       font-weight: 650;
       color: var(--ink);
       margin-bottom: 28px;
@@ -250,7 +268,7 @@
       color: #fff;
     }
     .option-text {
-      font-size: 15px;
+      font-size: 14.5px;
       line-height: 1.55;
       color: var(--ink);
       font-weight: 600;
@@ -292,11 +310,11 @@
     }
     .btn-next:hover { background: #007680; }
 
-    /* DETAILED EXPLANATION DRAWER (AMBOSS / UWORLD STYLE) */
+    /* DETAILED EXPLANATION DRAWER */
     .explanation-box {
       display: none;
       margin-top: 32px;
-      padding: 28px;
+      padding: 26px;
       background: #f8fafc;
       border: 1.5px solid #e2e8f0;
       border-radius: var(--radius-md);
@@ -308,7 +326,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .result-badge {
       font-size: 11px;
@@ -322,41 +340,41 @@
     .result-badge.incorrect { background: #fee2e2; color: #b91c1c; }
 
     .exp-section-title {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 900;
       color: var(--navy);
       letter-spacing: .04em;
       text-transform: uppercase;
-      margin: 20px 0 8px;
+      margin: 18px 0 8px;
     }
     .takeaway-box {
       background: #eff6ff;
       border-left: 4px solid #3b82f6;
       padding: 14px 18px;
       border-radius: 0 10px 10px 0;
-      font-size: 14.5px;
+      font-size: 14px;
       line-height: 1.6;
       color: #1e3a8a;
       font-weight: 650;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .option-breakdown {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
     .option-exp-item {
-      padding: 12px 16px;
+      padding: 12px 14px;
       background: #fff;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      font-size: 13.5px;
+      font-size: 13px;
       line-height: 1.6;
     }
     .option-exp-item b { color: var(--navy); }
     .learn-link-box {
-      margin-top: 24px;
+      margin-top: 22px;
       padding: 14px 18px;
       background: #f0fdfa;
       border: 1px solid #99f6e4;
@@ -366,11 +384,80 @@
       align-items: center;
     }
 
-    /* COMPLETE SUMMARY VIEW */
+    /* QUESTION GRID NAVIGATOR (SIDEBAR) */
+    .nav-sidebar {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 90px;
+    }
+    .sidebar-head {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .q-grid-palette {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .q-num-btn {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-size: 12px;
+      font-weight: 850;
+      color: var(--ink-secondary);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: .15s ease;
+    }
+    .q-num-btn:hover { border-color: var(--teal); }
+    .q-num-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+    .q-num-btn.done-correct {
+      background: #ecfdf5;
+      color: #15803d;
+      border-color: #a7f3d0;
+    }
+    .q-num-btn.done-incorrect {
+      background: #fef2f2;
+      color: #b91c1c;
+      border-color: #fecaca;
+    }
+
+    .palette-legend {
+      border-top: 1px solid var(--line-light);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .legend-item { display: flex; align-items: center; gap: 8px; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+    /* SUMMARY VIEW */
     .summary-view {
       display: none;
       text-align: center;
       padding: 40px 20px;
+      grid-column: 1 / -1;
     }
     .score-circle {
       width: 110px;
@@ -395,7 +482,7 @@
     .weak-breakdown {
       display: grid;
       gap: 10px;
-      max-width: 600px;
+      max-width: 680px;
       margin: 24px auto;
       text-align: left;
     }
@@ -409,10 +496,9 @@
       align-items: center;
     }
 
-    @media(max-width: 700px) {
-      .question-arena { padding: 22px 18px; }
-      .q-stem { font-size: 16px; }
-      .exam-control-bar { flex-direction: column; align-items: flex-start; }
+    @media(max-width: 900px) {
+      .exam-layout { grid-template-columns: 1fr; }
+      .nav-sidebar { position: static; }
       .nav-links { display: none; }
     }
   </style>
@@ -429,7 +515,7 @@
     <div class="nav-links">
       <a class="nav-item" href="../hoc/">Thư Viện Bài Học</a>
       <a class="nav-item" href="../review/">Smart Review</a>
-      <a class="nav-item active" href="./">QBank</a>
+      <a class="nav-item active" href="./">QBank Blueprint</a>
       <a class="nav-item" href="../cases/">Clinical Cases</a>
       <a class="nav-item" href="../mastery/">Năng Lực Mastery</a>
     </div>
@@ -441,83 +527,113 @@
 </nav>
 
 <main class="wrap">
-  <!-- CONTROL BAR -->
-  <div class="exam-control-bar">
-    <div class="topic-info">
-      <span class="topic-badge" id="topicBadge">CLINICAL PROBLEM #03</span>
-      <span class="topic-title" id="topicTitle">Tiếp Cận Bệnh Nhân Đau Ngực (Apply+ Set)</span>
+  <!-- BLUEPRINT HEADER -->
+  <header class="blueprint-header">
+    <div class="blueprint-title">
+      <span class="legal-badge">CHUẨN QUYẾT ĐỊNH 22/QĐ-HĐYKQG 2026</span>
+      <h1>Ngân Hàng Câu Hỏi Lâm Sàng Apply+</h1>
+      <p>Luyện câu hỏi trắc nghiệm định hướng tình huống thực tế, phân bổ theo ma trận đề thi Hội đồng Y khoa Quốc gia.</p>
     </div>
+  </header>
 
-    <div class="exam-meta-controls">
-      <div class="timer-display">⏱ <span id="timerTxt">00:00</span></div>
-      <span style="font-size: 12.5px; font-weight: 800; color: var(--muted);" id="qNavIndex">Câu 1 / 5</span>
-    </div>
+  <!-- TOPIC FILTERS -->
+  <div class="topic-filters" id="topicFilters">
+    <button class="filter-btn active" onclick="filterCategory('ALL')">Tất Cả Câu Hỏi (All Blueprint)</button>
+    <button class="filter-btn" onclick="filterCategory('CARDIO')">Tim Mạch &amp; Cấp Cứu (CP03)</button>
+    <button class="filter-btn" onclick="filterCategory('RESP')">Hô Hấp &amp; Khó Thở (CP01)</button>
+    <button class="filter-btn" onclick="filterCategory('INFECT')">Truyền Nhiễm &amp; Sốt (CP02)</button>
+    <button class="filter-btn" onclick="filterCategory('GI')">Tiêu Hóa &amp; Bụng Cấp (CP04)</button>
+    <button class="filter-btn" onclick="filterCategory('SHOCK')">Hồi Sức &amp; Sốc (CP05)</button>
   </div>
 
-  <!-- QUESTION ARENA -->
-  <div class="question-arena" id="arenaBox">
-    <div class="q-header">
-      <div class="q-chips">
-        <span class="chip" id="chipSection">Safety Gate &amp; Red Flags</span>
-        <span class="chip" id="chipBloom">Bloom: Áp dụng</span>
-        <span class="chip" id="chipComp">Chăm sóc Y khoa</span>
-      </div>
-      <div style="font-size: 11px; font-weight: 850; color: var(--muted);" id="qId">QID: CP03-AP01</div>
-    </div>
-
-    <div class="q-stem" id="qStem">Đang tải câu hỏi...</div>
-
-    <div class="options-list" id="optionsList"></div>
-
-    <div class="q-actions">
-      <button class="btn-submit" id="btnSubmit" onclick="submitAnswer()" disabled>Xác Nhận Phương Án</button>
-      <button class="btn-next" id="btnNext" onclick="nextQuestion()">Câu Tiếp Theo →</button>
-    </div>
-
-    <!-- DETAILED EXPLANATION (POST SUBMIT) -->
-    <div class="explanation-box" id="explanationBox">
-      <div class="exp-header">
-        <span class="result-badge" id="resBadge">CHÍNH XÁC</span>
-        <span style="font-size: 13px; color: var(--ink-secondary); font-weight: 700;" id="peerStats">82% học viên chọn đúng phương án này</span>
-      </div>
-
-      <div class="exp-section-title">💡 Điểm Then Chốt Lâm Sàng (Key Clinical Takeaway)</div>
-      <div class="takeaway-box" id="takeawayBox">...</div>
-
-      <div class="exp-section-title">Phân Tích Từng Phương Án (Options Rationale)</div>
-      <div class="option-breakdown" id="optionBreakdown"></div>
-
-      <div class="learn-link-box">
-        <div>
-          <b style="color: var(--navy); font-size: 13px;">Chưa vững phần kiến thức này?</b>
-          <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Mở lại phần bài học đã được Medical Review để đọc sâu cơ chế.</div>
+  <!-- EXAM LAYOUT -->
+  <div class="exam-layout">
+    <!-- LEFT: QUESTION ARENA -->
+    <div class="question-arena" id="arenaBox">
+      <div class="q-header">
+        <div class="q-chips">
+          <span class="chip" id="chipTopic">CP 03 · Đau ngực</span>
+          <span class="chip" id="chipSection">Safety Gate</span>
+          <span class="chip" id="chipBloom">Bloom: Áp dụng</span>
+          <span class="chip" id="chipComp">Chẩn đoán &amp; Xử trí</span>
         </div>
-        <a id="learnRefBtn" href="../hoc/?slug=tiep-can-benh-nhan-dau-nguc" style="font-size: 12.5px; font-weight: 900; color: var(--teal);">Mở Section Bài Học →</a>
+        <div style="font-size: 11px; font-weight: 850; color: var(--muted);" id="qId">QID: CP03-AP01</div>
+      </div>
+
+      <div class="q-stem" id="qStem">Đang tải tình huống lâm sàng...</div>
+
+      <div class="options-list" id="optionsList"></div>
+
+      <div class="q-actions">
+        <button class="btn-submit" id="btnSubmit" onclick="submitAnswer()" disabled>Xác Nhận Phương Án</button>
+        <button class="btn-next" id="btnNext" onclick="nextQuestion()">Câu Tiếp Theo →</button>
+      </div>
+
+      <!-- DETAILED EXPLANATION DRAWER -->
+      <div class="explanation-box" id="explanationBox">
+        <div class="exp-header">
+          <span class="result-badge" id="resBadge">CHÍNH XÁC</span>
+          <span style="font-size: 13px; color: var(--ink-secondary); font-weight: 700;" id="peerStats">88% học viên chọn đúng</span>
+        </div>
+
+        <div class="exp-section-title">💡 Điểm Then Chốt Lâm Sàng (Key Clinical Takeaway)</div>
+        <div class="takeaway-box" id="takeawayBox">...</div>
+
+        <div class="exp-section-title">Phân Tích Từng Phương Án (Options Rationale)</div>
+        <div class="option-breakdown" id="optionBreakdown"></div>
+
+        <div class="learn-link-box">
+          <div>
+            <b style="color: var(--navy); font-size: 13px;">Chưa vững phần kiến thức này?</b>
+            <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Mở lại phần bài học đã được Medical Review để đọc sâu cơ chế.</div>
+          </div>
+          <a id="learnRefBtn" href="../hoc/?slug=tiep-can-benh-nhan-dau-nguc" style="font-size: 12.5px; font-weight: 900; color: var(--teal);">Mở Section Bài Học →</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- COMPLETE SUMMARY -->
-  <div class="question-arena summary-view" id="summaryView">
-    <div class="score-circle" id="scoreCircle">
-      <div class="score-inner" id="scoreText">4/5</div>
-    </div>
-    <h2 style="font-size: 26px; color: var(--navy); margin-bottom: 8px;">Hoàn Thành Lượt Làm Bài QBank!</h2>
-    <p style="color: var(--ink-secondary); font-size: 14px; margin-bottom: 24px;">Hệ thống đã phân tích các lỗ hổng kiến thức và gợi ý section cần ôn luyện.</p>
+    <!-- RIGHT: QUESTION NAVIGATOR PALETTE -->
+    <aside class="nav-sidebar">
+      <div class="sidebar-head">
+        <span>BẢNG CÂU HỎI</span>
+        <span style="font-size: 11px; color: var(--muted);" id="progressText">1 / 5</span>
+      </div>
 
-    <div class="weak-breakdown" id="weakBreakdown"></div>
+      <div class="q-grid-palette" id="qPalette"></div>
 
-    <div style="display: flex; justify-content: center; gap: 12px; margin-top: 28px;">
-      <a class="btn-submit" href="../review/">Ôn Lại Thẻ Flashcards →</a>
-      <a class="btn-next" style="display: inline-block;" href="../cases/">Thử Clinical Cases →</a>
+      <div class="palette-legend">
+        <div class="legend-item"><span class="legend-dot" style="background: var(--navy);"></span> Đang làm</div>
+        <div class="legend-item"><span class="legend-dot" style="background: #10b981;"></span> Đã làm (Đúng)</div>
+        <div class="legend-item"><span class="legend-dot" style="background: #ef4444;"></span> Đã làm (Sai)</div>
+        <div class="legend-item"><span class="legend-dot" style="background: var(--line);"></span> Chưa làm</div>
+      </div>
+    </aside>
+
+    <!-- SUMMARY VIEW -->
+    <div class="question-arena summary-view" id="summaryView">
+      <div class="score-circle" id="scoreCircle">
+        <div class="score-inner" id="scoreText">4/5</div>
+      </div>
+      <h2 style="font-size: 26px; color: var(--navy); margin-bottom: 8px;">Hoàn Thành Bài Thi Trắc Nghiệm QBank!</h2>
+      <p style="color: var(--ink-secondary); font-size: 14px; margin-bottom: 24px;">Hệ thống đã phân tích các lỗ hổng kiến thức theo ma trận năng lực.</p>
+
+      <div class="weak-breakdown" id="weakBreakdown"></div>
+
+      <div style="display: flex; justify-content: center; gap: 12px; margin-top: 28px;">
+        <a class="btn-submit" href="../review/">Ôn Smart Review →</a>
+        <a class="btn-next" style="display: inline-block;" href="../cases/">Thử Clinical Cases →</a>
+      </div>
     </div>
   </div>
 </main>
 
 <script>
-  const qbankData = [
+  // EXPANDED QUESTION BANK MATRIX (TEST BLUEPRINT 2026)
+  const fullQBank = [
+    // 1. CARDIO / CHEST PAIN (CP03)
     {
       id: 'CP03-AP01',
+      cat: 'CARDIO',
       problem: 'Tiếp Cận Bệnh Nhân Đau Ngực',
       section: 'Safety Gate & Red Flags',
       bloom: 'Áp dụng',
@@ -542,6 +658,7 @@
     },
     {
       id: 'CP03-AP02',
+      cat: 'CARDIO',
       problem: 'Tiếp Cận Bệnh Nhân Đau Ngực',
       section: 'Decision Points & Investigations',
       bloom: 'Phân tích',
@@ -564,8 +681,38 @@
       ],
       learnRef: '../hoc/?slug=tiep-can-benh-nhan-dau-nguc#decision_points'
     },
+
+    // 2. RESP / DYSPNEA (CP01)
     {
-      id: 'CP02-AP03',
+      id: 'CP01-AP01',
+      cat: 'RESP',
+      problem: 'Tiếp Cận Bệnh Nhân Khó Thở Cấp',
+      section: 'Safety Gate & Red Flags',
+      bloom: 'Áp dụng',
+      comp: 'Hồi sức Cấp cứu',
+      stem: 'Bệnh nhân nam 22 tuổi, thể trạng cao gầy, đột ngột khó thở dữ dội kèm đau nhói ngực phải sau khi gắng sức. Khám: SpO2 88%, HA 85/50 mmHg, tĩnh mạch cổ nổi, khí quản bị đẩy lệch sang trái, rì rào phế nang phổi phải mất hoàn toàn. Xử trí cấp cứu ban đầu khẩn cấp nhất là gì?',
+      options: [
+        'Chuyển bệnh nhân đi chụp X-quang ngực thẳng khẩn cấp',
+        'Chọc kim giải áp khoang màng phổi phải ngay lập tức tại khoang liên sườn II đường trung đòn hoặc liên sườn IV/V đường nách trước',
+        'Đặt ống nội khí quản và bóp bóng tăng thông khí ngay',
+        'Truyền nhanh 2000ml dịch tinh thể và tiêm Furosemide tĩnh mạch'
+      ],
+      correct: 1,
+      peer: '93% chọn đúng',
+      takeaway: 'Tràn khí màng phổi áp lực (Tension Pneumothorax) kèm tụt huyết áp là CHẨN ĐOÁN LÂM SÀNG CẤP CỨU. Tuyệt đối KHÔNG chờ chụp X-quang mà phải chọc kim giải áp ngay lập tức để cứu sống người bệnh.',
+      rationale: [
+        '<b>A. Sai:</b> Chờ chụp X-quang ở bệnh nhân tụt HA sẽ làm bệnh nhân ngừng tim do giảm hồi lưu tĩnh mạch về tim.',
+        '<b>B. ĐÚNG:</b> Chọc kim giải áp biến tràn khí áp lực thành tràn khí hở, giải phóng chèn ép trung thất và phục hồi huyết động ngay tức thì.',
+        '<b>C. Sai:</b> Thông khí áp lực dương qua nội khí quản khi chưa giải áp màng phổi sẽ làm tràn khí nặng hơn và trụy mạch tử vong.',
+        '<b>D. Sai:</b> Đây là sốc tắc nghẽn (Obstructive shock), không phải suy tim hay sốc giảm thể tích.'
+      ],
+      learnRef: '../hoc/?slug=tiep-can-benh-nhan-dau-nguc#safety_gate'
+    },
+
+    // 3. INFECT / FEVER (CP02)
+    {
+      id: 'CP02-AP01',
+      cat: 'INFECT',
       problem: 'Tiếp Cận Bệnh Nhân Sốt',
       section: 'Safety Gate & Sepsis',
       bloom: 'Áp dụng',
@@ -587,30 +734,82 @@
         '<b>D. Sai:</b> Trì hoãn vận mạch ở bệnh nhân sốc sẽ dẫn đến suy đa cơ quan không hồi phục.'
       ],
       learnRef: '../hoc/?slug=tiep-can-benh-nhan-sot#safety_gate'
+    },
+
+    // 4. GI / ACUTE ABDOMEN (CP04)
+    {
+      id: 'CP04-AP01',
+      cat: 'GI',
+      problem: 'Tiếp Cận Đau Bụng Cấp',
+      section: 'Safety Gate & Red Flags',
+      bloom: 'Phân tích',
+      comp: 'Ngoại khoa & Cấp cứu',
+      stem: 'Bệnh nhân nam 45 tuổi có tiền sử loét dạ dày tá tràng, đột ngột đau bụng dữ dội như dao đâm vùng thượng vị lúc đang làm việc, sau đó lan ra khắp bụng. Khám: Bụng cứng như gỗ, co cứng thành bụng toàn thể, gõ mất vùng đục trước gan. Chẩn đoán lâm sàng nghi ngờ hàng đầu là gì?',
+      options: [
+        'Viêm tụy cấp thể phù nề',
+        'Thủng tạng rỗng (Thủng ổ loét dạ dày - tá tràng) gây viêm phúc mạc toàn thể',
+        'Cơn đau quặn thận phải do sỏi niệu quản',
+        'Nhồi máu mạc treo ruột giai đoạn sớm'
+      ],
+      correct: 1,
+      peer: '94% chọn đúng',
+      takeaway: 'Khởi phát đột ngột đau như dao đâm + Bụng gồng cứng như gỗ + Mất vùng đục trước gan là tam chứng điển hình của Thủng tạng rỗng gây tràn khí và dịch tiêu hóa vào khoang phúc mạc.',
+      rationale: [
+        '<b>A. Sai:</b> Viêm tụy cấp đau lan sau lưng, bụng thường chướng và đề kháng thượng vị, hiếm khi gồng cứng như gỗ ngay từ đầu.',
+        '<b>B. ĐÚNG:</b> Cấp cứu ngoại khoa cần chụp X-quang bụng đứng tìm liềm hơi dưới hoành và phẫu thuật khẩn cấp.',
+        '<b>C. Sai:</b> Đau quặn thận đau quặn từng cơn lan xuống bẹn, không có viêm phúc mạc toàn thể.',
+        '<b>D. Sai:</b> Nhồi máu mạc treo giai đoạn sớm đặc trưng bởi đau dữ dội nhưng khám bụng mềm (bất tương xứng giữa triệu chứng cơ năng và thực thể).'
+      ],
+      learnRef: '../hoc/?slug=tiep-can-benh-nhan-dau-nguc#safety_gate'
     }
   ];
 
-  let currentQIdx = 0;
-  let selectedOption = null;
-  let userAnswers = [];
-  let timerSeconds = 0;
-  let timerInterval = null;
+  let currentCategory = 'ALL';
+  let activeQuestions = [...fullQBank];
+  let currentIdx = 0;
+  let selectedOpt = null;
+  let userAnswersMap = {}; // qId -> { selected, isCorrect }
 
-  function startTimer() {
-    timerInterval = setInterval(() => {
-      timerSeconds++;
-      const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
-      const s = String(timerSeconds % 60).padStart(2, '0');
-      document.getElementById('timerTxt').textContent = `${m}:${s}`;
-    }, 1000);
+  function filterCategory(cat) {
+    currentCategory = cat;
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    if (cat === 'ALL') {
+      activeQuestions = [...fullQBank];
+    } else {
+      activeQuestions = fullQBank.filter(q => q.cat === cat);
+    }
+    currentIdx = 0;
+    renderPalette();
+    loadQuestion(0);
+  }
+
+  function renderPalette() {
+    const pal = document.getElementById('qPalette');
+    pal.innerHTML = activeQuestions.map((q, idx) => {
+      const ans = userAnswersMap[q.id];
+      let cls = 'q-num-btn';
+      if (idx === currentIdx) cls += ' active';
+      if (ans) {
+        cls += ans.isCorrect ? ' done-correct' : ' done-incorrect';
+      }
+      return `<button class="${cls}" onclick="jumpToQuestion(${idx})">${idx + 1}</button>`;
+    }).join('');
+    document.getElementById('progressText').textContent = `${currentIdx + 1} / ${activeQuestions.length}`;
+  }
+
+  function jumpToQuestion(idx) {
+    currentIdx = idx;
+    renderPalette();
+    loadQuestion(idx);
   }
 
   function loadQuestion(idx) {
-    const q = qbankData[idx];
-    selectedOption = null;
+    const q = activeQuestions[idx];
+    selectedOpt = null;
 
-    document.getElementById('topicTitle').textContent = `${q.problem} (Apply+ Set)`;
-    document.getElementById('qNavIndex').textContent = `Câu ${idx + 1} / ${qbankData.length}`;
+    document.getElementById('chipTopic').textContent = q.problem;
     document.getElementById('chipSection').textContent = q.section;
     document.getElementById('chipBloom').textContent = `Bloom: ${q.bloom}`;
     document.getElementById('chipComp').textContent = q.comp;
@@ -618,22 +817,38 @@
     document.getElementById('qStem').textContent = q.stem;
 
     const optContainer = document.getElementById('optionsList');
-    optContainer.innerHTML = q.options.map((opt, oIdx) => `
-      <div class="option-item" id="opt-${oIdx}" onclick="selectOpt(${oIdx})">
-        <div class="option-key">${String.fromCharCode(65 + oIdx)}</div>
-        <div class="option-text">${opt}</div>
-      </div>
-    `).join('');
+    const prevAns = userAnswersMap[q.id];
 
-    document.getElementById('btnSubmit').style.display = 'inline-block';
-    document.getElementById('btnSubmit').disabled = true;
-    document.getElementById('btnNext').style.display = 'none';
-    document.getElementById('explanationBox').style.display = 'none';
+    optContainer.innerHTML = q.options.map((opt, oIdx) => {
+      let cls = 'option-item';
+      if (prevAns) {
+        if (oIdx === q.correct) cls += ' correct';
+        if (oIdx === prevAns.selected && !prevAns.isCorrect) cls += ' incorrect';
+      }
+      return `
+        <div class="${cls}" id="opt-${oIdx}" onclick="selectOpt(${oIdx})">
+          <div class="option-key">${String.fromCharCode(65 + oIdx)}</div>
+          <div class="option-text">${opt}</div>
+        </div>
+      `;
+    }).join('');
+
+    if (prevAns) {
+      showExplanation(q, prevAns.isCorrect);
+      document.getElementById('btnSubmit').style.display = 'none';
+      document.getElementById('btnNext').style.display = 'inline-block';
+    } else {
+      document.getElementById('btnSubmit').style.display = 'inline-block';
+      document.getElementById('btnSubmit').disabled = true;
+      document.getElementById('btnNext').style.display = 'none';
+      document.getElementById('explanationBox').style.display = 'none';
+    }
   }
 
   function selectOpt(oIdx) {
-    if (document.getElementById('explanationBox').style.display === 'block') return; // already submitted
-    selectedOption = oIdx;
+    const q = activeQuestions[currentIdx];
+    if (userAnswersMap[q.id]) return; // already submitted
+    selectedOpt = oIdx;
     document.querySelectorAll('.option-item').forEach((el, idx) => {
       el.classList.toggle('selected', idx === oIdx);
     });
@@ -641,18 +856,24 @@
   }
 
   function submitAnswer() {
-    if (selectedOption === null) return;
-    const q = qbankData[currentQIdx];
-    const isCorrect = selectedOption === q.correct;
-    userAnswers.push({ q, selected: selectedOption, isCorrect });
+    if (selectedOpt === null) return;
+    const q = activeQuestions[currentIdx];
+    const isCorrect = selectedOpt === q.correct;
+    userAnswersMap[q.id] = { selected: selectedOpt, isCorrect, q };
 
     // Mark options UI
     document.querySelectorAll('.option-item').forEach((el, idx) => {
       if (idx === q.correct) el.classList.add('correct');
-      if (idx === selectedOption && !isCorrect) el.classList.add('incorrect');
+      if (idx === selectedOpt && !isCorrect) el.classList.add('incorrect');
     });
 
-    // Populate Explanation
+    showExplanation(q, isCorrect);
+    document.getElementById('btnSubmit').style.display = 'none';
+    document.getElementById('btnNext').style.display = 'inline-block';
+    renderPalette();
+  }
+
+  function showExplanation(q, isCorrect) {
     const badge = document.getElementById('resBadge');
     badge.textContent = isCorrect ? '✓ CHÍNH XÁC' : '✕ CHƯA CHÍNH XÁC';
     badge.className = `result-badge ${isCorrect ? 'correct' : 'incorrect'}`;
@@ -663,33 +884,32 @@
     document.getElementById('learnRefBtn').href = q.learnRef;
 
     document.getElementById('explanationBox').style.display = 'block';
-    document.getElementById('btnSubmit').style.display = 'none';
-    document.getElementById('btnNext').style.display = 'inline-block';
   }
 
   function nextQuestion() {
-    currentQIdx++;
-    if (currentQIdx < qbankData.length) {
-      loadQuestion(currentQIdx);
+    if (currentIdx + 1 < activeQuestions.length) {
+      currentIdx++;
+      renderPalette();
+      loadQuestion(currentIdx);
     } else {
       finishExam();
     }
   }
 
   function finishExam() {
-    clearInterval(timerInterval);
     document.getElementById('arenaBox').style.display = 'none';
+    document.querySelector('.nav-sidebar').style.display = 'none';
     document.getElementById('summaryView').style.display = 'block';
 
-    const correctCount = userAnswers.filter(a => a.isCorrect).length;
-    const total = userAnswers.length;
+    const answers = Object.values(userAnswersMap);
+    const correctCount = answers.filter(a => a.isCorrect).length;
+    const total = answers.length;
     const pct = Math.round((correctCount / total) * 100);
 
     document.getElementById('scoreText').textContent = `${correctCount}/${total}`;
     document.getElementById('scoreCircle').style.background = `conic-gradient(var(--teal) ${pct}%, #e2e8f0 ${pct}%)`;
 
-    // Weak areas
-    const missed = userAnswers.filter(a => !a.isCorrect);
+    const missed = answers.filter(a => !a.isCorrect);
     const weakBox = document.getElementById('weakBreakdown');
     if (missed.length) {
       weakBox.innerHTML = `
@@ -698,7 +918,7 @@
           <div class="weak-card">
             <div>
               <b style="color: var(--navy);">${m.q.problem} · ${m.q.section}</b>
-              <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Sai câu: ${m.q.id}</div>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Sai câu: ${m.q.id} (Mức ${m.q.bloom})</div>
             </div>
             <a href="${m.q.learnRef}" style="font-size: 12px; font-weight: 850; color: var(--teal);">Ôn Section →</a>
           </div>
@@ -707,15 +927,15 @@
     } else {
       weakBox.innerHTML = `
         <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 16px; border-radius: 12px; text-align: center; color: #065f46; font-weight: 750; font-size: 14px;">
-          🎉 Xuất sắc! Bạn đã trả lời đúng 100% các câu hỏi Apply+ trong bộ đề này.
+          🎉 Xuất sắc! Bạn đã trả lời đúng 100% các câu hỏi Apply+ trong lượt thi này.
         </div>
       `;
     }
   }
 
   // Init
+  renderPalette();
   loadQuestion(0);
-  startTimer();
 </script>
 </body>
 </html>
