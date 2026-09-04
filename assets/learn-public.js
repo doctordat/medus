@@ -339,18 +339,28 @@
     $('#catalogMode').style.display = 'block';
     $('#articleMode').style.display = 'none';
 
+    const localPkgs = window.MEDUS_LOCAL_PACKAGES || {};
     const { data: sectionRows, error: sErr } = await db.from('content_sections').select('clinical_problem_id,section_key').eq('medical_review_status', 'published');
-    if (sErr) return fail(sErr.message);
-
+    
     const counts = {};
     (sectionRows || []).forEach(x => counts[x.clinical_problem_id] = (counts[x.clinical_problem_id] || 0) + 1);
+
+    // Merge local packages count
+    Object.values(localPkgs).forEach(pkg => {
+      counts[pkg.id] = Object.keys(pkg.sections || {}).length || 13;
+    });
 
     const ids = Object.keys(counts).map(Number);
     if (!ids.length) return drawCatalog([], counts);
 
     const { data: problems } = await db.from('clinical_problems').select('id,slug,title,domain,priority,status').in('id', ids);
     const map = new Map((problems || []).map(x => [x.id, x]));
-    ids.forEach(id => { if (!map.has(id) && cfg.fallback[id]) map.set(id, cfg.fallback[id]); });
+    ids.forEach(id => { 
+      if (!map.has(id)) {
+        if (localPkgs[id]) map.set(id, localPkgs[id]);
+        else if (cfg.fallback[id]) map.set(id, cfg.fallback[id]);
+      }
+    });
 
     const items = [...map.values()].filter(x => counts[x.id] > 0).sort((a, b) => (b.priority || 0) - (a.priority || 0) || a.id - b.id);
     drawCatalog(items, counts);
@@ -409,13 +419,22 @@
     $('#catalogMode').style.display = 'none';
     $('#articleMode').style.display = 'block';
 
+    const localPkgs = window.MEDUS_LOCAL_PACKAGES || {};
+    const localPkg = Object.values(localPkgs).find(x => x.slug === slug);
+
     let problem = null;
     const { data: p } = await db.from('clinical_problems').select('id,slug,title,domain,status').eq('slug', slug).maybeSingle();
-    problem = p || Object.values(cfg.fallback).find(x => x.slug === slug) || null;
+    problem = p || localPkg || Object.values(cfg.fallback).find(x => x.slug === slug) || null;
     if (!problem) return articleMissing('Clinical Problem chưa public metadata hoặc slug không đúng.');
 
-    const { data: sections, error } = await db.from('content_sections').select('section_key,title,content_md,source_title,source_locator,updated_at').eq('clinical_problem_id', problem.id).eq('medical_review_status', 'published');
-    if (error) return articleMissing(error.message);
+    let sections = [];
+    if (localPkg && localPkg.sections) {
+      sections = Object.values(localPkg.sections);
+    } else {
+      const { data: secData, error } = await db.from('content_sections').select('section_key,title,content_md,source_title,source_locator,updated_at').eq('clinical_problem_id', problem.id).eq('medical_review_status', 'published');
+      if (error && !localPkg) return articleMissing(error.message);
+      sections = secData || [];
+    }
 
     const { data: resources } = await db.from('clinical_problem_resources').select('resource_type,title,url,alt_text,caption,access_level,section_key,sort_order').eq('clinical_problem_id', problem.id).eq('medical_review_status', 'published').eq('access_level', 'public').order('sort_order', { ascending: true });
     const { data: quizRows } = await db.from('questions').select('id,section_key,stem,option_a,option_b,option_c,option_d,competency,bloom,difficulty,status').eq('clinical_problem_id', problem.id).eq('status', 'published').order('updated_at', { ascending: false }).limit(6);
