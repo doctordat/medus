@@ -37,7 +37,7 @@
     a { text-decoration: none; color: inherit; }
 
     .wrap {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: auto;
       padding: 0 24px;
     }
@@ -97,14 +97,41 @@
       color: var(--teal);
     }
 
+    /* CASE SELECTOR TABS */
+    .case-selector-bar {
+      margin: 28px 0 20px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .case-tab-btn {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 12.5px;
+      font-weight: 850;
+      color: var(--ink-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: .15s;
+    }
+    .case-tab-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .case-tab-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
     /* CASE HEADER & TIMELINE */
     .case-header-box {
-      margin: 28px 0 20px;
       background: #fff;
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
       padding: 20px 24px;
       box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
     }
     .case-title-row {
       display: flex;
@@ -129,7 +156,6 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 8px;
-      margin-top: 10px;
     }
     .step-track {
       background: var(--bg);
@@ -211,7 +237,7 @@
     .case-scenario-card b { color: var(--navy); }
 
     .decision-prompt-title {
-      font-size: 18px;
+      font-size: 17.5px;
       font-weight: 900;
       color: var(--navy);
       letter-spacing: -.02em;
@@ -345,17 +371,24 @@
 </nav>
 
 <main class="wrap">
+  <!-- CASE SELECTOR BAR -->
+  <div class="case-selector-bar" id="caseSelector">
+    <button class="case-tab-btn active" onclick="switchCase(0)">🚨 Ca 1: Đau Ngực (Bóc Tách ĐMC)</button>
+    <button class="case-tab-btn" onclick="switchCase(1)">🫁 Ca 2: Khó Thở Cấp (Phù Phổi SCAPE)</button>
+    <button class="case-tab-btn" onclick="switchCase(2)">⚡ Ca 3: Sốc Nhiễm Khuẩn (Đường Mật)</button>
+  </div>
+
   <!-- CASE CONTROL & TIMELINE -->
   <div class="case-header-box">
     <div class="case-title-row">
       <div>
-        <span class="case-id-tag">🚨 CASE CP03-01 · TỐI KHẨN</span>
+        <span class="case-id-tag" id="caseTag">🚨 CASE CP03-01 · TỐI KHẨN</span>
         <h2 style="font-size: 20px; font-weight: 900; color: var(--navy); margin: 6px 0 0;" id="caseName">Cơn Đau Ngực Cấp Đe Dọa Tính Mạng</h2>
       </div>
       <div style="font-size: 12.5px; font-weight: 800; color: var(--muted);" id="stepCountTxt">Bước 1 / 5</div>
     </div>
 
-    <div class="timeline-steps">
+    <div class="timeline-steps" id="timelineTrack">
       <div class="step-track active" id="tr-0">1. Tiếp nhận Cấp cứu</div>
       <div class="step-track" id="tr-1">2. Chọn Cận lâm sàng</div>
       <div class="step-track" id="tr-2">3. Chẩn đoán Phân biệt</div>
@@ -416,8 +449,8 @@
   <div class="patient-arena debrief-view" id="debriefView">
     <div class="debrief-badge">🏆</div>
     <h2 style="font-size: 26px; color: var(--navy); margin-bottom: 8px;">Hoàn Thành Ca Lâm Sàng Xuất Sắc!</h2>
-    <p style="color: var(--ink-secondary); font-size: 15px; margin-bottom: 24px; max-width: 620px; margin: 0 auto 24px;">
-      Bạn đã hoàn tất toàn bộ chuỗi 5 bước tiếp cận người bệnh đau ngực cấp, nhận diện đúng bóc tách động mạch chủ và tránh được bẫy dùng thuốc tiêu sợi huyết/kháng đông.
+    <p style="color: var(--ink-secondary); font-size: 15px; margin-bottom: 24px; max-width: 620px; margin: 0 auto 24px;" id="debriefSummary">
+      Bạn đã hoàn tất toàn bộ chuỗi tiếp cận người bệnh, đưa ra các can thiệp chính xác và phòng tránh được các bẫy tử vong.
     </p>
 
     <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px;">
@@ -428,92 +461,225 @@
 </main>
 
 <script>
-  const caseSteps = [
+  const casesLibrary = [
+    // CASE 1: BÓC TÁCH ĐMC (CP 03)
     {
-      step: 1,
-      name: 'Tiếp nhận Cấp cứu & Khám ban đầu',
-      vitals: { bp: '185/105', hr: '118 l/p', rr: '24 l/p', spo2: '96%', temp: '37.0 °C', bpDanger: true },
-      scenario: '<b>Bối cảnh:</b> Bệnh nhân nam 62 tuổi, tiền sử tăng huyết áp không kiểm soát đều, được người nhà đưa vào phòng Cấp cứu lúc 02:00 sáng vì đột ngột đau ngực dữ dội như xé rách, lan ra sau lưng giữa hai xương bả vai. Bệnh nhân vã mồ hôi, bứt rứt, da niêm tái nhợt.',
-      prompt: 'Hành động ưu tiên ngay tại phút đầu tiên tiếp nhận bệnh nhân là gì?',
-      options: [
-        'Cho bệnh nhân ngậm 1 viên Nitroglycerin dưới lưỡi và chuyển phòng chụp X-quang thường quy',
-        'Mắc monitor theo dõi liên tục, lập 2 đường truyền tĩnh mạch lớn, đo HA cả 2 tay và làm ngay ECG 12 chuyển đạo tại giường',
-        'Tiêm bắp ngay Morphine 10mg và cho làm xét nghiệm bộ men tim Troponin I',
-        'Chỉ định tiêm thuốc tiêu sợi huyết vì nghi ngờ nhồi máu cơ tim cấp thành sau'
-      ],
-      correct: 1,
-      feedback: '<b>Chính xác:</b> Với đau ngực cấp có dấu hiệu nguy kịch, luôn ưu tiên ABCDE, mắc monitor, lập đường truyền, đo huyết áp 2 tay để tìm chênh lệch và đo ECG 12 chuyển đạo ngay tại giường trong vòng 10 phút đầu.'
+      id: 'CP03-01',
+      tag: '🚨 CASE CP03-01 · TỐI KHẨN',
+      title: 'Cơn Đau Ngực Cấp Đe Dọa Tính Mạng (Bóc Tách ĐMC)',
+      steps: [
+        {
+          name: '1. Tiếp nhận Cấp cứu',
+          vitals: { bp: '185/105', hr: '118 l/p', rr: '24 l/p', spo2: '96%', temp: '37.0 °C', bpDanger: true },
+          scenario: '<b>Bối cảnh:</b> Bệnh nhân nam 62 tuổi, tiền sử tăng huyết áp không kiểm soát đều, được người nhà đưa vào phòng Cấp cứu lúc 02:00 sáng vì đột ngột đau ngực dữ dội như xé rách, lan ra sau lưng giữa hai xương bả vai. Bệnh nhân vã mồ hôi, bứt rứt, da niêm tái nhợt.',
+          prompt: 'Hành động ưu tiên ngay tại phút đầu tiên tiếp nhận bệnh nhân là gì?',
+          options: [
+            'Cho bệnh nhân ngậm 1 viên Nitroglycerin dưới lưỡi và chuyển phòng chụp X-quang thường quy',
+            'Mắc monitor theo dõi liên tục, lập 2 đường truyền tĩnh mạch lớn, đo HA cả 2 tay và làm ngay ECG 12 chuyển đạo tại giường',
+            'Tiêm bắp ngay Morphine 10mg và cho làm xét nghiệm bộ men tim Troponin I',
+            'Chỉ định tiêm thuốc tiêu sợi huyết vì nghi ngờ nhồi máu cơ tim cấp thành sau'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Với đau ngực cấp có dấu hiệu nguy kịch, luôn ưu tiên ABCDE, mắc monitor, lập đường truyền, đo huyết áp 2 tay để tìm chênh lệch và đo ECG 12 chuyển đạo ngay tại giường trong vòng 10 phút đầu.'
+        },
+        {
+          name: '2. Chọn Cận lâm sàng',
+          vitals: { bp: 'T: 185/105 | P: 140/85', hr: '115 l/p', rr: '22 l/p', spo2: '97%', temp: '37.0 °C', bpDanger: true },
+          scenario: '<b>Diễn tiến:</b> Đo HA tay phải là 185/105 mmHg, tay trái là 140/85 mmHg (chênh lệch 45 mmHg). ECG 12 chuyển đạo ghi nhận nhịp xoang nhanh 115 l/p, dày thất trái, không có sóng ST chênh lên hay sóng Q bệnh lý.',
+          prompt: 'Chỉ định chẩn đoán hình ảnh khẩn cấp có giá trị xác định cao nhất trong tình huống này là gì?',
+          options: [
+            'Chụp X-quang phổi thẳng tại giường',
+            'Chụp Cắt lớp vi tính mạch máu ngực có cản quang (CT Angiography lồng ngực)',
+            'Siêu âm Doppler tim qua thành ngực (TTE) đơn thuần rồi cho xuất viện',
+            'Chụp mạch vành qua da (Coronary Angiography) ngay'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Tam chứng kinh điển (Đau xé rách đột ngột + Chênh lệch HA 2 tay > 20 mmHg + Trung thất rộng/ECG không ST chênh) có độ nghi ngờ Bóc tách ĐMC rất cao. CT Angiography là tiêu chuẩn vàng chẩn đoán xác định.'
+        },
+        {
+          name: '3. Chẩn đoán Xác định',
+          vitals: { bp: '175/100', hr: '108 l/p', rr: '20 l/p', spo2: '98%', temp: '37.0 °C', bpDanger: true },
+          scenario: '<b>Kết quả CT Angiography:</b> Phát hiện vết rách nội mạc tại quai động mạch chủ lên (Ascending Aorta) lan đến động mạch dưới đòn trái, tạo lòng giả có huyết khối bám thành, chưa ghi nhận tràn dịch màng ngoài tim.',
+          prompt: 'Chẩn đoán xác định theo phân loại Stanford là gì?',
+          options: [
+            'Bóc tách động mạch chủ Stanford Type B — Chỉ định điều trị nội khoa bảo tồn',
+            'Bóc tách động mạch chủ Stanford Type A — Cấp cứu ngoại khoa phẫu thuật khẩn cấp',
+            'Hội chứng vành cấp không ST chênh (NSTEMI) — Chỉ định đặt stent',
+            'Thuyên tắc động mạch phổi cấp tính (PE) diện rộng'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Mọi bóc tách ĐMC có thương tổn liên quan động mạch chủ lên (Ascending Aorta) đều thuộc Stanford Type A, có nguy cơ vỡ vào khoang màng tim gây chèn ép tim cấp (Cardiac Tamponade), bắt buộc phải phẫu thuật cấp cứu khẩn.'
+        },
+        {
+          name: '4. Phác đồ Can thiệp',
+          vitals: { bp: '170/95', hr: '105 l/p', rr: '20 l/p', spo2: '98%', temp: '37.0 °C', bpDanger: true },
+          scenario: '<b>Chuẩn bị phòng mổ:</b> Trong thời gian kích hoạt đội phẫu thuật tim mạch lồng ngực (khoảng 30-45 phút), bệnh nhân vẫn đau nhiều, huyết áp 170/95 mmHg, nhịp tim 105 l/p.',
+          prompt: 'Mục tiêu kiểm soát huyết động nội khoa trước phẫu thuật là gì?',
+          options: [
+            'Truyền dịch nhanh nâng huyết áp tâm thu > 180 mmHg để tưới máu tạng',
+            'Hạ nhịp tim < 60 l/p (bằng Esmolol/Labetalol tĩnh mạch) và hạ HA tâm thu xuống 100-120 mmHg',
+            'Cho dùng Aspirin 300mg + Clopidogrel 300mg ngậm dưới lưỡi',
+            'Tiêm Heparin không phân đoạn bolus 5000 UI'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Mục tiêu nội khoa tối quan trọng là giảm tối đa lực xé thành mạch (dP/dt). Bắt buộc dùng chẹn beta trước để kiểm soát nhịp tim < 60 l/p, sau đó mới phối hợp thuốc giãn mạch để đưa HA tâm thu về 100-120 mmHg.'
+        },
+        {
+          name: '5. Đánh giá lại & Bàn giao',
+          vitals: { bp: '115/70', hr: '58 l/p', rr: '18 l/p', spo2: '99%', temp: '36.8 °C', bpDanger: false },
+          scenario: '<b>Sau can thiệp nội khoa:</b> Bệnh nhân giảm đau rõ, HA kiểm soát ổn định ở mức 115/70 mmHg, nhịp tim 58 l/p, tri giác tỉnh táo tiếp xúc tốt. Đội phẫu thuật lồng ngực đã sẵn sàng tiếp nhận vào phòng mổ.',
+          prompt: 'Tổng kết nguyên tắc cốt lõi rút ra từ ca bệnh này là gì?',
+          options: [
+            'Mọi bệnh nhân đau ngực đều phải dùng kháng đông kép ngay từ phòng cấp cứu',
+            'Đau ngực dữ dội kèm chênh lệch HA 2 tay bắt buộc phải nghĩ đến Bóc tách ĐMC, tuyệt đối không dùng kháng đông/tiêu sợi huyết khi chưa có CT',
+            'Chỉ cần dựa vào ECG bình thường là có thể loại trừ bệnh lý tim mạch nguy hiểm',
+            'Không cần kiểm soát huyết áp trước mổ vì phẫu thuật viên sẽ xử lý'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Đây là bài học sống còn về phản xạ lâm sàng trong cấp cứu đau ngực: "Big 5" luôn phải được cân nhắc trước khi kết luận an toàn.'
+        }
+      ]
     },
+
+    // CASE 2: PHÙ PHỔI CẤP SCAPE (CP 01)
     {
-      step: 2,
-      name: 'Chọn Cận lâm sàng Khẩn cấp',
-      vitals: { bp: 'T: 185/105 | P: 140/85', hr: '115 l/p', rr: '22 l/p', spo2: '97%', temp: '37.0 °C', bpDanger: true },
-      scenario: '<b>Diễn tiến:</b> Đo HA tay phải là 185/105 mmHg, tay trái là 140/85 mmHg (chênh lệch 45 mmHg). ECG 12 chuyển đạo ghi nhận nhịp xoang nhanh 115 l/p, dày thất trái, không có sóng ST chênh lên hay sóng Q bệnh lý.',
-      prompt: 'Chỉ định chẩn đoán hình ảnh khẩn cấp có giá trị xác định cao nhất trong tình huống này là gì?',
-      options: [
-        'Chụp X-quang phổi thẳng tại giường',
-        'Chụp Cắt lớp vi tính mạch máu ngực có cản quang (CT Angiography lồng ngực)',
-        'Siêu âm Doppler tim qua thành ngực (TTE) đơn thuần rồi cho xuất viện',
-        'Chụp mạch vành qua da (Coronary Angiography) ngay'
-      ],
-      correct: 1,
-      feedback: '<b>Chính xác:</b> Tam chứng kinh điển (Đau xé rách đột ngột + Chênh lệch HA 2 tay > 20 mmHg + Trung thất rộng/ECG không ST chênh) có độ nghi ngờ Bóc tách ĐMC rất cao. CT Angiography là tiêu chuẩn vàng chẩn đoán xác định.'
+      id: 'CP01-01',
+      tag: '🫁 CASE CP01-01 · SUY HÔ HẤP',
+      title: 'Khó Thở Kịch Phát Do Phù Phổi Cấp Tăng Áp (SCAPE)',
+      steps: [
+        {
+          name: '1. Tiếp nhận Cấp cứu',
+          vitals: { bp: '215/120', hr: '130 l/p', rr: '36 l/p', spo2: '80%', temp: '36.8 °C', bpDanger: true },
+          scenario: '<b>Bối cảnh:</b> Bệnh nhân nữ 68 tuổi tiền sử suy tim và tăng huyết áp, nhập viện vì khó thở dữ dội lúc nửa đêm, phải ngồi chồm hổm để thở, vã mồ hôi, da niêm tím tái, khạc bọt hồng.',
+          prompt: 'Xử trí hồi sức đường thở và oxy liệu pháp ưu tiên ngay lập tức là gì?',
+          options: [
+            'Thở oxy canula mũi 2 l/p',
+            'Khởi động ngay thông khí không xâm lấn CPAP/BiPAP áp lực dương + Mắc monitor theo dõi',
+            'Đặt nội khí quản ngay mà không thử CPAP',
+            'Tiêm ngay Morphine 10mg tiêm bắp'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Trong SCAPE, CPAP giúp tạo PEEP tống dịch phù ra khỏi phế nang về mô kẽ, giảm công thở và cải thiện oxy máu tức thì.'
+        },
+        {
+          name: '2. Siêu âm POCUS & Khí máu',
+          vitals: { bp: '210/115', hr: '122 l/p', rr: '28 l/p', spo2: '90%', temp: '36.8 °C', bpDanger: true },
+          scenario: '<b>POCUS tại giường:</b> Siêu âm phổi thấy đa B-lines dày đặc 2 bên phế trường. Khí máu: pH 7.28, PaCO2 50 mmHg, PaO2 58 mmHg.',
+          prompt: 'Thuốc can thiệp mạch đầu tay giúp hạ nhanh hậu tải thất trái là gì?',
+          options: [
+            'Dopamine truyền tĩnh mạch',
+            'Nitroglycerin truyền tĩnh mạch liều cao chuẩn độ nhanh (50-100 mcg/phút)',
+            'Adrenaline tiêm bắp',
+            'Truyền nhanh dịch muối đẳng trương 500ml'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Nitroglycerin liều cao làm giãn tĩnh mạch và tiểu động mạch, hạ nhanh hậu tải thất trái giúp tim bơm máu hiệu quả hơn.'
+        },
+        {
+          name: '3. Đánh giá lại & Ổn định',
+          vitals: { bp: '140/85', hr: '84 l/p', rr: '18 l/p', spo2: '98%', temp: '36.8 °C', bpDanger: false },
+          scenario: '<b>Sau 45 phút can thiệp CPAP và Nitroglycerin:</b> Bệnh nhân hết khó thở, hết bọt hồng, HA ổn định 140/85 mmHg, nhịp tim 84 l/p, SpO2 98%.',
+          prompt: 'Bước điều trị duy trì tiếp theo là gì?',
+          options: [
+            'Ngưng đột ngột mọi thuốc và cho xuất viện',
+            'Giảm dần liều Nitroglycerin, phối hợp lợi tiểu Furosemide liều thấp và chuyển khoa Tim mạch theo dõi',
+            'Chuyển phòng mổ cấp cứu',
+            'Bắt đầu truyền dịch duy trì tốc độ cao'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Giảm dần thuốc giãn mạch, dùng lợi tiểu thải trừ thể tích thừa và tầm soát nguyên nhân thúc đẩy (nhồi máu cơ tim, bỏ thuốc).'
+        }
+      ]
     },
+
+    // CASE 3: SỐC NHIỄM KHUẨN ĐƯỜNG MẬT (CP 05)
     {
-      step: 3,
-      name: 'Chẩn đoán Xác định & Phân tầng Nguy cơ',
-      vitals: { bp: '175/100', hr: '108 l/p', rr: '20 l/p', spo2: '98%', temp: '37.0 °C', bpDanger: true },
-      scenario: '<b>Kết quả CT Angiography:</b> Phát hiện vết rách nội mạc tại quai động mạch chủ lên (Ascending Aorta) lan đến động mạch dưới đòn trái, tạo lòng giả có huyết khối bám thành, chưa ghi nhận tràn dịch màng ngoài tim.',
-      prompt: 'Chẩn đoán xác định theo phân loại Stanford là gì?',
-      options: [
-        'Bóc tách động mạch chủ Stanford Type B — Chỉ định điều trị nội khoa bảo tồn',
-        'Bóc tách động mạch chủ Stanford Type A — Cấp cứu ngoại khoa phẫu thuật khẩn cấp',
-        'Hội chứng vành cấp không ST chênh (NSTEMI) — Chỉ định đặt stent',
-        'Thuyên tắc động mạch phổi cấp tính (PE) diện rộng'
-      ],
-      correct: 1,
-      feedback: '<b>Chính xác:</b> Mọi bóc tách ĐMC có thương tổn liên quan động mạch chủ lên (Ascending Aorta) đều thuộc Stanford Type A, có nguy cơ vỡ vào khoang màng tim gây chèn ép tim cấp (Cardiac Tamponade), bắt buộc phải phẫu thuật cấp cứu khẩn.'
-    },
-    {
-      step: 4,
-      name: 'Phác đồ Can thiệp & Kiểm soát Huyết động Ban đầu',
-      vitals: { bp: '170/95', hr: '105 l/p', rr: '20 l/p', spo2: '98%', temp: '37.0 °C', bpDanger: true },
-      scenario: '<b>Chuẩn bị phòng mổ:</b> Trong thời gian kích hoạt đội phẫu thuật tim mạch lồng ngực (khoảng 30-45 phút), bệnh nhân vẫn đau nhiều, huyết áp 170/95 mmHg, nhịp tim 105 l/p.',
-      prompt: 'Mục tiêu kiểm soát huyết động nội khoa trước phẫu thuật là gì?',
-      options: [
-        'Truyền dịch nhanh nâng huyết áp tâm thu > 180 mmHg để tưới máu tạng',
-        'Hạ nhịp tim < 60 l/p (bằng Esmolol/Labetalol tĩnh mạch) và hạ HA tâm thu xuống 100-120 mmHg',
-        'Cho dùng Aspirin 300mg + Clopidogrel 300mg ngậm dưới lưỡi',
-        'Tiêm Heparin không phân đoạn bolus 5000 UI'
-      ],
-      correct: 1,
-      feedback: '<b>Chính xác:</b> Mục tiêu nội khoa tối quan trọng là giảm tối đa lực xé thành mạch (dP/dt). Bắt buộc dùng chẹn beta trước để kiểm soát nhịp tim < 60 l/p, sau đó mới phối hợp thuốc giãn mạch để đưa HA tâm thu về 100-120 mmHg.'
-    },
-    {
-      step: 5,
-      name: 'Đánh giá lại & Bàn giao Hồi sức',
-      vitals: { bp: '115/70', hr: '58 l/p', rr: '18 l/p', spo2: '99%', temp: '36.8 °C', bpDanger: false },
-      scenario: '<b>Sau can thiệp nội khoa:</b> Bệnh nhân giảm đau rõ, HA kiểm soát ổn định ở mức 115/70 mmHg, nhịp tim 58 l/p, tri giác tỉnh táo tiếp xúc tốt. Đội phẫu thuật lồng ngực đã sẵn sàng tiếp nhận vào phòng mổ.',
-      prompt: 'Tổng kết nguyên tắc cốt lõi rút ra từ ca bệnh này là gì?',
-      options: [
-        'Mọi bệnh nhân đau ngực đều phải dùng kháng đông kép ngay từ phòng cấp cứu',
-        'Đau ngực dữ dội kèm chênh lệch HA 2 tay bắt buộc phải nghĩ đến Bóc tách ĐMC, tuyệt đối không dùng kháng đông/tiêu sợi huyết khi chưa có CT',
-        'Chỉ cần dựa vào ECG bình thường là có thể loại trừ bệnh lý tim mạch nguy hiểm',
-        'Không cần kiểm soát huyết áp trước mổ vì phẫu thuật viên sẽ xử lý'
-      ],
-      correct: 1,
-      feedback: '<b>Chính xác:</b> Đây là bài học sống còn về phản xạ lâm sàng trong cấp cứu đau ngực: "Big 5" luôn phải được cân nhắc trước khi kết luận an toàn.'
+      id: 'CP05-01',
+      tag: '⚡ CASE CP05-01 · SỐC NHIỄM KHUẨN',
+      title: 'Sốc Nhiễm Khuẩn Nguồn Gốc Đường Mật (Ngũ Chứng Reynolds)',
+      steps: [
+        {
+          name: '1. Tiếp nhận Cấp cứu',
+          vitals: { bp: '75/45', hr: '135 l/p', rr: '28 l/p', spo2: '93%', temp: '39.8 °C', bpDanger: true },
+          scenario: '<b>Bối cảnh:</b> Bệnh nhân nam 60 tuổi vào viện vì sốt cao rét run, vàng da, đau hạ sườn phải, lơ mơ và tụt huyết áp 75/45 mmHg (Ngũ chứng Reynolds).',
+          prompt: 'Gói can thiệp giờ đầu (Hour-1 Bundle) ưu tiên bắt buộc là gì?',
+          options: [
+            'Chờ kết quả cấy máu về sau 48h rồi mới bắt đầu điều trị',
+            'Lập 2 đường truyền lớn, bù dịch tinh thể 30 mL/kg, cấy máu khẩn và dùng ngay kháng sinh phổ rộng trong 1 giờ đầu',
+            'Chỉ hạ sốt bằng Paracetamol và chuyển mổ hở ngay',
+            'Tiêm tĩnh mạch Heparin liều cao'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Phác đồ Surviving Sepsis Hour-1 Bundle yêu cầu bù dịch 30 mL/kg và dùng kháng sinh phổ rộng sớm nhất có thể.'
+        },
+        {
+          name: '2. Sử dụng Vận mạch',
+          vitals: { bp: '78/48', hr: '128 l/p', rr: '26 l/p', spo2: '94%', temp: '39.2 °C', bpDanger: true },
+          scenario: '<b>Diễn tiến:</b> Sau khi đã bù đủ 2000 mL Ringer Lactate, HA vẫn duy trì ở mức 78/48 mmHg (MAP 58 mmHg), Lactate máu 4.5 mmol/L.',
+          prompt: 'Thuốc vận mạch đầu tay được khuyến cáo lựa chọn là gì?',
+          options: [
+            'Dopamine liều thận',
+            'Noradrenaline (Norepinephrine) truyền tĩnh mạch liên tục đích MAP ≥ 65 mmHg',
+            'Adrenaline liều cao',
+            'Furosemide tiêm tĩnh mạch'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Noradrenaline là vận mạch lựa chọn hàng đầu trong sốc nhiễm khuẩn nhờ tác dụng co mạch mạnh qua thụ thể Alpha-1 mà ít gây loạn nhịp tim.'
+        },
+        {
+          name: '3. Can thiệp Kiểm soát Ổ nhiễm',
+          vitals: { bp: '115/70', hr: '92 l/p', rr: '20 l/p', spo2: '97%', temp: '38.0 °C', bpDanger: false },
+          scenario: '<b>Kiểm soát ổ nhiễm (Source Control):</b> Siêu âm thấy sỏi kẹt đoạn cuối ống mật chủ gây giãn đường mật trong và ngoài gan. Huyết động đã tạm ổn định sau vận mạch.',
+          prompt: 'Phương pháp can thiệp giải áp đường mật xâm lấn tối thiểu ưu tiên là gì?',
+          options: [
+            'Tiếp tục điều trị nội khoa đơn thuần và không can thiệp',
+            'Chỉ định Nội soi mật tụy ngược dòng (ERCP) cấp cứu lấy sỏi và đặt stent dẫn lưu đường mật',
+            'Phẫu thuật cắt toàn bộ gan',
+            'Chọc hút dịch dạ dày'
+          ],
+          correct: 1,
+          feedback: '<b>Chính xác:</b> Kiểm soát nguồn nhiễm (Source control) bằng ERCP giải áp đường mật là chìa khóa sống còn quyết định thành công điều trị sốc nhiễm khuẩn đường mật.'
+        }
+      ]
     }
   ];
 
-  let curStep = 0;
+  let currentCaseIdx = 0;
+  let currentStepIdx = 0;
   let selectedCaseOpt = null;
 
-  function loadStep(idx) {
-    const s = caseSteps[idx];
+  function switchCase(cIdx) {
+    currentCaseIdx = cIdx;
+    currentStepIdx = 0;
+    document.querySelectorAll('.case-tab-btn').forEach((btn, idx) => {
+      btn.classList.toggle('active', idx === cIdx);
+    });
+
+    document.getElementById('caseArena').style.display = 'block';
+    document.getElementById('debriefView').style.display = 'none';
+
+    renderTimeline();
+    loadStep(0);
+  }
+
+  function renderTimeline() {
+    const c = casesLibrary[currentCaseIdx];
+    const trackBox = document.getElementById('timelineTrack');
+    trackBox.style.gridTemplateColumns = `repeat(${c.steps.length}, 1fr)`;
+    trackBox.innerHTML = c.steps.map((st, sIdx) => `
+      <div class="step-track ${sIdx === 0 ? 'active' : ''}" id="tr-${sIdx}">${st.name}</div>
+    `).join('');
+  }
+
+  function loadStep(sIdx) {
+    const c = casesLibrary[currentCaseIdx];
+    const s = c.steps[sIdx];
     selectedCaseOpt = null;
 
-    document.getElementById('stepCountTxt').textContent = `Bước ${idx + 1} / ${caseSteps.length}`;
+    document.getElementById('caseTag').textContent = c.tag;
+    document.getElementById('caseName').textContent = c.title;
+    document.getElementById('stepCountTxt').textContent = `Bước ${sIdx + 1} / ${c.steps.length}`;
+
     document.getElementById('vBP').textContent = s.vitals.bp;
     document.getElementById('vHR').textContent = s.vitals.hr;
     document.getElementById('vRR').textContent = s.vitals.rr;
@@ -523,8 +689,8 @@
     // Timeline classes
     document.querySelectorAll('.step-track').forEach((el, tIdx) => {
       el.className = 'step-track';
-      if (tIdx < idx) el.classList.add('done');
-      if (tIdx === idx) el.classList.add('active');
+      if (tIdx < sIdx) el.classList.add('done');
+      if (tIdx === sIdx) el.classList.add('active');
     });
 
     document.getElementById('scenarioTxt').innerHTML = s.scenario;
@@ -555,7 +721,8 @@
 
   function submitCaseDecision() {
     if (selectedCaseOpt === null) return;
-    const s = caseSteps[curStep];
+    const c = casesLibrary[currentCaseIdx];
+    const s = c.steps[currentStepIdx];
     const isCorrect = selectedCaseOpt === s.correct;
 
     document.querySelectorAll('.c-opt').forEach((el, idx) => {
@@ -578,9 +745,10 @@
   }
 
   function nextCaseStep() {
-    curStep++;
-    if (curStep < caseSteps.length) {
-      loadStep(curStep);
+    const c = casesLibrary[currentCaseIdx];
+    currentStepIdx++;
+    if (currentStepIdx < c.steps.length) {
+      loadStep(currentStepIdx);
     } else {
       document.getElementById('caseArena').style.display = 'none';
       document.getElementById('debriefView').style.display = 'block';
@@ -588,7 +756,7 @@
   }
 
   // Init
-  loadStep(0);
+  switchCase(0);
 </script>
 </body>
 </html>

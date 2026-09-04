@@ -261,12 +261,12 @@
       margin-bottom: 12px;
     }
     .card-question {
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 900;
       color: var(--navy);
       line-height: 1.35;
       letter-spacing: -.025em;
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto 24px;
     }
     .card-hint {
@@ -406,7 +406,7 @@
       .review-header { flex-direction: column; align-items: flex-start; }
       .mode-tabs { grid-template-columns: 1fr; }
       .arena-container { padding: 24px 18px; }
-      .card-question { font-size: 20px; }
+      .card-question { font-size: 19px; }
       .rating-buttons { flex-wrap: wrap; }
       .rate-btn { min-width: 45%; }
     }
@@ -431,7 +431,7 @@
     </div>
 
     <div>
-      <a class="btn-study-now" href="../hoc/">Vào Bài Học →</a>
+      <a class="btn-study-now" href="../hoc/" style="background: var(--teal); color: #fff; font-size: 13px; font-weight: 850; padding: 10px 18px; border-radius: 10px;">Vào Bài Học →</a>
     </div>
   </div>
 </nav>
@@ -442,20 +442,20 @@
     <div class="review-title">
       <div style="font-size: 11px; font-weight: 900; color: var(--teal); letter-spacing: .1em; text-transform: uppercase;">ADAPTIVE LEARNING ENGINE</div>
       <h1>Smart Review &amp; Spaced Repetition</h1>
-      <p>Ôn luyện phản xạ ra quyết định lâm sàng và khắc phục các bẫy chẩn đoán nguy hiểm.</p>
+      <p>Ôn luyện phản xạ ra quyết định lâm sàng và khắc phục các bẫy chẩn đoán nguy hiểm (CP 01 - CP 05).</p>
     </div>
 
     <div class="stats-row">
       <div class="stat-pill">
-        <b id="dueCount">5</b>
+        <b id="dueCount">8</b>
         <span>CẦN ÔN HÔM NAY</span>
       </div>
       <div class="stat-pill">
-        <b id="streakCount">🔥 3</b>
+        <b id="streakCount">🔥 4</b>
         <span>CHUỖI NGÀY ÔN</span>
       </div>
       <div class="stat-pill">
-        <b id="retentionRate">92%</b>
+        <b id="retentionRate">94%</b>
         <span>ĐỘ GHI NHỚ</span>
       </div>
     </div>
@@ -466,7 +466,7 @@
     <div class="mode-tab active" onclick="switchMode(0)">
       <span class="tab-badge">ƯU TIÊN CẤP CỨU</span>
       <h3>1. Red Flags &amp; Bẫy Nguy Hiểm</h3>
-      <p>Tập trung vào các dấu hiệu báo động và bẫy lâm sàng không được phép bỏ sót.</p>
+      <p>Tập trung vào các dấu hiệu báo động và bẫy lâm sàng không được phép bỏ sót (CP01 - CP05).</p>
     </div>
 
     <div class="mode-tab" onclick="switchMode(1)">
@@ -489,26 +489,19 @@
         <span class="cat-pill" id="cardTopic">🚨 CP 03 · ĐAU NGỰC</span>
         <span style="font-size: 12px; color: var(--muted); font-weight: 700;" id="cardSection">Red Flags Gate</span>
       </div>
-      <div class="progress-tag" id="cardProgress">Thẻ 1 / 5</div>
+      <div class="progress-tag" id="cardProgress">Thẻ 1 / 8</div>
     </div>
 
     <div class="flashcard-main" id="cardMain">
       <div class="card-prompt-label">TÌNH HUỐNG / CÂU HỎI LÂM SÀNG</div>
-      <div class="card-question" id="cardQuestion">
-        Bệnh nhân nam 62 tuổi vào viện vì đau ngực dữ dội đột ngột lan sau lưng, HA tay phải 170/95, tay trái 130/80. Dấu hiệu nghi ngờ hàng đầu là gì và xử trí chống chỉ định tuyệt đối?
-      </div>
-      <div class="card-hint" id="cardHint">💡 Gợi ý: Hãy nghĩ đến 'Big 5' và lưu ý các thuốc ảnh hưởng đến đông máu.</div>
+      <div class="card-question" id="cardQuestion">...</div>
+      <div class="card-hint" id="cardHint">...</div>
 
       <!-- ANSWER BOX (Hidden initially) -->
       <div class="card-answer-box" id="cardAnswerBox">
         <div class="ans-header">ĐÁP ÁN &amp; PHẢN XẠ LÂM SÀNG</div>
-        <div class="ans-core" id="ansCore">
-          Nghi ngờ Bóc tách Động mạch chủ ngực cấp (Aortic Dissection).
-        </div>
-        <div class="ans-details" id="ansDetails">
-          • <strong>Lý do:</strong> Đau xé rách đột ngột tối đa ngay từ đầu + chênh lệch HA 2 tay &gt; 20 mmHg.<br>
-          • <strong>Chống chỉ định tuyệt đối:</strong> KHÔNG dùng thuốc tiêu sợi huyết (thrombolysis) hoặc kháng đông liều cao trước khi chụp CT mạch máu loại trừ bóc tách.
-        </div>
+        <div class="ans-core" id="ansCore">...</div>
+        <div class="ans-details" id="ansDetails">...</div>
       </div>
     </div>
 
@@ -516,7 +509,7 @@
     <div class="complete-view" id="completeView">
       <div style="font-size: 48px; margin-bottom: 12px;">🎉</div>
       <h2>Hoàn Thành Lượt Ôn Tập Hôm Nay!</h2>
-      <p>Bạn đã hoàn tất 5 thẻ quyết định lâm sàng. Thuật toán Spaced Repetition sẽ lên lịch nhắc lại các thẻ khó vào ngày mai.</p>
+      <p>Bạn đã hoàn tất bộ thẻ quyết định lâm sàng. Thuật toán Spaced Repetition sẽ lên lịch nhắc lại các thẻ khó vào ngày mai.</p>
       <button class="btn-restart" onclick="restartReview()">Ôn Lại Bộ Này ↺</button>
     </div>
 
@@ -555,79 +548,79 @@
 
 <script>
   const deckData = [
-    // MODE 0: RED FLAGS & BẪY NGUY HIỂM
+    // MODE 0: RED FLAGS & BẪY NGUY HIỂM (CP 01 -> CP 05)
     [
+      {
+        topic: '🚨 CP 01 · KHÓ THỞ CẤP',
+        section: 'Safety Gate & Red Flags',
+        question: 'Bệnh nhân khó thở dữ dội, tụt HA 85/50 mmHg, khí quản lệch sang trái, mất rì rào phế nang phổi phải. Có nên đưa bệnh nhân đi chụp X-quang ngực để chẩn đoán xác định không?',
+        hint: '💡 Gợi ý: Đây là sốc tắc nghẽn tối khẩn do Tràn khí màng phổi áp lực.',
+        ansCore: 'TUYỆT ĐỐI KHÔNG chờ chụp X-quang. Phải chọc kim giải áp ngay lập tức!',
+        ansDetails: '• <strong>Lý do:</strong> Tràn khí áp lực gây chèn ép trung thất làm giảm hồi lưu tĩnh mạch về tim, bệnh nhân sẽ ngừng tim trong vài phút nếu trì hoãn can thiệp.'
+      },
+      {
+        topic: '🚨 CP 04 · ĐAU BỤNG CẤP',
+        section: 'Safety Gate & Red Flags',
+        question: 'Bệnh nhân nam 45 tuổi đau dữ dội như dao đâm vùng thượng vị, khám thấy "bụng gồng cứng như gỗ" và gõ mất vùng đục trước gan. Dấu hiệu này chỉ điểm tình trạng bệnh lý ngoại khoa nào?',
+        hint: '💡 Gợi ý: Dịch vị và khí tự do tràn vào khoang màng bụng.',
+        ansCore: 'Thủng tạng rỗng (Thủng ổ loét dạ dày - tá tràng) gây viêm phúc mạc toàn thể.',
+        ansDetails: '• <strong>Hành động:</strong> Cho nhịn ăn uống hoàn toàn (NPO), đặt sonde dạ dày giải áp, bù dịch, kháng sinh phổ rộng và kích hoạt mổ cấp cứu khẩn.'
+      },
+      {
+        topic: '🚨 CP 05 · SỐC',
+        section: 'Safety Gate & Phản Vệ',
+        question: 'Ngay khi xuất hiện mày đay toàn thân kèm khàn tiếng, khó thở rít và tụt huyết áp sau khi tiếp xúc dị nguyên, thuốc cấp cứu đầu tay duy nhất và vị trí tiêm chính xác là gì?',
+        hint: '💡 Gợi ý: Thông tư 51/2017/TT-BYT.',
+        ansCore: 'Adrenaline 1mg/1ml — Tiêm bắp 0.5 ống (0.5mg) vào mặt trước ngoài đùi ngay lập tức.',
+        ansDetails: '• <strong>Lưu ý:</strong> Kháng histamin và Corticoid chỉ là thuốc phụ trợ bậc hai, không có tác dụng cứu sống bệnh nhân tức thì.'
+      },
       {
         topic: '🚨 CP 03 · ĐAU NGỰC',
         section: 'Safety Gate & Red Flags',
         question: 'Bệnh nhân nam 62 tuổi đau ngực dữ dội đột ngột lan sau lưng, HA tay phải 170/95, tay trái 130/80. Dấu hiệu nghi ngờ hàng đầu là gì và xử trí chống chỉ định tuyệt đối?',
-        hint: '💡 Gợi ý: Nghĩ đến nhóm Big 5 và thận trọng với thuốc ảnh hưởng đông máu.',
+        hint: '💡 Gợi ý: Nhóm Big 5 và thận trọng với thuốc ảnh hưởng đông máu.',
         ansCore: 'Nghi ngờ Bóc tách Động mạch chủ ngực cấp (Aortic Dissection).',
-        ansDetails: '• <strong>Lý do:</strong> Đau xé rách khởi phát đột ngột + chênh lệch HA 2 tay &gt; 20 mmHg.<br>• <strong>Chống chỉ định:</strong> Tuyệt đối không dùng tiêu sợi huyết hoặc kháng đông khi chưa chụp CT mạch máu loại trừ.'
+        ansDetails: '• <strong>Chống chỉ định tuyệt đối:</strong> Tuyệt đối không dùng thuốc tiêu sợi huyết hoặc kháng đông khi chưa chụp CT mạch máu loại trừ bóc tách.'
       },
       {
-        topic: '🚨 CP 03 · ĐAU NGỰC',
-        section: 'Pitfalls & Bẫy Chẩn Đoán',
-        question: 'Bệnh nhân 55 tuổi đau ngực đè nặng, khám thấy đau tăng khi ấn vào thành ngực. Dấu hiệu ấn đau thành ngực có giúp loại trừ Hội chứng vành cấp (ACS) không?',
-        hint: '💡 Gợi ý: Dấu thành ngực gợi ý nhưng có đủ tin cậy ở người có yếu tố nguy cơ tim mạch?',
-        ansCore: 'KHÔNG được dùng để loại trừ ACS ở bệnh nhân có yếu tố nguy cơ tim mạch.',
-        ansDetails: '• <strong>Bẫy lâm sàng:</strong> Khoảng 5-7% bệnh nhân ACS vẫn có dấu đau tái hiện khi ấn thành ngực. Luôn cần làm ECG sớm và xét nghiệm Troponin serial.'
-      },
-      {
-        topic: '🚨 CP 02 · SỐT',
-        section: 'Safety Gate & Red Flags',
-        question: 'Bệnh nhân sốt cao 39.5°C kèm ban xuất huyết hoại tử dạng bản đồ và huyết áp 85/50 mmHg. Cần xử trí khẩn cấp gì trong 1 giờ đầu (Golden Hour)?',
-        hint: '💡 Gợi ý: Nghĩ đến Nhiễm khuẩn huyết tối cấp / Viêm màng não do Não mô cầu.',
-        ansCore: 'Kích hoạt ngay luồng hồi sức Sốc nhiễm khuẩn + Kháng sinh tĩnh mạch phổ rộng sớm.',
-        ansDetails: '• <strong>Hành động:</strong> Lập đường truyền, truyền dịch tinh thể 30ml/kg, cấy máu khẩn trước khi dùng liều kháng sinh đầu tiên (nhưng không trì hoãn kháng sinh &gt; 1h).'
-      },
-      {
-        topic: '🚨 CP 03 · ĐAU NGỰC',
-        section: 'Investigations & D-Dimer',
-        question: 'Bệnh nhân nữ 30 tuổi đau ngực kiểu màng phổi, SpO2 91%, nhịp tim 120 l/p, vừa phẫu thuật khớp gối 1 tuần trước. Có nên làm D-dimer để loại trừ Thuyên tắc phổi (PE) không?',
-        hint: '💡 Gợi ý: Xác suất lâm sàng (Wells Score) cao hay thấp?',
-        ansCore: 'KHÔNG làm D-dimer để loại trừ khi xác suất lâm sàng PE ở mức cao.',
-        ansDetails: '• <strong>Nguyên tắc:</strong> D-dimer chỉ có giá trị loại trừ ở nhóm nguy cơ thấp hoặc trung bình. Khi xác suất cao hoặc có suy hô hấp, chỉ định thẳng CTPA (chụp cắt lớp mạch máu phổi).'
-      },
-      {
-        topic: '🚨 CP 03 · ĐAU NGỰC',
-        section: 'Thuốc & Chống Chỉ Định',
-        question: 'Bệnh nhân đau ngực nghi ACS, trước khi cho ngậm hoặc truyền Nitroglycerin, câu hỏi tiền sử dùng thuốc nào bắt buộc phải hỏi?',
-        hint: '💡 Gợi ý: Thuốc điều trị rối loạn cương dương hoặc tăng áp động mạch phổi.',
-        ansCore: 'Bắt buộc hỏi tiền sử dùng thuốc ức chế PDE-5 (Sildenafil, Tadalafil) trong vòng 24-48 giờ.',
-        ansDetails: '• <strong>Nguy cơ:</strong> Phối hợp Nitrat với PDE-5i có thể gây tụt huyết áp nghiêm trọng, khó hồi phục và đe dọa tính mạng.'
+        topic: '🚨 CP 01 · KHÓ THỞ CẤP',
+        section: 'Pitfalls & Bẫy Thở Oxy',
+        question: 'Tại sao cho bệnh nhân COPD đợt cấp thở oxy liều quá cao (mask túi 15 l/p) lại có thể khiến bệnh nhân rơi vào hôn mê toan hô hấp (CO2 Narcosis)?',
+        hint: '💡 Gợi ý: Mất kích thích hypoxic drive và hiệu ứng Haldane.',
+        ansCore: 'Vì làm ức chế trung tâm hô hấp ở người ứ CO2 mạn và gây tăng khoảng chết sinh lý.',
+        ansDetails: '• <strong>Nguyên tắc:</strong> Mục tiêu SpO2 an toàn ở bệnh nhân COPD là 88–92%. Nếu bệnh nhân toan hô hấp nặng, chỉ định thở máy không xâm lấn (BiPAP).'
       }
     ],
 
     // MODE 1: CHUỖI QUYẾT ĐỊNH IF-THEN
     [
       {
-        topic: '🔀 DECISION FLOW · ACS',
-        section: 'ECG vs Troponin',
-        question: 'IF bệnh nhân đau ngực cấp có ECG 12 chuyển đạo xuất hiện ST chênh lên rõ ràng (STEMI) THEN bước xử trí tiếp theo là gì? Có chờ kết quả Troponin không?',
-        hint: '💡 Gợi ý: Thời gian là cơ tim (Time is Muscle).',
-        ansCore: 'THEN kích hoạt ngay luồng tái tưới máu mạch vành (PCI can thiệp hoặc tiêu sợi huyết). KHÔNG chờ Troponin.',
-        ansDetails: '• <strong>Nguyên tắc:</strong> STEMI là chẩn đoán điện tâm đồ và lâm sàng, việc chờ đợi kết quả men tim sẽ làm mất thời gian vàng cứu sống cơ tim.'
+        topic: '🔀 DECISION FLOW · KHÓ THỞ',
+        section: 'SCAPE Protocol',
+        question: 'IF bệnh nhân khó thở dữ dội khạc bọt hồng kèm HA tăng vọt > 200/110 mmHg (SCAPE) THEN 2 can thiệp phối hợp ưu tiên hàng đầu là gì?',
+        hint: '💡 Gợi ý: Mở phế nang và hạ nhanh hậu tải.',
+        ansCore: 'THEN khởi động ngay CPAP áp lực dương + Nitroglycerin truyền tĩnh mạch liều cao chuẩn độ nhanh.',
+        ansDetails: '• <strong>Cơ chế:</strong> CPAP đẩy dịch phù ra khỏi phế nang, Nitroglycerin liều cao làm giãn mạch hạ nhanh hậu tải thất trái.'
       },
       {
-        topic: '🔀 DECISION FLOW · SHOCK',
-        section: 'ABCDE First',
-        question: 'IF bệnh nhân đau ngực hoặc sốt kèm tụt huyết áp (HA tâm thu &lt; 90), rối loạn tri giác hoặc SpO2 &lt; 90% THEN thứ tự ưu tiên khám bệnh là gì?',
-        hint: '💡 Gợi ý: Xử trí cấp cứu hay hỏi bệnh sử chi tiết trước?',
-        ansCore: 'THEN cấp cứu theo ABCDE, đặt monitor, đường truyền dịch và gọi hỗ trợ trước khi hỏi bệnh sử chi tiết.',
-        ansDetails: '• <strong>Lâm sàng:</strong> Bệnh nhân không ổn định cần hồi sức sống còn song song với chẩn đoán, không lãng phí thời gian vào việc hỏi bệnh sử dài dòng.'
+        topic: '🔀 DECISION FLOW · SỐC',
+        section: 'Sepsis Hour-1 Bundle',
+        question: 'IF bệnh nhân sốt cao tụt huyết áp đã bù đủ 30 mL/kg dịch tinh thể nhưng HA vẫn < 90/60 mmHg (MAP < 65) và Lactate > 2 mmol/L THEN bước tiếp theo là gì?',
+        hint: '💡 Gợi ý: Sốc nhiễm khuẩn trơ với bù dịch.',
+        ansCore: 'THEN khởi động thuốc vận mạch Noradrenaline truyền tĩnh mạch liên tục với đích MAP ≥ 65 mmHg.',
+        ansDetails: '• <strong>Lâm sàng:</strong> Tiếp tục xả dịch ồ ạt sẽ gây phù phổi và tổn thương tạng; cần nâng trương lực mạch bằng Noradrenaline sớm.'
       }
     ],
 
     // MODE 2: CLINICAL PEARLS
     [
       {
-        topic: '💎 CLINICAL PEARL',
-        section: 'Tư duy Lâm Sàng',
-        question: 'Tại sao trong tiếp cận Đau ngực cấp, câu hỏi đầu tiên của người thầy thuốc không phải là "Đau kiểu gì?" mà là "Bệnh nhân có ổn định không?"',
-        hint: '💡 Gợi ý: Ưu tiên an toàn sinh mạng trước khi phân loại nguyên nhân.',
-        ansCore: 'Vì bệnh nhân không ổn định (sốc, suy hô hấp) sẽ tử vong trước khi tìm ra nguyên nhân nếu không được hồi sức kịp thời.',
-        ansDetails: '• <strong>Quy tắc vàng:</strong> Luôn đánh giá sinh hiệu và tưới máu mô (CRT, tri giác, SpO2, HA) ngay giây đầu tiên tiếp xúc bệnh nhân.'
+        topic: '💎 CLINICAL PEARL · ĐAU BỤNG',
+        section: 'Khám Lâm Sàng Ngoại Khoa',
+        question: 'Tại sao kinh điển ngoại khoa luôn khuyên "Không nên tiêm thuốc giảm đau mạnh (Morphine) trước khi phẫu thuật viên hoàn thành thăm khám bụng ban đầu"?',
+        hint: '💡 Gợi ý: Che lấp phản ứng thành bụng và cảm ứng phúc mạc.',
+        ansCore: 'Vì thuốc giảm đau mạnh có thể xóa mất dấu hiệu đề kháng thành bụng và bụng gồng cứng, làm trì hoãn chỉ định phẫu thuật khẩn cấp.',
+        ansDetails: '• <strong>Thực hành hiện đại:</strong> Có thể dùng giảm đau nhẹ sau khi đã có định hướng, nhưng luôn phải khám bụng cẩn thận trước khi cho y lệnh.'
       }
     ]
   ];
@@ -666,7 +659,6 @@
     if (currentIndex < currentDeck.length) {
       updateCard();
     } else {
-      // Show Complete view
       document.getElementById('cardMain').style.display = 'none';
       document.getElementById('arenaActions').style.display = 'none';
       document.getElementById('completeView').style.display = 'block';

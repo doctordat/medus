@@ -1,0 +1,77 @@
+[
+  {
+    "id": "CP01-AP01",
+    "cat": "RESP",
+    "problem": "Tiếp Cận Bệnh Nhân Khó Thở Cấp",
+    "section": "Safety Gate & Red Flags",
+    "bloom": "Áp dụng",
+    "comp": "Hồi sức Cấp cứu",
+    "stem": "Bệnh nhân nam 22 tuổi, thể trạng cao gầy, đột ngột khó thở dữ dội kèm đau nhói ngực phải sau khi gắng sức. Khám: SpO2 88%, HA 85/50 mmHg, tĩnh mạch cổ nổi, khí quản bị đẩy lệch sang trái, rì rào phế nang phổi phải mất hoàn toàn. Xử trí cấp cứu ban đầu khẩn cấp nhất là gì?",
+    "options": [
+      "Chuyển bệnh nhân đi chụp X-quang ngực thẳng khẩn cấp",
+      "Chọc kim giải áp khoang màng phổi phải ngay lập tức tại khoang liên sườn II đường trung đòn hoặc liên sườn IV/V đường nách trước",
+      "Đặt ống nội khí quản và bóp bóng tăng thông khí ngay",
+      "Truyền nhanh 2000ml dịch tinh thể và tiêm Furosemide tĩnh mạch"
+    ],
+    "correct_index": 1,
+    "peer_stats": "93% chọn đúng",
+    "takeaway": "Tràn khí màng phổi áp lực (Tension Pneumothorax) kèm tụt huyết áp là CHẨN ĐOÁN LÂM SÀNG CẤP CỨU. Tuyệt đối KHÔNG chờ chụp X-quang mà phải chọc kim giải áp ngay lập tức để cứu sống người bệnh.",
+    "rationale": [
+      "A. Sai: Chờ chụp X-quang ở bệnh nhân tụt HA sẽ làm bệnh nhân ngừng tim do giảm hồi lưu tĩnh mạch về tim.",
+      "B. ĐÚNG: Chọc kim giải áp biến tràn khí áp lực thành tràn khí hở, giải phóng chèn ép trung thất và phục hồi huyết động ngay tức thì.",
+      "C. Sai: Thông khí áp lực dương qua nội khí quản khi chưa giải áp màng phổi sẽ làm tràn khí nặng hơn và trụy mạch tử vong.",
+      "D. Sai: Đây là sốc tắc nghẽn (Obstructive shock), không phải suy tim hay sốc giảm thể tích."
+    ],
+    "learn_ref_anchor": "safety_gate"
+  },
+  {
+    "id": "CP01-AP02",
+    "cat": "RESP",
+    "problem": "Tiếp Cận Bệnh Nhân Khó Thở Cấp",
+    "section": "Management & Phù Phổi Cấp",
+    "bloom": "Áp dụng",
+    "comp": "Điều trị & Dược lý",
+    "stem": "Bệnh nhân nữ 68 tuổi tiền sử suy tim EF 35% vào viện vì khó thở dữ dội khi nằm, vã mồ hôi, khạc bọt hồng. HA 210/115 mmHg, HR 125 l/p, SpO2 84%. Nghe phổi ran ẩm dâng ngập 2/3 phế trường. Bước xử trí ban đầu phối hợp hiệu quả nhất (SCAPE protocol) là gì?",
+    "options": [
+      "Thở oxy qua canula mũi 2 l/p và tiêm Morphine liều cao",
+      "Khởi động ngay CPAP áp lực dương 8-10 cmH2O + Nitroglycerin truyền tĩnh mạch liều cao chuẩn độ nhanh",
+      "Chỉ dùng Furosemide 120mg tiêm tĩnh mạch và chờ tác dụng lợi tiểu",
+      "Truyền nhanh dịch muối đẳng trương 500ml để ổn định nhịp tim"
+    ],
+    "correct_index": 1,
+    "peer_stats": "89% chọn đúng",
+    "takeaway": "Trong phù phổi cấp huyết động tăng áp kịch phát (SCAPE), thuốc giãn mạch (Nitroglycerin liều cao) và áp lực dương không xâm lấn (CPAP) là hai trụ cột chính giúp giảm nhanh hậu tải và tái phân bố tuần hoàn, vượt trội hơn việc chỉ dùng lợi tiểu đơn thuần.",
+    "rationale": [
+      "A. Sai: Canula 2 l/p không đủ tạo PEEP mở phế nang bị ngập dịch; Morphine không còn là thuốc hàng đầu vì làm tăng nguy cơ đặt NKQ.",
+      "B. ĐÚNG: CPAP giúp đẩy dịch phù ra khỏi phế nang về mô kẽ, Nitroglycerin liều cao hạ nhanh hậu tải thất trái.",
+      "C. Sai: Lợi tiểu mất 30-60 phút mới phát huy tác dụng bài niệu, trong khi bệnh nhân đang suy hô hấp tối khẩn.",
+      "D. Sai: Thất trái đang quá tải áp lực nặng nề, bù dịch sẽ làm nặng thêm tình trạng phù phổi."
+    ],
+    "learn_ref_anchor": "management"
+  },
+  {
+    "id": "CP01-AP03",
+    "cat": "RESP",
+    "problem": "Tiếp Cận Bệnh Nhân Khó Thở Cấp",
+    "section": "Pitfalls & Toan Hô Hấp",
+    "bloom": "Phân tích",
+    "comp": "Bẫy Lâm Sàng",
+    "stem": "Bệnh nhân nam 65 tuổi đợt cấp COPD nặng, vào viện với SpO2 82%. Điều dưỡng cho thở oxy mask túi 15 l/p. Sau 45 phút, SpO2 lên 99% nhưng bệnh nhân trở nên lơ mơ, cấu véo đáp ứng chậm, thở nông 10 l/p. Khí máu động mạch ghi nhận PaCO2 88 mmHg, pH 7.15. Nguyên nhân suy sụp tri giác là gì?",
+    "options": [
+      "Tai biến mạch máu não mới xuất hiện",
+      "Ngộ độc oxy gây ức chế trung tâm hô hấp (mất kích thích hypoxic drive) và hiệu ứng Haldane làm ứ trệ CO2 nghiêm trọng",
+      "Thiếu oxy não do lưu lượng oxy chưa đủ",
+      "Hạ đường huyết phản ứng"
+    ],
+    "correct_index": 1,
+    "peer_stats": "91% chọn đúng",
+    "takeaway": "Ở bệnh nhân COPD ứ CO2 mạn tính, thở oxy liều quá cao làm mất kích thích hô hấp do thiếu oxy, tăng khoảng chết sinh lý và hiệu ứng Haldane, dẫn đến toan hô hấp tăng CO2 máu nguy kịch (CO2 narcosis). Mục tiêu SpO2 an toàn ở bệnh nhân COPD là 88–92%.",
+    "rationale": [
+      "A. Sai: Không có dấu thần kinh định vị; bệnh cảnh toan hô hấp cấp mất bù rất rõ.",
+      "B. ĐÚNG: Bẫy thở oxy quá liều trong đợt cấp COPD. Cần chỉ định thở máy không xâm lấn (BiPAP) ngay để đào thải CO2.",
+      "C. Sai: SpO2 đã đạt 99%, không phải thiếu oxy.",
+      "D. Sai: Không liên quan đến đường huyết."
+    ],
+    "learn_ref_anchor": "pitfalls"
+  }
+]

@@ -54,8 +54,11 @@
       checklist: '✅'
     },
     fallback: {
-      2: { id: 2, slug: 'tiep-can-benh-nhan-sot', title: 'Tiếp cận bệnh nhân sốt', domain: 'Miễn dịch' },
-      3: { id: 3, slug: 'tiep-can-benh-nhan-dau-nguc', title: 'Tiếp cận bệnh nhân đau ngực', domain: 'Tim mạch' }
+      1: { id: 1, slug: 'tiep-can-kho-tho-cap', title: 'Tiếp cận bệnh nhân khó thở cấp', domain: 'Hô hấp & Cấp cứu' },
+      2: { id: 2, slug: 'tiep-can-benh-nhan-sot', title: 'Tiếp cận bệnh nhân sốt', domain: 'Truyền nhiễm & Miễn dịch' },
+      3: { id: 3, slug: 'tiep-can-benh-nhan-dau-nguc', title: 'Tiếp cận bệnh nhân đau ngực', domain: 'Tim mạch & Cấp cứu' },
+      4: { id: 4, slug: 'tiep-can-dau-bung-cap', title: 'Tiếp cận đau bụng cấp', domain: 'Tiêu hóa & Ngoại khoa' },
+      5: { id: 5, slug: 'tiep-can-benh-nhan-soc', title: 'Tiếp cận bệnh nhân sốc', domain: 'Hồi sức cấp cứu' }
     }
   };
 

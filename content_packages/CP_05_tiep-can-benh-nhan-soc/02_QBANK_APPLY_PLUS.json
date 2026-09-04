@@ -1,0 +1,52 @@
+[
+  {
+    "id": "CP05-AP01",
+    "cat": "SHOCK",
+    "problem": "Tiếp Cận Bệnh Nhân Sốc",
+    "section": "Safety Gate & Sốc Phản Vệ",
+    "bloom": "Áp dụng",
+    "comp": "Cấp cứu Dược lý",
+    "stem": "Bệnh nhân nam 28 tuổi xuất hiện ngứa, mày đay toàn thân, khàn tiếng, khó thở rít thanh quản và HA tụt xuống 75/40 mmHg ngay sau khi bị ong đốt 15 phút. Thuốc cấp cứu đầu tay, đường dùng và vị trí tiêm chính xác theo Thông tư 51/2017/TT-BYT là gì?",
+    "options": [
+      "Methylprednisolone 40mg tiêm tĩnh mạch chậm",
+      "Diphenhydramine 50mg tiêm bắp",
+      "Adrenaline (Epinephrine) 1mg/1ml — Tiêm bắp liều 0.5 ống (0.5mg) vào mặt trước ngoài đùi ngay lập tức",
+      "Adrenaline 1mg pha loãng tiêm tĩnh mạch nhanh trực tiếp"
+    ],
+    "correct_index": 2,
+    "peer_stats": "96% chọn đúng",
+    "takeaway": "Adrenaline tiêm bắp ở mặt trước ngoài đùi là THUỐC CỨU MẠNG DUY NHẤT trong sốc phản vệ (từ độ II trở lên). Kháng histamin và Corticoid chỉ là thuốc hỗ trợ bậc hai, không có tác dụng cứu mạng tức thì.",
+    "rationale": [
+      "A. Sai: Corticoid cần 4-6 giờ mới phát huy tác dụng thông qua tổng hợp protein nhân tế bào.",
+      "B. Sai: Kháng histamin không ức chế được các hóa ứng động khác và không nâng được huyết áp cấp.",
+      "C. ĐÚNG: Mặt trước ngoài đùi có tưới máu phong phú giúp Adrenaline hấp thu nhanh và đạt nồng độ đỉnh trong huyết tương sau vài phút.",
+      "D. Sai: Tiêm TM trực tiếp 1mg không pha loãng dễ gây loạn nhịp thất chết người và cơn tăng huyết áp kịch phát."
+    ],
+    "learn_ref_anchor": "management"
+  },
+  {
+    "id": "CP05-AP02",
+    "cat": "SHOCK",
+    "problem": "Tiếp Cận Bệnh Nhân Sốc",
+    "section": "Pathophysiology & Huyết Động",
+    "bloom": "Phân tích",
+    "comp": "Hồi sức Tích cực",
+    "stem": "Bệnh nhân sốc có thông số catheter Swan-Ganz: Áp lực nhĩ phải (CVP) tăng cao, Áp lực mao mạch phổi bít (PCWP) tăng cao, Chỉ số tim (Cardiac Index - CI) giảm nặng < 1.8 L/min/m2, Sức cản mạch hệ thống (SVR) tăng cao > 1800 dynes.sec/cm5. Đây là kiểu hình huyết động học điển hình của loại sốc nào?",
+    "options": [
+      "Sốc giảm thể tích (Hypovolemic shock)",
+      "Sốc nhiễm khuẩn giai đoạn đầu (Distributive septic shock)",
+      "Sốc tim (Cardiogenic shock do suy bơm thất trái)",
+      "Sốc thần kinh (Neurogenic shock)"
+    ],
+    "correct_index": 2,
+    "peer_stats": "84% chọn đúng",
+    "takeaway": "Sốc tim đặc trưng bởi suy giảm sức co bóp thất trái (CI giảm) dẫn đến ứ dịch ngược dòng (PCWP tăng, CVP tăng) và phản xạ co mạch ngoại biên bù trừ (SVR tăng cao). Khác biệt hoàn toàn với sốc giảm thể tích (PCWP và CVP đều thấp).",
+    "rationale": [
+      "A. Sai: Trong sốc giảm thể tích, cả tiền tải tim phải (CVP) và tim trái (PCWP) đều giảm sâu.",
+      "B. Sai: Sốc nhiễm khuẩn đặc trưng bởi SVR giảm sâu (giãn mạch) và CI thường tăng bù trừ.",
+      "C. ĐÚNG: Kiểu hình suy bơm thất trái điển hình.",
+      "D. Sai: Sốc thần kinh do mất trương lực giao cảm làm SVR giảm và nhịp tim chậm."
+    ],
+    "learn_ref_anchor": "mechanism"
+  }
+]

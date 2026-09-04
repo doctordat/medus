@@ -1,0 +1,51 @@
+{
+  "id": "CASE-CP01-01",
+  "title": "Cơn Khó Thở Kịch Phát Do Phù Phổi Cấp Tăng Áp (SCAPE)",
+  "steps": [
+    {
+      "step": 1,
+      "name": "Tiếp nhận Cấp cứu & Khám ban đầu",
+      "vitals": { "bp": "210/115", "hr": "128 l/p", "rr": "34 l/p", "spo2": "82%", "temp": "36.8 °C", "bpDanger": true },
+      "scenario": "<b>Bối cảnh:</b> Bệnh nhân nữ 68 tuổi tiền sử tăng huyết áp và suy tim, nhập viện vì khó thở dữ dội lúc nửa đêm, phải ngồi chồm hổm phía trước để thở, vã mồ hôi, da niêm tím tái, khạc bọt hồng qua miệng.",
+      "prompt": "Hành động ưu tiên ngay phút đầu tiên tiếp nhận bệnh nhân là gì?",
+      "options": [
+        "Chỉ định cho bệnh nhân đi chụp CT ngực ngay",
+        "Khởi động thở máy không xâm lấn CPAP/BiPAP áp lực dương + Đặt monitor theo dõi liên tục",
+        "Truyền nhanh 1000ml Natri Clorid 0.9%",
+        "Tiêm ngay Morphine 10mg tiêm bắp"
+      ],
+      "correct": 1,
+      "feedback": "<b>Chính xác:</b> Trong SCAPE, áp lực dương CPAP giúp tống dịch phù ra khỏi phế nang về mô kẽ, cải thiện trao đổi khí ngay tức thì."
+    },
+    {
+      "step": 2,
+      "name": "Siêu âm Phổi & Khí máu tại giường",
+      "vitals": { "bp": "205/110", "hr": "120 l/p", "rr": "28 l/p", "spo2": "90%", "temp": "36.8 °C", "bpDanger": true },
+      "scenario": "<b>Khám & POCUS tại giường:</b> Siêu âm phổi (BLUE Protocol) phát hiện hình ảnh đa B-lines (Rocket signs) dày đặc hai bên phế trường. Khí máu động mạch: pH 7.28, PaCO2 50 mmHg, PaO2 58 mmHg.",
+      "prompt": "Thuốc can thiệp mạch đầu tay có hiệu quả hạ hậu tải nhanh nhất là gì?",
+      "options": [
+        "Dopamine truyền tĩnh mạch",
+        "Nitroglycerin truyền tĩnh mạch liều cao chuẩn độ nhanh (bắt đầu 50-100 mcg/phút)",
+        "Adrenaline tiêm bắp",
+        "Kháng sinh Ceftriaxone 2g IV"
+      ],
+      "correct": 1,
+      "feedback": "<b>Chính xác:</b> Nitroglycerin liều cao làm giãn tĩnh mạch và tiểu động mạch, hạ nhanh hậu tải thất trái giúp tim bơm máu hiệu quả hơn."
+    },
+    {
+      "step": 3,
+      "name": "Đánh giá lại sau can thiệp",
+      "vitals": { "bp": "145/85", "hr": "88 l/p", "rr": "20 l/p", "spo2": "97%", "temp": "36.8 °C", "bpDanger": false },
+      "scenario": "<b>Sau 45 phút can thiệp CPAP và Nitroglycerin:</b> Bệnh nhân giảm khó thở rõ rệt, hết khạc bọt hồng, HA về 145/85 mmHg, nhịp tim 88 l/p, SpO2 97% ổn định.",
+      "prompt": "Bước điều trị duy trì tiếp theo là gì?",
+      "options": [
+        "Ngưng đột ngột mọi thuốc và cho xuất viện",
+        "Giảm dần liều Nitroglycerin, phối hợp lợi tiểu Furosemide liều thấp và chuyển khoa Tim mạch theo dõi",
+        "Chuyển phòng mổ cấp cứu",
+        "Bắt đầu truyền dịch duy trì tốc độ cao"
+      ],
+      "correct": 1,
+      "feedback": "<b>Chính xác:</b> Sau khi qua giai đoạn kịch phát, chuẩn độ giảm dần giãn mạch, bổ sung lợi tiểu thải trừ dịch thừa và theo dõi biến cố mạch vành."
+    }
+  ]
+}

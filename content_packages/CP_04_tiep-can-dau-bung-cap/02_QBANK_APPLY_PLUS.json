@@ -1,0 +1,52 @@
+[
+  {
+    "id": "CP04-AP01",
+    "cat": "GI",
+    "problem": "Tiếp Cận Đau Bụng Cấp",
+    "section": "Safety Gate & Red Flags",
+    "bloom": "Phân tích",
+    "comp": "Ngoại khoa & Cấp cứu",
+    "stem": "Bệnh nhân nam 45 tuổi có tiền sử loét dạ dày tá tràng, đột ngột đau bụng dữ dội như dao đâm vùng thượng vị lúc đang làm việc, sau đó lan ra khắp bụng. Khám: Bụng cứng như gỗ, co cứng thành bụng toàn thể, gõ mất vùng đục trước gan. Chẩn đoán lâm sàng nghi ngờ hàng đầu là gì?",
+    "options": [
+      "Viêm tụy cấp thể phù nề",
+      "Thủng tạng rỗng (Thủng ổ loét dạ dày - tá tràng) gây viêm phúc mạc toàn thể",
+      "Cơn đau quặn thận phải do sỏi niệu quản",
+      "Nhồi máu mạc treo ruột giai đoạn sớm"
+    ],
+    "correct_index": 1,
+    "peer_stats": "94% chọn đúng",
+    "takeaway": "Khởi phát đột ngột đau như dao đâm + Bụng gồng cứng như gỗ + Mất vùng đục trước gan là tam chứng điển hình của Thủng tạng rỗng gây tràn khí và dịch tiêu hóa vào khoang phúc mạc.",
+    "rationale": [
+      "A. Sai: Viêm tụy cấp đau lan sau lưng, bụng thường chướng và đề kháng thượng vị, hiếm khi gồng cứng như gỗ ngay từ đầu.",
+      "B. ĐÚNG: Cấp cứu ngoại khoa cần chụp X-quang bụng đứng tìm liềm hơi dưới hoành và phẫu thuật khẩn cấp.",
+      "C. Sai: Đau quặn thận đau quặn từng cơn lan xuống bẹn, không có viêm phúc mạc toàn thể.",
+      "D. Sai: Nhồi máu mạc treo giai đoạn sớm đặc trưng bởi đau dữ dội nhưng khám bụng mềm (bất tương xứng giữa triệu chứng cơ năng và thực thể)."
+    ],
+    "learn_ref_anchor": "safety_gate"
+  },
+  {
+    "id": "CP04-AP02",
+    "cat": "GI",
+    "problem": "Tiếp Cận Đau Bụng Cấp",
+    "section": "Decision Points & Viêm Ruột Thừa",
+    "bloom": "Áp dụng",
+    "comp": "Chẩn đoán Lâm Sàng",
+    "stem": "Bệnh nhân nữ 20 tuổi đau bụng âm ỉ vùng quanh rốn 8 giờ trước, hiện tại đau khu trú rõ ở hố chậu phải kèm buồn nôn và sốt nhẹ 38.0°C. Khám có điểm McBurney ấn đau rõ và dấu đề kháng nhẹ. Cơ chế giải thích sự dịch chuyển vị trí đau từ quanh rốn về hố chậu phải là gì?",
+    "options": [
+      "Do ruột thừa di động từ rốn xuống hố chậu phải",
+      "Giai đoạn đầu là đau tạng (Visceral pain) qua sợi thần kinh C dẫn truyền về tủy ngực T10, giai đoạn sau viêm lan đến phúc mạc thành gây đau thành (Somatic pain) qua sợi A-delta",
+      "Do vi khuẩn lan tràn vào khoang màng phổi",
+      "Do co thắt cơ thắt hồi manh tràng phản xạ"
+    ],
+    "correct_index": 1,
+    "peer_stats": "87% chọn đúng",
+    "takeaway": "Sự chuyển dịch triệu chứng từ đau tạng mơ hồ quanh rốn (thần kinh thực vật) sang đau thành khu trú chính xác hố chậu phải (thần kinh soma tủy sống) là dấu hiệu kinh điển của quá trình viêm ruột thừa tiến triển chạm vào phúc mạc thành.",
+    "rationale": [
+      "A. Sai: Vị trí giải phẫu gốc ruột thừa cố định ở manh tràng.",
+      "B. ĐÚNG: Cơ chế thần kinh học phân biệt đau tạng (lan tỏa, khó định vị) và đau thành (sắc nét, khu trú rõ).",
+      "C. Sai: Không liên quan đến khoang màng phổi.",
+      "D. Sai: Co thắt cơ trơn không giải thích được tính chất khu trú đau thành."
+    ],
+    "learn_ref_anchor": "mechanism"
+  }
+]
