@@ -1,1 +1,721 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MEDUS QBank — luyện câu hỏi ứng dụng và nhận diện điểm yếu theo chủ đề, section và năng lực."><title>MEDUS QBank — Starter 5 câu</title><style>:root{--n:#103e47;--t:#007f89;--l:#dcebed;--m:#667b80;--s:#e9f8f9;--w:#fff7e7;--r:#fff0ee}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5fbfc;color:#17343a}a{text-decoration:none;color:inherit}.wrap{max-width:920px;margin:auto;padding:0 22px}nav{height:66px;background:#fff;border-bottom:1px solid var(--l);display:flex;align-items:center}.nav{display:flex;gap:20px;align-items:center}.brand{font-weight:900;color:var(--t);font-size:22px;margin-right:auto}.hero{padding:55px 0 24px}.ey{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--t)}h1{font-size:44px;letter-spacing:-.04em;margin:10px 0;color:var(--n)}.lead{color:var(--m);line-height:1.65}.sync{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--l);padding:9px 11px;border-radius:99px;font-size:12px;color:var(--m);margin-top:10px}.dot{width:8px;height:8px;border-radius:50%;background:#d6a62a}.dot.ok{background:#2e9b69}.panel{background:#fff;border:1px solid var(--l);border-radius:22px;padding:26px;margin:20px 0 30px}.meta{font-size:12px;color:var(--m)}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.chip{font-size:10px;font-weight:850;padding:5px 8px;border-radius:99px;background:var(--s);color:var(--t)}.q{font-size:21px;font-weight:800;line-height:1.5;margin:14px 0}.ans button{display:block;width:100%;text-align:left;border:1px solid var(--l);background:#fff;padding:14px;border-radius:11px;margin:9px 0;cursor:pointer}.ans button:hover{border-color:var(--t);background:var(--s)}.fb{display:none;margin-top:14px;padding:14px;border-radius:11px;background:var(--s);line-height:1.55}.fb a{font-weight:800;color:var(--t)}.result{text-align:center;display:none;padding:18px}.result strong{display:block;font-size:64px;color:var(--n)}.btn{display:inline-block;background:var(--t);color:#fff;border:0;padding:13px 17px;border-radius:11px;font-weight:800;cursor:pointer;margin:7px}.bar{height:8px;background:#e5eff0;border-radius:99px;overflow:hidden;margin:15px 0}.bar i{display:block;height:100%;background:var(--t);width:0}.weak{display:grid;gap:9px;text-align:left;margin:22px 0}.weakItem{border:1px solid var(--l);border-radius:13px;padding:14px;background:#fbfefe}.weakItem b{color:var(--n)}.weakItem span{display:block;color:var(--m);font-size:12px;margin-top:5px}.good{background:#eef9f4}.bad{background:var(--r)}.foot{font-size:12px;color:var(--m);padding:0 0 40px}.summary{background:var(--w);border:1px solid #f0dfb9;border-radius:16px;padding:17px;text-align:left;margin-top:18px}.popback{display:none;position:fixed;inset:0;background:rgba(4,31,38,.58);z-index:50;place-items:center;padding:18px;backdrop-filter:blur(5px)}.popback.show{display:grid}.popup{width:min(520px,100%);background:#fff;border:1px solid #d7e8ea;border-radius:24px;padding:27px;box-shadow:0 30px 90px rgba(0,25,32,.28);position:relative}.popup .x{position:absolute;right:15px;top:13px;border:0;background:#eff6f7;width:32px;height:32px;border-radius:50%;cursor:pointer;color:#49676d;font-size:18px}.popup .mini{font-size:10px;font-weight:900;letter-spacing:.12em;color:var(--t)}.popup h2{font-size:27px;line-height:1.08;color:var(--n);margin:8px 38px 9px 0;letter-spacing:-.025em}.popup p{color:var(--m);font-size:13px;line-height:1.6}.popactions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.popactions a,.popactions button{border:0;border-radius:11px;padding:12px 15px;font-weight:850;cursor:pointer}.join{background:var(--n);color:#fff}.later{background:#eef5f6;color:#456269}.privacy{font-size:10px;color:#8a9a9e;margin-top:13px}@media(max-width:600px){h1{font-size:36px}.panel{padding:19px}.nav a:not(.brand){display:none}}</style><link rel="stylesheet" href="../assets/learner-tokens.css"></head><body><nav><div class="wrap nav"><a class="brand" href="../">MEDUS</a><a href="../hoc/tiep-can-benh-nhan-sot/">Learn</a><a href="../cases/">Cases</a><a href="../mastery/">Mastery</a><a href="../auth/">Account</a></div></nav><main class="wrap"><section class="hero"><div class="ey">MEDUS QBANK · FREE STARTER</div><h1>5 câu ứng dụng: bệnh nhân sốt</h1><p class="lead">Mỗi câu được map về <b>Clinical Problem → Section → Competency</b>. Khi đã đăng nhập, attempt và mastery sẽ đồng bộ lên Supabase.</p><div class="sync"><span class="dot" id="syncDot"></span><span id="syncText">Đang kiểm tra tài khoản…</span></div></section><div class="panel"><div class="bar"><i id="bar"></i></div><div id="quiz"></div><div class="result" id="result"><span>Kết quả</span><strong id="score"></strong><p id="msg"></p><div id="weak" class="weak"></div><div id="summary" class="summary"></div><a class="btn" href="../hoc/tiep-can-benh-nhan-sot/">Ôn lại bài sốt</a><a class="btn" href="../cases/">Thử ca lâm sàng</a><a class="btn" href="../mastery/">Xem Mastery</a><button class="btn" onclick="restart()">Làm lại</button></div></div><div class="foot">MEDUS Beta · Nếu chưa đăng nhập, kết quả vẫn được lưu cục bộ trên thiết bị và có thể sync sau.</div></main><div class="popback" id="launchPop"><div class="popup"><button class="x" onclick="closeLaunchPop()" aria-label="Đóng">×</button><div class="mini">MEDUS · PRE-LAUNCH</div><h2>Test xong rồi — muốn tụi mình báo khi bản chính mở không?</h2><p>Để lại email để nhận thông báo khi MEDUS hoàn thiện Learn, QBank, Clinical Cases, Mock Exam và các tính năng học cá nhân hóa.</p><div class="popactions"><a class="join" href="../waitlist/?source=qbank_finished">Nhận thông báo khi MEDUS ra mắt →</a><button class="later" onclick="closeLaunchPop()">Để sau</button></div><div class="privacy">Không bắt buộc đăng ký. Bạn vẫn có thể tiếp tục dùng bản demo.</div></div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../assets/supabase-config.js"></script><script>const client=supabase.createClient(window.MEDUS_SUPABASE_URL,window.MEDUS_SUPABASE_PUBLISHABLE_KEY);const d=[{dbid:'00000000-0000-4000-8000-000000000001',id:'FVR-001',section:'Safety Gate',sectionKey:'safety_gate',competency:'management',competencyLabel:'Chăm sóc y khoa',bloom:'Áp dụng',stem:'Nam 68 tuổi sốt, HA 86/52, RR 30, SpO₂ 89%, lơ mơ, CRT 4 giây. Ưu tiên đầu tiên?',options:['CT ngực trước','ABCDE + hồi sức, đồng thời đánh giá sepsis','Chờ đủ xét nghiệm rồi xử trí','Hạ sốt trước'],correct:1,explain:'Bệnh nhân có nhiều dấu hiệu nguy kịch. Ưu tiên là ổn định ABCDE và xử trí song song, không chờ chẩn đoán hoàn chỉnh.',anchor:'safety'},{dbid:'00000000-0000-4000-8000-000000000002',id:'FVR-002',section:'Safety Gate',sectionKey:'safety_gate',competency:'diagnosis',competencyLabel:'Ứng dụng kiến thức y học',bloom:'Áp dụng',stem:'qSOFA = 0 ở bệnh nhân nghi nhiễm trùng. Kết luận phù hợp nhất?',options:['Loại trừ sepsis','Không cần đánh giá cơ quan','qSOFA không dùng để loại trừ sepsis','Có thể cho về ngay'],correct:2,explain:'qSOFA là tín hiệu nguy cơ tại giường, không phải test loại trừ sepsis.',anchor:'safety'},{dbid:'00000000-0000-4000-8000-000000000003',id:'FVR-003',section:'Ca đặc biệt · Dengue',sectionKey:'special_cases',competency:'management',competencyLabel:'Chăm sóc y khoa',bloom:'Áp dụng',stem:'Nữ 24 tuổi ngày 4 sốt, đau bụng tăng, Hct tăng, tiểu cầu giảm. Điều cần ưu tiên?',options:['Chỉ theo dõi nhiệt độ','Dùng NSAID','Đánh giá dengue dấu cảnh báo và tưới máu','Hết sốt là an toàn'],correct:2,explain:'Ngày bệnh, Hct động học và dấu cảnh báo quan trọng hơn việc nhiệt độ giảm.',anchor:'special'},{dbid:'00000000-0000-4000-8000-000000000004',id:'FVR-004',section:'Vật chủ nguy cơ cao',sectionKey:'special_cases',competency:'management',competencyLabel:'Chăm sóc y khoa',bloom:'Áp dụng',stem:'Bệnh nhân hóa trị, sốt 38,5°C, ANC 0,2 ×10⁹/L, chưa thấy ổ.',options:['Chờ ổ nhiễm rõ','Sốt giảm bạch cầu là cấp cứu nhiễm trùng tiềm ẩn','Chỉ hạ sốt','Không cần cấy'],correct:1,explain:'Vật chủ giảm bạch cầu có thể ít dấu khu trú; cần đánh giá và khởi trị khẩn theo phác đồ.',anchor:'special'},{dbid:'00000000-0000-4000-8000-000000000005',id:'FVR-005',section:'Xét nghiệm & diễn giải',sectionKey:'investigations',competency:'diagnosis',competencyLabel:'Ứng dụng kiến thức y học',bloom:'Áp dụng',stem:'Trước khi chỉ định một xét nghiệm ở bệnh nhân sốt, câu hỏi tốt nhất là gì?',options:['Xét nghiệm nào phổ biến nhất?','Panel nào đầy đủ nhất?','Kết quả này sẽ thay đổi xử trí nào?','Xét nghiệm nào nhạy nhất?'],correct:2,explain:'Một xét nghiệm có giá trị khi trả lời câu hỏi lâm sàng và có khả năng thay đổi quyết định.',anchor:'dx'}];let i=0,s=0,miss=[],session=null;const q=document.getElementById('quiz'),r=document.getElementById('result');async function boot(){const live=await client.from('questions').select('id,clinical_problem_id,section_key,stem,option_a,option_b,option_c,option_d,correct_option,explanation_a,explanation_b,explanation_c,explanation_d,competency,bloom,difficulty,status').eq('clinical_problem_id',2).eq('status','published').order('updated_at',{ascending:false}).limit(20);if(live.data?.length){const mapped=live.data.map((x,k)=>({dbid:x.id,id:'LIVE-'+String(k+1).padStart(3,'0'),section:x.section_key||'Clinical reasoning',sectionKey:x.section_key||'overview',competency:x.competency,competencyLabel:x.competency,bloom:x.bloom,stem:x.stem,options:[x.option_a,x.option_b,x.option_c,x.option_d],correct:'ABCD'.indexOf(x.correct_option),explain:[x.explanation_a,x.explanation_b,x.explanation_c,x.explanation_d][('ABCD'.indexOf(x.correct_option))]||'Xem lại giải thích đã được Medical Review.',anchor:x.section_key||'overview'}));d.splice(0,d.length,...mapped)}const{data}=await client.auth.getSession();session=data.session;if(session){syncDot.classList.add('ok');syncText.textContent='Đã đăng nhập · kết quả sẽ sync lên MEDUS Cloud'}else{syncText.innerHTML='Chưa đăng nhập · <a href="../auth/" style="color:#007f89;font-weight:800">đăng nhập để đồng bộ</a>'}}async function saveAttempt(x,j,ok){if(!session)return;const selected=String.fromCharCode(65+j);const{error}=await client.from('question_attempts').insert({user_id:session.user.id,question_id:x.dbid,selected_option:selected,is_correct:ok});if(error){console.warn('attempt sync',error.message);syncText.textContent='Chưa sync được attempt · dữ liệu vẫn lưu cục bộ';syncDot.classList.remove('ok');return}const{data:row}=await client.from('mastery').select('*').eq('user_id',session.user.id).eq('clinical_problem_id',2).eq('section_key',x.sectionKey).eq('competency',x.competency).maybeSingle();const attempts=(row?.attempt_count||0)+1,correct=(row?.correct_count||0)+(ok?1:0);await client.from('mastery').upsert({user_id:session.user.id,clinical_problem_id:2,section_key:x.sectionKey,competency:x.competency,attempt_count:attempts,correct_count:correct,mastery_score:Math.round(correct/attempts*100),updated_at:new Date().toISOString()},{onConflict:'user_id,clinical_problem_id,section_key,competency'})}function render(){bar.style.width=(i/d.length*100)+'%';if(i>=d.length){finish();return}let x=d[i];q.innerHTML='<div class="meta">Câu '+(i+1)+' / '+d.length+' · '+x.id+'</div><div class="chips"><span class="chip">'+x.section+'</span><span class="chip">'+x.competencyLabel+'</span><span class="chip">Bloom: '+x.bloom+'</span></div><div class="q">'+x.stem+'</div><div class="ans">'+x.options.map((a,j)=>'<button onclick="pick('+j+')">'+String.fromCharCode(65+j)+'. '+a+'</button>').join('')+'</div><div class="fb" id="fb"></div>'}async function pick(j){let x=d[i],f=document.getElementById('fb'),ok=j===x.correct;if(ok)s++;else miss.push(x);f.style.display='block';f.className='fb '+(ok?'good':'bad');f.innerHTML=(ok?'<b>Đúng.</b> ':'<b>Chưa đúng.</b> ')+x.explain+' <a href="../hoc/tiep-can-benh-nhan-sot/#'+x.anchor+'">Xem đúng phần này →</a>';document.querySelectorAll('.ans button').forEach(b=>b.disabled=true);saveAttempt(x,j,ok);setTimeout(()=>{i++;render()},1100)}function showLaunchPop(){setTimeout(()=>document.getElementById('launchPop').classList.add('show'),700)}function closeLaunchPop(){document.getElementById('launchPop').classList.remove('show')}function finish(){q.style.display='none';r.style.display='block';bar.style.width='100%';score.textContent=s+'/'+d.length;msg.textContent=s>=4?'Nền tảng tốt. Tiếp theo nên luyện ca diễn tiến nhiều bước.':'MEDUS đã xác định các section cần ưu tiên ôn lại.';let counts={};miss.forEach(x=>{let k=x.section+'|'+x.anchor;counts[k]=(counts[k]||0)+1});weak.innerHTML=miss.length?Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,n])=>{let [sec,a]=k.split('|');return '<a class="weakItem" href="../hoc/tiep-can-benh-nhan-sot/#'+a+'"><b>'+sec+'</b><span>Sai '+n+' câu · mở đúng section để ôn lại →</span></a>'}).join(''):'<div class="weakItem good"><b>Chưa phát hiện weak area trong starter set.</b><span>Chuyển sang Clinical Case để tăng độ khó.</span></div>';let comp={};miss.forEach(x=>comp[x.competencyLabel]=(comp[x.competencyLabel]||0)+1);summary.innerHTML='<b>Mastery snapshot</b><br><span class="meta">Clinical Problem 02 · Sốt</span><br><br>'+(miss.length?'Ưu tiên: '+Object.entries(comp).sort((a,b)=>b[1]-a[1]).map(x=>x[0]+' ('+x[1]+' lỗi)').join(' · '):'Starter set đạt 100%.')+(session?'<br><br><span class="meta">✓ Attempt đã gửi lên Supabase theo account.</span>':'<br><br><span class="meta">Đăng nhập để sync kết quả qua thiết bị.</span>');localStorage.setItem('medus_qbank_fever',s);localStorage.setItem('medus_mastery_fever',JSON.stringify({score:s,total:d.length,missed:miss.map(x=>({id:x.id,section:x.section,competency:x.competencyLabel,anchor:x.anchor})),updatedAt:new Date().toISOString()}));showLaunchPop()}function restart(){i=0;s=0;miss=[];q.style.display='block';r.style.display='none';closeLaunchPop();render()}client.auth.onAuthStateChange((_e,newSession)=>{session=newSession;boot()});boot();render();</script></body></html>
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="MEDUS QBank — Ngân hàng câu hỏi trắc nghiệm lâm sàng Apply+ và giải thích chuyên sâu từng phương án.">
+  <title>MEDUS QBank — Ngân Hàng Câu Hỏi Lâm Sàng Apply+</title>
+  <style>
+    :root {
+      --navy: #092c35;
+      --navy-light: #104350;
+      --teal: #008d98;
+      --teal-light: #00b4c2;
+      --teal-soft: #eaf8f9;
+      --ink: #163238;
+      --ink-secondary: #4a686f;
+      --muted: #6b868e;
+      --line: #dbe8ea;
+      --line-light: #edf4f5;
+      --bg: #f5fafb;
+      --card-bg: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(9,44,53,.04);
+      --shadow-md: 0 10px 30px rgba(9,44,53,.06);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .wrap {
+      max-width: 1080px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    /* NAV */
+    nav {
+      height: 70px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 950;
+      color: var(--navy);
+      letter-spacing: -.03em;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--teal), #006870);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-item {
+      font-size: 13.5px;
+      font-weight: 750;
+      color: var(--ink-secondary);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: .15s ease;
+    }
+    .nav-item:hover, .nav-item.active {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    /* EXAM CONTROL BAR */
+    .exam-control-bar {
+      margin: 28px 0 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .topic-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topic-badge {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .topic-title {
+      font-size: 14.5px;
+      font-weight: 850;
+      color: var(--navy);
+    }
+    .exam-meta-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .timer-display {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 900;
+      color: var(--navy);
+      background: var(--teal-soft);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    /* MAIN QUESTION CARD (UWORLD STYLE) */
+    .question-arena {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
+    }
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line-light);
+    }
+    .q-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      font-size: 10.5px;
+      font-weight: 850;
+      padding: 4px 9px;
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--ink-secondary);
+      border: 1px solid var(--line);
+    }
+    .q-stem {
+      font-size: 17.5px;
+      line-height: 1.68;
+      font-weight: 650;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+
+    /* OPTIONS LIST */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      cursor: pointer;
+      transition: .15s ease;
+      user-select: none;
+    }
+    .option-item:hover {
+      border-color: #a2d6dc;
+      background: #fafdfd;
+    }
+    .option-item.selected {
+      border-color: var(--teal);
+      background: var(--teal-soft);
+    }
+    .option-item.correct {
+      border-color: #10b981;
+      background: #ecfdf5;
+    }
+    .option-item.incorrect {
+      border-color: #ef4444;
+      background: #fef2f2;
+    }
+    .option-key {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1.5px solid #cbd5e1;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--muted);
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+    .option-item.selected .option-key {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: #fff;
+    }
+    .option-item.correct .option-key {
+      background: #10b981;
+      border-color: #10b981;
+      color: #fff;
+    }
+    .option-item.incorrect .option-key {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: #fff;
+    }
+    .option-text {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ACTION BUTTONS */
+    .q-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-light);
+    }
+    .btn-submit {
+      background: var(--navy);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 850;
+      padding: 12px 28px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      transition: .15s;
+    }
+    .btn-submit:hover { background: var(--navy-light); }
+    .btn-submit:disabled { opacity: .4; cursor: not-allowed; }
+
+    .btn-next {
+      display: none;
+      background: var(--teal);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 850;
+      padding: 12px 28px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      transition: .15s;
+    }
+    .btn-next:hover { background: #007680; }
+
+    /* DETAILED EXPLANATION DRAWER (AMBOSS / UWORLD STYLE) */
+    .explanation-box {
+      display: none;
+      margin-top: 32px;
+      padding: 28px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      animation: slideDown .25s ease;
+    }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .exp-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .result-badge {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      padding: 5px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .result-badge.correct { background: #dcfce7; color: #15803d; }
+    .result-badge.incorrect { background: #fee2e2; color: #b91c1c; }
+
+    .exp-section-title {
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin: 20px 0 8px;
+    }
+    .takeaway-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 14px 18px;
+      border-radius: 0 10px 10px 0;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #1e3a8a;
+      font-weight: 650;
+      margin-bottom: 18px;
+    }
+    .option-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .option-exp-item {
+      padding: 12px 16px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+    .option-exp-item b { color: var(--navy); }
+    .learn-link-box {
+      margin-top: 24px;
+      padding: 14px 18px;
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* COMPLETE SUMMARY VIEW */
+    .summary-view {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .score-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: conic-gradient(var(--teal) 0%, #e2e8f0 0%);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+    }
+    .score-inner {
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: 950;
+      color: var(--navy);
+    }
+    .weak-breakdown {
+      display: grid;
+      gap: 10px;
+      max-width: 600px;
+      margin: 24px auto;
+      text-align: left;
+    }
+    .weak-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @media(max-width: 700px) {
+      .question-arena { padding: 22px 18px; }
+      .q-stem { font-size: 16px; }
+      .exam-control-bar { flex-direction: column; align-items: flex-start; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="../">
+      <div class="brand-mark">✚</div>
+      <span>MEDUS</span>
+    </a>
+
+    <div class="nav-links">
+      <a class="nav-item" href="../hoc/">Thư Viện Bài Học</a>
+      <a class="nav-item" href="../review/">Smart Review</a>
+      <a class="nav-item active" href="./">QBank</a>
+      <a class="nav-item" href="../cases/">Clinical Cases</a>
+      <a class="nav-item" href="../mastery/">Năng Lực Mastery</a>
+    </div>
+
+    <div>
+      <a style="font-size: 12px; font-weight: 850; color: var(--teal);" href="../hoc/">Thoát bài thi ✕</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- CONTROL BAR -->
+  <div class="exam-control-bar">
+    <div class="topic-info">
+      <span class="topic-badge" id="topicBadge">CLINICAL PROBLEM #03</span>
+      <span class="topic-title" id="topicTitle">Tiếp Cận Bệnh Nhân Đau Ngực (Apply+ Set)</span>
+    </div>
+
+    <div class="exam-meta-controls">
+      <div class="timer-display">⏱ <span id="timerTxt">00:00</span></div>
+      <span style="font-size: 12.5px; font-weight: 800; color: var(--muted);" id="qNavIndex">Câu 1 / 5</span>
+    </div>
+  </div>
+
+  <!-- QUESTION ARENA -->
+  <div class="question-arena" id="arenaBox">
+    <div class="q-header">
+      <div class="q-chips">
+        <span class="chip" id="chipSection">Safety Gate &amp; Red Flags</span>
+        <span class="chip" id="chipBloom">Bloom: Áp dụng</span>
+        <span class="chip" id="chipComp">Chăm sóc Y khoa</span>
+      </div>
+      <div style="font-size: 11px; font-weight: 850; color: var(--muted);" id="qId">QID: CP03-AP01</div>
+    </div>
+
+    <div class="q-stem" id="qStem">Đang tải câu hỏi...</div>
+
+    <div class="options-list" id="optionsList"></div>
+
+    <div class="q-actions">
+      <button class="btn-submit" id="btnSubmit" onclick="submitAnswer()" disabled>Xác Nhận Phương Án</button>
+      <button class="btn-next" id="btnNext" onclick="nextQuestion()">Câu Tiếp Theo →</button>
+    </div>
+
+    <!-- DETAILED EXPLANATION (POST SUBMIT) -->
+    <div class="explanation-box" id="explanationBox">
+      <div class="exp-header">
+        <span class="result-badge" id="resBadge">CHÍNH XÁC</span>
+        <span style="font-size: 13px; color: var(--ink-secondary); font-weight: 700;" id="peerStats">82% học viên chọn đúng phương án này</span>
+      </div>
+
+      <div class="exp-section-title">💡 Điểm Then Chốt Lâm Sàng (Key Clinical Takeaway)</div>
+      <div class="takeaway-box" id="takeawayBox">...</div>
+
+      <div class="exp-section-title">Phân Tích Từng Phương Án (Options Rationale)</div>
+      <div class="option-breakdown" id="optionBreakdown"></div>
+
+      <div class="learn-link-box">
+        <div>
+          <b style="color: var(--navy); font-size: 13px;">Chưa vững phần kiến thức này?</b>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Mở lại phần bài học đã được Medical Review để đọc sâu cơ chế.</div>
+        </div>
+        <a id="learnRefBtn" href="../hoc/?slug=tiep-can-benh-nhan-dau-nguc" style="font-size: 12.5px; font-weight: 900; color: var(--teal);">Mở Section Bài Học →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPLETE SUMMARY -->
+  <div class="question-arena summary-view" id="summaryView">
+    <div class="score-circle" id="scoreCircle">
+      <div class="score-inner" id="scoreText">4/5</div>
+    </div>
+    <h2 style="font-size: 26px; color: var(--navy); margin-bottom: 8px;">Hoàn Thành Lượt Làm Bài QBank!</h2>
+    <p style="color: var(--ink-secondary); font-size: 14px; margin-bottom: 24px;">Hệ thống đã phân tích các lỗ hổng kiến thức và gợi ý section cần ôn luyện.</p>
+
+    <div class="weak-breakdown" id="weakBreakdown"></div>
+
+    <div style="display: flex; justify-content: center; gap: 12px; margin-top: 28px;">
+      <a class="btn-submit" href="../review/">Ôn Lại Thẻ Flashcards →</a>
+      <a class="btn-next" style="display: inline-block;" href="../cases/">Thử Clinical Cases →</a>
+    </div>
+  </div>
+</main>
+
+<script>
+  const qbankData = [
+    {
+      id: 'CP03-AP01',
+      problem: 'Tiếp Cận Bệnh Nhân Đau Ngực',
+      section: 'Safety Gate & Red Flags',
+      bloom: 'Áp dụng',
+      comp: 'Chẩn đoán & Cấp cứu',
+      stem: 'Bệnh nhân nam 65 tuổi có tiền sử tăng huyết áp nhập viện vì đau ngực dữ dội đột ngột, cảm giác xé rách lan ra sau lưng. Huyết áp tay phải 180/100 mmHg, tay trái 135/85 mmHg. Điện tâm đồ ghi nhận nhịp xoang đều, không có ST chênh lên. Hành động nào sau đây là CHỐNG CHỈ ĐỊNH TUYỆT ĐỐI tại thời điểm này?',
+      options: [
+        'Kiểm soát huyết áp và nhịp tim bằng chẹn beta tĩnh mạch',
+        'Sử dụng thuốc tiêu sợi huyết (Thrombolytic therapy) hoặc kháng đông liều cao',
+        'Chỉ định chụp cắt lớp vi tính mạch máu ngực có cản quang (CT Angiography)',
+        'Hội chẩn khẩn cấp phẫu thuật viên lồng ngực - tim mạch'
+      ],
+      correct: 1,
+      peer: '88% chọn đúng',
+      takeaway: 'Bóc tách Động mạch chủ ngực (Aortic Dissection) là cấp cứu tối khẩn trong nhóm "Big 5". Dùng tiêu sợi huyết hoặc kháng đông trong bệnh cảnh này sẽ gây xuất huyết ồ ạt dẫn đến tử vong nhanh chóng.',
+      rationale: [
+        '<b>A. Sai vì đây là xử trí ĐÚNG:</b> Cần hạ HA tâm thu xuống 100-120 mmHg và kiểm soát nhịp tim < 60 l/p để giảm áp lực lên thành mạch bị bóc tách.',
+        '<b>B. ĐÚNG (Đây là chống chỉ định):</b> Nhầm lẫn bóc tách ĐMC với Hội chứng vành cấp rồi dùng tiêu sợi huyết/kháng đông là bẫy nguy hiểm nhất trong cấp cứu đau ngực.',
+        '<b>C. Sai vì đây là xử trí ĐÚNG:</b> CT Angiography là tiêu chuẩn vàng để xác định vị trí và phân loại Stanford A/B của bóc tách.',
+        '<b>D. Sai vì đây là xử trí ĐÚNG:</b> Cần kích hoạt đội phẫu thuật tim mạch ngay khi nghi ngờ Stanford A (liên quan ĐMC lên).'
+      ],
+      learnRef: '../hoc/?slug=tiep-can-benh-nhan-dau-nguc#safety_gate'
+    },
+    {
+      id: 'CP03-AP02',
+      problem: 'Tiếp Cận Bệnh Nhân Đau Ngực',
+      section: 'Decision Points & Investigations',
+      bloom: 'Phân tích',
+      comp: 'Chăm sóc Y khoa',
+      stem: 'Bệnh nhân nam 52 tuổi đau tức ngực sau xương ức khi gắng sức, kéo dài 30 phút. Điện tâm đồ 12 chuyển đạo đầu tiên lúc vào viện chưa ghi nhận bất thường đoạn ST/sóng T. Xét nghiệm Troponin tim độ nhạy cao (hs-cTn) lần 1 tại thời điểm 45 phút sau khởi phát có kết quả bình thường. Bước xử trí tiếp theo phù hợp nhất là gì?',
+      options: [
+        'Trấn an bệnh nhân, giải thích không có nhồi máu cơ tim và cho xuất viện',
+        'Chỉ định D-dimer để loại trừ Hội chứng vành cấp',
+        'Lưu bệnh nhân theo dõi, thực hiện Troponin serial theo protocol và lặp lại ECG khi đau tái phát',
+        'Chuyển bệnh nhân đi nội soi dạ dày thực quản ngay để tìm nguyên nhân GERD'
+      ],
+      correct: 2,
+      peer: '79% chọn đúng',
+      takeaway: 'Một kết quả ECG hoặc Troponin bình thường đơn độc tại thời điểm quá sớm KHÔNG ĐỦ để loại trừ Hội chứng vành cấp (ACS). Bắt buộc phải áp dụng chiến lược Troponin serial (0h/1h hoặc 0h/2h/3h) kết hợp theo dõi sát lâm sàng.',
+      rationale: [
+        '<b>A. Sai:</b> Bẫy kinh điển "loại trừ ACS quá sớm" dẫn đến bỏ sót nhồi máu cơ tim không ST chênh (NSTEMI) hoặc đau thắt ngực không ổn định.',
+        '<b>B. Sai:</b> D-dimer dùng để loại trừ Thuyên tắc phổi (PE) ở nhóm xác suất thấp/trung bình, không có giá trị chẩn đoán ACS.',
+        '<b>C. ĐÚNG:</b> Troponin cần thời gian giải phóng vào máu. Phải làm serial theo protocol cơ sở và theo dõi ECG liên tục.',
+        '<b>D. Sai:</b> Chưa được đóng nhãn nguyên nhân tiêu hóa khi nguy cơ tim mạch chưa được loại trừ an toàn.'
+      ],
+      learnRef: '../hoc/?slug=tiep-can-benh-nhan-dau-nguc#decision_points'
+    },
+    {
+      id: 'CP02-AP03',
+      problem: 'Tiếp Cận Bệnh Nhân Sốt',
+      section: 'Safety Gate & Sepsis',
+      bloom: 'Áp dụng',
+      comp: 'Hồi sức & Kháng sinh',
+      stem: 'Bệnh nhân nữ 70 tuổi sốt cao 39.2°C, mạch 125 l/p, HA 80/50 mmHg, SpO2 93%, tri giác lơ mơ. Đã truyền nhanh 30ml/kg dịch tinh thể nhưng HA vẫn duy trì ở mức 82/52 mmHg, Lactate máu 4.2 mmol/L. Chẩn đoán xác định và can thiệp mạch tiếp theo là gì?',
+      options: [
+        'Nhiễm trùng huyết (Sepsis) đơn thuần — Tiếp tục truyền thêm 3000ml dịch',
+        'Sốc nhiễm khuẩn (Septic Shock) — Khởi động thuốc vận mạch (Noradrenaline) đích MAP ≥ 65 mmHg',
+        'Sốc phản vệ — Tiêm Adrenaline bắp liều 0.5mg',
+        'Chỉ hạ sốt bằng Paracetamol truyền tĩnh mạch và chờ kết quả cấy máu'
+      ],
+      correct: 1,
+      peer: '91% chọn đúng',
+      takeaway: 'Sốc nhiễm khuẩn được định nghĩa khi tụt huyết áp kéo dài cần thuốc vận mạch để duy trì MAP ≥ 65 mmHg và Lactate > 2 mmol/L dù đã bù đủ thể tích dịch. Vận mạch đầu tay là Noradrenaline.',
+      rationale: [
+        '<b>A. Sai:</b> Đã đáp ứng tiêu chuẩn Sốc nhiễm khuẩn (tụt HA trơ với bù dịch + tăng Lactate), tiếp tục xả dịch ồ ạt có nguy cơ phù phổi cấp.',
+        '<b>B. ĐÚNG:</b> Cần khởi động Noradrenaline sớm qua đường truyền tĩnh mạch để nâng huyết áp tưới máu mô.',
+        '<b>C. Sai:</b> Bệnh cảnh nhiễm trùng tiến triển, không có bằng chứng tiếp xúc dị nguyên hay co thắt phế quản cấp tính.',
+        '<b>D. Sai:</b> Trì hoãn vận mạch ở bệnh nhân sốc sẽ dẫn đến suy đa cơ quan không hồi phục.'
+      ],
+      learnRef: '../hoc/?slug=tiep-can-benh-nhan-sot#safety_gate'
+    }
+  ];
+
+  let currentQIdx = 0;
+  let selectedOption = null;
+  let userAnswers = [];
+  let timerSeconds = 0;
+  let timerInterval = null;
+
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      timerSeconds++;
+      const m = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+      const s = String(timerSeconds % 60).padStart(2, '0');
+      document.getElementById('timerTxt').textContent = `${m}:${s}`;
+    }, 1000);
+  }
+
+  function loadQuestion(idx) {
+    const q = qbankData[idx];
+    selectedOption = null;
+
+    document.getElementById('topicTitle').textContent = `${q.problem} (Apply+ Set)`;
+    document.getElementById('qNavIndex').textContent = `Câu ${idx + 1} / ${qbankData.length}`;
+    document.getElementById('chipSection').textContent = q.section;
+    document.getElementById('chipBloom').textContent = `Bloom: ${q.bloom}`;
+    document.getElementById('chipComp').textContent = q.comp;
+    document.getElementById('qId').textContent = `QID: ${q.id}`;
+    document.getElementById('qStem').textContent = q.stem;
+
+    const optContainer = document.getElementById('optionsList');
+    optContainer.innerHTML = q.options.map((opt, oIdx) => `
+      <div class="option-item" id="opt-${oIdx}" onclick="selectOpt(${oIdx})">
+        <div class="option-key">${String.fromCharCode(65 + oIdx)}</div>
+        <div class="option-text">${opt}</div>
+      </div>
+    `).join('');
+
+    document.getElementById('btnSubmit').style.display = 'inline-block';
+    document.getElementById('btnSubmit').disabled = true;
+    document.getElementById('btnNext').style.display = 'none';
+    document.getElementById('explanationBox').style.display = 'none';
+  }
+
+  function selectOpt(oIdx) {
+    if (document.getElementById('explanationBox').style.display === 'block') return; // already submitted
+    selectedOption = oIdx;
+    document.querySelectorAll('.option-item').forEach((el, idx) => {
+      el.classList.toggle('selected', idx === oIdx);
+    });
+    document.getElementById('btnSubmit').disabled = false;
+  }
+
+  function submitAnswer() {
+    if (selectedOption === null) return;
+    const q = qbankData[currentQIdx];
+    const isCorrect = selectedOption === q.correct;
+    userAnswers.push({ q, selected: selectedOption, isCorrect });
+
+    // Mark options UI
+    document.querySelectorAll('.option-item').forEach((el, idx) => {
+      if (idx === q.correct) el.classList.add('correct');
+      if (idx === selectedOption && !isCorrect) el.classList.add('incorrect');
+    });
+
+    // Populate Explanation
+    const badge = document.getElementById('resBadge');
+    badge.textContent = isCorrect ? '✓ CHÍNH XÁC' : '✕ CHƯA CHÍNH XÁC';
+    badge.className = `result-badge ${isCorrect ? 'correct' : 'incorrect'}`;
+
+    document.getElementById('peerStats').textContent = q.peer;
+    document.getElementById('takeawayBox').textContent = q.takeaway;
+    document.getElementById('optionBreakdown').innerHTML = q.rationale.map(r => `<div class="option-exp-item">${r}</div>`).join('');
+    document.getElementById('learnRefBtn').href = q.learnRef;
+
+    document.getElementById('explanationBox').style.display = 'block';
+    document.getElementById('btnSubmit').style.display = 'none';
+    document.getElementById('btnNext').style.display = 'inline-block';
+  }
+
+  function nextQuestion() {
+    currentQIdx++;
+    if (currentQIdx < qbankData.length) {
+      loadQuestion(currentQIdx);
+    } else {
+      finishExam();
+    }
+  }
+
+  function finishExam() {
+    clearInterval(timerInterval);
+    document.getElementById('arenaBox').style.display = 'none';
+    document.getElementById('summaryView').style.display = 'block';
+
+    const correctCount = userAnswers.filter(a => a.isCorrect).length;
+    const total = userAnswers.length;
+    const pct = Math.round((correctCount / total) * 100);
+
+    document.getElementById('scoreText').textContent = `${correctCount}/${total}`;
+    document.getElementById('scoreCircle').style.background = `conic-gradient(var(--teal) ${pct}%, #e2e8f0 ${pct}%)`;
+
+    // Weak areas
+    const missed = userAnswers.filter(a => !a.isCorrect);
+    const weakBox = document.getElementById('weakBreakdown');
+    if (missed.length) {
+      weakBox.innerHTML = `
+        <div style="font-size: 13px; font-weight: 900; color: var(--navy); margin-bottom: 8px;">CÁC SECTION LÂM SÀNG CẦN CỦNG CỐ:</div>
+        ${missed.map(m => `
+          <div class="weak-card">
+            <div>
+              <b style="color: var(--navy);">${m.q.problem} · ${m.q.section}</b>
+              <div style="font-size: 12px; color: var(--muted); margin-top: 2px;">Sai câu: ${m.q.id}</div>
+            </div>
+            <a href="${m.q.learnRef}" style="font-size: 12px; font-weight: 850; color: var(--teal);">Ôn Section →</a>
+          </div>
+        `).join('')}
+      `;
+    } else {
+      weakBox.innerHTML = `
+        <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 16px; border-radius: 12px; text-align: center; color: #065f46; font-weight: 750; font-size: 14px;">
+          🎉 Xuất sắc! Bạn đã trả lời đúng 100% các câu hỏi Apply+ trong bộ đề này.
+        </div>
+      `;
+    }
+  }
+
+  // Init
+  loadQuestion(0);
+  startTimer();
+</script>
+</body>
+</html>
