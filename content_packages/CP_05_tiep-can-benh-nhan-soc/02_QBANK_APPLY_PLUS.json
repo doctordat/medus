@@ -1,52 +1,122 @@
 [
   {
     "id": "CP05-AP01",
-    "cat": "SHOCK",
-    "problem": "Tiếp Cận Bệnh Nhân Sốc",
-    "section": "Safety Gate & Sốc Phản Vệ",
+    "clinical_problem_id": 5,
+    "section_key": "safety_gate",
     "bloom": "Áp dụng",
-    "comp": "Cấp cứu Dược lý",
-    "stem": "Bệnh nhân nam 28 tuổi xuất hiện ngứa, mày đay toàn thân, khàn tiếng, khó thở rít thanh quản và HA tụt xuống 75/40 mmHg ngay sau khi bị ong đốt 15 phút. Thuốc cấp cứu đầu tay, đường dùng và vị trí tiêm chính xác theo Thông tư 51/2017/TT-BYT là gì?",
+    "competency": "Cấp cứu Sốc phản vệ",
+    "stem": "Bệnh nhân nữ 32 tuổi đang được truyền tĩnh mạch Cefriaxone 2g tại phòng tiểu phẫu. Sau khi truyền được khoảng 3 phút, bệnh nhân đột ngột cảm thấy nóng bừng mặt, hồi hộp đánh trống ngực, xuất hiện khó thở rít thanh môn tăng dần và nổi ban mề đay ngứa toàn thân. Điều dưỡng đo sinh hiệu: Huyết áp tụt xuống còn 70/40 mmHg, Mạch 132 lần/phút nhanh nhỏ, SpO2 87% khí phòng. Hành động nào sau đây là BẮT BUỘC VÀ ƯU TIÊN SỐ 1 PHẢI THỰC HIỆN NGAY?",
     "options": [
-      "Methylprednisolone 40mg tiêm tĩnh mạch chậm",
-      "Diphenhydramine 50mg tiêm bắp",
-      "Adrenaline (Epinephrine) 1mg/1ml — Tiêm bắp liều 0.5 ống (0.5mg) vào mặt trước ngoài đùi ngay lập tức",
-      "Adrenaline 1mg pha loãng tiêm tĩnh mạch nhanh trực tiếp"
+      "Tiêm bắp Promethazine (Kháng histamin H1) 25 mg và tiêm tĩnh mạch Methylprednisolone 80 mg",
+      "Ngừng ngay đường truyền Ceftriaxone, tiêm bắp sâu Adrenaline (Epinephrine) 0.5 mg (1/2 ống 1mg/1mL) vào mặt trước ngoài đùi, đồng thời thở oxy lưu lượng cao",
+      "Tiêm dưới da Adrenaline 0.1 mg vào vùng cơ delta cánh tay",
+      "Chờ bác sĩ chuyên khoa dị ứng miễn dịch đến khám xác định chẩn đoán trước khi tiêm thuốc vận mạch"
     ],
-    "correct_index": 2,
-    "peer_stats": "96% chọn đúng",
-    "takeaway": "Adrenaline tiêm bắp ở mặt trước ngoài đùi là THUỐC CỨU MẠNG DUY NHẤT trong sốc phản vệ (từ độ II trở lên). Kháng histamin và Corticoid chỉ là thuốc hỗ trợ bậc hai, không có tác dụng cứu mạng tức thì.",
+    "correct_index": 1,
+    "peer_stats": "97% học viên chọn đúng",
+    "takeaway": "Trong Sốc phản vệ (Phản vệ độ III), Adrenaline tiêm bắp sâu ở mặt trước ngoài đùi là thuốc cấp cứu đầu tay sống còn. Kháng histamin và Corticoid không có tác dụng cứu sống trong giai đoạn tối cấp.",
     "rationale": [
-      "A. Sai: Corticoid cần 4-6 giờ mới phát huy tác dụng thông qua tổng hợp protein nhân tế bào.",
-      "B. Sai: Kháng histamin không ức chế được các hóa ứng động khác và không nâng được huyết áp cấp.",
-      "C. ĐÚNG: Mặt trước ngoài đùi có tưới máu phong phú giúp Adrenaline hấp thu nhanh và đạt nồng độ đỉnh trong huyết tương sau vài phút.",
-      "D. Sai: Tiêm TM trực tiếp 1mg không pha loãng dễ gây loạn nhịp thất chết người và cơn tăng huyết áp kịch phát."
+      "A. Sai vì Kháng histamin và Corticoid có tác dụng chậm (sau 4-6 giờ), hoàn toàn không thể đảo ngược tình trạng phù nề thanh môn và trụy mạch cấp tính đe dọa ngừng tim.",
+      "B. ĐÚNG: Ngừng ngay tác nhân gây dị ứng; tiêm bắp Adrenaline 0.5 mg vào mặt trước ngoài đùi là can thiệp vàng cứu mạng. Vùng cơ rộng ngoài đùi có lưu lượng tuần hoàn lớn giúp thuốc hấp thu đạt đỉnh trong máu chỉ sau vài phút.",
+      "C. Sai vì tiêm dưới da hấp thu rất chậm do co mạch tại chỗ; liều 0.1 mg là không đủ liều cấp cứu sốc phản vệ ở người lớn.",
+      "D. Sai vì chậm trễ tiêm Adrenaline trong sốc phản vệ là nguyên nhân hàng đầu dẫn đến tử vong."
+    ],
+    "learn_ref_anchor": "safety_gate"
+  },
+  {
+    "id": "CP05-AP02",
+    "clinical_problem_id": 5,
+    "section_key": "mechanism",
+    "bloom": "Phân tích & Biện luận",
+    "competency": "Phân biệt Huyết động các loại Sốc",
+    "stem": "Một bệnh nhân nam 62 tuổi nhập khoa Hồi sức tích cực trong tình trạng tụt huyết áp và lơ mơ. Đặt ống thông Swan-Ganz đo huyết động xâm lấn thu được các thông số sau: Áp lực tĩnh mạch trung tâm (CVP) 18 mmHg (bình thường 4-12), Áp lực mao mạch phổi bít (PCWP) 24 mmHg (bình thường 8-12), Cung lượng tim (CO) 2.1 L/phút (bình thường 4-8), Sức cản mạch máu hệ thống (SVR) 2.200 dynes.sec.cm-5 (bình thường 800-1200), Độ bão hòa oxy máu tĩnh mạch trung tâm (ScvO2) 52% (bình thường >= 70%). Mô hình huyết động này phù hợp nhất với loại sốc nào sau đây?",
+    "options": [
+      "Sốc nhiễm khuẩn giai đoạn tăng động (Hyperdynamic Septic Shock)",
+      "Sốc tim (Cardiogenic Shock)",
+      "Sốc giảm thể tích do mất máu cấp (Hypovolemic Shock)",
+      "Sốc thần kinh do chấn thương tủy cổ (Neurogenic Shock)"
+    ],
+    "correct_index": 1,
+    "peer_stats": "85% học viên chọn đúng",
+    "takeaway": "Sốc tim đặc trưng bởi Cung lượng tim giảm sâu (CO thấp), Tiền tải tăng cao ứ trệ (CVP/PCWP cao), Hậu tải co mạch bù trừ (SVR cao) và mô tăng chiết xuất oxy (ScvO2 rất thấp).",
+    "rationale": [
+      "A. Sai vì sốc nhiễm khuẩn giai đoạn đầu có đặc trưng giãn mạch: SVR giảm cực độ, Cung lượng tim CO tăng cao và ScvO2 bình thường hoặc cao.",
+      "B. ĐÚNG: Sức co bóp cơ tim suy giảm nặng làm CO tụt xuống 2.1 L/ph; máu ứ đọng lại tim làm tăng áp lực tiền tải (PCWP 24 mmHg, CVP 18 mmHg); cơ thể kích hoạt giao cảm co mạch ngoại biên làm SVR tăng vọt lên 2.200; tưới máu mô kém khiến mô phải chiết xuất tối đa oxy làm ScvO2 tụt xuống 52% -> Điển hình của Sốc tim.",
+      "C. Sai vì sốc giảm thể tích có áp lực tiền tải CVP và PCWP giảm rất thấp.",
+      "D. Sai vì sốc thần kinh làm mất trương lực giao cảm gây giãn mạch: SVR giảm thấp và nhịp tim chậm."
+    ],
+    "learn_ref_anchor": "mechanism"
+  },
+  {
+    "id": "CP05-AP03",
+    "clinical_problem_id": 5,
+    "section_key": "management",
+    "bloom": "Áp dụng",
+    "competency": "Hồi sức Sốc nhiễm khuẩn",
+    "stem": "Bệnh nhân nam 70 tuổi, nhập viện vì sốt 39.5°C, viêm phổi thùy phải, huyết áp 80/50 mmHg. Sau khi đã hoàn tất truyền dịch nhanh 30 mL/kg dung dịch Lactated Ringer's theo đúng phác đồ Hour-1 Bundle, huyết áp của bệnh nhân đo lại là 82/48 mmHg (MAP 59 mmHg), CRT 4 giây, Lactate máu 3.8 mmol/L. Bước can thiệp bằng thuốc vận mạch nào sau đây là LỰA CHỌN ĐẦU TAY HỢP LÝ NHẤT?",
+    "options": [
+      "Truyền Dopamine liều thận 2 mcg/kg/phút để bảo vệ chức năng thận",
+      "Khởi động truyền tĩnh mạch liên tục Noradrenaline (Norepinephrine) chuẩn độ liều để duy trì MAP >= 65 mmHg",
+      "Tiêm tĩnh mạch Phenylephrine liều bolus đơn thuần",
+      "Truyền tĩnh mạch Isoproterenol"
+    ],
+    "correct_index": 1,
+    "peer_stats": "92% học viên chọn đúng",
+    "takeaway": "Noradrenaline là thuốc vận mạch lựa chọn hàng đầu tuyệt đối trong Sốc nhiễm khuẩn sau khi đã bù đủ dịch mà MAP chưa đạt 65 mmHg.",
+    "rationale": [
+      "A. Sai vì Dopamine làm tăng nguy cơ loạn nhịp tim và tăng tỷ lệ tử vong so với Noradrenaline; khái niệm 'Dopamine liều thận' đã bị y văn bác bỏ hoàn toàn.",
+      "B. ĐÚNG: Noradrenaline là chất chủ vận alpha-1 mạnh kèm beta-1 nhẹ, giúp co mạch phục hồi trương lực mạch máu bị giãn mà ít gây loạn nhịp, là lựa chọn số 1 theo khuyến cáo của Surviving Sepsis Campaign.",
+      "C. Sai vì Phenylephrine là chủ vận alpha-1 đơn thuần làm co mạch mạnh nhưng gây giảm cung lượng tim do tăng hậu tải đơn độc.",
+      "D. Sai vì Isoproterenol là chủ vận beta đơn thuần gây giãn mạch, làm huyết áp tụt sâu hơn."
     ],
     "learn_ref_anchor": "management"
   },
   {
-    "id": "CP05-AP02",
-    "cat": "SHOCK",
-    "problem": "Tiếp Cận Bệnh Nhân Sốc",
-    "section": "Pathophysiology & Huyết Động",
-    "bloom": "Phân tích",
-    "comp": "Hồi sức Tích cực",
-    "stem": "Bệnh nhân sốc có thông số catheter Swan-Ganz: Áp lực nhĩ phải (CVP) tăng cao, Áp lực mao mạch phổi bít (PCWP) tăng cao, Chỉ số tim (Cardiac Index - CI) giảm nặng < 1.8 L/min/m2, Sức cản mạch hệ thống (SVR) tăng cao > 1800 dynes.sec/cm5. Đây là kiểu hình huyết động học điển hình của loại sốc nào?",
+    "id": "CP05-AP04",
+    "clinical_problem_id": 5,
+    "section_key": "investigations",
+    "bloom": "Áp dụng",
+    "competency": "Ứng dụng Siêu âm POCUS (RUSH Protocol)",
+    "stem": "Bệnh nhân nam 45 tuổi bị tai nạn giao thông va đập mạnh vùng ngực và bụng. Bệnh nhân vào viện trong tình trạng sốc: Huyết áp 70/40 mmHg, Mạch 135 lần/phút. Bác sĩ cấp cứu đặt đầu dò siêu âm tại giường (POCUS) theo quy trình RUSH. Khám tim thấy: Tim tăng động co bóp rất mạnh, buồng tim nhỏ; tĩnh mạch chủ dưới (IVC) đường kính 0.8 cm và xẹp hoàn toàn trong thì hít vào. Khám khoang Morrison (khoang gan thận) thấy một dải dịch hồi âm trống dày 2.5 cm. Loại sốc nào và nguyên nhân gì được xác lập?",
     "options": [
-      "Sốc giảm thể tích (Hypovolemic shock)",
-      "Sốc nhiễm khuẩn giai đoạn đầu (Distributive septic shock)",
-      "Sốc tim (Cardiogenic shock do suy bơm thất trái)",
-      "Sốc thần kinh (Neurogenic shock)"
+      "Sốc tim do đụng dập cơ tim thất trái",
+      "Sốc giảm thể tích do xuất huyết nội ổ bụng (vỡ tạng đặc)",
+      "Sốc tắc nghẽn do tràn khí màng phổi áp lực",
+      "Sốc thần kinh do đụng dập tủy sống"
     ],
-    "correct_index": 2,
-    "peer_stats": "84% chọn đúng",
-    "takeaway": "Sốc tim đặc trưng bởi suy giảm sức co bóp thất trái (CI giảm) dẫn đến ứ dịch ngược dòng (PCWP tăng, CVP tăng) và phản xạ co mạch ngoại biên bù trừ (SVR tăng cao). Khác biệt hoàn toàn với sốc giảm thể tích (PCWP và CVP đều thấp).",
+    "correct_index": 1,
+    "peer_stats": "94% học viên chọn đúng",
+    "takeaway": "Hình ảnh IVC xẹp hoàn toàn + Tim tăng động + Dịch tự do trong khoang phúc mạc trên siêu âm POCUS khẳng định Sốc giảm thể tích do chảy máu trong ổ bụng.",
     "rationale": [
-      "A. Sai: Trong sốc giảm thể tích, cả tiền tải tim phải (CVP) và tim trái (PCWP) đều giảm sâu.",
-      "B. Sai: Sốc nhiễm khuẩn đặc trưng bởi SVR giảm sâu (giãn mạch) và CI thường tăng bù trừ.",
-      "C. ĐÚNG: Kiểu hình suy bơm thất trái điển hình.",
-      "D. Sai: Sốc thần kinh do mất trương lực giao cảm làm SVR giảm và nhịp tim chậm."
+      "A. Sai vì sốc tim tim co bóp rất yếu và IVC sẽ giãn căng to không xẹp.",
+      "B. ĐÚNG: IVC xẹp hoàn toàn chứng tỏ thiếu hụt thể tích tuần hoàn trầm trọng (The Tank bị rỗng); tim tăng động là phản ứng bù trừ; dịch tự do khoang Morrison ở bệnh nhân chấn thương là máu chảy từ tạng vỡ (gan hoặc lách) -> Sốc giảm thể tích do xuất huyết nội.",
+      "C. Sai vì tràn khí áp lực sẽ làm cản trở hồi lưu tĩnh mạch khiến IVC giãn to.",
+      "D. Sai vì sốc thần kinh làm mất giao cảm gây giãn mạch, nhịp tim thường chậm, không có dịch tự do trong bụng."
     ],
-    "learn_ref_anchor": "mechanism"
+    "learn_ref_anchor": "investigations"
+  },
+  {
+    "id": "CP05-AP05",
+    "clinical_problem_id": 5,
+    "section_key": "management",
+    "bloom": "Áp dụng",
+    "competency": "Cấp cứu Hồi sức Sốc Tim",
+    "stem": "Bệnh nhân nam 58 tuổi, nhồi máu cơ tim cấp thành trước rộng giờ thứ 6 chưa được tái tưới máu, xuất hiện khó thở dữ dội và tụt huyết áp. Khám: Bệnh nhân lơ mơ, da lạnh ẩm nổi vân tím, nhịp tim 115 bpm, Huyết áp 78/50 mmHg, SpO2 86% khí phòng, phổi nghe đầy ran ẩm 2 bên. Siêu âm tim tại giường cho thấy phân suất tống máu thất trái EF ước tính chỉ còn 22%, vận động nghịch thường vùng vách liên thất và mỏm tim. Chiến lược thuốc vận mạch và tăng co bóp nào là PHÙ HỢP NHẤT tại thời điểm này?",
+    "options": [
+      "Bắt đầu ngay Dobutamine đơn độc liều cao 20 mcg/kg/phút",
+      "Bắt đầu truyền Noradrenaline để nâng MAP lên >= 65 mmHg bảo đảm tưới máu mạch vành, sau đó phối hợp thêm Dobutamine liều thấp để tăng sức co bóp cơ tim",
+      "Truyền nhanh 2000 mL dung dịch muối đẳng trương 0.9% để nâng huyết áp",
+      "Cho dùng thuốc giãn mạch Nitroglycerin liều cao tiêm tĩnh mạch"
+    ],
+    "correct_index": 1,
+    "peer_stats": "86% học viên chọn đúng",
+    "takeaway": "Trong Sốc tim có tụt huyết áp nặng (SBP < 80 mmHg), bắt buộc dùng Noradrenaline trước để đạt huyết áp an toàn tưới máu vành, sau đó mới phối hợp Dobutamine tăng sức co bóp.",
+    "rationale": [
+      "A. Sai vì Dobutamine có tác dụng kích thích Beta-2 gây giãn mạch nhẹ; nếu dùng đơn độc khi huyết áp đang tụt sâu (78/50 mmHg) sẽ làm huyết áp tụt sâu hơn gây trụy mạch ngừng tim.",
+      "B. ĐÚNG: Noradrenaline nâng huyết áp động mạch trung bình lên ngưỡng an toàn (MAP >= 65 mmHg) để máu tưới vào động mạch vành đang thiếu máu. Sau khi huyết áp đã nâng lên, phối hợp thêm Dobutamine (khởi đầu 2.5 - 5 mcg/kg/phút) để tăng co bóp cơ tim mà không làm tụt áp.",
+      "C. Sai vì bệnh nhân đang có phù phổi cấp và EF 22%, bù dịch thể tích lớn sẽ làm ngập nước phế nang và gây ngưng thở.",
+      "D. Sai vì huyết áp bệnh nhân đang tụt sâu (78/50 mmHg), Nitroglycerin là chống chỉ định tuyệt đối."
+    ],
+    "learn_ref_anchor": "management"
   }
 ]

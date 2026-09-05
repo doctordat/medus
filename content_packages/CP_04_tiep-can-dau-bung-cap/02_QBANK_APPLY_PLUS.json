@@ -1,52 +1,122 @@
 [
   {
-    "id": "CP04-AP01",
-    "cat": "GI",
-    "problem": "Tiếp Cận Đau Bụng Cấp",
-    "section": "Safety Gate & Red Flags",
-    "bloom": "Phân tích",
-    "comp": "Ngoại khoa & Cấp cứu",
-    "stem": "Bệnh nhân nam 45 tuổi có tiền sử loét dạ dày tá tràng, đột ngột đau bụng dữ dội như dao đâm vùng thượng vị lúc đang làm việc, sau đó lan ra khắp bụng. Khám: Bụng cứng như gỗ, co cứng thành bụng toàn thể, gõ mất vùng đục trước gan. Chẩn đoán lâm sàng nghi ngờ hàng đầu là gì?",
+    "id": "CP01-AP01",
+    "clinical_problem_id": 1,
+    "section_key": "safety_gate",
+    "bloom": "Áp dụng",
+    "competency": "Cấp cứu hô hấp & Nhận diện nguy kịch",
+    "stem": "Bệnh nhân nam 24 tuổi, cao gầy, tiền sử khỏe mạnh, đột ngột đau ngực phải dữ dội và khó thở dữ dội khi đang chơi bóng rổ. Tại khoa Cấp cứu, bệnh nhân tím tái, thở dốc 36 lần/phút, SpO2 82% với khí phòng. Mạch 135 lần/phút, Huyết áp 75/45 mmHg. Khám ghi nhận khí quản bị lệch sang bên trái, lồng ngực bên phải phồng bất động, gõ vang trống và mất hoàn toàn rì rào phế nang bên phải. Tĩnh mạch cổ hai bên nổi phồng căng. Hành động nào sau đây là ƯU TIÊN SỐNG CÒN CẦN THỰC HIỆN NGAY LẬP TỨC?",
     "options": [
-      "Viêm tụy cấp thể phù nề",
-      "Thủng tạng rỗng (Thủng ổ loét dạ dày - tá tràng) gây viêm phúc mạc toàn thể",
-      "Cơn đau quặn thận phải do sỏi niệu quản",
-      "Nhồi máu mạc treo ruột giai đoạn sớm"
+      "Đưa bệnh nhân đi chụp X-quang ngực thẳng khẩn cấp tại phòng chụp X-quang để xác định vị trí lá tạng màng phổi",
+      "Tiến hành chọc kim lớn giải áp cấp cứu (Needle Decompression) ngay tại khoang liên sườn 2 đường trung đòn hoặc liên sườn 5 đường nách trước bên phải",
+      "Đặt nội khí quản và cho thở máy xâm lấn với thể tích khí lưu thông lớn để bù trừ thiếu oxy",
+      "Truyền nhanh 1000 mL dịch tinh thể NaCl 0.9% và tiêm Dopamine để nâng huyết áp"
     ],
     "correct_index": 1,
-    "peer_stats": "94% chọn đúng",
-    "takeaway": "Khởi phát đột ngột đau như dao đâm + Bụng gồng cứng như gỗ + Mất vùng đục trước gan là tam chứng điển hình của Thủng tạng rỗng gây tràn khí và dịch tiêu hóa vào khoang phúc mạc.",
+    "peer_stats": "89% học viên chọn đúng",
+    "takeaway": "Tràn khí màng phổi áp lực là cấp cứu tối khẩn được chẩn đoán hoàn toàn bằng lâm sàng. Chọc kim giải áp tức thì là hành động cứu mạng, tuyệt đối không trì hoãn chờ chụp X-quang.",
     "rationale": [
-      "A. Sai: Viêm tụy cấp đau lan sau lưng, bụng thường chướng và đề kháng thượng vị, hiếm khi gồng cứng như gỗ ngay từ đầu.",
-      "B. ĐÚNG: Cấp cứu ngoại khoa cần chụp X-quang bụng đứng tìm liềm hơi dưới hoành và phẫu thuật khẩn cấp.",
-      "C. Sai: Đau quặn thận đau quặn từng cơn lan xuống bẹn, không có viêm phúc mạc toàn thể.",
-      "D. Sai: Nhồi máu mạc treo giai đoạn sớm đặc trưng bởi đau dữ dội nhưng khám bụng mềm (bất tương xứng giữa triệu chứng cơ năng và thực thể)."
+      "A. Sai vì tràn khí màng phổi áp lực gây tụt huyết áp sốc tắc nghẽn; việc chuyển bệnh nhân đi chụp X-quang sẽ làm chậm trễ thời gian vàng và bệnh nhân có thể ngừng tim trên đường đi.",
+      "B. ĐÚNG: Chọc kim giải áp cấp cứu (bằng kim luồn 14-16G) biến tràn khí áp lực thành tràn khí hở, giải phóng chèn ép tim và tĩnh mạch chủ, phục hồi huyết động ngay lập tức.",
+      "C. Sai vì đặt nội khí quản và thở máy áp lực dương khi chưa giải áp khoang màng phổi sẽ bơm thêm khí vào màng phổi, làm tràn khí áp lực nặng hơn và gây ngưng tim tức thì.",
+      "D. Sai vì tụt huyết áp ở đây do cơ chế cơ học cản trở hồi lưu tĩnh mạch (Sốc tắc nghẽn), bù dịch và vận mạch không giải quyết được căn nguyên chèn ép tim."
     ],
     "learn_ref_anchor": "safety_gate"
   },
   {
-    "id": "CP04-AP02",
-    "cat": "GI",
-    "problem": "Tiếp Cận Đau Bụng Cấp",
-    "section": "Decision Points & Viêm Ruột Thừa",
+    "id": "CP01-AP02",
+    "clinical_problem_id": 1,
+    "section_key": "management",
     "bloom": "Áp dụng",
-    "comp": "Chẩn đoán Lâm Sàng",
-    "stem": "Bệnh nhân nữ 20 tuổi đau bụng âm ỉ vùng quanh rốn 8 giờ trước, hiện tại đau khu trú rõ ở hố chậu phải kèm buồn nôn và sốt nhẹ 38.0°C. Khám có điểm McBurney ấn đau rõ và dấu đề kháng nhẹ. Cơ chế giải thích sự dịch chuyển vị trí đau từ quanh rốn về hố chậu phải là gì?",
+    "competency": "Điều trị cấp cứu suy tim & Phù phổi",
+    "stem": "Bệnh nhân nữ 72 tuổi có tiền sử suy tim phân suất tống máu giảm (EF 30%) và tăng huyết áp nhập viện vì khó thở dữ dội, ngột ngạt khi nằm phẳng. Khám: Bệnh nhân vã mồ hôi, ngồi chồm người ra trước, ho khạc ra ít bọt màu hồng. Mạch 122 lần/phút, Huyết áp 195/115 mmHg, Nhịp thở 34 lần/phút, SpO2 84% khí phòng. Nghe tim có tiếng T3 Gallop, nghe phổi có nhiều ran ẩm mịn dâng nhanh từ 2 đáy phổi lên đến nửa trên phế trường. Xử trí ban đầu nào sau đây là TỐI ƯU NHẤT trong 15 phút đầu?",
     "options": [
-      "Do ruột thừa di động từ rốn xuống hố chậu phải",
-      "Giai đoạn đầu là đau tạng (Visceral pain) qua sợi thần kinh C dẫn truyền về tủy ngực T10, giai đoạn sau viêm lan đến phúc mạc thành gây đau thành (Somatic pain) qua sợi A-delta",
-      "Do vi khuẩn lan tràn vào khoang màng phổi",
-      "Do co thắt cơ thắt hồi manh tràng phản xạ"
+      "Tiêm bắp Morphine 10 mg và cho thở oxy qua gọng mũi 2 L/phút",
+      "Khởi động thông khí áp lực dương không xâm lấn (CPAP/BiPAP), truyền tĩnh mạch Nitroglycerin liều cao chỉnh theo huyết áp, phối hợp Furosemide IV",
+      "Đặt nội khí quản thở máy xâm lấn ngay lập tức và truyền dịch Albumin 20%",
+      "Khí dung Salbutamol đơn thuần và tiêm tĩnh mạch Digoxin liều nạp"
     ],
     "correct_index": 1,
-    "peer_stats": "87% chọn đúng",
-    "takeaway": "Sự chuyển dịch triệu chứng từ đau tạng mơ hồ quanh rốn (thần kinh thực vật) sang đau thành khu trú chính xác hố chậu phải (thần kinh soma tủy sống) là dấu hiệu kinh điển của quá trình viêm ruột thừa tiến triển chạm vào phúc mạc thành.",
+    "peer_stats": "84% học viên chọn đúng",
+    "takeaway": "Trong Phù phổi cấp tăng huyết áp (SCAPE), CPAP/BiPAP phối hợp Nitroglycerin tĩnh mạch liều cao là cốt lõi để giảm tiền tải, giảm hậu tải và tái phân bố dịch phù.",
     "rationale": [
-      "A. Sai: Vị trí giải phẫu gốc ruột thừa cố định ở manh tràng.",
-      "B. ĐÚNG: Cơ chế thần kinh học phân biệt đau tạng (lan tỏa, khó định vị) và đau thành (sắc nét, khu trú rõ).",
-      "C. Sai: Không liên quan đến khoang màng phổi.",
-      "D. Sai: Co thắt cơ trơn không giải thích được tính chất khu trú đau thành."
+      "A. Sai vì Morphine đã bị loại bỏ khỏi khuyến cáo thường quy do ức chế hô hấp và tăng tỷ lệ tử vong; thở oxy 2 L/phút qua canun không đủ áp lực mở phế nang.",
+      "B. ĐÚNG: CPAP giúp đẩy dịch từ phế nang về mô kẽ và giảm công thở; Nitroglycerin liều cao giúp giãn tĩnh mạch giảm tiền tải và giãn tiểu động mạch giảm hậu tải thất trái nhanh chóng.",
+      "C. Sai vì bệnh nhân tỉnh táo và huyết áp cao có chỉ định ưu tiên thông khí không xâm lấn (NIV); truyền Albumin làm tăng thể tích tuần hoàn và nặng thêm phù phổi.",
+      "D. Sai vì đây là phù phổi cấp do tim, giãn phế quản và Digoxin không giải quyết được tình trạng ứ dịch mao mạch phổi cấp tính."
     ],
-    "learn_ref_anchor": "mechanism"
+    "learn_ref_anchor": "management"
+  },
+  {
+    "id": "CP01-AP03",
+    "clinical_problem_id": 1,
+    "section_key": "pitfalls",
+    "bloom": "Phân tích & Đánh giá",
+    "competency": "Quản lý toan kiềm & Suy hô hấp COPD",
+    "stem": "Bệnh nhân nam 66 tuổi có tiền sử COPD nặng (GOLD giai đoạn 4) nhập viện vì đợt cấp khó thở tăng và khạc đờm mủ. Điều dưỡng cho bệnh nhân thở oxy qua mask túi không thở lại (Non-rebreather mask) lưu lượng 15 L/phút, ghi nhận SpO2 tăng từ 82% lên 99%. Sau 45 phút, bệnh nhân trở nên ngủ gà, lú lẫn, cấu véo không trả lời, nhịp thở giảm còn 12 lần/phút nông. Khí máu động mạch hiện tại ghi nhận: pH 7.18, PaCO2 82 mmHg, PaO2 110 mmHg, HCO3- 30 mmol/L. Cơ chế chính dẫn đến tình trạng suy sụp ý thức của bệnh nhân là gì?",
+    "options": [
+      "Thiếu oxy não do co thắt động mạch não",
+      "Hôn mê toan hô hấp tăng CO2 máu thứ phát do thở oxy nồng độ quá cao làm mất kích thích hô hấp vùng thiếu oxy và tăng hiệu ứng Haldane",
+      "Đột quỵ nhồi máu não cấp xảy ra đồng thời với đợt cấp COPD",
+      "Hạ kali máu nặng do nhiễm toan chuyển hóa"
+    ],
+    "correct_index": 1,
+    "peer_stats": "87% học viên chọn đúng",
+    "takeaway": "Ở bệnh nhân COPD ứ CO2 mạn tính, thở oxy liều quá cao làm mất cơ chế kích thích hô hấp (Hypoxic Drive), tăng thông khí khoảng chết và gây hôn mê toan hô hấp.",
+    "rationale": [
+      "A. Sai vì PaO2 bệnh nhân đang thừa (110 mmHg), không phải thiếu oxy não.",
+      "B. ĐÚNG: Cung cấp oxy nồng độ cao làm giảm phản xạ co mạch phổi vùng thiếu khí, giải phóng CO2 từ hemoglobin vào huyết tương (hiệu ứng Haldane) và triệt tiêu động lực thở vùng thiếu oxy ngoại vi, dẫn đến tích tụ CO2 cực độ (PaCO2 82 mmHg) gây toan hô hấp nặng và hôn mê CO2 narcosis.",
+      "C. Sai vì tình trạng này diễn ra kinh điển sau khi thở oxy liều cao và khí máu cho thấy toan hô hấp mất bù cấp trên nền mạn.",
+      "D. Sai vì đây là toan hô hấp, không phải toan chuyển hóa."
+    ],
+    "learn_ref_anchor": "pitfalls"
+  },
+  {
+    "id": "CP01-AP04",
+    "clinical_problem_id": 1,
+    "section_key": "investigations",
+    "bloom": "Áp dụng",
+    "competency": "Chỉ định cận lâm sàng Thuyên tắc phổi",
+    "stem": "Bệnh nhân nữ 35 tuổi, dùng thuốc tránh thai đường uống kết hợp 3 năm nay, vừa trải qua chuyến bay kéo dài 12 tiếng. Hai giờ trước khi vào viện, bệnh nhân xuất hiện khó thở đột ngột kèm đau nhói ngực bên phải tăng khi hít sâu. Khám: Mạch 115 lần/phút, Huyết áp 110/70 mmHg, Nhịp thở 28 lần/phút, SpO2 90% khí phòng. Khám phổi hoàn toàn trong, không có ran. Bắp chân trái sưng to hơn bắp chân phải 3.5 cm, ấn đau. Tính điểm Wells đánh giá nguy cơ Thuyên tắc phổi đạt 7.5 điểm (nguy cơ cao). Bước xử trí cận lâm sàng tiếp theo nào là THÍCH HỢP NHẤT?",
+    "options": [
+      "Xét nghiệm định lượng D-dimer huyết tương; nếu âm tính thì loại trừ thuyên tắc phổi",
+      "Chụp Cắt lớp vi tính Mạch máu Phổi có tiêm cản quang (CTPA) ngay lập tức",
+      "Chụp X-quang ngực thẳng; nếu bình thường thì cho bệnh nhân về theo dõi",
+      "Chờ kết quả siêu âm Doppler tĩnh mạch chi dưới sau 24 giờ trước khi làm chẩn đoán hình ảnh lồng ngực"
+    ],
+    "correct_index": 1,
+    "peer_stats": "81% học viên chọn đúng",
+    "takeaway": "Khi xác suất lâm sàng Thuyên tắc phổi ở mức CAO (Wells > 6 điểm), D-dimer không còn giá trị loại trừ; chỉ định bắt buộc là chụp CTPA ngay.",
+    "rationale": [
+      "A. Sai vì D-dimer chỉ dùng để loại trừ ở nhóm nguy cơ thấp hoặc trung bình; ở nhóm nguy cơ cao, tỷ lệ âm tính giả vẫn đáng kể và D-dimer âm tính không cho phép bỏ qua PE.",
+      "B. ĐÚNG: Điểm Wells 7.5 thuộc nhóm nguy cơ cao (> 6 điểm), tiêu chuẩn vàng xác chẩn cần làm ngay là chụp CTPA.",
+      "C. Sai vì X-quang ngực trong thuyên tắc phổi thường hoàn toàn bình thường hoặc chỉ có dấu hiệu không đặc hiệu; X-quang bình thường không thể loại trừ PE.",
+      "D. Sai vì việc trì hoãn 24 giờ trên bệnh nhân nghi ngờ thuyên tắc phổi cấp có thể dẫn đến suy tim phải cấp và tử vong."
+    ],
+    "learn_ref_anchor": "investigations"
+  },
+  {
+    "id": "CP01-AP05",
+    "clinical_problem_id": 1,
+    "section_key": "safety_gate",
+    "bloom": "Áp dụng",
+    "competency": "Cấp cứu Hen phế quản ác tính",
+    "stem": "Bệnh nhân nam 19 tuổi có tiền sử hen phế quản từ nhỏ từng phải đặt nội khí quản 1 lần cách đây 2 năm. Bệnh nhân được đưa vào viện trong tình trạng khó thở dữ dội, vã mồ hôi đầm đìa, không thể nói trọn một từ. Nhịp thở 38 lần/phút, Mạch 140 lần/phút, Huyết áp 140/90 mmHg, SpO2 86% khí phòng. Bệnh nhân co kéo dữ dội cơ ức đòn chũm và cánh mũi. Đặt ống nghe vào phổi thấy lồng ngực di động kém và hầu như không nghe thấy tiếng rì rào phế nang hay tiếng ran (Phổi câm - Silent Chest). Thuốc nào sau đây cần được dùng NGAY LẬP TỨC ngoài việc khí dung giãn phế quản?",
+    "options": [
+      "Kháng sinh Ceftriaxone 2g tiêm tĩnh mạch",
+      "Adrenaline (Epinephrine) 0.3 - 0.5 mg tiêm bắp sâu ở mặt trước ngoài đùi",
+      "Thuốc chẹn kênh Canxi Diltiazem để hạ nhịp tim nhanh xoang",
+      "Furosemide 40 mg tiêm tĩnh mạch"
+    ],
+    "correct_index": 1,
+    "peer_stats": "91% học viên chọn đúng",
+    "takeaway": "Dấu hiệu 'Phổi câm' trong cơn hen là cấp cứu tối khẩn báo hiệu tắc nghẽn đường thở cực độ. Adrenaline tiêm bắp có tác dụng giãn cơ trơn phế quản nhanh và mạnh qua thụ thể Beta-2.",
+    "rationale": [
+      "A. Sai vì hen cấp tính do co thắt phế quản dị ứng, kháng sinh không có chỉ định cấp cứu.",
+      "B. ĐÚNG: Phổi câm chứng tỏ khí không vào được phế nang, khí dung khó tiếp cận đường thở nhỏ. Adrenaline tiêm bắp hấp thu nhanh, kích thích thụ thể Beta-2 mạnh mẽ làm giãn phế quản khẩn cấp và giảm phù nề niêm mạc.",
+      "C. Sai vì nhịp nhanh xoang là phản ứng bù trừ của thiếu oxy máu; dùng chẹn canxi hoặc chẹn beta sẽ làm trụy tim mạch và co thắt phế quản nặng thêm.",
+      "D. Sai vì bệnh nhân không bị phù phổi do tim; lợi tiểu làm nặng thêm tình trạng cô đặc đờm nhầy gây bít tắc đường thở."
+    ],
+    "learn_ref_anchor": "safety_gate"
   }
 ]
