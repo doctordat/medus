@@ -3,20 +3,22 @@
 ## Goal
 Turn the current MEDUS flow `Learn → QBank → Cases → Mastery` into a closed adaptive loop without rewriting the existing static MVP.
 
+The existing MEDUS content-review contract remains authoritative. AI augments reviewed material; it does not replace Medical Review and does not auto-publish medical content.
+
 ## V1 scope
 
 ### 1. QBank AI Explain (P0)
 After a learner submits an answer, add `Hỏi MEDUS AI` next to the reviewed explanation.
 
 Input contract:
-- user_id
+- user_id — derived server-side from Supabase auth
 - question_id
 - selected_option
 - correct_option
 - clinical_problem_id
 - section_key
 - competency
-- reviewed_explanation
+- reviewed question context / explanation metadata
 
 Output contract:
 - verdict_summary
@@ -26,16 +28,12 @@ Output contract:
 - one_rule_to_remember
 - citations[]
 - confidence
+- insufficient_evidence
 
-Rules:
-- AI supplements, never replaces, the Medical Review explanation.
-- Decision-changing medical claims require citations.
-- If retrieval is weak, return `insufficient_evidence`; do not invent an answer.
+AI supplements, never replaces, the Medical Review explanation. Decision-changing claims require citations. Weak retrieval must return `insufficient_evidence` rather than hallucinating.
 
-### 2. Mastery Coach (P0)
-Use the learner's recent QBank/case attempts plus current `mastery` rows to create one `Next Best Action` object.
-
-Output:
+### 2. Mastery Coach (P0/P1)
+Use learner attempts + mastery to return one concrete next action:
 - priority_clinical_problem_id
 - priority_section_key
 - priority_competency
@@ -44,32 +42,28 @@ Output:
 - target_count
 - target_difficulty
 
-The existing dashboard remains the source of truth for observed performance; AI only ranks the next action.
+The current deterministic Mastery fallback remains available if AI is unavailable.
 
 ### 3. Adaptive QBank (P1)
-Create a selector that ranks published questions by:
+Question ranking priority:
 1. weak section
 2. weak competency
-3. spaced repetition due date
+3. spaced-repetition due date
 4. difficulty fit
 5. recent-exposure penalty
 
-V1 must not allow the model to generate publishable questions on the fly. Questions still follow the existing Draft → Medical Review → Publish lifecycle.
+Only published/reviewed questions are eligible. AI-generated questions cannot enter the learner pool without Medical Review.
 
 ### 4. AI Clinical Examiner (P1)
-Add an oral/free-text mode to `cases/`.
+Use existing reviewed cases and fixed rubrics. The examiner should:
+- progress one prompt at a time
+- avoid revealing the final answer before completion
+- score against reviewed criteria
+- record missed section/competency back into mastery
+- cite reviewed MEDUS source material for decision-changing feedback
 
-The examiner:
-- reveals the case progressively;
-- asks one question at a time;
-- scores against a fixed reviewed rubric;
-- records missed competency/section signals back to mastery;
-- does not disclose the final answer before completion.
-
-### 5. Retrieval + citation layer (P0 infrastructure)
-Knowledge is indexed from published MEDUS content only.
-
-Required metadata per chunk:
+### 5. Retrieval + citations (P0 infrastructure)
+Learner-facing AI retrieves only reviewed/published MEDUS content. Retrieval metadata should include:
 - source_id
 - source_title
 - source_locator
@@ -79,70 +73,67 @@ Required metadata per chunk:
 - medical_review_status
 - published_at
 
-Only `medical_review_status = published` is retrievable in learner-facing AI.
+## V1.1 implementation status
 
-## Data model additions
-See `supabase/migrations/20260907_medus_ai_v1.sql`.
+In progress on `medus-ai-v1-implementation`.
 
-Tables:
-- `ai_interactions`: trace every learner-facing AI response.
-- `ai_citations`: exact source rows attached to a response.
-- `learner_recommendations`: generated Next Best Action snapshots.
-- `review_schedule`: spaced-repetition state per learner/question.
+Completed code slices:
+- `assets/medus-ai.js`: authenticated browser client for `Hỏi MEDUS AI`; no provider secret is exposed client-side.
+- `supabase/functions/qbank-ai-explain/index.ts`: CP02-only server-side grounded explanation path.
+- published-only retrieval from `content_sections`.
+- explicit insufficient-evidence path.
+- structured explanation contract.
+- trace write to `ai_interactions` and citations to `ai_citations`.
+
+Still required before V1.1 is considered complete:
+- wire the `Hỏi MEDUS AI` UI into `qbank/index.html`.
+- deploy/apply the additive AI migration to the Supabase project.
+- deploy the Edge Function and configure provider secrets server-side.
+- run end-to-end QA on CP02 and verify citation behavior.
 
 ## Architecture
 
-```text
-Static MEDUS frontend
-      |
-      v
-Supabase Auth + existing attempts/mastery
-      |
-      +--> AI API / Edge Function
-               |
-               +--> retrieval over published MEDUS content
-               +--> model provider
-               +--> structured response + citations
-               |
-               +--> ai_interactions / ai_citations
+`Static frontend → Supabase Auth/attempts/mastery → server-side AI endpoint / Edge Function → retrieval over published MEDUS content → model → structured response + citations → AI trace tables`
 
-QBank/Case result --> mastery --> recommendation --> next activity
-```
+## Safety and security
 
-## Safety contract
-- Never expose provider secrets in browser JS.
-- No client-side OpenAI/Gemini/Cohere key.
-- AI-generated medical content is not auto-published.
-- Learner-facing clinical explanations must be grounded in reviewed/published MEDUS sources.
-- `insufficient_evidence` is a valid outcome.
-- Existing `MEDUS_CANONICAL_RULES.md` remains authoritative.
+- Never expose provider secrets in browser JavaScript.
+- No client-side model-provider key.
+- No AI auto-publish.
+- Learner explanations must be grounded in reviewed MEDUS content.
+- `insufficient_evidence` is a valid and preferred failure mode.
+- Existing canonical MEDUS Medical Review rules remain authoritative.
+- AI outage must never block QBank, Cases, Learn, or Mastery.
 
-## Delivery order
+## Delivery plan
 
-### V1.0
-- schema + security contract
-- QBank AI Explain endpoint contract
-- interaction logging
-- citation object
+### V1.0 — foundation
+- schema/security/trace contract
+- AI architecture contract
 
-### V1.1
-- QBank UI button + grounded explanation drawer
-- retrieval for one Clinical Problem first (CP02 Sốt)
+### V1.1 — QBank AI Explain
+- CP02 first
+- `Hỏi MEDUS AI` UI after answer submission
+- grounded explanation + citations
+- graceful fallback to reviewed static explanation
 
-### V1.2
-- Mastery Coach replacing the current deterministic single weak-section recommendation with ranked Next Best Action
+### V1.2 — Mastery Coach
+- Next Best Action ranking
+- deterministic fallback
 
-### V1.3
-- Adaptive QBank selector
+### V1.3 — Adaptive QBank
 - spaced repetition
+- weakness-aware question ranking
 
-### V1.4
-- AI Clinical Examiner for one reviewed case
+### V1.4 — AI Clinical Examiner
+- progressive free-text/oral viva on reviewed cases
+- fixed reviewed rubric
 
 ## Acceptance criteria
-- No provider key exists in public repo/client source.
-- A wrong QBank answer can request a structured explanation with at least one source citation when evidence exists.
-- Every AI response is attributable to user + question/case + model + citations.
-- Mastery continues to work if AI is unavailable.
-- AI outage never blocks QBank or Cases.
-- No generated question/case is auto-published.
+
+- no provider key in public repo/client
+- a wrong QBank answer can request a structured cited explanation
+- every AI response is traceable to user/question/case/model/citations
+- Mastery continues to work if AI is unavailable
+- AI outage never blocks QBank/Cases
+- no generated question/case is auto-published
