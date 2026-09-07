@@ -1,4 +1,5 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { QBankRegistry } from '../_shared/qbank-registry.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -56,19 +57,27 @@ Deno.serve(async (req) => {
 
   const questionId = sanitizeText(input.question_id, 120);
   const selectedOption = sanitizeText(input.selected_option, 1).toUpperCase();
-  const correctOption = sanitizeText(input.correct_option, 1).toUpperCase();
-  const clinicalProblemId = Number(input.clinical_problem_id || 0);
-  const sectionKey = sanitizeText(input.section_key, 100) || null;
-  const competency = sanitizeText(input.competency, 120) || null;
-
-  if (!questionId || !['A','B','C','D'].includes(selectedOption) || !['A','B','C','D'].includes(correctOption) || !clinicalProblemId) {
+  if (!questionId || !['A','B','C','D'].includes(selectedOption)) {
     return json(400, { error: 'Thiếu context câu hỏi bắt buộc.', code: 'INVALID_INPUT' });
   }
 
+  const trustedQuestion = QBankRegistry[questionId];
+  if (!trustedQuestion) {
+    return json(409, {
+      error: 'Câu hỏi này chưa được MEDUS AI V1.1 bật hỗ trợ.',
+      code: 'QUESTION_NOT_ENABLED'
+    });
+  }
+
   // V1.1 is intentionally constrained to CP02 until the end-to-end path is medically reviewed.
-  if (clinicalProblemId !== 2) {
+  if (trustedQuestion.clinical_problem_id !== 2) {
     return json(409, { error: 'MEDUS AI V1.1 hiện chỉ mở cho CP02 — Tiếp cận bệnh nhân sốt.', code: 'CP_NOT_ENABLED' });
   }
+
+  const clinicalProblemId = trustedQuestion.clinical_problem_id;
+  const sectionKey = trustedQuestion.section_key;
+  const competency = trustedQuestion.competency;
+  const correctOption = trustedQuestion.correct_option;
 
   const admin = createClient(supabaseUrl, serviceRoleKey, { auth: { persistSession: false } });
   let sourceQuery = admin
@@ -124,13 +133,13 @@ Deno.serve(async (req) => {
   const systemPrompt = `Bạn là MEDUS AI, trợ giảng y khoa cho bác sĩ học thi. Chỉ dùng EVIDENCE đã được Medical Review bên dưới. Không thêm guideline, liều, tiêu chuẩn hoặc khẳng định quyết định điều trị nếu không có trong evidence. Nếu evidence không đủ, trả insufficient_evidence=true. Không thay thế bác sĩ điều trị. Trả JSON hợp lệ với đúng keys: verdict_summary, reasoning_gap, why_correct, why_selected_is_wrong, one_rule_to_remember, citation_refs, confidence, insufficient_evidence. citation_refs chỉ chứa ref dạng S1, S2... có thật.`;
 
   const questionContext = {
-    question_id: questionId,
+    question_id: trustedQuestion.id,
     selected_option: selectedOption,
     correct_option: correctOption,
-    stem: sanitizeText(input.stem, 5000),
-    options: Array.isArray(input.options) ? input.options.slice(0, 4) : [],
-    reviewed_takeaway: sanitizeText(input.reviewed_takeaway, 4000),
-    reviewed_rationale: Array.isArray(input.reviewed_rationale) ? input.reviewed_rationale.slice(0, 4) : [],
+    stem: trustedQuestion.stem,
+    options: trustedQuestion.options,
+    reviewed_takeaway: trustedQuestion.reviewed_takeaway,
+    reviewed_rationale: trustedQuestion.reviewed_rationale,
     section_key: sectionKey,
     competency
   };
@@ -168,7 +177,9 @@ Deno.serve(async (req) => {
   if (!output) return json(502, { error: 'Model không trả structured JSON hợp lệ.', code: 'AI_BAD_OUTPUT' });
 
   const validRefs = new Set(evidence.map(e => e.ref));
-  const requestedRefs = Array.isArray(output.citation_refs) ? output.citation_refs.filter((r: unknown) => typeof r === 'string' && validRefs.has(r)) : [];
+  const requestedRefs = Array.isArray(output.citation_refs)
+    ? output.citation_refs.filter((r: unknown) => typeof r === 'string' && validRefs.has(r))
+    : [];
   const citedEvidence = evidence.filter(e => requestedRefs.includes(e.ref));
   const insufficientEvidence = Boolean(output.insufficient_evidence) || citedEvidence.length === 0;
 
@@ -188,7 +199,7 @@ Deno.serve(async (req) => {
       user_id: user.id,
       interaction_type: 'qbank_explain',
       clinical_problem_id: clinicalProblemId,
-      question_id: questionId,
+      question_id: trustedQuestion.id,
       section_key: sectionKey,
       competency,
       model_provider: 'configured',
@@ -217,7 +228,12 @@ Deno.serve(async (req) => {
     quoted_text: null,
     relevance_score: null
   }));
-  if (citationRows.length) await admin.from('ai_citations').insert(citationRows);
+  if (citationRows.length) {
+    const { error: citationError } = await admin.from('ai_citations').insert(citationRows);
+    if (citationError) {
+      return json(500, { error: 'Không lưu được citation trace.', code: 'CITATION_WRITE_FAILED' });
+    }
+  }
 
   return json(200, {
     interaction_id: interaction.id,
