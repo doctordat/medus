@@ -501,6 +501,146 @@
       .nav-sidebar { position: static; }
       .nav-links { display: none; }
     }
+  
+    /* MEDUS AI EXPLAIN DRAWER (V1.1) */
+    .ai-explain-container {
+      margin-top: 20px;
+      border-top: 1px dashed var(--line);
+      padding-top: 18px;
+    }
+    .ai-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-ai {
+      background: var(--navy);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 850;
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: .15s ease;
+      box-shadow: 0 4px 12px rgba(9,44,53,.15);
+    }
+    .btn-ai:hover:not(:disabled) {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+    }
+    .btn-ai:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+    .btn-ai.non-cp02 {
+      background: #e2e8f0;
+      color: #64748b;
+      box-shadow: none;
+      cursor: default;
+    }
+    .ai-hint {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .ai-card {
+      display: none;
+      margin-top: 16px;
+      border: 1px solid #b8e5e8;
+      background: #f3fcfc;
+      border-radius: 16px;
+      padding: 18px;
+      animation: slideDown .2s ease;
+    }
+    .ai-card.show { display: block; }
+    .ai-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #d4f0f2;
+    }
+    .ai-card-title {
+      font-size: 14px;
+      font-weight: 950;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ai-status-badge {
+      font-size: 10.5px;
+      font-weight: 900;
+      color: #007680;
+      background: #dff7f8;
+      padding: 4px 9px;
+      border-radius: 999px;
+      letter-spacing: .05em;
+    }
+    .ai-status-badge.error { background: #fee2e2; color: #b91c1c; }
+    .ai-status-badge.loading { background: #e0f2fe; color: #0369a1; }
+    .ai-status-badge.insufficient { background: #fef3c7; color: #b45309; }
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .ai-box {
+      background: #fff;
+      border: 1px solid #dbe8ea;
+      border-radius: 11px;
+      padding: 13px;
+    }
+    .ai-box b {
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 5px;
+      letter-spacing: .04em;
+    }
+    .ai-box p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink);
+    }
+    .ai-box.rule {
+      grid-column: 1 / -1;
+      background: #fff8e6;
+      border-color: #f4d58d;
+    }
+    .ai-box.sources {
+      grid-column: 1 / -1;
+    }
+    .ai-sources-list a {
+      display: block;
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 12px;
+      margin-top: 5px;
+      text-decoration: none;
+    }
+    .ai-sources-list a:hover { text-decoration: underline; }
+    .ai-card-foot {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @media(max-width:700px){
+      .ai-grid { grid-template-columns: 1fr; }
+      .ai-box.rule, .ai-box.sources { grid-column: auto; }
+    }
+
   </style>
 </head>
 <body>
@@ -589,6 +729,52 @@
           </div>
           <a id="learnRefBtn" href="../hoc/?slug=tiep-can-benh-nhan-dau-nguc" style="font-size: 12.5px; font-weight: 900; color: var(--teal);">Mở Section Bài Học →</a>
         </div>
+
+        <!-- MEDUS AI EXPLAIN DRAWER (V1.1 CP02) -->
+        <div class="ai-explain-container" id="aiExplainContainer">
+          <div class="ai-cta">
+            <button class="btn-ai" id="btnAskAi" onclick="handleAskAi()">✦ HỎI MEDUS AI</button>
+            <span class="ai-hint" id="aiHint">AI phân tích lỗ hổng suy luận dựa trên nguồn MEDUS đã Medical Review (CP02).</span>
+          </div>
+          <div class="ai-card" id="aiCard">
+            <div class="ai-card-head">
+              <div class="ai-card-title">✦ MEDUS AI · Clinical Reasoning</div>
+              <span class="ai-status-badge" id="aiStatusBadge">GROUNDED</span>
+            </div>
+            <div id="aiBodyContainer">
+              <div class="ai-grid">
+                <div class="ai-box">
+                  <b>KẾT LUẬN NGẮN</b>
+                  <p id="aiVerdictSummary">—</p>
+                </div>
+                <div class="ai-box">
+                  <b>LỖ HỔNG SUY LUẬN</b>
+                  <p id="aiReasoningGap">—</p>
+                </div>
+                <div class="ai-box">
+                  <b>VÌ SAO ĐÁP ÁN ĐÚNG</b>
+                  <p id="aiWhyCorrect">—</p>
+                </div>
+                <div class="ai-box">
+                  <b>VÌ SAO LỰA CHỌN SAI</b>
+                  <p id="aiWhySelectedWrong">—</p>
+                </div>
+                <div class="ai-box rule">
+                  <b>MỘT NGUYÊN TẮC CẦN NHỚ</b>
+                  <p id="aiOneRule">—</p>
+                </div>
+                <div class="ai-box sources" id="aiSourcesBox">
+                  <b>NGUỒN MEDUS (MEDICAL REVIEWED)</b>
+                  <div class="ai-sources-list" id="aiSourcesList"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ai-card-foot">
+              <span>Nội dung AI được đối soát với bài học đã duyệt. Không thay thế chẩn đoán lâm sàng thực tế.</span>
+              <span id="aiLatencyText"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -627,6 +813,9 @@
   </div>
 </main>
 
+
+<script src="../assets/supabase-config.js"></script>
+<script src="../assets/medus-ai.js"></script>
 <script>
   // EXPANDED QUESTION BANK MATRIX (TEST BLUEPRINT 2026)
   const fullQBank = [
@@ -842,6 +1031,7 @@
       document.getElementById('btnSubmit').disabled = true;
       document.getElementById('btnNext').style.display = 'none';
       document.getElementById('explanationBox').style.display = 'none';
+    resetAiUi();
     }
   }
 
@@ -884,6 +1074,7 @@
     document.getElementById('learnRefBtn').href = q.learnRef;
 
     document.getElementById('explanationBox').style.display = 'block';
+    updateAiButtonForQuestion(q);
   }
 
   function nextQuestion() {
@@ -930,6 +1121,153 @@
           🎉 Xuất sắc! Bạn đã trả lời đúng 100% các câu hỏi Apply+ trong lượt thi này.
         </div>
       `;
+    }
+  }
+
+
+  let aiState = {
+    loading: false,
+    data: null,
+    error: null,
+    qId: null
+  };
+
+  function resetAiUi() {
+    aiState = { loading: false, data: null, error: null, qId: null };
+    const aiCard = document.getElementById('aiCard');
+    if (aiCard) aiCard.classList.remove('show');
+    const btn = document.getElementById('btnAskAi');
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '✦ HỎI MEDUS AI';
+    }
+  }
+
+  function updateAiButtonForQuestion(q) {
+    const btn = document.getElementById('btnAskAi');
+    const hint = document.getElementById('aiHint');
+    if (!btn || !hint) return;
+
+    const isCp02 = q.cat === 'INFECT' || q.id.startsWith('CP02-');
+    if (isCp02) {
+      btn.className = 'btn-ai';
+      btn.disabled = false;
+      btn.title = '';
+      hint.textContent = 'AI giải thích sâu hơn dựa trên nguồn MEDUS đã Medical Review (CP02).';
+    } else {
+      btn.className = 'btn-ai non-cp02';
+      btn.disabled = true;
+      btn.title = 'Hỏi MEDUS AI hiện khả dụng cho chuyên đề Tiếp Cận Bệnh Nhân Sốt (CP02).';
+      hint.textContent = 'Hỏi MEDUS AI hiện khả dụng trên bài mẫu CP02 (Tiếp cận bệnh nhân sốt).';
+    }
+  }
+
+  async function handleAskAi() {
+    const q = activeQuestions[currentIdx];
+    const userAns = userAnswersMap[q.id];
+    if (!userAns) return;
+
+    const isCp02 = q.cat === 'INFECT' || q.id.startsWith('CP02-');
+    if (!isCp02) return;
+
+    const btn = document.getElementById('btnAskAi');
+    const aiCard = document.getElementById('aiCard');
+    const statusBadge = document.getElementById('aiStatusBadge');
+    const latencyText = document.getElementById('aiLatencyText');
+
+    btn.disabled = true;
+    btn.innerHTML = '<span class="loading-spinner"></span> Đang phân tích…';
+    statusBadge.textContent = 'LOADING';
+    statusBadge.className = 'ai-status-badge loading';
+    aiCard.classList.add('show');
+
+    document.getElementById('aiVerdictSummary').textContent = 'Đang trích xuất dữ liệu lâm sàng từ nguồn MEDUS...';
+    document.getElementById('aiReasoningGap').textContent = 'Đang phân tích suy luận...';
+    document.getElementById('aiWhyCorrect').textContent = 'Đang phân tích cơ chế...';
+    document.getElementById('aiWhySelectedWrong').textContent = 'Đang đối chiếu phương án...';
+    document.getElementById('aiOneRule').textContent = 'Đang tổng hợp nguyên tắc...';
+    document.getElementById('aiSourcesList').innerHTML = '<span style="color: var(--muted); font-size: 12px;">Đang tìm citations...</span>';
+    latencyText.textContent = '';
+
+    const startTime = Date.now();
+
+    try {
+      if (typeof MedusAI === 'undefined' || !MedusAI.explainQBankAnswer) {
+        throw new Error('Module MedusAI chưa được nạp.');
+      }
+
+      const payload = MedusAI.buildQBankPayload(
+        {
+          id: q.id,
+          clinicalProblemId: 2,
+          sectionKey: 'safety_gate',
+          section: q.section,
+          comp: q.comp,
+          stem: q.stem,
+          options: q.options,
+          correct: q.correct,
+          takeaway: q.takeaway,
+          rationale: q.rationale,
+          learnRef: q.learnRef
+        },
+        userAns.selected
+      );
+
+      const result = await MedusAI.explainQBankAnswer(payload);
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+
+      if (result.insufficient_evidence) {
+        statusBadge.textContent = 'INSUFFICIENT EVIDENCE';
+        statusBadge.className = 'ai-status-badge insufficient';
+        document.getElementById('aiVerdictSummary').textContent = result.verdict_summary || 'Nguồn tài liệu MEDUS hiện tại chưa đủ để đưa ra kết luận an toàn cho câu hỏi này.';
+        document.getElementById('aiReasoningGap').textContent = result.reasoning_gap || 'Cần bổ sung nguồn kiểm duyệt trước khi giải thích thêm.';
+        document.getElementById('aiWhyCorrect').textContent = 'Tham khảo phần giải thích Medical Review ở trên.';
+        document.getElementById('aiWhySelectedWrong').textContent = 'Không áp dụng AI khi thiếu minh chứng y khoa.';
+        document.getElementById('aiOneRule').textContent = result.one_rule || 'An toàn bệnh nhân là trên hết: Không suy đoán khi thiếu bằng chứng.';
+      } else {
+        statusBadge.textContent = 'GROUNDED';
+        statusBadge.className = 'ai-status-badge';
+        document.getElementById('aiVerdictSummary').textContent = result.verdict_summary || '—';
+        document.getElementById('aiReasoningGap').textContent = result.reasoning_gap || '—';
+        document.getElementById('aiWhyCorrect').textContent = result.why_correct || '—';
+        document.getElementById('aiWhySelectedWrong').textContent = result.why_selected_wrong || '—';
+        document.getElementById('aiOneRule').textContent = result.one_rule || '—';
+      }
+
+      // Render Citations
+      const sourcesList = document.getElementById('aiSourcesList');
+      if (result.citations && result.citations.length) {
+        sourcesList.innerHTML = result.citations.map(c => `
+          <a href="../hoc/?slug=tiep-can-benh-nhan-sot#${encodeURIComponent(c.section_key || 'safety_gate')}" target="_blank" rel="noopener noreferrer">
+            📖 ${c.source_title || 'MEDUS Learn CP02'} (${c.section_key || 'Section'} · ${c.locator || 'Đã Medical Review'}) ↗
+          </a>
+        `).join('');
+      } else {
+        sourcesList.innerHTML = '<a href="../hoc/?slug=tiep-can-benh-nhan-sot" target="_blank">📖 MEDUS Learn · Tiếp cận bệnh nhân sốt ↗</a>';
+      }
+
+      latencyText.textContent = `⚡ Phản hồi trong ${elapsed}s`;
+      btn.disabled = false;
+      btn.innerHTML = '✦ HỎI LẠI MEDUS AI';
+    } catch (err) {
+      console.warn('MEDUS AI Error:', err);
+      statusBadge.textContent = 'CHƯA KẾT NỐI';
+      statusBadge.className = 'ai-status-badge error';
+
+      let msg = err.message || 'Không thể kết nối đến máy chủ AI.';
+      if (err.code === 'AUTH_REQUIRED') {
+        msg = 'Bạn cần đăng nhập tài khoản MEDUS để sử dụng tính năng Hỏi MEDUS AI.';
+      }
+
+      document.getElementById('aiVerdictSummary').textContent = msg;
+      document.getElementById('aiReasoningGap').textContent = 'Phần giải thích Medical Review ở trên vẫn là nguồn chuẩn để bạn ôn tập.';
+      document.getElementById('aiWhyCorrect').textContent = 'Vui lòng tham khảo phân tích từng phương án ở phần giải thích chính.';
+      document.getElementById('aiWhySelectedWrong').textContent = 'Chức năng AI hỗ trợ thêm, không làm gián đoạn bài làm QBank.';
+      document.getElementById('aiOneRule').textContent = 'Luôn ưu tiên giải thích từ Hội đồng Y khoa kiểm duyệt.';
+      document.getElementById('aiSourcesList').innerHTML = '<a href="../hoc/?slug=tiep-can-benh-nhan-sot" target="_blank">📖 Mở bài học Sốt trên MEDUS Learn ↗</a>';
+
+      btn.disabled = false;
+      btn.innerHTML = '✦ THỬ LẠI';
     }
   }
 
