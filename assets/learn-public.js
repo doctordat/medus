@@ -340,7 +340,16 @@
     $('#articleMode').style.display = 'none';
 
     const localPkgs = window.MEDUS_LOCAL_PACKAGES || {};
-    const { data: sectionRows, error: sErr } = await db.from('content_sections').select('clinical_problem_id,section_key').eq('medical_review_status', 'published');
+    let sectionRows = [];
+    try {
+      const res = await Promise.race([
+        db.from('content_sections').select('clinical_problem_id,section_key').eq('medical_review_status', 'published'),
+        new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 1500))
+      ]);
+      sectionRows = res.data || [];
+    } catch(e) {
+      console.warn('[Learn] Supabase offline/timeout, using local content packages');
+    }
     
     const counts = {};
     (sectionRows || []).forEach(x => counts[x.clinical_problem_id] = (counts[x.clinical_problem_id] || 0) + 1);
@@ -351,18 +360,19 @@
     });
 
     const ids = Object.keys(counts).map(Number);
-    if (!ids.length) return drawCatalog([], counts);
+    const map = new Map();
 
-    const { data: problems } = await db.from('clinical_problems').select('id,slug,title,domain,priority,status').in('id', ids);
-    const map = new Map((problems || []).map(x => [x.id, x]));
-    ids.forEach(id => { 
-      if (!map.has(id)) {
-        if (localPkgs[id]) map.set(id, localPkgs[id]);
-        else if (cfg.fallback[id]) map.set(id, cfg.fallback[id]);
-      }
+    // Fill all local packages first
+    Object.values(localPkgs).forEach(pkg => {
+      map.set(pkg.id, pkg);
     });
 
-    const items = [...map.values()].filter(x => counts[x.id] > 0).sort((a, b) => (b.priority || 0) - (a.priority || 0) || a.id - b.id);
+    // Fill fallback if any
+    Object.values(cfg.fallback).forEach(fb => {
+      if (!map.has(fb.id)) map.set(fb.id, fb);
+    });
+
+    const items = [...map.values()].filter(x => (counts[x.id] || 0) > 0 || localPkgs[x.id]).sort((a, b) => a.id - b.id);
     drawCatalog(items, counts);
   }
 
