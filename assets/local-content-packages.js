@@ -67,55 +67,55 @@ window.MEDUS_LOCAL_PACKAGES = {
     "sections": {
       "overview": {
         "section_key": "overview",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "Chuyên đề Tiếp cận bệnh nhân sốt là một trong những tình huống lâm sàng thường gặp và tối khẩn trong thực hành Y khoa và kỳ thi Đánh giá Năng lực Bác sĩ (QĐ 22/QĐ-HĐYKQG 2026). Đòi hỏi người thầy thuốc phải nắm vững nguyên tắc tiếp cận ABCDE, phân tầng nguy cơ và can thiệp kịp thời trong giờ vàng."
       },
       "learning_objectives": {
         "section_key": "learning_objectives",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "- Nhận diện và xử trí khẩn cấp Cổng an toàn (Safety Gate) cho bệnh nhân Tiếp cận bệnh nhân sốt.\n- Khai thác bệnh sử có mục tiêu theo OPQRST và khám thực thể toàn diện.\n- Chỉ định cận lâm sàng chiến lược 2 tầng và lập phác đồ điều trị ban đầu chuẩn y văn."
       },
       "safety_gate": {
         "section_key": "safety_gate",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "🚨 CÁC DẤU HIỆU CẢNH BÁO NGUY HIỂM / CẤP CỨU TỐI KHẨN:\n- Tụt huyết áp sâu, sốc, rối loạn tri giác (GCS < 12 điểm), suy hô hấp đe dọa ngừng tuần hoàn.\n- Xuất hiện các biến chứng cấp tính đe dọa sinh mạng cần can thiệp hồi sức cấp 1 ngay lập tức."
       },
       "mechanism": {
         "section_key": "mechanism",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "Cơ chế sinh lý bệnh học phản ánh sự mất cân bằng giữa cung và cầu oxy mô, rối loạn huyết động học và đáp ứng viêm toàn thân. Việc nắm vững cơ chế phân tử giúp định hướng chỉ định thuốc chính xác."
       },
       "history": {
         "section_key": "history",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "Khai thác bệnh sử theo OPQRST:\n- O (Onset): Thời điểm và hoàn cảnh khởi phát đột ngột hay từ từ.\n- P (Provocation): Yếu tố làm tăng hoặc giảm triệu chứng.\n- Q (Quality): Tính chất cơ năng điển hình.\n- R (Radiation): Hướng lan và các triệu chứng toàn thân đi kèm.\n- S (Severity): Mức độ ảnh hưởng đến sinh hiệu và hoạt động chức năng.\n- T (Timing): Tiền sử bệnh nền và các thuốc đang sử dụng."
       },
       "physical_exam": {
         "section_key": "physical_exam",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
       },
       "differential": {
         "section_key": "differential",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
       },
       "investigations": {
         "section_key": "investigations",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "Chiến lược cận lâm sàng 2 tầng:\n- Tầng 1 (Tại giường / Khẩn cấp): ECG 12 chuyển đạo, Khí máu động mạch, Siêu âm POCUS tại giường, X-quang ngực/bụng.\n- Tầng 2 (Chuyên sâu): CT Scan cản quang, Dấu ấn sinh học (Biomarkers), Xét nghiệm chuyên khoa xác chẩn."
       },
       "management": {
         "section_key": "management",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
       },
       "decision_points": {
         "section_key": "decision_points",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "IF [Xuất hiện dấu hiệu báo động đỏ hoặc sinh hiệu không ổn định]\nTHEN [Kích hoạt quy trình hồi sức cấp cứu và can thiệp hồi sức tích cực ngay lập tức]\n\nIF [Huyết động ổn định và đã loại trừ nhóm nguyên nhân tối khẩn]\nTHEN [Thực hiện các bước chẩn đoán phân tầng và điều trị nguyên nhân chuyên biệt]"
       },
       "pitfalls": {
         "section_key": "pitfalls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "⚠️ Các bẫy lâm sàng kinh điển:\n- Bẫy 1: Trì hoãn hồi sức cấp cứu chỉ để chờ kết quả cận lâm sàng không khẩn cấp.\n- Bẫy 2: Bỏ sót các biến chứng đe dọa tính mạng do không thăm khám và đánh giá lại sinh hiệu động học."
       },
       "clinical_pearls": {
         "section_key": "clinical_pearls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "💎 Viên ngọc lâm sàng cốt lõi:\n- Luôn ưu tiên nguyên tắc an toàn người bệnh lên hàng đầu.\n- Đánh giá lại (Reassessment) sau can thiệp là bước bắt buộc để phòng ngừa diễn tiến xấu."
       },
       "checklist": {
         "section_key": "checklist",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   },
@@ -127,55 +127,55 @@ window.MEDUS_LOCAL_PACKAGES = {
     "sections": {
       "overview": {
         "section_key": "overview",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "Chuyên đề Tiếp cận bệnh nhân đau ngực là một trong những tình huống lâm sàng thường gặp và tối khẩn trong thực hành Y khoa và kỳ thi Đánh giá Năng lực Bác sĩ (QĐ 22/QĐ-HĐYKQG 2026). Đòi hỏi người thầy thuốc phải nắm vững nguyên tắc tiếp cận ABCDE, phân tầng nguy cơ và can thiệp kịp thời trong giờ vàng."
       },
       "learning_objectives": {
         "section_key": "learning_objectives",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "- Nhận diện và xử trí khẩn cấp Cổng an toàn (Safety Gate) cho bệnh nhân Tiếp cận bệnh nhân đau ngực.\n- Khai thác bệnh sử có mục tiêu theo OPQRST và khám thực thể toàn diện.\n- Chỉ định cận lâm sàng chiến lược 2 tầng và lập phác đồ điều trị ban đầu chuẩn y văn."
       },
       "safety_gate": {
         "section_key": "safety_gate",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "🚨 CÁC DẤU HIỆU CẢNH BÁO NGUY HIỂM / CẤP CỨU TỐI KHẨN:\n- Tụt huyết áp sâu, sốc, rối loạn tri giác (GCS < 12 điểm), suy hô hấp đe dọa ngừng tuần hoàn.\n- Xuất hiện các biến chứng cấp tính đe dọa sinh mạng cần can thiệp hồi sức cấp 1 ngay lập tức."
       },
       "mechanism": {
         "section_key": "mechanism",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "Cơ chế sinh lý bệnh học phản ánh sự mất cân bằng giữa cung và cầu oxy mô, rối loạn huyết động học và đáp ứng viêm toàn thân. Việc nắm vững cơ chế phân tử giúp định hướng chỉ định thuốc chính xác."
       },
       "history": {
         "section_key": "history",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "Khai thác bệnh sử theo OPQRST:\n- O (Onset): Thời điểm và hoàn cảnh khởi phát đột ngột hay từ từ.\n- P (Provocation): Yếu tố làm tăng hoặc giảm triệu chứng.\n- Q (Quality): Tính chất cơ năng điển hình.\n- R (Radiation): Hướng lan và các triệu chứng toàn thân đi kèm.\n- S (Severity): Mức độ ảnh hưởng đến sinh hiệu và hoạt động chức năng.\n- T (Timing): Tiền sử bệnh nền và các thuốc đang sử dụng."
       },
       "physical_exam": {
         "section_key": "physical_exam",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
       },
       "differential": {
         "section_key": "differential",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
       },
       "investigations": {
         "section_key": "investigations",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "Chiến lược cận lâm sàng 2 tầng:\n- Tầng 1 (Tại giường / Khẩn cấp): ECG 12 chuyển đạo, Khí máu động mạch, Siêu âm POCUS tại giường, X-quang ngực/bụng.\n- Tầng 2 (Chuyên sâu): CT Scan cản quang, Dấu ấn sinh học (Biomarkers), Xét nghiệm chuyên khoa xác chẩn."
       },
       "management": {
         "section_key": "management",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
       },
       "decision_points": {
         "section_key": "decision_points",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "IF [Xuất hiện dấu hiệu báo động đỏ hoặc sinh hiệu không ổn định]\nTHEN [Kích hoạt quy trình hồi sức cấp cứu và can thiệp hồi sức tích cực ngay lập tức]\n\nIF [Huyết động ổn định và đã loại trừ nhóm nguyên nhân tối khẩn]\nTHEN [Thực hiện các bước chẩn đoán phân tầng và điều trị nguyên nhân chuyên biệt]"
       },
       "pitfalls": {
         "section_key": "pitfalls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "⚠️ Các bẫy lâm sàng kinh điển:\n- Bẫy 1: Trì hoãn hồi sức cấp cứu chỉ để chờ kết quả cận lâm sàng không khẩn cấp.\n- Bẫy 2: Bỏ sót các biến chứng đe dọa tính mạng do không thăm khám và đánh giá lại sinh hiệu động học."
       },
       "clinical_pearls": {
         "section_key": "clinical_pearls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "💎 Viên ngọc lâm sàng cốt lõi:\n- Luôn ưu tiên nguyên tắc an toàn người bệnh lên hàng đầu.\n- Đánh giá lại (Reassessment) sau can thiệp là bước bắt buộc để phòng ngừa diễn tiến xấu."
       },
       "checklist": {
         "section_key": "checklist",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   },
@@ -280,6 +280,22 @@ window.MEDUS_LOCAL_PACKAGES = {
       "clinical_pearls": {
         "section_key": "clinical_pearls",
         "content_md": "- [ ] 1. Bệnh nhân có cần hỗ trợ hô hấp / đặt nội khí quản khẩn cấp không?\n- [ ] 2. Đã thiết lập ngay 2 đường truyền tĩnh mạch lớn ngoại biên (14G-16G) chưa?\n- [ ] 3. Đã loại trừ Sốc phản vệ (chỉ định tiêm bắp Adrenaline ngay) chưa?\n- [ ] 4. Đã loại trừ Tràn khí màng phổi áp lực (chỉ định chọc kim giải áp) chưa?\n- [ ] 5. Đã thực hiện siêu âm POCUS (RUSH Protocol) đánh giá tim, phổi, IVC chưa?\n- [ ] 6. Bệnh nhân thuộc nhóm sốc nào (Giảm thể tích, Tim, Phân bố, Tắc nghẽn)?\n- [ ] 7. Đã lấy máu xét nghiệm Lactate máu, Khí máu động mạch và 2 bộ cấy máu chưa?\n- [ ] 8. Nếu là Sốc nhiễm khuẩn: Đã bắt đầu bù Lactated Ringer's 30 mL/kg và Noradrenaline chưa?\n- [ ] 9. Đã đặt ống thông tiểu theo dõi lượng nước tiểu mỗi giờ chưa?\n- [ ] 10. Đã lập mốc thời gian đánh giá lại sinh hiệu và độ thanh thải Lactate sau 2 giờ chưa?"
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   },
@@ -291,55 +307,55 @@ window.MEDUS_LOCAL_PACKAGES = {
     "sections": {
       "overview": {
         "section_key": "overview",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "Chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác là một trong những tình huống lâm sàng thường gặp và tối khẩn trong thực hành Y khoa và kỳ thi Đánh giá Năng lực Bác sĩ (QĐ 22/QĐ-HĐYKQG 2026). Đòi hỏi người thầy thuốc phải nắm vững nguyên tắc tiếp cận ABCDE, phân tầng nguy cơ và can thiệp kịp thời trong giờ vàng."
       },
       "learning_objectives": {
         "section_key": "learning_objectives",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "- Nhận diện và xử trí khẩn cấp Cổng an toàn (Safety Gate) cho bệnh nhân Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác.\n- Khai thác bệnh sử có mục tiêu theo OPQRST và khám thực thể toàn diện.\n- Chỉ định cận lâm sàng chiến lược 2 tầng và lập phác đồ điều trị ban đầu chuẩn y văn."
       },
       "safety_gate": {
         "section_key": "safety_gate",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "🚨 CÁC DẤU HIỆU CẢNH BÁO NGUY HIỂM / CẤP CỨU TỐI KHẨN:\n- Tụt huyết áp sâu, sốc, rối loạn tri giác (GCS < 12 điểm), suy hô hấp đe dọa ngừng tuần hoàn.\n- Xuất hiện các biến chứng cấp tính đe dọa sinh mạng cần can thiệp hồi sức cấp 1 ngay lập tức."
       },
       "mechanism": {
         "section_key": "mechanism",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "Cơ chế sinh lý bệnh học phản ánh sự mất cân bằng giữa cung và cầu oxy mô, rối loạn huyết động học và đáp ứng viêm toàn thân. Việc nắm vững cơ chế phân tử giúp định hướng chỉ định thuốc chính xác."
       },
       "history": {
         "section_key": "history",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "Khai thác bệnh sử theo OPQRST:\n- O (Onset): Thời điểm và hoàn cảnh khởi phát đột ngột hay từ từ.\n- P (Provocation): Yếu tố làm tăng hoặc giảm triệu chứng.\n- Q (Quality): Tính chất cơ năng điển hình.\n- R (Radiation): Hướng lan và các triệu chứng toàn thân đi kèm.\n- S (Severity): Mức độ ảnh hưởng đến sinh hiệu và hoạt động chức năng.\n- T (Timing): Tiền sử bệnh nền và các thuốc đang sử dụng."
       },
       "physical_exam": {
         "section_key": "physical_exam",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
       },
       "differential": {
         "section_key": "differential",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
       },
       "investigations": {
         "section_key": "investigations",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "Chiến lược cận lâm sàng 2 tầng:\n- Tầng 1 (Tại giường / Khẩn cấp): ECG 12 chuyển đạo, Khí máu động mạch, Siêu âm POCUS tại giường, X-quang ngực/bụng.\n- Tầng 2 (Chuyên sâu): CT Scan cản quang, Dấu ấn sinh học (Biomarkers), Xét nghiệm chuyên khoa xác chẩn."
       },
       "management": {
         "section_key": "management",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
       },
       "decision_points": {
         "section_key": "decision_points",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "IF [Xuất hiện dấu hiệu báo động đỏ hoặc sinh hiệu không ổn định]\nTHEN [Kích hoạt quy trình hồi sức cấp cứu và can thiệp hồi sức tích cực ngay lập tức]\n\nIF [Huyết động ổn định và đã loại trừ nhóm nguyên nhân tối khẩn]\nTHEN [Thực hiện các bước chẩn đoán phân tầng và điều trị nguyên nhân chuyên biệt]"
       },
       "pitfalls": {
         "section_key": "pitfalls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "⚠️ Các bẫy lâm sàng kinh điển:\n- Bẫy 1: Trì hoãn hồi sức cấp cứu chỉ để chờ kết quả cận lâm sàng không khẩn cấp.\n- Bẫy 2: Bỏ sót các biến chứng đe dọa tính mạng do không thăm khám và đánh giá lại sinh hiệu động học."
       },
       "clinical_pearls": {
         "section_key": "clinical_pearls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "💎 Viên ngọc lâm sàng cốt lõi:\n- Luôn ưu tiên nguyên tắc an toàn người bệnh lên hàng đầu.\n- Đánh giá lại (Reassessment) sau can thiệp là bước bắt buộc để phòng ngừa diễn tiến xấu."
       },
       "checklist": {
         "section_key": "checklist",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   },
@@ -351,55 +367,55 @@ window.MEDUS_LOCAL_PACKAGES = {
     "sections": {
       "overview": {
         "section_key": "overview",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "Chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) là một trong những tình huống lâm sàng thường gặp và tối khẩn trong thực hành Y khoa và kỳ thi Đánh giá Năng lực Bác sĩ (QĐ 22/QĐ-HĐYKQG 2026). Đòi hỏi người thầy thuốc phải nắm vững nguyên tắc tiếp cận ABCDE, phân tầng nguy cơ và can thiệp kịp thời trong giờ vàng."
       },
       "learning_objectives": {
         "section_key": "learning_objectives",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "- Nhận diện và xử trí khẩn cấp Cổng an toàn (Safety Gate) cho bệnh nhân Tiếp cận ngừng tuần hoàn hô hấp (ACLS).\n- Khai thác bệnh sử có mục tiêu theo OPQRST và khám thực thể toàn diện.\n- Chỉ định cận lâm sàng chiến lược 2 tầng và lập phác đồ điều trị ban đầu chuẩn y văn."
       },
       "safety_gate": {
         "section_key": "safety_gate",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "🚨 CÁC DẤU HIỆU CẢNH BÁO NGUY HIỂM / CẤP CỨU TỐI KHẨN:\n- Tụt huyết áp sâu, sốc, rối loạn tri giác (GCS < 12 điểm), suy hô hấp đe dọa ngừng tuần hoàn.\n- Xuất hiện các biến chứng cấp tính đe dọa sinh mạng cần can thiệp hồi sức cấp 1 ngay lập tức."
       },
       "mechanism": {
         "section_key": "mechanism",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "Cơ chế sinh lý bệnh học phản ánh sự mất cân bằng giữa cung và cầu oxy mô, rối loạn huyết động học và đáp ứng viêm toàn thân. Việc nắm vững cơ chế phân tử giúp định hướng chỉ định thuốc chính xác."
       },
       "history": {
         "section_key": "history",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "Khai thác bệnh sử theo OPQRST:\n- O (Onset): Thời điểm và hoàn cảnh khởi phát đột ngột hay từ từ.\n- P (Provocation): Yếu tố làm tăng hoặc giảm triệu chứng.\n- Q (Quality): Tính chất cơ năng điển hình.\n- R (Radiation): Hướng lan và các triệu chứng toàn thân đi kèm.\n- S (Severity): Mức độ ảnh hưởng đến sinh hiệu và hoạt động chức năng.\n- T (Timing): Tiền sử bệnh nền và các thuốc đang sử dụng."
       },
       "physical_exam": {
         "section_key": "physical_exam",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
       },
       "differential": {
         "section_key": "differential",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
       },
       "investigations": {
         "section_key": "investigations",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "Chiến lược cận lâm sàng 2 tầng:\n- Tầng 1 (Tại giường / Khẩn cấp): ECG 12 chuyển đạo, Khí máu động mạch, Siêu âm POCUS tại giường, X-quang ngực/bụng.\n- Tầng 2 (Chuyên sâu): CT Scan cản quang, Dấu ấn sinh học (Biomarkers), Xét nghiệm chuyên khoa xác chẩn."
       },
       "management": {
         "section_key": "management",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
       },
       "decision_points": {
         "section_key": "decision_points",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "IF [Xuất hiện dấu hiệu báo động đỏ hoặc sinh hiệu không ổn định]\nTHEN [Kích hoạt quy trình hồi sức cấp cứu và can thiệp hồi sức tích cực ngay lập tức]\n\nIF [Huyết động ổn định và đã loại trừ nhóm nguyên nhân tối khẩn]\nTHEN [Thực hiện các bước chẩn đoán phân tầng và điều trị nguyên nhân chuyên biệt]"
       },
       "pitfalls": {
         "section_key": "pitfalls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "⚠️ Các bẫy lâm sàng kinh điển:\n- Bẫy 1: Trì hoãn hồi sức cấp cứu chỉ để chờ kết quả cận lâm sàng không khẩn cấp.\n- Bẫy 2: Bỏ sót các biến chứng đe dọa tính mạng do không thăm khám và đánh giá lại sinh hiệu động học."
       },
       "clinical_pearls": {
         "section_key": "clinical_pearls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "💎 Viên ngọc lâm sàng cốt lõi:\n- Luôn ưu tiên nguyên tắc an toàn người bệnh lên hàng đầu.\n- Đánh giá lại (Reassessment) sau can thiệp là bước bắt buộc để phòng ngừa diễn tiến xấu."
       },
       "checklist": {
         "section_key": "checklist",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   },
@@ -411,55 +427,55 @@ window.MEDUS_LOCAL_PACKAGES = {
     "sections": {
       "overview": {
         "section_key": "overview",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Chuyên đề Tiếp cận bệnh nhân ngộ độc cấp là một trong những tình huống lâm sàng thường gặp và tối khẩn trong thực hành Y khoa và kỳ thi Đánh giá Năng lực Bác sĩ (QĐ 22/QĐ-HĐYKQG 2026). Đòi hỏi người thầy thuốc phải nắm vững nguyên tắc tiếp cận ABCDE, phân tầng nguy cơ và can thiệp kịp thời trong giờ vàng."
       },
       "learning_objectives": {
         "section_key": "learning_objectives",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "- Nhận diện và xử trí khẩn cấp Cổng an toàn (Safety Gate) cho bệnh nhân Tiếp cận bệnh nhân ngộ độc cấp.\n- Khai thác bệnh sử có mục tiêu theo OPQRST và khám thực thể toàn diện.\n- Chỉ định cận lâm sàng chiến lược 2 tầng và lập phác đồ điều trị ban đầu chuẩn y văn."
       },
       "safety_gate": {
         "section_key": "safety_gate",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "🚨 CÁC DẤU HIỆU CẢNH BÁO NGUY HIỂM / CẤP CỨU TỐI KHẨN:\n- Tụt huyết áp sâu, sốc, rối loạn tri giác (GCS < 12 điểm), suy hô hấp đe dọa ngừng tuần hoàn.\n- Xuất hiện các biến chứng cấp tính đe dọa sinh mạng cần can thiệp hồi sức cấp 1 ngay lập tức."
       },
       "mechanism": {
         "section_key": "mechanism",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Cơ chế sinh lý bệnh học phản ánh sự mất cân bằng giữa cung và cầu oxy mô, rối loạn huyết động học và đáp ứng viêm toàn thân. Việc nắm vững cơ chế phân tử giúp định hướng chỉ định thuốc chính xác."
       },
       "history": {
         "section_key": "history",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Khai thác bệnh sử theo OPQRST:\n- O (Onset): Thời điểm và hoàn cảnh khởi phát đột ngột hay từ từ.\n- P (Provocation): Yếu tố làm tăng hoặc giảm triệu chứng.\n- Q (Quality): Tính chất cơ năng điển hình.\n- R (Radiation): Hướng lan và các triệu chứng toàn thân đi kèm.\n- S (Severity): Mức độ ảnh hưởng đến sinh hiệu và hoạt động chức năng.\n- T (Timing): Tiền sử bệnh nền và các thuốc đang sử dụng."
       },
       "physical_exam": {
         "section_key": "physical_exam",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
       },
       "differential": {
         "section_key": "differential",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
       },
       "investigations": {
         "section_key": "investigations",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Chiến lược cận lâm sàng 2 tầng:\n- Tầng 1 (Tại giường / Khẩn cấp): ECG 12 chuyển đạo, Khí máu động mạch, Siêu âm POCUS tại giường, X-quang ngực/bụng.\n- Tầng 2 (Chuyên sâu): CT Scan cản quang, Dấu ấn sinh học (Biomarkers), Xét nghiệm chuyên khoa xác chẩn."
       },
       "management": {
         "section_key": "management",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
       },
       "decision_points": {
         "section_key": "decision_points",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "IF [Xuất hiện dấu hiệu báo động đỏ hoặc sinh hiệu không ổn định]\nTHEN [Kích hoạt quy trình hồi sức cấp cứu và can thiệp hồi sức tích cực ngay lập tức]\n\nIF [Huyết động ổn định và đã loại trừ nhóm nguyên nhân tối khẩn]\nTHEN [Thực hiện các bước chẩn đoán phân tầng và điều trị nguyên nhân chuyên biệt]"
       },
       "pitfalls": {
         "section_key": "pitfalls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "⚠️ Các bẫy lâm sàng kinh điển:\n- Bẫy 1: Trì hoãn hồi sức cấp cứu chỉ để chờ kết quả cận lâm sàng không khẩn cấp.\n- Bẫy 2: Bỏ sót các biến chứng đe dọa tính mạng do không thăm khám và đánh giá lại sinh hiệu động học."
       },
       "clinical_pearls": {
         "section_key": "clinical_pearls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "💎 Viên ngọc lâm sàng cốt lõi:\n- Luôn ưu tiên nguyên tắc an toàn người bệnh lên hàng đầu.\n- Đánh giá lại (Reassessment) sau can thiệp là bước bắt buộc để phòng ngừa diễn tiến xấu."
       },
       "checklist": {
         "section_key": "checklist",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   },
@@ -471,55 +487,55 @@ window.MEDUS_LOCAL_PACKAGES = {
     "sections": {
       "overview": {
         "section_key": "overview",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "Chuyên đề Tiếp cận phản vệ và sốc phản vệ là một trong những tình huống lâm sàng thường gặp và tối khẩn trong thực hành Y khoa và kỳ thi Đánh giá Năng lực Bác sĩ (QĐ 22/QĐ-HĐYKQG 2026). Đòi hỏi người thầy thuốc phải nắm vững nguyên tắc tiếp cận ABCDE, phân tầng nguy cơ và can thiệp kịp thời trong giờ vàng."
       },
       "learning_objectives": {
         "section_key": "learning_objectives",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "- Nhận diện và xử trí khẩn cấp Cổng an toàn (Safety Gate) cho bệnh nhân Tiếp cận phản vệ và sốc phản vệ.\n- Khai thác bệnh sử có mục tiêu theo OPQRST và khám thực thể toàn diện.\n- Chỉ định cận lâm sàng chiến lược 2 tầng và lập phác đồ điều trị ban đầu chuẩn y văn."
       },
       "safety_gate": {
         "section_key": "safety_gate",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "🚨 CÁC DẤU HIỆU CẢNH BÁO NGUY HIỂM / CẤP CỨU TỐI KHẨN:\n- Tụt huyết áp sâu, sốc, rối loạn tri giác (GCS < 12 điểm), suy hô hấp đe dọa ngừng tuần hoàn.\n- Xuất hiện các biến chứng cấp tính đe dọa sinh mạng cần can thiệp hồi sức cấp 1 ngay lập tức."
       },
       "mechanism": {
         "section_key": "mechanism",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "Cơ chế sinh lý bệnh học phản ánh sự mất cân bằng giữa cung và cầu oxy mô, rối loạn huyết động học và đáp ứng viêm toàn thân. Việc nắm vững cơ chế phân tử giúp định hướng chỉ định thuốc chính xác."
       },
       "history": {
         "section_key": "history",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "Khai thác bệnh sử theo OPQRST:\n- O (Onset): Thời điểm và hoàn cảnh khởi phát đột ngột hay từ từ.\n- P (Provocation): Yếu tố làm tăng hoặc giảm triệu chứng.\n- Q (Quality): Tính chất cơ năng điển hình.\n- R (Radiation): Hướng lan và các triệu chứng toàn thân đi kèm.\n- S (Severity): Mức độ ảnh hưởng đến sinh hiệu và hoạt động chức năng.\n- T (Timing): Tiền sử bệnh nền và các thuốc đang sử dụng."
       },
       "physical_exam": {
         "section_key": "physical_exam",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
       },
       "differential": {
         "section_key": "differential",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
       },
       "investigations": {
         "section_key": "investigations",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "Chiến lược cận lâm sàng 2 tầng:\n- Tầng 1 (Tại giường / Khẩn cấp): ECG 12 chuyển đạo, Khí máu động mạch, Siêu âm POCUS tại giường, X-quang ngực/bụng.\n- Tầng 2 (Chuyên sâu): CT Scan cản quang, Dấu ấn sinh học (Biomarkers), Xét nghiệm chuyên khoa xác chẩn."
       },
       "management": {
         "section_key": "management",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
       },
       "decision_points": {
         "section_key": "decision_points",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "IF [Xuất hiện dấu hiệu báo động đỏ hoặc sinh hiệu không ổn định]\nTHEN [Kích hoạt quy trình hồi sức cấp cứu và can thiệp hồi sức tích cực ngay lập tức]\n\nIF [Huyết động ổn định và đã loại trừ nhóm nguyên nhân tối khẩn]\nTHEN [Thực hiện các bước chẩn đoán phân tầng và điều trị nguyên nhân chuyên biệt]"
       },
       "pitfalls": {
         "section_key": "pitfalls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "⚠️ Các bẫy lâm sàng kinh điển:\n- Bẫy 1: Trì hoãn hồi sức cấp cứu chỉ để chờ kết quả cận lâm sàng không khẩn cấp.\n- Bẫy 2: Bỏ sót các biến chứng đe dọa tính mạng do không thăm khám và đánh giá lại sinh hiệu động học."
       },
       "clinical_pearls": {
         "section_key": "clinical_pearls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "💎 Viên ngọc lâm sàng cốt lõi:\n- Luôn ưu tiên nguyên tắc an toàn người bệnh lên hàng đầu.\n- Đánh giá lại (Reassessment) sau can thiệp là bước bắt buộc để phòng ngừa diễn tiến xấu."
       },
       "checklist": {
         "section_key": "checklist",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   },
@@ -531,55 +547,55 @@ window.MEDUS_LOCAL_PACKAGES = {
     "sections": {
       "overview": {
         "section_key": "overview",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp là một trong những tình huống lâm sàng thường gặp và tối khẩn trong thực hành Y khoa và kỳ thi Đánh giá Năng lực Bác sĩ (QĐ 22/QĐ-HĐYKQG 2026). Đòi hỏi người thầy thuốc phải nắm vững nguyên tắc tiếp cận ABCDE, phân tầng nguy cơ và can thiệp kịp thời trong giờ vàng."
       },
       "learning_objectives": {
         "section_key": "learning_objectives",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "- Nhận diện và xử trí khẩn cấp Cổng an toàn (Safety Gate) cho bệnh nhân Tiếp cận cơn tăng huyết áp khẩn cấp.\n- Khai thác bệnh sử có mục tiêu theo OPQRST và khám thực thể toàn diện.\n- Chỉ định cận lâm sàng chiến lược 2 tầng và lập phác đồ điều trị ban đầu chuẩn y văn."
       },
       "safety_gate": {
         "section_key": "safety_gate",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "🚨 CÁC DẤU HIỆU CẢNH BÁO NGUY HIỂM / CẤP CỨU TỐI KHẨN:\n- Tụt huyết áp sâu, sốc, rối loạn tri giác (GCS < 12 điểm), suy hô hấp đe dọa ngừng tuần hoàn.\n- Xuất hiện các biến chứng cấp tính đe dọa sinh mạng cần can thiệp hồi sức cấp 1 ngay lập tức."
       },
       "mechanism": {
         "section_key": "mechanism",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Cơ chế sinh lý bệnh học phản ánh sự mất cân bằng giữa cung và cầu oxy mô, rối loạn huyết động học và đáp ứng viêm toàn thân. Việc nắm vững cơ chế phân tử giúp định hướng chỉ định thuốc chính xác."
       },
       "history": {
         "section_key": "history",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Khai thác bệnh sử theo OPQRST:\n- O (Onset): Thời điểm và hoàn cảnh khởi phát đột ngột hay từ từ.\n- P (Provocation): Yếu tố làm tăng hoặc giảm triệu chứng.\n- Q (Quality): Tính chất cơ năng điển hình.\n- R (Radiation): Hướng lan và các triệu chứng toàn thân đi kèm.\n- S (Severity): Mức độ ảnh hưởng đến sinh hiệu và hoạt động chức năng.\n- T (Timing): Tiền sử bệnh nền và các thuốc đang sử dụng."
       },
       "physical_exam": {
         "section_key": "physical_exam",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Khám lâm sàng toàn diện:\n- Đánh giá sinh hiệu trọn vẹn: Mạch, Huyết áp 2 tay, Nhịp thở, SpO2, Thân nhiệt.\n- Khám chuyên khoa có định hướng: Nghe tim phổi, khám bụng, đánh giá tưới máu ngoại vi (CRT) và dấu thần kinh khu trú."
       },
       "differential": {
         "section_key": "differential",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Bảng chẩn đoán phân biệt 3 tầng:\n1. Nhóm tối khẩn đe dọa tính mạng (Big 5 cần loại trừ ngay).\n2. Nhóm nguyên nhân thường gặp trong thực hành lâm sàng.\n3. Nhóm nguyên nhân lành tính hoặc ít nguy hiểm."
       },
       "investigations": {
         "section_key": "investigations",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Chiến lược cận lâm sàng 2 tầng:\n- Tầng 1 (Tại giường / Khẩn cấp): ECG 12 chuyển đạo, Khí máu động mạch, Siêu âm POCUS tại giường, X-quang ngực/bụng.\n- Tầng 2 (Chuyên sâu): CT Scan cản quang, Dấu ấn sinh học (Biomarkers), Xét nghiệm chuyên khoa xác chẩn."
       },
       "management": {
         "section_key": "management",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "Phác đồ xử trí cấp cứu ban đầu:\n- Bước 1: Ổn định đường thở và tuần hoàn (ABCDE), thiết lập đường truyền lớn và thở oxy phù hợp.\n- Bước 2: Dùng thuốc cấp cứu chuyên biệt theo phác đồ hướng dẫn của Bộ Y tế và Quốc tế.\n- Bước 3: Đánh giá lại đáp ứng lâm sàng sau 15-30 phút và hội chẩn chuyên khoa."
       },
       "decision_points": {
         "section_key": "decision_points",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "IF [Xuất hiện dấu hiệu báo động đỏ hoặc sinh hiệu không ổn định]\nTHEN [Kích hoạt quy trình hồi sức cấp cứu và can thiệp hồi sức tích cực ngay lập tức]\n\nIF [Huyết động ổn định và đã loại trừ nhóm nguyên nhân tối khẩn]\nTHEN [Thực hiện các bước chẩn đoán phân tầng và điều trị nguyên nhân chuyên biệt]"
       },
       "pitfalls": {
         "section_key": "pitfalls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "⚠️ Các bẫy lâm sàng kinh điển:\n- Bẫy 1: Trì hoãn hồi sức cấp cứu chỉ để chờ kết quả cận lâm sàng không khẩn cấp.\n- Bẫy 2: Bỏ sót các biến chứng đe dọa tính mạng do không thăm khám và đánh giá lại sinh hiệu động học."
       },
       "clinical_pearls": {
         "section_key": "clinical_pearls",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "💎 Viên ngọc lâm sàng cốt lõi:\n- Luôn ưu tiên nguyên tắc an toàn người bệnh lên hàng đầu.\n- Đánh giá lại (Reassessment) sau can thiệp là bước bắt buộc để phòng ngừa diễn tiến xấu."
       },
       "checklist": {
         "section_key": "checklist",
-        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+        "content_md": "[ ] Đánh giá ABCDE và đo sinh hiệu đầy đủ\n[ ] Nhận diện và loại trừ các dấu hiệu Cổng an toàn (Safety Gate)\n[ ] Chỉ định cận lâm sàng cấp cứu tầng 1 trong 10 phút đầu\n[ ] Lập phác đồ điều trị và kế hoạch theo dõi đáp ứng lâm sàng"
       }
     }
   }
