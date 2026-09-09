@@ -59,6 +59,126 @@ window.MEDUS_LOCAL_PACKAGES = {
       }
     }
   },
+  "2": {
+    "id": 2,
+    "slug": "tiep-can-benh-nhan-sot",
+    "title": "Tiếp cận bệnh nhân sốt",
+    "domain": "Truyền nhiễm & Miễn dịch",
+    "sections": {
+      "overview": {
+        "section_key": "overview",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "learning_objectives": {
+        "section_key": "learning_objectives",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "safety_gate": {
+        "section_key": "safety_gate",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "mechanism": {
+        "section_key": "mechanism",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "history": {
+        "section_key": "history",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "investigations": {
+        "section_key": "investigations",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "decision_points": {
+        "section_key": "decision_points",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "pitfalls": {
+        "section_key": "pitfalls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "clinical_pearls": {
+        "section_key": "clinical_pearls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân sốt (Đang đối soát từ Google Drive)."
+      }
+    }
+  },
+  "3": {
+    "id": 3,
+    "slug": "tiep-can-benh-nhan-dau-nguc",
+    "title": "Tiếp cận bệnh nhân đau ngực",
+    "domain": "Tim mạch & Cấp cứu",
+    "sections": {
+      "overview": {
+        "section_key": "overview",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "learning_objectives": {
+        "section_key": "learning_objectives",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "safety_gate": {
+        "section_key": "safety_gate",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "mechanism": {
+        "section_key": "mechanism",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "history": {
+        "section_key": "history",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "investigations": {
+        "section_key": "investigations",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "decision_points": {
+        "section_key": "decision_points",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "pitfalls": {
+        "section_key": "pitfalls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "clinical_pearls": {
+        "section_key": "clinical_pearls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân đau ngực (Đang đối soát từ Google Drive)."
+      }
+    }
+  },
   "4": {
     "id": 4,
     "slug": "tiep-can-dau-bung-cap",
@@ -123,7 +243,7 @@ window.MEDUS_LOCAL_PACKAGES = {
     "id": 5,
     "slug": "tiep-can-benh-nhan-soc",
     "title": "Tiếp cận bệnh nhân sốc",
-    "domain": "Hồi sức cấp cứu",
+    "domain": "Hồi sức Cấp cứu",
     "sections": {
       "overview": {
         "section_key": "overview",
@@ -160,6 +280,306 @@ window.MEDUS_LOCAL_PACKAGES = {
       "clinical_pearls": {
         "section_key": "clinical_pearls",
         "content_md": "- [ ] 1. Bệnh nhân có cần hỗ trợ hô hấp / đặt nội khí quản khẩn cấp không?\n- [ ] 2. Đã thiết lập ngay 2 đường truyền tĩnh mạch lớn ngoại biên (14G-16G) chưa?\n- [ ] 3. Đã loại trừ Sốc phản vệ (chỉ định tiêm bắp Adrenaline ngay) chưa?\n- [ ] 4. Đã loại trừ Tràn khí màng phổi áp lực (chỉ định chọc kim giải áp) chưa?\n- [ ] 5. Đã thực hiện siêu âm POCUS (RUSH Protocol) đánh giá tim, phổi, IVC chưa?\n- [ ] 6. Bệnh nhân thuộc nhóm sốc nào (Giảm thể tích, Tim, Phân bố, Tắc nghẽn)?\n- [ ] 7. Đã lấy máu xét nghiệm Lactate máu, Khí máu động mạch và 2 bộ cấy máu chưa?\n- [ ] 8. Nếu là Sốc nhiễm khuẩn: Đã bắt đầu bù Lactated Ringer's 30 mL/kg và Noradrenaline chưa?\n- [ ] 9. Đã đặt ống thông tiểu theo dõi lượng nước tiểu mỗi giờ chưa?\n- [ ] 10. Đã lập mốc thời gian đánh giá lại sinh hiệu và độ thanh thải Lactate sau 2 giờ chưa?"
+      }
+    }
+  },
+  "6": {
+    "id": 6,
+    "slug": "tiep-can-hon-me-roi-loan-tri-giac",
+    "title": "Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác",
+    "domain": "Thần kinh & Hồi sức",
+    "sections": {
+      "overview": {
+        "section_key": "overview",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "learning_objectives": {
+        "section_key": "learning_objectives",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "safety_gate": {
+        "section_key": "safety_gate",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "mechanism": {
+        "section_key": "mechanism",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "history": {
+        "section_key": "history",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "investigations": {
+        "section_key": "investigations",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "decision_points": {
+        "section_key": "decision_points",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "pitfalls": {
+        "section_key": "pitfalls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "clinical_pearls": {
+        "section_key": "clinical_pearls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân hôn mê / Rối loạn tri giác (Đang đối soát từ Google Drive)."
+      }
+    }
+  },
+  "7": {
+    "id": 7,
+    "slug": "tiep-can-ngung-tuan-hoan-ho-hap",
+    "title": "Tiếp cận ngừng tuần hoàn hô hấp (ACLS)",
+    "domain": "Hồi sức Cấp cứu",
+    "sections": {
+      "overview": {
+        "section_key": "overview",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "learning_objectives": {
+        "section_key": "learning_objectives",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "safety_gate": {
+        "section_key": "safety_gate",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "mechanism": {
+        "section_key": "mechanism",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "history": {
+        "section_key": "history",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "investigations": {
+        "section_key": "investigations",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "decision_points": {
+        "section_key": "decision_points",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "pitfalls": {
+        "section_key": "pitfalls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "clinical_pearls": {
+        "section_key": "clinical_pearls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận ngừng tuần hoàn hô hấp (ACLS) (Đang đối soát từ Google Drive)."
+      }
+    }
+  },
+  "8": {
+    "id": 8,
+    "slug": "tiep-can-ngo-doc-cap",
+    "title": "Tiếp cận bệnh nhân ngộ độc cấp",
+    "domain": "Hồi sức & Chống độc",
+    "sections": {
+      "overview": {
+        "section_key": "overview",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "learning_objectives": {
+        "section_key": "learning_objectives",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "safety_gate": {
+        "section_key": "safety_gate",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "mechanism": {
+        "section_key": "mechanism",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "history": {
+        "section_key": "history",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "investigations": {
+        "section_key": "investigations",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "decision_points": {
+        "section_key": "decision_points",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "pitfalls": {
+        "section_key": "pitfalls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "clinical_pearls": {
+        "section_key": "clinical_pearls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận bệnh nhân ngộ độc cấp (Đang đối soát từ Google Drive)."
+      }
+    }
+  },
+  "9": {
+    "id": 9,
+    "slug": "tiep-can-phan-ve-soc-phan-ve",
+    "title": "Tiếp cận phản vệ và sốc phản vệ",
+    "domain": "Dị ứng & Cấp cứu",
+    "sections": {
+      "overview": {
+        "section_key": "overview",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "learning_objectives": {
+        "section_key": "learning_objectives",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "safety_gate": {
+        "section_key": "safety_gate",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "mechanism": {
+        "section_key": "mechanism",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "history": {
+        "section_key": "history",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "investigations": {
+        "section_key": "investigations",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "decision_points": {
+        "section_key": "decision_points",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "pitfalls": {
+        "section_key": "pitfalls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "clinical_pearls": {
+        "section_key": "clinical_pearls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận phản vệ và sốc phản vệ (Đang đối soát từ Google Drive)."
+      }
+    }
+  },
+  "10": {
+    "id": 10,
+    "slug": "tiep-can-tang-huyet-ap-khan-cap",
+    "title": "Tiếp cận cơn tăng huyết áp khẩn cấp",
+    "domain": "Tim mạch",
+    "sections": {
+      "overview": {
+        "section_key": "overview",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục overview của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "learning_objectives": {
+        "section_key": "learning_objectives",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục learning_objectives của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "safety_gate": {
+        "section_key": "safety_gate",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục safety_gate của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "mechanism": {
+        "section_key": "mechanism",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục mechanism của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "history": {
+        "section_key": "history",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục history của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "physical_exam": {
+        "section_key": "physical_exam",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục physical_exam của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "differential": {
+        "section_key": "differential",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục differential của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "investigations": {
+        "section_key": "investigations",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục investigations của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "management": {
+        "section_key": "management",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục management của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "decision_points": {
+        "section_key": "decision_points",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục decision_points của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "pitfalls": {
+        "section_key": "pitfalls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục pitfalls của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "clinical_pearls": {
+        "section_key": "clinical_pearls",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục clinical_pearls của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
+      },
+      "checklist": {
+        "section_key": "checklist",
+        "content_md": "Nội dung lâm sàng chuẩn hóa cho mục checklist của chuyên đề Tiếp cận cơn tăng huyết áp khẩn cấp (Đang đối soát từ Google Drive)."
       }
     }
   }
