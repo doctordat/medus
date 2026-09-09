@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MEDUS AI V1.4 — Clinical Examiner Demo</title>
+  <style>
+    :root {
+      --navy: #092c35;
+      --navy-light: #104350;
+      --teal: #008d98;
+      --bg: #f5fafb;
+      --ink: #163238;
+      --muted: #6b868e;
+      --line: #dbe8ea;
+      --s: #e9f8f9;
+      --w: #fff8e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: auto;
+      padding: 24px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .brand {
+      font-size: 22px;
+      font-weight: 950;
+      color: var(--navy);
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 900;
+      background: #e6fffb;
+      color: #006d75;
+      border-radius: 999px;
+      padding: 6px 12px;
+      letter-spacing: .05em;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(9,44,53,.04);
+      margin-bottom: 20px;
+    }
+    .ey {
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .vitals-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 16px 0;
+    }
+    .vital-box {
+      text-align: center;
+    }
+    .vital-box b {
+      font-size: 10px;
+      color: var(--muted);
+      display: block;
+      text-transform: uppercase;
+    }
+    .vital-box strong {
+      font-size: 16px;
+      color: var(--navy);
+      font-weight: 950;
+    }
+    .vital-box.danger strong {
+      color: #dc2626;
+    }
+    .scenario-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 14px;
+      border-radius: 0 10px 10px 0;
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .oral-box {
+      background: #fffdf5;
+      border: 1.5px solid #f6e0b5;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 20px;
+    }
+    .oral-box h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: var(--navy);
+      font-weight: 950;
+    }
+    .sample-buttons {
+      display: flex;
+      gap: 8px;
+      margin: 10px 0;
+      flex-wrap: wrap;
+    }
+    .btn-sample {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .btn-sample:hover { border-color: var(--teal); }
+    textarea {
+      width: 100%;
+      height: 80px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+    }
+    textarea:focus {
+      border-color: var(--teal);
+    }
+    .btn-eval {
+      background: var(--navy);
+      color: #fff;
+      border: 0;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 850;
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn-eval:hover { background: var(--navy-light); }
+    .rubric-card {
+      display: none;
+      margin-top: 16px;
+      background: #fff;
+      border: 1.5px solid #dcebed;
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .rubric-card.show { display: block; }
+    .rubric-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #edf4f5;
+    }
+    .rubric-badge {
+      font-size: 11px;
+      font-weight: 900;
+      background: #dcfce7;
+      color: #15803d;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+    .rubric-badge.fail {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+    .rubric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .rubric-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 12.5px;
+    }
+    .rubric-item b {
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .examiner-feedback {
+      background: #eff6ff;
+      border-left: 3.5px solid #3b82f6;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+      color: #1e3a8a;
+    }
+    @media(max-width:700px){
+      .vitals-bar { grid-template-columns: repeat(2, 1fr); }
+      .rubric-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">✚ MEDUS</div>
+      <div class="badge">V1.4 CLINICAL EXAMINER PREVIEW</div>
+    </div>
+
+    <div class="card">
+      <div class="ey">🫁 CLINICAL CASE CP01 · BƯỚC 1/3</div>
+      <h2 style="color: var(--navy); margin: 0 0 10px;">Phù Phổi Cấp Kịch Phát Do Tăng Huyết Áp (SCAPE)</h2>
+
+      <div class="vitals-bar">
+        <div class="vital-box danger"><b>HUYẾT ÁP</b><strong>215/120</strong></div>
+        <div class="vital-box"><b>NHỊP TIM</b><strong>130 l/p</strong></div>
+        <div class="vital-box"><b>NHỊP THỞ</b><strong>36 l/p</strong></div>
+        <div class="vital-box danger"><b>SpO2</b><strong>80%</strong></div>
+        <div class="vital-box"><b>NHIỆT ĐỘ</b><strong>36.8 °C</strong></div>
+      </div>
+
+      <div class="scenario-box">
+        <b>Bối cảnh khẩn cấp:</b> Bệnh nhân nữ 68 tuổi tiền sử suy tim và tăng huyết áp, nhập viện vì khó thở dữ dội lúc nửa đêm, phải ngồi chồm hổm để thở, vã mồ hôi, da niêm tím tái, khạc bọt hồng.<br>
+        <b>Câu hỏi giám khảo:</b> Xử trí hồi sức đường thở và oxy liệu pháp ưu tiên ngay lập tức là gì? Biện luận lý do lâm sàng.
+      </div>
+
+      <div class="oral-box">
+        <h3>✦ Vấn Đáp Lâm Sàng (Oral Reasoning Mode)</h3>
+        <div style="font-size: 12px; color: var(--muted);">Thử các mẫu trả lời của học viên hoặc tự nhập câu trả lời:</div>
+        <div class="sample-buttons">
+          <button class="btn-sample" onclick="fillSample(1)">Mẫu 1: Đạt chuẩn xuất sắc (Đúng can thiệp + Cơ chế PEEP)</button>
+          <button class="btn-sample" onclick="fillSample(2)">Mẫu 2: Bỏ sót can thiệp khẩn (Chỉ cho thở canula)</button>
+          <button class="btn-sample" onclick="fillSample(3)">Mẫu 3: Lập luận chưa đủ cơ chế</button>
+        </div>
+
+        <textarea id="demoOralText" placeholder="Nhập câu trả lời vấn đáp của bạn..."></textarea>
+        <button class="btn-eval" onclick="gradeDemo()">✦ Giám Khảo AI Chấm Điểm Rubric Hội Đồng</button>
+
+        <div class="rubric-card" id="demoRubric">
+          <div class="rubric-head">
+            <span style="font-weight: 950; font-size: 14px; color: var(--navy);">BẢNG ĐIỂM RUBRIC HỘI ĐỒNG (MEDUS CLINICAL RUBRIC)</span>
+            <span class="rubric-badge" id="demoScoreBadge">100/100 · ĐẠT CHUẨN</span>
+          </div>
+          <div class="rubric-grid" id="demoRubricGrid"></div>
+          <div class="examiner-feedback" id="demoFeedback"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/medus-ai-examiner.js"></script>
+  <script>
+    const samples = {
+      1: 'Cần khởi động ngay thông khí không xâm lấn CPAP/BiPAP áp lực dương vì bệnh nhân SCAPE có phù phổi cấp huyết áp rất cao. Áp lực PEEP giúp đẩy dịch phù từ phế nang về mô kẽ, giảm tiền tải hậu tải và cải thiện oxy máu khẩn cấp.',
+      2: 'Cho bệnh nhân thở oxy qua canula mũi 2 lít/phút và chờ kết quả X-quang phổi.',
+      3: 'Cho thở máy ngay lập tức để cấp cứu.'
+    };
+
+    const mockStep = {
+      options: ['Thở canula', 'Khởi động ngay thông khí không xâm lấn CPAP/BiPAP áp lực dương', 'Đặt nội khí quản', 'Tiêm Morphine'],
+      correct: 1,
+      feedback: 'CPAP giúp tạo PEEP tống dịch phù ra khỏi phế nang về mô kẽ, giảm công thở và cải thiện oxy máu tức thì.'
+    };
+
+    function fillSample(id) {
+      document.getElementById('demoOralText').value = samples[id];
+      gradeDemo();
+    }
+
+    function gradeDemo() {
+      const text = document.getElementById('demoOralText').value;
+      const evalResult = MedusAiExaminer.evaluateClinicalReasoning(mockStep, text);
+
+      const rCard = document.getElementById('demoRubric');
+      const badge = document.getElementById('demoScoreBadge');
+      const grid = document.getElementById('demoRubricGrid');
+      const fb = document.getElementById('demoFeedback');
+
+      badge.textContent = `${evalResult.totalScore}/100 · ${evalResult.verdict.toUpperCase()}`;
+      badge.className = `rubric-badge ${evalResult.passed ? '' : 'fail'}`;
+
+      grid.innerHTML = evalResult.breakdown.map(b => `
+        <div class="rubric-item">
+          <b><span>${b.aspect}</span><span>${b.score}/${b.max}đ</span></b>
+          <p style="margin: 0; color: #475569;">${b.feedback}</p>
+        </div>
+      `).join('');
+
+      fb.innerHTML = `<b>Nhận xét Giám khảo:</b> ${evalResult.coachComment}`;
+      rCard.classList.add('show');
+    }
+
+    fillSample(1);
+  </script>
+</body>
+</html>

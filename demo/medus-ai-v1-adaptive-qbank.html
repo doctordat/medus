@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MEDUS AI V1.3 — Adaptive QBank Demo</title>
+  <style>
+    :root {
+      --navy: #092c35;
+      --navy-light: #104350;
+      --teal: #008d98;
+      --bg: #f5fafb;
+      --ink: #163238;
+      --muted: #6b868e;
+      --line: #dbe8ea;
+      --s: #e9f8f9;
+      --w: #fff8e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: auto;
+      padding: 24px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .brand {
+      font-size: 22px;
+      font-weight: 950;
+      color: var(--navy);
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 900;
+      background: #e6fffb;
+      color: #006d75;
+      border-radius: 999px;
+      padding: 6px 12px;
+      letter-spacing: .05em;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(9,44,53,.04);
+      margin-bottom: 20px;
+    }
+    .ey {
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h2 {
+      color: var(--navy);
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-weight: 950;
+    }
+    .formula-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      color: var(--navy);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .sim-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .btn-sim {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      padding: 9px 14px;
+      border-radius: 10px;
+      font-size: 12.5px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .btn-sim.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+    .ranked-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .rank-card {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 50px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      transition: .2s ease;
+    }
+    .rank-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+    .rank-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      font-size: 16px;
+    }
+    .rank-num.top {
+      background: linear-gradient(135deg, var(--teal), #006870);
+    }
+    .q-info h3 {
+      margin: 0 0 4px;
+      font-size: 14.5px;
+      color: var(--navy);
+    }
+    .q-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .q-reason {
+      font-size: 12px;
+      color: #15803d;
+      background: #f0fdf4;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      font-weight: 700;
+    }
+    .score-badge {
+      font-size: 16px;
+      font-weight: 950;
+      color: var(--navy);
+      text-align: right;
+    }
+    .score-badge small {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    @media(max-width:700px){
+      .rank-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">✚ MEDUS</div>
+      <div class="badge">V1.3 ADAPTIVE QBANK PREVIEW</div>
+    </div>
+
+    <div class="card">
+      <div class="ey">MÔ HÌNH THUẬT TOÁN XẾP HẠNG THÍCH ỨNG (DETERMINISTIC)</div>
+      <h2>Adaptive Question Ranking Engine</h2>
+      <div class="formula-box">
+        Score(Q) = (W_weak_sec × S_sec) + (W_weak_comp × S_comp) + (W_due × S_due) + (W_diff × S_diff) - Penalty_recent<br>
+        • W_weak_section: +40đ (Ưu tiên tối đa đóng lỗ hổng Safety Gate / Section sai)<br>
+        • W_weak_competency: +25đ (Củng cố năng lực yếu)<br>
+        • W_spaced_due: +25đ (Đến hạn ôn tập Spaced Repetition theo review_schedule)<br>
+        • W_difficulty: +10đ (Độ khó vừa sức học viên)<br>
+        • Penalty_recent: -50đ (Tránh lặp câu hỏi vừa hoàn thành)
+      </div>
+
+      <div class="ey">CHỌN HỒ SƠ TÍN HIỆU HỌC VIÊN ĐỂ RERANK:</div>
+      <div class="sim-controls">
+        <button class="btn-sim active" onclick="runSim(1)">Hồ sơ 1: Sai Safety Gate Sốt (CP02)</button>
+        <button class="btn-sim" onclick="runSim(2)">Hồ sơ 2: Đến hạn Spaced Repetition Đau ngực (CP03)</button>
+        <button class="btn-sim" onclick="runSim(3)">Hồ sơ 3: Vừa làm xong CP01 (Trừ điểm tránh trùng lặp)</button>
+      </div>
+
+      <div class="ranked-list" id="rankedList"></div>
+    </div>
+  </div>
+
+  <script src="../assets/medus-adaptive-qbank.js"></script>
+  <script>
+    const sampleQuestions = [
+      {
+        id: 'CP02-AP01',
+        cat: 'INFECT',
+        problem: 'Tiếp Cận Bệnh Nhân Sốt',
+        sectionKey: 'safety_gate',
+        section: 'Safety Gate & Sepsis',
+        comp: 'Hồi sức & Kháng sinh',
+        bloom: 'Áp dụng',
+        stem: 'Bệnh nhân nữ 70 tuổi sốt 39.2°C, HA 80/50 mmHg trơ bù dịch, Lactate 4.2 mmol/L. Can thiệp vận mạch tiếp theo?'
+      },
+      {
+        id: 'CP03-AP01',
+        cat: 'CARDIO',
+        problem: 'Tiếp Cận Bệnh Nhân Đau Ngực',
+        sectionKey: 'safety_gate',
+        section: 'Safety Gate & Red Flags',
+        comp: 'Chẩn đoán & Cấp cứu',
+        bloom: 'Áp dụng',
+        stem: 'Bệnh nhân nam 65 tuổi đau ngực dữ dội xé rách sau lưng, HA 2 tay lệch nhau. Chống chỉ định tuyệt đối?'
+      },
+      {
+        id: 'CP03-AP02',
+        cat: 'CARDIO',
+        problem: 'Tiếp Cận Bệnh Nhân Đau Ngực',
+        sectionKey: 'decision_points',
+        section: 'Decision Points & Investigations',
+        comp: 'Chăm sóc Y khoa',
+        bloom: 'Phân tích',
+        stem: 'Bệnh nhân nam 52 tuổi đau ngực 30p, Troponin lần 1 âm tính. Xử trí tiếp theo?'
+      },
+      {
+        id: 'CP01-AP01',
+        cat: 'RESP',
+        problem: 'Tiếp Cận Bệnh Nhân Khó Thở Cấp',
+        sectionKey: 'safety_gate',
+        section: 'Safety Gate & Red Flags',
+        comp: 'Hồi sức Cấp cứu',
+        bloom: 'Áp dụng',
+        stem: 'Bệnh nhân nam 22 tuổi tràn khí màng phổi áp lực tụt HA. Xử trí cấp cứu ban đầu khẩn cấp?'
+      },
+      {
+        id: 'CP04-AP01',
+        cat: 'GI',
+        problem: 'Tiếp Cận Đau Bụng Cấp',
+        sectionKey: 'safety_gate',
+        section: 'Safety Gate & Red Flags',
+        comp: 'Ngoại khoa & Cấp cứu',
+        bloom: 'Phân tích',
+        stem: 'Bệnh nhân nam 45 tuổi đau bụng như dao đâm, bụng gồng cứng như gỗ, mất vùng đục trước gan. Chẩn đoán?'
+      }
+    ];
+
+    const profiles = {
+      1: {
+        weakSections: { 'safety_gate': 2, 'Safety Gate & Sepsis': 2 },
+        weakCompetencies: { 'Hồi sức & Kháng sinh': 2 },
+        recentQIds: ['CP04-AP01'],
+        reviewSchedule: {},
+        targetDifficulty: 'Áp dụng'
+      },
+      2: {
+        weakSections: { 'decision_points': 1 },
+        weakCompetencies: { 'Chẩn đoán & Cấp cứu': 1 },
+        recentQIds: [],
+        reviewSchedule: {
+          'CP03-AP01': { next_review_at: new Date(Date.now() - 3600000).toISOString() }
+        },
+        targetDifficulty: 'Áp dụng'
+      },
+      3: {
+        weakSections: {},
+        weakCompetencies: {},
+        recentQIds: ['CP01-AP01', 'CP02-AP01'],
+        reviewSchedule: {},
+        targetDifficulty: 'Phân tích'
+      }
+    };
+
+    function runSim(id) {
+      document.querySelectorAll('.btn-sim').forEach((b, i) => b.classList.toggle('active', i + 1 === id));
+      const p = profiles[id];
+      const ranked = MedusAdaptiveQBank.rankAdaptiveQuestions(sampleQuestions, p);
+
+      const html = ranked.map((r, idx) => `
+        <div class="rank-card">
+          <div class="rank-num ${idx === 0 ? 'top' : ''}">#${idx + 1}</div>
+          <div class="q-info">
+            <h3>${r.question.id} · ${r.question.problem}</h3>
+            <div class="q-meta">${r.question.section} • ${r.question.comp} • Bloom: ${r.question.bloom}</div>
+            <div class="q-reason">🎯 ${r.adaptiveReason}</div>
+          </div>
+          <div class="score-badge">
+            ${r.adaptiveScore}đ
+            <small>Điểm Adaptive</small>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('rankedList').innerHTML = html;
+    }
+
+    runSim(1);
+  </script>
+</body>
+</html>

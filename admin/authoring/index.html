@@ -1,1 +1,158 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MEDUS Admin · Case & Quiz Drafts</title><style>body{font-family:system-ui;margin:0;background:#f5fbfc;color:#17343a}main{max-width:1100px;margin:auto;padding:24px}.card{background:white;border:1px solid #dcebed;border-radius:16px;padding:18px;margin:14px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:5px;margin:9px 0}.field input,.field textarea,.field select{padding:10px;border:1px solid #cfe3e6;border-radius:9px;font:inherit}.field textarea{min-height:90px}.btn{background:#007f89;color:#fff;border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}.notice{padding:12px;border-radius:10px;background:#fff8e8}.step{border-left:4px solid #007f89;padding-left:12px;margin:12px 0}@media(max-width:800px){.grid{grid-template-columns:1fr}}</style></head><body><main><p><a href="../">← MEDUS ADMIN</a></p><h1>ADMIN · Case & Quiz Authoring</h1><div class="notice"><b>Draft only.</b> Không có nút Publish tại đây. Mọi case/quiz phải qua Medical Review trước khi public. <strong>Lưu ý: Save Draft ghi trực tiếp vào Supabase project đang cấu hình; chỉ bấm sau khi đã xác nhận scope dữ liệu.</strong></div><section class="card"><h2>Quiz Draft</h2><div class="grid"><label class="field">Clinical Problem<select id="qCp"></select></label><label class="field">Section key<input id="qSection" placeholder="safety_gate"></label><label class="field">Competency<select id="qComp"><option>diagnosis</option><option>management</option><option>basic_science</option><option>practice_learning_improvement</option><option>communication_professionalism</option><option>systems_patient_safety</option></select></label><label class="field">Bloom<select id="qBloom"><option>apply</option><option>analyze</option><option>evaluate</option><option>create</option></select></label><label class="field">Difficulty<select id="qDiff"><option>easy</option><option>medium</option><option>hard</option></select></label><label class="field">Source locator<input id="qLocator" placeholder="page 3 / section"></label></div><label class="field">Stem<textarea id="qStem"></textarea></label><div class="grid"><label class="field">Option A<input id="qA"></label><label class="field">Option B<input id="qB"></label><label class="field">Option C<input id="qC"></label><label class="field">Option D<input id="qD"></label></div><label class="field">Correct option<select id="qCorrect"><option>A</option><option>B</option><option>C</option><option>D</option></select></label><div class="grid"><label class="field">Explanation A<textarea id="qeA"></textarea></label><label class="field">Explanation B<textarea id="qeB"></textarea></label><label class="field">Explanation C<textarea id="qeC"></textarea></label><label class="field">Explanation D<textarea id="qeD"></textarea></label></div><button class="btn" id="saveQuiz">Save Quiz Draft</button><p id="qMsg"></p></section><section class="card"><h2>Progressive Clinical Case Draft</h2><div class="grid"><label class="field">Clinical Problem<select id="cCp"></select></label><label class="field">Case title<input id="cTitle"></label><label class="field">Source locator<input id="cLocator" placeholder="page/section"></label></div><label class="field">Summary<textarea id="cSummary"></textarea></label><div id="steps"></div><button class="btn" id="addStep">+ Add step</button> <button class="btn" id="saveCase">Save Case Draft</button><p id="cMsg"></p></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../../assets/supabase-config.js"></script><script>const db=supabase.createClient(MEDUS_SUPABASE_URL,MEDUS_SUPABASE_PUBLISHABLE_KEY),$=id=>document.getElementById(id);let session,problems=[],stepNo=0;const comps=['diagnosis','management','basic_science','practice_learning_improvement','communication_professionalism','systems_patient_safety'];function addStep(){if(stepNo>=5)return alert('Case tối đa 5 bước.');stepNo++;let d=document.createElement('div');d.className='step';d.innerHTML='<h3>Step '+stepNo+'</h3><label class="field">Prompt<textarea data-k="prompt"></textarea></label><label class="field">Options (JSON array)<input data-k="options" value="[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;]"></label><label class="field">Correct index<input data-k="correct_index" type="number" min="0" value="0"></label><label class="field">Section key<input data-k="section_key"></label><label class="field">Competency<select data-k="competency">'+comps.map(x=>'<option>'+x+'</option>').join('')+'</select></label><label class="field">Feedback<textarea data-k="feedback"></textarea></label>';d.dataset.step=stepNo;$('#steps').append(d)}async function boot(){let a=await db.auth.getSession();session=a.data.session;if(!session)return document.body.innerHTML='<main><h2>Chưa đăng nhập</h2><p><a href="../../auth/">Đăng nhập MEDUS</a></p></main>';let p=await db.from('profiles').select('role').eq('id',session.user.id).single();if(!p.data||!['editor','reviewer','admin'].includes(p.data.role))return document.body.innerHTML='<main><h2>Không có quyền</h2></main>';let r=await db.from('clinical_problems').select('id,title').order('id');problems=r.data||[];for(let id of ['qCp','cCp'])$(id).innerHTML=problems.map(x=>'<option value="'+x.id+'">'+x.id+' · '+x.title+'</option>').join('');addStep();document.getElementById('addStep').onclick=addStep;document.getElementById('saveQuiz').onclick=async()=>{if(!confirm('Save Quiz Draft vào Supabase project đang cấu hình? Chưa publish.'))return;let v=id=>$(id).value.trim(),row={clinical_problem_id:+v('qCp'),section_key:v('qSection')||null,stem:v('qStem'),option_a:v('qA'),option_b:v('qB'),option_c:v('qC'),option_d:v('qD'),correct_option:v('qCorrect'),explanation_a:v('qeA'),explanation_b:v('qeB'),explanation_c:v('qeC'),explanation_d:v('qeD'),competency:v('qComp'),bloom:v('qBloom'),difficulty:v('qDiff'),source_locator:v('qLocator')||null,status:'draft'};if(!row.stem||[row.option_a,row.option_b,row.option_c,row.option_d].some(x=>!x)||!row.source_locator)return $('qMsg').textContent='Cần stem, đủ 4 options và source locator.';let r=await db.from('questions').insert(row);$('qMsg').textContent=r.error?'Lỗi: '+r.error.message:'✓ Đã lưu Quiz Draft (chưa review/publish).'};document.getElementById('saveCase').onclick=async()=>{if(!confirm('Save Case Draft vào Supabase project đang cấu hình? Chưa publish.'))return;let v=id=>$(id).value.trim(),cards=[...document.querySelectorAll('.step')];if(cards.length<3)return $('cMsg').textContent='Case cần tối thiểu 3 bước.';let row={clinical_problem_id:+v('cCp'),title:v('cTitle'),summary:v('cSummary'),status:'draft'};if(!row.title||!v('cLocator'))return $('cMsg').textContent='Cần title và source locator.';let r=await db.from('cases').insert(row).select('id').single();if(r.error)return $('cMsg').textContent='Lỗi case: '+r.error.message;let steps=[];for(let [i,c] of cards.entries()){let g=k=>c.querySelector('[data-k="'+k+'"]').value.trim();let options;try{options=JSON.parse(g('options'))}catch{return $('cMsg').textContent='Options step '+(i+1)+' phải là JSON array.'}if(!g('prompt')||!Array.isArray(options)||options.length<2)return $('cMsg').textContent='Step '+(i+1)+' thiếu prompt/options.';steps.push({case_id:r.data.id,step_order:i+1,section_key:g('section_key')||null,competency:g('competency'),prompt:g('prompt'),options,correct_index:+g('correct_index'),feedback:g('feedback')})}let s=await db.from('case_steps').insert(steps);$('cMsg').textContent=s.error?'Lỗi steps: '+s.error.message:'✓ Đã lưu Case Draft '+r.data.id+' (chưa review/publish).'};boot()</script></body></html>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MEDUS Admin · Case & Quiz Drafts</title><style>body{font-family:system-ui;margin:0;background:#f5fbfc;color:#17343a}main{max-width:1100px;margin:auto;padding:24px}.card{background:white;border:1px solid #dcebed;border-radius:16px;padding:18px;margin:14px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:5px;margin:9px 0}.field input,.field textarea,.field select{padding:10px;border:1px solid #cfe3e6;border-radius:9px;font:inherit}.field textarea{min-height:90px}.btn{background:#007f89;color:#fff;border:0;border-radius:9px;padding:10px 14px;font-weight:800;cursor:pointer}.notice{padding:12px;border-radius:10px;background:#fff8e8}.step{border-left:4px solid #007f89;padding-left:12px;margin:12px 0}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+    .dropzone-container {
+      border: 2px dashed #007f89;
+      background: #f0fdfa;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      margin: 16px 0 24px;
+      transition: .2s ease;
+      cursor: pointer;
+    }
+    .dropzone-container.dragover {
+      background: #ccfbf1;
+      border-color: #0f766e;
+      transform: scale(1.01);
+    }
+    .dropzone-icon {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+    .btn-save-pool {
+      background: #16a34a;
+      color: #fff;
+      border: 0;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 850;
+      font-size: 13.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(22,163,74,.2);
+    }
+    .btn-save-pool:hover { background: #15803d; }
+    .import-preview-box {
+      display: none;
+      background: #fff;
+      border: 1px solid #dcebed;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #edf4f5;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+</style></head><body><main><p><a href="../">← MEDUS ADMIN</a></p><h1>ADMIN · Case & Quiz Authoring</h1><div class="notice"><b>Draft only.</b> Không có nút Publish tại đây. Mọi case/quiz phải qua Medical Review trước khi public. <strong>Lưu ý: Save Draft ghi trực tiếp vào Supabase project đang cấu hình; chỉ bấm sau khi đã xác nhận scope dữ liệu.</strong></div>
+<section class="card" style="border: 2px solid #007f89;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h2>🚀 BỘ NẠP FILE TỰ ĐỘNG (FILE DROPZONE & AUTO-PARSER)</h2>
+    <span style="font-size: 11px; font-weight: 900; background: #e6fffb; color: #006d75; padding: 5px 10px; border-radius: 99px;">AI/PARSER V1.4</span>
+  </div>
+  <p class="small" style="color: #47656c; margin-top: 4px;">Quăng file <b>.md, .json, .txt</b> hoặc paste nội dung thô — hệ thống tự động bóc tách thành câu hỏi MCQ Apply+ hoặc Ca lâm sàng 5 bước để đưa ngay vào kho bài tập Learner.</p>
+
+  <div class="dropzone-container" id="dropzone" onclick="document.getElementById('fileInput').click()">
+    <div class="dropzone-icon">📥</div>
+    <b style="color: #007f89; font-size: 15px;">Kéo thả file vào đây hoặc Click để chọn file</b>
+    <div style="font-size: 12px; color: #64748b; margin-top: 4px;">Hỗ trợ .json (cấu trúc QBank/Cases), .md (Markdown ngân hàng câu hỏi) và .txt</div>
+    <input type="file" id="fileInput" style="display: none;" accept=".md,.json,.txt" onchange="handleFileSelected(event)">
+  </div>
+
+  <div class="import-preview-box" id="importPreviewBox">
+    <div class="preview-header">
+      <b style="color: #103e47; font-size: 14px;" id="previewTitle">KẾT QUẢ PARSE TỰ ĐỘNG: 0 MỤC</b>
+      <span style="font-size: 11px; font-weight: 800; color: #16a34a;" id="previewTypeBadge">MCQ QBANK</span>
+    </div>
+    <div id="previewList" style="max-height: 280px; overflow-y: auto; font-size: 13px; margin-bottom: 12px;"></div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <button class="btn-save-pool" onclick="commitToLearnerPool()">✓ ĐƯA NGAY VÀO KHO BÀI TẬP LEARNER</button>
+      <span id="commitMsg" style="font-size: 12.5px; font-weight: 750; color: #16a34a;"></span>
+    </div>
+  </div>
+</section>
+
+<section class="card"><h2>Quiz Draft</h2><div class="grid"><label class="field">Clinical Problem<select id="qCp"></select></label><label class="field">Section key<input id="qSection" placeholder="safety_gate"></label><label class="field">Competency<select id="qComp"><option>diagnosis</option><option>management</option><option>basic_science</option><option>practice_learning_improvement</option><option>communication_professionalism</option><option>systems_patient_safety</option></select></label><label class="field">Bloom<select id="qBloom"><option>apply</option><option>analyze</option><option>evaluate</option><option>create</option></select></label><label class="field">Difficulty<select id="qDiff"><option>easy</option><option>medium</option><option>hard</option></select></label><label class="field">Source locator<input id="qLocator" placeholder="page 3 / section"></label></div><label class="field">Stem<textarea id="qStem"></textarea></label><div class="grid"><label class="field">Option A<input id="qA"></label><label class="field">Option B<input id="qB"></label><label class="field">Option C<input id="qC"></label><label class="field">Option D<input id="qD"></label></div><label class="field">Correct option<select id="qCorrect"><option>A</option><option>B</option><option>C</option><option>D</option></select></label><div class="grid"><label class="field">Explanation A<textarea id="qeA"></textarea></label><label class="field">Explanation B<textarea id="qeB"></textarea></label><label class="field">Explanation C<textarea id="qeC"></textarea></label><label class="field">Explanation D<textarea id="qeD"></textarea></label></div><button class="btn" id="saveQuiz">Save Quiz Draft</button><p id="qMsg"></p></section><section class="card"><h2>Progressive Clinical Case Draft</h2><div class="grid"><label class="field">Clinical Problem<select id="cCp"></select></label><label class="field">Case title<input id="cTitle"></label><label class="field">Source locator<input id="cLocator" placeholder="page/section"></label></div><label class="field">Summary<textarea id="cSummary"></textarea></label><div id="steps"></div><button class="btn" id="addStep">+ Add step</button> <button class="btn" id="saveCase">Save Case Draft</button><p id="cMsg"></p></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../../assets/supabase-config.js"></script>
+<script src="../../assets/medus-admin-importer.js"></script><script>const db=supabase.createClient(MEDUS_SUPABASE_URL,MEDUS_SUPABASE_PUBLISHABLE_KEY),$=id=>document.getElementById(id);let session,problems=[],stepNo=0;const comps=['diagnosis','management','basic_science','practice_learning_improvement','communication_professionalism','systems_patient_safety'];function addStep(){if(stepNo>=5)return alert('Case tối đa 5 bước.');stepNo++;let d=document.createElement('div');d.className='step';d.innerHTML='<h3>Step '+stepNo+'</h3><label class="field">Prompt<textarea data-k="prompt"></textarea></label><label class="field">Options (JSON array)<input data-k="options" value="[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;]"></label><label class="field">Correct index<input data-k="correct_index" type="number" min="0" value="0"></label><label class="field">Section key<input data-k="section_key"></label><label class="field">Competency<select data-k="competency">'+comps.map(x=>'<option>'+x+'</option>').join('')+'</select></label><label class="field">Feedback<textarea data-k="feedback"></textarea></label>';d.dataset.step=stepNo;$('#steps').append(d)}async function boot(){let a=await db.auth.getSession();session=a.data.session;if(!session)return document.body.innerHTML='<main><h2>Chưa đăng nhập</h2><p><a href="../../auth/">Đăng nhập MEDUS</a></p></main>';let p=await db.from('profiles').select('role').eq('id',session.user.id).single();if(!p.data||!['editor','reviewer','admin'].includes(p.data.role))return document.body.innerHTML='<main><h2>Không có quyền</h2></main>';let r=await db.from('clinical_problems').select('id,title').order('id');problems=r.data||[];for(let id of ['qCp','cCp'])$(id).innerHTML=problems.map(x=>'<option value="'+x.id+'">'+x.id+' · '+x.title+'</option>').join('');addStep();document.getElementById('addStep').onclick=addStep;document.getElementById('saveQuiz').onclick=async()=>{if(!confirm('Save Quiz Draft vào Supabase project đang cấu hình? Chưa publish.'))return;let v=id=>$(id).value.trim(),row={clinical_problem_id:+v('qCp'),section_key:v('qSection')||null,stem:v('qStem'),option_a:v('qA'),option_b:v('qB'),option_c:v('qC'),option_d:v('qD'),correct_option:v('qCorrect'),explanation_a:v('qeA'),explanation_b:v('qeB'),explanation_c:v('qeC'),explanation_d:v('qeD'),competency:v('qComp'),bloom:v('qBloom'),difficulty:v('qDiff'),source_locator:v('qLocator')||null,status:'draft'};if(!row.stem||[row.option_a,row.option_b,row.option_c,row.option_d].some(x=>!x)||!row.source_locator)return $('qMsg').textContent='Cần stem, đủ 4 options và source locator.';let r=await db.from('questions').insert(row);$('qMsg').textContent=r.error?'Lỗi: '+r.error.message:'✓ Đã lưu Quiz Draft (chưa review/publish).'};document.getElementById('saveCase').onclick=async()=>{if(!confirm('Save Case Draft vào Supabase project đang cấu hình? Chưa publish.'))return;let v=id=>$(id).value.trim(),cards=[...document.querySelectorAll('.step')];if(cards.length<3)return $('cMsg').textContent='Case cần tối thiểu 3 bước.';let row={clinical_problem_id:+v('cCp'),title:v('cTitle'),summary:v('cSummary'),status:'draft'};if(!row.title||!v('cLocator'))return $('cMsg').textContent='Cần title và source locator.';let r=await db.from('cases').insert(row).select('id').single();if(r.error)return $('cMsg').textContent='Lỗi case: '+r.error.message;let steps=[];for(let [i,c] of cards.entries()){let g=k=>c.querySelector('[data-k="'+k+'"]').value.trim();let options;try{options=JSON.parse(g('options'))}catch{return $('cMsg').textContent='Options step '+(i+1)+' phải là JSON array.'}if(!g('prompt')||!Array.isArray(options)||options.length<2)return $('cMsg').textContent='Step '+(i+1)+' thiếu prompt/options.';steps.push({case_id:r.data.id,step_order:i+1,section_key:g('section_key')||null,competency:g('competency'),prompt:g('prompt'),options,correct_index:+g('correct_index'),feedback:g('feedback')})}let s=await db.from('case_steps').insert(steps);$('cMsg').textContent=s.error?'Lỗi steps: '+s.error.message:'✓ Đã lưu Case Draft '+r.data.id+' (chưa review/publish).'};
+  let parsedBatch = null;
+
+  const dropzone = document.getElementById('dropzone');
+  if (dropzone) {
+    ['dragenter', 'dragover'].forEach(eName => {
+      dropzone.addEventListener(eName, e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+    });
+    ['dragleave', 'drop'].forEach(eName => {
+      dropzone.addEventListener(eName, e => { e.preventDefault(); dropzone.classList.remove('dragover'); });
+    });
+    dropzone.addEventListener('drop', e => {
+      const files = e.dataTransfer.files;
+      if (files && files[0]) readFile(files[0]);
+    });
+  }
+
+  function handleFileSelected(e) {
+    const file = e.target.files[0];
+    if (file) readFile(file);
+  }
+
+  function readFile(file) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      const text = evt.target.result;
+      if (typeof MedusAdminImporter === 'undefined') return alert('Chưa nạp importer module.');
+      parsedBatch = MedusAdminImporter.parseFile(text);
+      displayParsedPreview(parsedBatch, file.name);
+    };
+    reader.readAsText(file);
+  }
+
+  function displayParsedPreview(batch, fileName) {
+    if (!batch || !batch.items.length) {
+      alert('Không nhận diện được nội dung hợp lệ.');
+      return;
+    }
+    const box = document.getElementById('importPreviewBox');
+    const title = document.getElementById('previewTitle');
+    const typeBadge = document.getElementById('previewTypeBadge');
+    const list = document.getElementById('previewList');
+
+    title.textContent = `TẬP TIN: ${fileName} · ĐÃ PARSE THÀNH CÔNG ${batch.items.length} MỤC`;
+    typeBadge.textContent = batch.type === 'qbank' ? 'MCQ QBANK' : 'CLINICAL CASES';
+
+    if (batch.type === 'qbank') {
+      list.innerHTML = batch.items.map((q, i) => `
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+          <b>Câu ${i+1}:</b> ${q.stem.slice(0, 120)}...<br>
+          <span style="font-size: 11.5px; color: #007f89;">Đáp án đúng: Option ${String.fromCharCode(65 + q.correct)} (${q.options.length} lựa chọn)</span>
+        </div>
+      `).join('');
+    } else {
+      list.innerHTML = batch.items.map((c, i) => `
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+          <b>Case ${i+1}:</b> ${c.title} (${c.steps.length} bước ra quyết định)<br>
+          <span style="font-size: 11.5px; color: #007f89;">Bối cảnh: ${c.steps[0].scenario.slice(0, 100)}...</span>
+        </div>
+      `).join('');
+    }
+
+    box.style.display = 'block';
+  }
+
+  function commitToLearnerPool() {
+    if (!parsedBatch) return;
+    const count = MedusAdminImporter.saveToLearnerPool(parsedBatch);
+    const msg = document.getElementById('commitMsg');
+    msg.textContent = `✓ Đã đưa thành công ${count} mục vào kho ôn tập Learner!`;
+
+    setTimeout(() => {
+      window.open(parsedBatch.type === 'qbank' ? '../../qbank/' : '../../cases/', '_blank');
+    }, 500);
+  }
+
+boot()</script></body></html>

@@ -345,6 +345,118 @@
       .timeline-steps { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
     }
+  
+    /* AI CLINICAL EXAMINER (V1.4) */
+    .oral-examiner-container {
+      margin-top: 20px;
+      border-top: 1px dashed var(--line);
+      padding-top: 18px;
+    }
+    .oral-prompt-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .oral-prompt-box b {
+      color: var(--navy);
+      font-size: 13px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .oral-textarea {
+      width: 100%;
+      height: 75px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 13px;
+      resize: vertical;
+      outline: none;
+      transition: .15s;
+    }
+    .oral-textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px var(--teal-soft);
+    }
+    .btn-grade-oral {
+      background: var(--navy);
+      color: #fff;
+      border: 0;
+      padding: 9px 16px;
+      border-radius: 9px;
+      font-weight: 850;
+      font-size: 12.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .rubric-card {
+      display: none;
+      margin-top: 14px;
+      background: #fff;
+      border: 1.5px solid #dcebed;
+      border-radius: 14px;
+      padding: 16px;
+      animation: slideDown .2s ease;
+    }
+    .rubric-card.show { display: block; }
+    .rubric-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #edf4f5;
+    }
+    .rubric-badge {
+      font-size: 11px;
+      font-weight: 900;
+      background: #dcfce7;
+      color: #15803d;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+    .rubric-badge.fail {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+    .rubric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .rubric-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 12px;
+    }
+    .rubric-item b {
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .examiner-feedback-box {
+      background: #eff6ff;
+      border-left: 3.5px solid #3b82f6;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 12.5px;
+      color: #1e3a8a;
+    }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    @media(max-width:700px){
+      .rubric-grid { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -460,6 +572,7 @@
   </div>
 </main>
 
+<script src="../assets/medus-ai-examiner.js"></script>
 <script>
   const casesLibrary = [
     // CASE 1: BÓC TÁCH ĐMC (CP 03)
@@ -644,13 +757,42 @@
     }
   ];
 
+  
+  // Load any cases imported from Admin Dropzone
+  try {
+    const importedCases = JSON.parse(localStorage.getItem('medus_imported_cases') || '[]');
+    if (importedCases.length > 0) {
+      console.log(`[Cases] Merging ${importedCases.length} cases from Admin Ingestion`);
+      importedCases.forEach(ic => {
+        if (!casesLibrary.some(c => c.id === ic.id)) {
+          casesLibrary.push(ic);
+        }
+      });
+    }
+  } catch (e) {
+    console.warn('[Cases] Error reading imported cases:', e);
+  }
+
   let currentCaseIdx = 0;
   let currentStepIdx = 0;
   let selectedCaseOpt = null;
+    const rCard = document.getElementById('rubricCard'); if(rCard) rCard.classList.remove('show');
+    const oInput = document.getElementById('oralInput'); if(oInput) oInput.value = '';
 
   function switchCase(cIdx) {
     currentCaseIdx = cIdx;
     currentStepIdx = 0;
+
+    // Render dynamic case selector tabs
+    const selectorBar = document.getElementById('caseSelectorBar');
+    if (selectorBar) {
+      selectorBar.innerHTML = casesLibrary.map((c, idx) => `
+        <button class="case-tab-btn ${idx === currentCaseIdx ? 'active' : ''}" onclick="switchCase(${idx})">
+          ${c.tag || 'CASE ' + (idx + 1)}
+        </button>
+      `).join('');
+    }
+
     document.querySelectorAll('.case-tab-btn').forEach((btn, idx) => {
       btn.classList.toggle('active', idx === cIdx);
     });
@@ -675,6 +817,8 @@
     const c = casesLibrary[currentCaseIdx];
     const s = c.steps[sIdx];
     selectedCaseOpt = null;
+    const rCard = document.getElementById('rubricCard'); if(rCard) rCard.classList.remove('show');
+    const oInput = document.getElementById('oralInput'); if(oInput) oInput.value = '';
 
     document.getElementById('caseTag').textContent = c.tag;
     document.getElementById('caseName').textContent = c.title;
@@ -753,6 +897,34 @@
       document.getElementById('caseArena').style.display = 'none';
       document.getElementById('debriefView').style.display = 'block';
     }
+  }
+
+
+  function submitOralReasoning() {
+    const caseObj = casesLibrary[currentCaseIdx];
+    const step = caseObj.steps[currentStepIdx];
+    const input = document.getElementById('oralInput');
+    const rubricCard = document.getElementById('rubricCard');
+    const badge = document.getElementById('rubricScoreBadge');
+    const grid = document.getElementById('rubricGrid');
+    const comment = document.getElementById('examinerComment');
+
+    if (!input || !rubricCard || typeof MedusAiExaminer === 'undefined') return;
+
+    const evaluation = MedusAiExaminer.evaluateClinicalReasoning(step, input.value);
+
+    badge.textContent = `${evaluation.totalScore}/100 · ${evaluation.verdict.toUpperCase()}`;
+    badge.className = `rubric-badge ${evaluation.passed ? '' : 'fail'}`;
+
+    grid.innerHTML = evaluation.breakdown.map(b => `
+      <div class="rubric-item">
+        <b><span>${b.aspect}</span><span>${b.score}/${b.max}đ</span></b>
+        <p style="margin: 0; color: #475569;">${b.feedback}</p>
+      </div>
+    `).join('');
+
+    comment.innerHTML = `<b>Nhận xét Giám khảo:</b> ${evaluation.coachComment}`;
+    rubricCard.classList.add('show');
   }
 
   // Init
