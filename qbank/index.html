@@ -1025,6 +1025,22 @@
     }
   ];
 
+  
+  // Load any questions imported from Admin Dropzone
+  try {
+    const importedQuestions = JSON.parse(localStorage.getItem('medus_imported_qbank') || '[]');
+    if (importedQuestions.length > 0) {
+      console.log(`[QBank] Merging ${importedQuestions.length} questions from Admin Ingestion`);
+      importedQuestions.forEach(iq => {
+        if (!fullQBank.some(q => q.id === iq.id)) {
+          fullQBank.push(iq);
+        }
+      });
+    }
+  } catch (e) {
+    console.warn('[QBank] Error reading imported questions:', e);
+  }
+
   let currentCategory = 'ALL';
   let activeQuestions = [...fullQBank];
   let currentIdx = 0;
@@ -1408,6 +1424,23 @@
     renderPalette();
     loadQuestion(0);
   }
+
+  
+  // Keyboard navigation for fast MCQ study (1, 2, 3, 4 or A, B, C, D)
+  document.addEventListener('keydown', e => {
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+    const k = e.key.toUpperCase();
+    if (['1', 'A'].includes(k)) selectOpt(0);
+    if (['2', 'B'].includes(k)) selectOpt(1);
+    if (['3', 'C'].includes(k)) selectOpt(2);
+    if (['4', 'D'].includes(k)) selectOpt(3);
+    if (e.key === 'Enter') {
+      const sub = document.getElementById('btnSubmit');
+      const nxt = document.getElementById('btnNext');
+      if (sub && sub.style.display !== 'none' && !sub.disabled) submitAnswer();
+      else if (nxt && nxt.style.display !== 'none') nextQuestion();
+    }
+  });
 
   // Init
   renderPalette();
