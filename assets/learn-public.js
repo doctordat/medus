@@ -1,11 +1,17 @@
 (()=>{
   function getBasePath() {
-    return location.pathname.startsWith('/medus/') ? '/medus/' : '/';
+    const p = location.pathname;
+    const idx = p.indexOf('/hoc/');
+    if (idx !== -1) {
+      return p.substring(0, idx + 1); // returns '/medus/' or '/'
+    }
+    return p.startsWith('/medus/') ? '/medus/' : '/';
   }
 
   function getLearnUrl(slug) {
     const base = getBasePath();
-    return slug ? `${base}hoc/?slug=${encodeURIComponent(slug)}` : `${base}hoc/`;
+    const cleanBase = base.endsWith('/') ? base : base + '/';
+    return slug ? `${cleanBase}hoc/?slug=${encodeURIComponent(slug)}` : `${cleanBase}hoc/`;
   }
   const cfg = {
     order: [
@@ -438,12 +444,22 @@
     if (!problem) return articleMissing('Clinical Problem chưa public metadata hoặc slug không đúng.');
 
     let sections = [];
-    if (localPkg && localPkg.sections) {
+    if (localPkg && localPkg.sections && Object.keys(localPkg.sections).length > 0) {
       sections = Object.values(localPkg.sections);
     } else {
-      const { data: secData, error } = await db.from('content_sections').select('section_key,title,content_md,source_title,source_locator,updated_at').eq('clinical_problem_id', problem.id).eq('medical_review_status', 'published');
-      if (error && !localPkg) return articleMissing(error.message);
-      sections = secData || [];
+      try {
+        const { data: secData, error } = await Promise.race([
+          db.from('content_sections').select('section_key,title,content_md,source_title,source_locator,updated_at').eq('clinical_problem_id', problem.id).eq('medical_review_status', 'published'),
+          new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 1500))
+        ]);
+        sections = secData || [];
+      } catch(e) {
+        console.warn('[Article] Cloud timeout, using local sections if available');
+      }
+      if (!sections.length && localPkg && localPkg.sections) {
+        sections = Object.values(localPkg.sections);
+      }
+      if (!sections.length && !localPkg) return articleMissing('Chưa có nội dung published');
     }
 
     const { data: resources } = await db.from('clinical_problem_resources').select('resource_type,title,url,alt_text,caption,access_level,section_key,sort_order').eq('clinical_problem_id', problem.id).eq('medical_review_status', 'published').eq('access_level', 'public').order('sort_order', { ascending: true });
